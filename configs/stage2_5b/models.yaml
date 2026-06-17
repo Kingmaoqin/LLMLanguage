@@ -1,0 +1,28 @@
+user_simulator_llm: controlled_user
+
+models:
+  - alias: gemma4_31b
+    served_id: g4
+    litellm_model: openai/g4
+    base_url: http://127.0.0.1:8005/v1
+    api_key: EMPTY
+    weights_path: /home/xqin5/hf_p08_models/gemma-4-31B-it
+    tool_call_parser: gemma4
+    local: true
+    panel_status: available_candidate
+
+  - alias: gpt_oss_120b
+    served_id: gpt-oss
+    litellm_model: openai/gpt-oss
+    base_url: http://127.0.0.1:8192/v1
+    api_key: EMPTY
+    weights_path: /home/xqin5/hf_p08_models/gpt-oss-120b
+    tool_call_parser: openai
+    local: true
+    panel_status: available_candidate_current_endpoint
+
+not_run_deployment_failure:
+  - alias: command_a_plus
+    reason: "vLLM 0.20.2 / local transformers path does not support cohere2_moe; W4A4 path is not validated on A100."
+  - alias: nemotron_super_120b
+    reason: "ModelOpt FP8 checkpoint requires compute capability >= 8.9; A100 is 8.0."

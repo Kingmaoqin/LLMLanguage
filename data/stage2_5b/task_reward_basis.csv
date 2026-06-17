@@ -1,0 +1,7 @@
+task_id,source_domain,source_task_id,reward_basis,has_db_component,has_communicate_component,has_nl_assertion_component,actions_count,env_assertions_count,communicate_info_count,nl_assertions_count,locally_evaluable_components,requires_text_judge_components,official_reward_basis_fully_local,offline_evaluability_note
+R1_retail_modify_pending,retail,4,DB|NL_ASSERTION,true,false,true,13,0,1,1,DB,NL_ASSERTION,false,DB component can be locally proxied; full official success requires text judge
+R2_retail_return_cancel_mix,retail,30,DB|NL_ASSERTION,true,false,true,13,0,1,0,DB,NL_ASSERTION,false,DB component can be locally proxied; full official success requires text judge
+R3_retail_bulk_cancel_return,retail,55,DB|NL_ASSERTION,true,false,true,13,0,0,0,DB,NL_ASSERTION,false,DB component can be locally proxied; full official success requires text judge
+T1_airline_cancel_multi,airline,7,DB|COMMUNICATE,true,true,false,5,0,1,4,DB,COMMUNICATE,false,DB component can be locally proxied; full official success requires text judge
+T2_airline_class_baggage,airline,12,DB|COMMUNICATE,true,true,false,5,0,0,2,DB,COMMUNICATE,false,DB component can be locally proxied; full official success requires text judge
+T3_airline_conditional_cancel,airline,44,DB|COMMUNICATE,true,true,false,19,0,0,5,DB,COMMUNICATE,false,DB component can be locally proxied; full official success requires text judge

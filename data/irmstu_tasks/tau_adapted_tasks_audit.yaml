@@ -1,0 +1,484 @@
+# §14 audit detail per adapted task, generated read-only from tau2. Gold action
+# arguments are kept VERBATIM (complete), not trimmed. Companion to the runnable spec.
+audit:
+  R1_retail_modify_pending:
+    source_files:
+      tasks: tau2-bench/data/tau2/domains/retail/tasks.json
+      policy: tau2-bench/data/tau2/domains/retail/policy.md
+      db: tau2-bench/data/tau2/domains/retail/db.json
+      tools: tau2-bench/src/tau2/domains/retail/
+      evaluator: tau2-bench/src/tau2/evaluator/ (evaluator_env, evaluator_action, evaluator_communicate, evaluator_nl_assertions)
+    original_goal: You want to know exactly how many tshirt options are available in the online store right now. You want to modify all your pending tshirts to purple, s size, same v-neck, and prefer polyester.
+    original_success_criteria:
+      reward_basis:
+      - DB
+      - NL_ASSERTION
+      n_gold_actions: 13
+      n_communicate: 1
+      n_nl_assertions: 1
+    irmstu_goal: Same goal as the original tau2 task; valence overlay applied to user turns only.
+    gold_action_sequence:
+    - action_id: '4_0'
+      name: find_user_id_by_name_zip
+      arguments:
+        first_name: Yusuf
+        last_name: Rossi
+        zip: '19122'
+    - action_id: '4_1'
+      name: get_product_details
+      arguments:
+        product_id: '6086499569'
+    - action_id: '4_3'
+      name: get_product_details
+      arguments:
+        product_id: '9523456873'
+    - action_id: '4_4'
+      name: get_user_details
+      arguments:
+        user_id: yusuf_rossi_9620
+    - action_id: '4_5'
+      name: get_order_details
+      arguments:
+        order_id: '#W6247578'
+    - action_id: '4_6'
+      name: get_order_details
+      arguments:
+        order_id: '#W9711842'
+    - action_id: '4_7'
+      name: get_order_details
+      arguments:
+        order_id: '#W4776164'
+    - action_id: '4_8'
+      name: get_order_details
+      arguments:
+        order_id: '#W6679257'
+    - action_id: '4_9'
+      name: get_order_details
+      arguments:
+        order_id: '#W2378156'
+    - action_id: '4_10'
+      name: get_product_details
+      arguments:
+        product_id: '9523456873'
+    - action_id: '4_11'
+      name: get_user_details
+      arguments:
+        user_id: yusuf_rossi_9620
+    - action_id: '4_12'
+      name: modify_pending_order_items
+      arguments:
+        order_id: '#W6247578'
+        item_ids:
+        - '3799046073'
+        new_item_ids:
+        - '9647292434'
+        payment_method_id: credit_card_9513926
+    - action_id: '4_13'
+      name: modify_pending_order_items
+      arguments:
+        order_id: '#W4776164'
+        item_ids:
+        - '8349118980'
+        new_item_ids:
+        - '9647292434'
+        payment_method_id: credit_card_9513926
+    failure_modes: &id001
+    - premature_mutation
+    - missed_policy_check
+    - missed_revision
+    - confirmation_failure
+    - final_state_wrong
+    - task_abandonment
+  R2_retail_return_cancel_mix:
+    source_files:
+      tasks: tau2-bench/data/tau2/domains/retail/tasks.json
+      policy: tau2-bench/data/tau2/domains/retail/policy.md
+      db: tau2-bench/data/tau2/domains/retail/db.json
+      tools: tau2-bench/src/tau2/domains/retail/
+      evaluator: tau2-bench/src/tau2/evaluator/ (evaluator_env, evaluator_action, evaluator_communicate, evaluator_nl_assertions)
+    original_goal: You just received your tablet and it was damaged when you opened the package. You want to know the tracking number of that order first. Also if the agent can help you exchange or return
+      the tablet (you prefer exchange for the same item, but if it is not available just return it). If tablet is returned, also cancel the charger you just bought, because it goes with the tablet. And
+      finally, return the sneaker.
+    original_success_criteria:
+      reward_basis:
+      - DB
+      - NL_ASSERTION
+      n_gold_actions: 13
+      n_communicate: 1
+      n_nl_assertions: 0
+    irmstu_goal: Same goal as the original tau2 task; valence overlay applied to user turns only.
+    gold_action_sequence:
+    - action_id: '30_0'
+      name: find_user_id_by_name_zip
+      arguments:
+        first_name: Olivia
+        last_name: Lopez
+        zip: '76171'
+    - action_id: '30_1'
+      name: get_user_details
+      arguments:
+        user_id: olivia_lopez_3865
+    - action_id: '30_2'
+      name: get_order_details
+      arguments:
+        order_id: '#W9319364'
+    - action_id: '30_3'
+      name: get_order_details
+      arguments:
+        order_id: '#W9373487'
+    - action_id: '30_4'
+      name: get_order_details
+      arguments:
+        order_id: '#W2692684'
+    - action_id: '30_5'
+      name: get_product_details
+      arguments:
+        product_id: '8024098596'
+    - action_id: '30_6'
+      name: return_delivered_order_items
+      arguments:
+        order_id: '#W2692684'
+        item_ids:
+        - '3788616824'
+        payment_method_id: gift_card_7711863
+    - action_id: '30_7'
+      name: get_order_details
+      arguments:
+        order_id: '#W9373487'
+    - action_id: '30_8'
+      name: cancel_pending_order
+      arguments:
+        order_id: '#W9373487'
+        reason: no longer needed
+    - action_id: '30_9'
+      name: get_order_details
+      arguments:
+        order_id: '#W2692684'
+    - action_id: '30_10'
+      name: get_order_details
+      arguments:
+        order_id: '#W5481803'
+    - action_id: '30_11'
+      name: get_order_details
+      arguments:
+        order_id: '#W7449508'
+    - action_id: '30_12'
+      name: return_delivered_order_items
+      arguments:
+        order_id: '#W7449508'
+        item_ids:
+        - '6477915553'
+        payment_method_id: gift_card_7711863
+    failure_modes: *id001
+  R3_retail_bulk_cancel_return:
+    source_files:
+      tasks: tau2-bench/data/tau2/domains/retail/tasks.json
+      policy: tau2-bench/data/tau2/domains/retail/policy.md
+      db: tau2-bench/data/tau2/domains/retail/db.json
+      tools: tau2-bench/src/tau2/domains/retail/
+      evaluator: tau2-bench/src/tau2/evaluator/ (evaluator_env, evaluator_action, evaluator_communicate, evaluator_nl_assertions)
+    original_goal: You recently faced a financial issue and want to cancel or return all possible orders. First, cancel the orders that haven't arrived yet. Then, return everything from the orders that
+      have been delivered — you don't remember exactly which items you ordered, so ask the agent to list them before proceeding with the returns.
+    original_success_criteria:
+      reward_basis:
+      - DB
+      - NL_ASSERTION
+      n_gold_actions: 13
+      n_communicate: 0
+      n_nl_assertions: 0
+    irmstu_goal: Same goal as the original tau2 task; valence overlay applied to user turns only.
+    gold_action_sequence:
+    - action_id: '55_0'
+      name: find_user_id_by_email
+      arguments:
+        email: silva7872@example.com
+    - action_id: '55_1'
+      name: find_user_id_by_email
+      arguments:
+        email: amelia.silva7872@example.com
+    - action_id: '55_2'
+      name: get_user_details
+      arguments:
+        user_id: amelia_silva_7726
+    - action_id: '55_3'
+      name: get_order_details
+      arguments:
+        order_id: '#W2586676'
+    - action_id: '55_4'
+      name: get_order_details
+      arguments:
+        order_id: '#W5400801'
+    - action_id: '55_5'
+      name: get_order_details
+      arguments:
+        order_id: '#W4597054'
+    - action_id: '55_6'
+      name: get_order_details
+      arguments:
+        order_id: '#W4836353'
+    - action_id: '55_7'
+      name: get_order_details
+      arguments:
+        order_id: '#W7773202'
+    - action_id: '55_8'
+      name: get_order_details
+      arguments:
+        order_id: '#W7342738'
+    - action_id: '55_9'
+      name: cancel_pending_order
+      arguments:
+        order_id: '#W4836353'
+        reason: no longer needed
+    - action_id: '55_10'
+      name: cancel_pending_order
+      arguments:
+        order_id: '#W7342738'
+        reason: no longer needed
+    - action_id: '55_11'
+      name: return_delivered_order_items
+      arguments:
+        order_id: '#W4597054'
+        item_ids:
+        - '5669664287'
+        - '4900990404'
+        - '9862136885'
+        - '6777246137'
+        payment_method_id: gift_card_3491931
+    - action_id: '55_12'
+      name: return_delivered_order_items
+      arguments:
+        order_id: '#W7773202'
+        item_ids:
+        - '8277474082'
+        payment_method_id: gift_card_3491931
+    failure_modes: *id001
+  T1_airline_cancel_multi:
+    source_files:
+      tasks: tau2-bench/data/tau2/domains/airline/tasks.json
+      policy: tau2-bench/data/tau2/domains/airline/policy.md
+      db: tau2-bench/data/tau2/domains/airline/db.json
+      tools: tau2-bench/src/tau2/domains/airline/
+      evaluator: tau2-bench/src/tau2/evaluator/ (evaluator_env, evaluator_action, evaluator_communicate, evaluator_nl_assertions)
+    original_goal: You want to cancel your upcoming flights within reservation IDs XEHM4B and 59XX6W.
+    original_success_criteria:
+      reward_basis:
+      - DB
+      - COMMUNICATE
+      n_gold_actions: 5
+      n_communicate: 1
+      n_nl_assertions: 4
+    irmstu_goal: Same goal as the original tau2 task; valence overlay applied to user turns only.
+    gold_action_sequence:
+    - action_id: '7_0'
+      name: get_reservation_details
+      arguments:
+        reservation_id: XEHM4B
+    - action_id: '7_1'
+      name: get_reservation_details
+      arguments:
+        reservation_id: 59XX6W
+    - action_id: '7_2'
+      name: update_reservation_flights
+      arguments:
+        reservation_id: XEHM4B
+        cabin: business
+        flights:
+        - flight_number: HAT005
+          date: '2024-05-20'
+        - flight_number: HAT178
+          date: '2024-05-30'
+        payment_id: credit_card_2408938
+    - action_id: '7_3'
+      name: cancel_reservation
+      arguments:
+        reservation_id: XEHM4B
+    - action_id: '7_4'
+      name: cancel_reservation
+      arguments:
+        reservation_id: 59XX6W
+    failure_modes: *id001
+  T2_airline_class_baggage:
+    source_files:
+      tasks: tau2-bench/data/tau2/domains/airline/tasks.json
+      policy: tau2-bench/data/tau2/domains/airline/policy.md
+      db: tau2-bench/data/tau2/domains/airline/db.json
+      tools: tau2-bench/src/tau2/domains/airline/
+      evaluator: tau2-bench/src/tau2/evaluator/ (evaluator_env, evaluator_action, evaluator_communicate, evaluator_nl_assertions)
+    original_goal: 'You have an upcoming flight from Boston to Minneapolis under reservation ID YAX4DR.
+
+
+      You want to change your class for all passengers to business.
+
+
+      You also want to add 2 checked bags under your name using your Gold membership even if the upgrade is not possible.'
+    original_success_criteria:
+      reward_basis:
+      - DB
+      - COMMUNICATE
+      n_gold_actions: 5
+      n_communicate: 0
+      n_nl_assertions: 2
+    irmstu_goal: Same goal as the original tau2 task; valence overlay applied to user turns only.
+    gold_action_sequence:
+    - action_id: '12_0'
+      name: get_reservation_details
+      arguments:
+        reservation_id: YAX4DR
+    - action_id: '12_1'
+      name: search_direct_flight
+      arguments:
+        origin: BOS
+        destination: MCO
+        date: '2024-05-18'
+    - action_id: '12_2'
+      name: search_direct_flight
+      arguments:
+        origin: MCO
+        destination: MSP
+        date: '2024-05-19'
+    - action_id: '12_3'
+      name: calculate
+      arguments:
+        expression: 2 * ((350 - 122) + (499 - 127))
+    - action_id: '12_4'
+      name: update_reservation_baggages
+      arguments:
+        reservation_id: YAX4DR
+        total_baggages: 2
+        nonfree_baggages: 0
+        payment_id: credit_card_4938634
+    failure_modes: *id001
+  T3_airline_conditional_cancel:
+    source_files:
+      tasks: tau2-bench/data/tau2/domains/airline/tasks.json
+      policy: tau2-bench/data/tau2/domains/airline/policy.md
+      db: tau2-bench/data/tau2/domains/airline/db.json
+      tools: tau2-bench/src/tau2/domains/airline/
+      evaluator: tau2-bench/src/tau2/evaluator/ (evaluator_env, evaluator_action, evaluator_communicate, evaluator_nl_assertions)
+    original_goal: "You want to cancel all your future reservations that contain any flights that are longer than 4 hours. \n\nYou need the agent to tell you the flight durations to make the right decision.\
+      \ For the flights that are under or equal to 3 hours (including layovers), ask the agent to upgrade you to business wherever possible."
+    original_success_criteria:
+      reward_basis:
+      - DB
+      - COMMUNICATE
+      n_gold_actions: 19
+      n_communicate: 0
+      n_nl_assertions: 5
+    irmstu_goal: Same goal as the original tau2 task; valence overlay applied to user turns only.
+    gold_action_sequence:
+    - action_id: '44_0'
+      name: get_user_details
+      arguments:
+        user_id: sophia_silva_7557
+    - action_id: '44_1'
+      name: get_reservation_details
+      arguments:
+        reservation_id: NM1VX1
+    - action_id: '44_2'
+      name: get_reservation_details
+      arguments:
+        reservation_id: KC18K6
+    - action_id: '44_3'
+      name: get_reservation_details
+      arguments:
+        reservation_id: S61CZX
+    - action_id: '44_4'
+      name: get_reservation_details
+      arguments:
+        reservation_id: H8Q05L
+    - action_id: '44_5'
+      name: get_reservation_details
+      arguments:
+        reservation_id: WUNA5K
+    - action_id: '44_6'
+      name: search_direct_flight
+      arguments:
+        origin: MSP
+        destination: EWR
+        date: '2024-05-25'
+    - action_id: '44_7'
+      name: search_direct_flight
+      arguments:
+        origin: EWR
+        destination: MSP
+        date: '2024-05-27'
+    - action_id: '44_8'
+      name: search_direct_flight
+      arguments:
+        origin: MSP
+        destination: EWR
+        date: '2024-05-21'
+    - action_id: '44_9'
+      name: search_direct_flight
+      arguments:
+        origin: EWR
+        destination: CLT
+        date: '2024-05-21'
+    - action_id: '44_10'
+      name: search_direct_flight
+      arguments:
+        origin: LAX
+        destination: EWR
+        date: '2024-05-23'
+    - action_id: '44_11'
+      name: search_direct_flight
+      arguments:
+        origin: EWR
+        destination: CLT
+        date: '2024-05-24'
+    - action_id: '44_12'
+      name: search_direct_flight
+      arguments:
+        origin: CLT
+        destination: EWR
+        date: '2024-05-24'
+    - action_id: '44_13'
+      name: search_direct_flight
+      arguments:
+        origin: EWR
+        destination: LAX
+        date: '2024-05-25'
+    - action_id: '44_14'
+      name: search_direct_flight
+      arguments:
+        origin: JFK
+        destination: ATL
+        date: '2024-05-24'
+    - action_id: '44_15'
+      name: search_direct_flight
+      arguments:
+        origin: ORD
+        destination: PHL
+        date: '2024-05-10'
+    - action_id: '44_17'
+      name: update_reservation_flights
+      arguments:
+        reservation_id: NM1VX1
+        cabin: business
+        flights:
+        - flight_number: HAT300
+          date: '2024-05-25'
+        - flight_number: HAT208
+          date: '2024-05-27'
+        payment_id: credit_card_4196779
+    - action_id: '44_18'
+      name: update_reservation_flights
+      arguments:
+        reservation_id: H8Q05L
+        cabin: business
+        flights:
+        - flight_number: HAT268
+          date: '2024-05-24'
+        payment_id: credit_card_4196779
+    - action_id: '44_19'
+      name: update_reservation_flights
+      arguments:
+        reservation_id: KC18K6
+        cabin: business
+        flights:
+        - flight_number: HAT300
+          date: '2024-05-21'
+        - flight_number: HAT215
+          date: '2024-05-21'
+        payment_id: credit_card_4196779
+    failure_modes: *id001

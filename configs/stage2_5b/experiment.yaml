@@ -1,0 +1,36 @@
+experiment:
+  name: stage2_5b_confirmatory_repair
+  benchmark: tau2
+  temperature_main: 0.0
+  calibration_seeds: [100, 101]
+  smoke_seeds: [300]
+  pilot_seeds: [300, 301]
+  confirmatory_seeds: [300, 301, 302, 303, 304]
+  max_steps: 60
+  max_errors: 10
+  randomization_seed: 20260616
+  equivalence_margin_pp: 10
+
+conditions:
+  main:
+    - neutral_single
+    - praise_affect_single
+    - praise_trust_single
+    - insult_single
+    - neutral_repeated
+    - abuse_repeated
+  calibration:
+    - neutral_single
+
+paths:
+  models: configs/stage2_5b/models.yaml
+  tasks: configs/stage2_5b/tasks.yaml
+  templates: data/stage2_5b/social_style_templates_frozen.yaml
+  task_policy_annotations: data/stage2_5/task_policy_annotations.yaml
+  benchmark_manifest: artifacts/stage2_5b/tau_snapshot_manifest.json
+
+outputs:
+  repair_dir: results/stage2_5b_repair
+  audit_dir: results/stage2_5b_audit
+  report_dir: reports/stage2_5b
+  figure_dir: figures/stage2_5b

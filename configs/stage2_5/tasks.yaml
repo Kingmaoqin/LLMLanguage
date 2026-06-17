@@ -1,0 +1,28 @@
+task_source: data/irmstu_tasks/tau_adapted_tasks.yaml
+
+candidate_tasks:
+  - R1_retail_modify_pending
+  - R2_retail_return_cancel_mix
+  - R3_retail_bulk_cancel_return
+  - T1_airline_cancel_multi
+  - T2_airline_class_baggage
+  - T3_airline_conditional_cancel
+
+# Stage-2.5 pilot uses tasks with real state mutations and observable branch points.
+# T3 is retained for audit/calibration but excluded from pilot by default because the
+# legacy mini showed universal floor behavior.
+repair_pilot_tasks:
+  - R1_retail_modify_pending
+  - R2_retail_return_cancel_mix
+  - R3_retail_bulk_cancel_return
+  - T1_airline_cancel_multi
+
+smoke_tasks:
+  - R1_retail_modify_pending
+  - T1_airline_cancel_multi
+
+diagnostic_tasks:
+  - R1_retail_modify_pending
+  - R2_retail_return_cancel_mix
+  - R3_retail_bulk_cancel_return
+  - T1_airline_cancel_multi

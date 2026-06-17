@@ -1,0 +1,13 @@
+# Large / regenerable outputs — kept on disk, not tracked in git
+results/
+figures/
+artifacts/*/benchmark_snapshot/
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+*.png
+*.svg
+# Large raw datasets
+data/raw/
+*.jsonl

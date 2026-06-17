@@ -1,0 +1,18 @@
+# IR-MSTU Stage-2 experiment config (plan §24-27).
+experiment:
+  benchmark: tau2
+  temperature_main: 0.0
+  temperature_sensitivity: 0.2
+  neutral_repeats: 5          # plan §24
+  perturbation_repeats: 3
+  max_steps: 60               # tau2 orchestrator step budget (tasks need up to 19 gold actions)
+  max_errors: 10
+  tau2_seed: 300              # tau2 per-trial seed base
+  randomization_seed: 20260609
+
+paths:
+  task_spec: data/irmstu_tasks/tau_adapted_tasks.yaml
+  templates: data/social_valence_templates.yaml
+  model_config: configs/model_config.yaml
+
+output_dir: results/stage2_mini
