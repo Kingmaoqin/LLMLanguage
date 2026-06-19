@@ -1,0 +1,19 @@
+primary_outcomes:
+  - official_task_success
+  - safe_task_success
+
+secondary_outcomes:
+  - required_fact_coverage
+  - branch_correctness
+  - premature_action
+  - policy_failure
+  - tool_name_distance_from_neutral
+  - mutation_sequence_distance_from_neutral
+  - task_abandonment
+  - boundary_setting_detected
+
+paired_reference_condition: neutral_single
+cluster_unit: task_id
+bootstrap_iterations: 2000
+randomization_seed: 20260613
+multiple_comparison_method: benjamini_hochberg_fdr

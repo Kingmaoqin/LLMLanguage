@@ -1,0 +1,154 @@
+[
+  {
+    "current_reward_basis": [
+      "DB",
+      "NL_ASSERTION"
+    ],
+    "current_task_found": true,
+    "current_task_hash": "80b63bd75e18987d06f84b38ae5924805c30f1d648504997900633afc9e84d5f",
+    "domain": "retail",
+    "expected_state_changed_vs_ref": false,
+    "known_task_issue_files": [
+      "task_4_issue_2b74ee61.json"
+    ],
+    "policy_changed_vs_ref": false,
+    "policy_file": "data/tau2/domains/retail/policy.md",
+    "policy_hash": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467",
+    "ref_policy_hash": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467",
+    "ref_reward_basis": [
+      "DB",
+      "NL_ASSERTION"
+    ],
+    "ref_task_found": true,
+    "ref_task_hash": "80b63bd75e18987d06f84b38ae5924805c30f1d648504997900633afc9e84d5f",
+    "source_task_id": "4",
+    "task_label": "R1_retail_modify_pending",
+    "task_text_changed_vs_ref": false,
+    "tasks_file": "data/tau2/domains/retail/tasks.json"
+  },
+  {
+    "current_reward_basis": [
+      "DB",
+      "NL_ASSERTION"
+    ],
+    "current_task_found": true,
+    "current_task_hash": "a09d4edf72cacd78ae08dabf5e29b2a173a4d664b85e4d66760f1daa6f1a765d",
+    "domain": "retail",
+    "expected_state_changed_vs_ref": false,
+    "known_task_issue_files": [],
+    "policy_changed_vs_ref": false,
+    "policy_file": "data/tau2/domains/retail/policy.md",
+    "policy_hash": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467",
+    "ref_policy_hash": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467",
+    "ref_reward_basis": [
+      "DB",
+      "NL_ASSERTION"
+    ],
+    "ref_task_found": true,
+    "ref_task_hash": "a09d4edf72cacd78ae08dabf5e29b2a173a4d664b85e4d66760f1daa6f1a765d",
+    "source_task_id": "30",
+    "task_label": "R2_retail_return_cancel_mix",
+    "task_text_changed_vs_ref": false,
+    "tasks_file": "data/tau2/domains/retail/tasks.json"
+  },
+  {
+    "current_reward_basis": [
+      "DB",
+      "NL_ASSERTION"
+    ],
+    "current_task_found": true,
+    "current_task_hash": "a4e9c284c9b22c23d9f2d0fdb6cfcc214d013d05c212a09c366357b8ccdba995",
+    "domain": "retail",
+    "expected_state_changed_vs_ref": false,
+    "known_task_issue_files": [],
+    "policy_changed_vs_ref": false,
+    "policy_file": "data/tau2/domains/retail/policy.md",
+    "policy_hash": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467",
+    "ref_policy_hash": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467",
+    "ref_reward_basis": [
+      "DB",
+      "NL_ASSERTION"
+    ],
+    "ref_task_found": true,
+    "ref_task_hash": "a4e9c284c9b22c23d9f2d0fdb6cfcc214d013d05c212a09c366357b8ccdba995",
+    "source_task_id": "55",
+    "task_label": "R3_retail_bulk_cancel_return",
+    "task_text_changed_vs_ref": false,
+    "tasks_file": "data/tau2/domains/retail/tasks.json"
+  },
+  {
+    "current_reward_basis": [
+      "DB",
+      "COMMUNICATE"
+    ],
+    "current_task_found": true,
+    "current_task_hash": "8c66a0f45bbb05bfd11a8444a417d26e091bb95dc9f7e309f20806cf49f17e2e",
+    "domain": "airline",
+    "expected_state_changed_vs_ref": false,
+    "known_task_issue_files": [],
+    "policy_changed_vs_ref": false,
+    "policy_file": "data/tau2/domains/airline/policy.md",
+    "policy_hash": "10dc0525421521208be39cee235bba84a16e2bcba9899eb93d92cd81d2f62fc4",
+    "ref_policy_hash": "10dc0525421521208be39cee235bba84a16e2bcba9899eb93d92cd81d2f62fc4",
+    "ref_reward_basis": [
+      "DB",
+      "COMMUNICATE"
+    ],
+    "ref_task_found": true,
+    "ref_task_hash": "8c66a0f45bbb05bfd11a8444a417d26e091bb95dc9f7e309f20806cf49f17e2e",
+    "source_task_id": "7",
+    "task_label": "T1_airline_cancel_multi",
+    "task_text_changed_vs_ref": false,
+    "tasks_file": "data/tau2/domains/airline/tasks.json"
+  },
+  {
+    "current_reward_basis": [
+      "DB",
+      "COMMUNICATE"
+    ],
+    "current_task_found": true,
+    "current_task_hash": "3b08fff117282db541608b0ca87950d1e0bceb6bc635b995ba26faa6f70905cd",
+    "domain": "airline",
+    "expected_state_changed_vs_ref": false,
+    "known_task_issue_files": [],
+    "policy_changed_vs_ref": false,
+    "policy_file": "data/tau2/domains/airline/policy.md",
+    "policy_hash": "10dc0525421521208be39cee235bba84a16e2bcba9899eb93d92cd81d2f62fc4",
+    "ref_policy_hash": "10dc0525421521208be39cee235bba84a16e2bcba9899eb93d92cd81d2f62fc4",
+    "ref_reward_basis": [
+      "DB",
+      "COMMUNICATE"
+    ],
+    "ref_task_found": true,
+    "ref_task_hash": "3b08fff117282db541608b0ca87950d1e0bceb6bc635b995ba26faa6f70905cd",
+    "source_task_id": "12",
+    "task_label": "T2_airline_class_baggage",
+    "task_text_changed_vs_ref": false,
+    "tasks_file": "data/tau2/domains/airline/tasks.json"
+  },
+  {
+    "current_reward_basis": [
+      "DB",
+      "COMMUNICATE"
+    ],
+    "current_task_found": true,
+    "current_task_hash": "8929066dd57511333580b45fb27627da489653bde7731c8f4c14c536cd0f9c6a",
+    "domain": "airline",
+    "expected_state_changed_vs_ref": false,
+    "known_task_issue_files": [],
+    "policy_changed_vs_ref": false,
+    "policy_file": "data/tau2/domains/airline/policy.md",
+    "policy_hash": "10dc0525421521208be39cee235bba84a16e2bcba9899eb93d92cd81d2f62fc4",
+    "ref_policy_hash": "10dc0525421521208be39cee235bba84a16e2bcba9899eb93d92cd81d2f62fc4",
+    "ref_reward_basis": [
+      "DB",
+      "COMMUNICATE"
+    ],
+    "ref_task_found": true,
+    "ref_task_hash": "8929066dd57511333580b45fb27627da489653bde7731c8f4c14c536cd0f9c6a",
+    "source_task_id": "44",
+    "task_label": "T3_airline_conditional_cancel",
+    "task_text_changed_vs_ref": false,
+    "tasks_file": "data/tau2/domains/airline/tasks.json"
+  }
+]

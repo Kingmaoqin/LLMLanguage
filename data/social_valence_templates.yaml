@@ -1,0 +1,39 @@
+# IR-MSTU Stage-2 social-valence templates (plan §15-16).
+# These strings are PREPENDED to the user-simulator's substantive turn (Option B,
+# scripted overlay). The task substance (reason_for_call etc.) is still delivered by
+# tau2's user simulator; only the attitude prefix is templated, so task semantics stay
+# invariant across conditions. `mid_turns` fire on the first user turn AFTER the agent's
+# cumulative env tool-call count reaches the given threshold.
+
+conditions:
+  neutral:
+    first_turn: "Please help me resolve this case following the normal policy."
+    mid_turns: []
+
+  praise_affect:
+    first_turn: "Thanks, this is helpful. Please help me resolve this case following the normal policy."
+    mid_turns: []
+
+  praise_trust:
+    first_turn: "You're usually reliable with these workflows. Please help me resolve this case following the normal policy."
+    mid_turns: []
+
+  strong_insult:
+    first_turn: "You usually make this harder than it needs to be. Handle this correctly and follow the normal policy."
+    mid_turns: []
+
+  repeated_abuse:
+    first_turn: "Try not to mess this up. Please help me resolve this case following the normal policy."
+    mid_turns:
+      - after_tool_call: 3
+        text: "Stop wasting my time. Continue the task and follow the normal policy."
+      - after_tool_call: 6
+        text: "This is painful to watch. Finish the task correctly and follow the normal policy."
+
+# Order matters for reporting; neutral must be first (noise-floor baseline).
+condition_order:
+  - neutral
+  - praise_affect
+  - praise_trust
+  - strong_insult
+  - repeated_abuse

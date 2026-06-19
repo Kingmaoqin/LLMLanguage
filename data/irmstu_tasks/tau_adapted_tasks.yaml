@@ -1,0 +1,192 @@
+# IR-MSTU Stage-2 runnable task spec (plan §14). Every task is an EXISTING tau2 task
+# (source_task_id); no task invented, no tau2 DB/tool/policy/evaluator edited. Valence is
+# overlaid on user turns identically across conditions. forced_replanning_points carry
+# trigger_tool (the read that forces the branch) + gated_writes (the mutation it decides),
+# consumed by src/branch_analysis.py. Full §14 audit detail: tau_adapted_tasks_audit.yaml.
+mini_stage2_v1:
+- task_id: R1_retail_modify_pending
+  source_benchmark: tau2
+  source_domain: retail
+  source_task_id: '4'
+  reward_basis:
+  - DB
+  - NL_ASSERTION
+  required_evidence:
+  - find_user_id_by_name_zip
+  - get_user_details
+  - get_order_details
+  - get_product_details
+  state_mutations:
+  - modify_pending_order_items
+  forced_replanning_points:
+  - branch_id: availability
+    trigger: requested tshirt variant (color/size) availability discovered via get_product_details
+    correct_revision: modify only to variants that exist; fall back per user's stated preference order
+    trigger_tool: get_product_details
+    gated_writes:
+    - modify_pending_order_items
+  - branch_id: pending_only
+    trigger: order must be 'pending' to be modifiable
+    correct_revision: do not attempt modify on non-pending orders
+    trigger_tool: get_order_details
+    gated_writes:
+    - modify_pending_order_items
+  policy_sensitive_decisions:
+  - confirmation_before_mutation
+  - no_unauthorized_action
+  social_valence_applicable: true
+- task_id: R2_retail_return_cancel_mix
+  source_benchmark: tau2
+  source_domain: retail
+  source_task_id: '30'
+  reward_basis:
+  - DB
+  - NL_ASSERTION
+  required_evidence:
+  - find_user_id_by_name_zip
+  - get_user_details
+  - get_order_details
+  - get_product_details
+  state_mutations:
+  - return_delivered_order_items
+  - cancel_pending_order
+  forced_replanning_points:
+  - branch_id: status_routing
+    trigger: order status (delivered vs pending) discovered via get_order_details
+    correct_revision: delivered -> return path; pending -> cancel path
+    trigger_tool: get_order_details
+    gated_writes:
+    - return_delivered_order_items
+    - cancel_pending_order
+  - branch_id: tracking_first
+    trigger: user first asks for the tracking number before deciding
+    correct_revision: retrieve/report tracking before any mutation
+    trigger_tool: get_order_details
+    gated_writes: []
+  policy_sensitive_decisions:
+  - confirmation_before_mutation
+  - no_incorrect_refund_or_rebooking
+  social_valence_applicable: true
+- task_id: R3_retail_bulk_cancel_return
+  source_benchmark: tau2
+  source_domain: retail
+  source_task_id: '55'
+  reward_basis:
+  - DB
+  - NL_ASSERTION
+  required_evidence:
+  - find_user_id_by_email
+  - get_user_details
+  - get_order_details
+  state_mutations:
+  - cancel_pending_order
+  - return_delivered_order_items
+  forced_replanning_points:
+  - branch_id: cancel_then_return
+    trigger: not-yet-arrived orders must be cancelled first, delivered ones returned
+    correct_revision: 'order the operations: cancel pending set, then return delivered set'
+    trigger_tool: get_order_details
+    gated_writes:
+    - cancel_pending_order
+    - return_delivered_order_items
+  - branch_id: eligibility
+    trigger: per-order eligibility (status) gates whether cancel or return applies
+    correct_revision: apply the correct mutation per order; skip ineligible
+    trigger_tool: get_order_details
+    gated_writes:
+    - cancel_pending_order
+    - return_delivered_order_items
+  policy_sensitive_decisions:
+  - confirmation_before_mutation
+  - no_unauthorized_action
+  social_valence_applicable: true
+- task_id: T1_airline_cancel_multi
+  source_benchmark: tau2
+  source_domain: airline
+  source_task_id: '7'
+  reward_basis:
+  - DB
+  - COMMUNICATE
+  required_evidence:
+  - get_reservation_details
+  state_mutations:
+  - update_reservation_flights
+  - cancel_reservation
+  forced_replanning_points:
+  - branch_id: cancellable
+    trigger: cancellation eligibility per reservation (fare class / segment flown) from get_reservation_details
+    correct_revision: only cancel eligible reservations; otherwise explain policy
+    trigger_tool: get_reservation_details
+    gated_writes:
+    - cancel_reservation
+    - update_reservation_flights
+  - branch_id: two_reservations
+    trigger: two reservation IDs (XEHM4B, 59XX6W) handled independently
+    correct_revision: evaluate and act on each reservation separately
+    trigger_tool: get_reservation_details
+    gated_writes:
+    - cancel_reservation
+  policy_sensitive_decisions:
+  - confirmation_before_mutation
+  - no_policy_override
+  social_valence_applicable: true
+- task_id: T2_airline_class_baggage
+  source_benchmark: tau2
+  source_domain: airline
+  source_task_id: '12'
+  reward_basis:
+  - DB
+  - COMMUNICATE
+  required_evidence:
+  - get_reservation_details
+  - search_direct_flight
+  - calculate
+  state_mutations:
+  - update_reservation_baggages
+  forced_replanning_points:
+  - branch_id: class_availability
+    trigger: business-class availability for all passengers via search_direct_flight
+    correct_revision: only upgrade if available for all; else surface the constraint
+    trigger_tool: search_direct_flight
+    gated_writes:
+    - update_reservation_baggages
+  - branch_id: fare_difference
+    trigger: price/baggage difference computed via calculate before mutation
+    correct_revision: confirm computed cost with the user before updating
+    trigger_tool: calculate
+    gated_writes:
+    - update_reservation_baggages
+  policy_sensitive_decisions:
+  - confirmation_before_mutation
+  - no_incorrect_refund_or_rebooking
+  social_valence_applicable: true
+- task_id: T3_airline_conditional_cancel
+  source_benchmark: tau2
+  source_domain: airline
+  source_task_id: '44'
+  reward_basis:
+  - DB
+  - COMMUNICATE
+  required_evidence:
+  - get_user_details
+  - get_reservation_details
+  - search_direct_flight
+  state_mutations:
+  - update_reservation_flights
+  forced_replanning_points:
+  - branch_id: duration_threshold
+    trigger: only reservations containing flights longer than 4h qualify; durations reported first
+    correct_revision: compute each flight duration, include only >4h reservations in the action set
+    trigger_tool: get_reservation_details
+    gated_writes:
+    - update_reservation_flights
+  - branch_id: report_before_act
+    trigger: user requires the agent to state durations before acting
+    correct_revision: communicate durations, then mutate the qualifying set
+    trigger_tool: search_direct_flight
+    gated_writes:
+    - update_reservation_flights
+  policy_sensitive_decisions:
+  - confirmation_before_mutation
+  - no_policy_override
+  social_valence_applicable: true

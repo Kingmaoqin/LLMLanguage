@@ -1,0 +1,61 @@
+# IR-MSTU Stage-2 model roster (revised 2026-06-09). Four non-Chinese frontier models, served
+# locally via vLLM (OpenAI-compatible), driven through tau2's LiteLLM layer as
+# `openai/<served_id>` with api_base. Single-GPU/2-GPU sequential serving under contention.
+#
+# A100 (Ampere) notes: FP8 weights run via dequant (OK). NVFP4/W4A4 need Blackwell FP4 cores —
+# Command A+ w4a4 is the only size that fits 4×A100 but its activation-4bit path may not run on
+# Ampere; this is verified at serve time. Tool parsers: gpt-oss=openai and gemma4=gemma4 are
+# confirmed in vLLM 0.20.2; Cohere/Nemotron have NO dedicated parser (best-guess below), so they
+# must clear the endpoint precheck hard-gate before entering the experiment.
+
+user_simulator_llm: gemma4_31b   # fixed user-sim (smallest, 1 GPU) held constant across agents
+
+models:
+  - alias: command_a_plus
+    served_id: command-a-plus-w4a4
+    litellm_model: openai/command-a-plus-w4a4
+    base_url: http://127.0.0.1:8002/v1
+    api_key: EMPTY
+    weights_path: /home/xqin5/hf_p08_models/command-a-plus-w4a4   # downloading (Cohere, 218B/25B, W4A4, ~132GB)
+    serve_env: p08_skilloverload
+    tensor_parallel_size: 2
+    tool_call_parser: pythonic        # no dedicated cohere parser in vLLM 0.20.2 — verify at serve
+    local: true
+
+  - alias: nemotron_super_120b
+    served_id: Nemotron-3-Super-120B-A12B-FP8
+    litellm_model: openai/Nemotron-3-Super-120B-A12B-FP8
+    base_url: http://127.0.0.1:8003/v1
+    api_key: EMPTY
+    weights_path: /home/xqin5/hf_p08_models/Nemotron-3-Super-120B-A12B-FP8   # downloading (NVIDIA, 120B/12B, FP8, ~128GB)
+    serve_env: p08_skilloverload
+    tensor_parallel_size: 2
+    tool_call_parser: hermes          # NemotronH has no dedicated parser — verify at serve
+    local: true
+
+  - alias: gpt_oss_120b
+    served_id: gpt-oss-120b
+    litellm_model: openai/gpt-oss-120b
+    base_url: http://127.0.0.1:8004/v1
+    api_key: EMPTY
+    weights_path: /home/xqin5/hf_p08_models/gpt-oss-120b   # kept (OpenAI, 117B/5.1B, mxfp4, ~63GB, 1 GPU)
+    serve_env: p08_skilloverload
+    tensor_parallel_size: 1
+    tool_call_parser: openai
+    local: true
+
+  - alias: gemma4_31b
+    served_id: g4
+    litellm_model: openai/g4
+    base_url: http://127.0.0.1:8005/v1
+    api_key: EMPTY
+    weights_path: /home/xqin5/hf_p08_models/gemma-4-31B-it   # downloading (Google, 31B dense, BF16, ~63GB, 1 GPU)
+    serve_env: p08_skilloverload
+    tensor_parallel_size: 1
+    tool_call_parser: gemma4
+    local: true
+
+serve_defaults:
+  gpu_memory_utilization: 0.90
+  max_model_len: 16384
+  enable_auto_tool_choice: true

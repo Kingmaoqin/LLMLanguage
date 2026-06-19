@@ -1,0 +1,38 @@
+experiment:
+  name: stage2_5_causal_repair
+  benchmark: tau2
+  temperature_main: 0.0
+  seeds: [300, 301, 302, 303, 304]
+  smoke_seeds: [300]
+  pilot_seeds: [300, 301]
+  max_steps: 60
+  max_errors: 10
+  randomization_seed: 20260613
+  equivalence_margin_pp: 10
+
+conditions:
+  main:
+    - neutral_single
+    - praise_affect_single
+    - praise_trust_single
+    - insult_single
+    - neutral_repeated
+    - abuse_repeated
+  diagnostic:
+    - neutral_no_continuation
+    - neutral_with_continuation
+    - abuse_no_continuation
+    - abuse_with_continuation
+
+paths:
+  models: configs/stage2_5/models.yaml
+  tasks: configs/stage2_5/tasks.yaml
+  statistics: configs/stage2_5/statistics.yaml
+  templates: data/stage2_5/social_style_templates.yaml
+  task_policy_annotations: data/stage2_5/task_policy_annotations.yaml
+
+outputs:
+  repair_dir: results/stage2_5_repair
+  audit_dir: results/stage2_5_audit
+  report_dir: reports/stage2_5
+  figure_dir: figures/stage2_5

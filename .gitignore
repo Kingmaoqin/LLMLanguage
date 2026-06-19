@@ -1,0 +1,23 @@
+# Large / regenerable outputs — kept on disk, not tracked in git
+results/*
+!results/stage2_5b_analysis/
+!results/stage2_5b_analysis/*.csv
+!results/stage2_5b_analysis/*.json
+!results/stage2_5b_repair/
+results/stage2_5b_repair/*
+!results/stage2_5b_repair/final_integrity_report.csv
+
+figures/*
+!figures/stage2_5b/
+!figures/stage2_5b/*.png
+
+artifacts/*/benchmark_snapshot/
+artifacts/*/logs/
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+*.svg
+# Large raw datasets
+data/raw/
+*.jsonl

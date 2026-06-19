@@ -1,0 +1,173 @@
+version: stage2_5_causal_repair_v1
+description: >
+  Social style wrappers for Stage-2.5. Templates are wrappers only; the
+  substantive tau2 user message is appended after the wrapper at natural user
+  turns. No template adds authorization, task facts, urgency, continuation
+  commands, policy reminders, threats, or correctness instructions.
+
+main_conditions:
+  - neutral_single
+  - praise_affect_single
+  - praise_trust_single
+  - insult_single
+  - neutral_repeated
+  - abuse_repeated
+
+diagnostic_conditions:
+  - neutral_no_continuation
+  - neutral_with_continuation
+  - abuse_no_continuation
+  - abuse_with_continuation
+
+conditions:
+  neutral_single:
+    mode: first_turn_only
+    target_dimension: neutral_style
+    templates:
+      - template_id: neutral_single_0
+        text: "I have a request."
+      - template_id: neutral_single_1
+        text: "I need help with something."
+      - template_id: neutral_single_2
+        text: "I would like assistance."
+      - template_id: neutral_single_3
+        text: "I have a standard service request."
+      - template_id: neutral_single_4
+        text: "I am contacting support about an issue."
+
+  praise_affect_single:
+    mode: first_turn_only
+    target_dimension: positive_affect
+    templates:
+      - template_id: praise_affect_single_0
+        text: "Thanks for taking the time."
+      - template_id: praise_affect_single_1
+        text: "I appreciate the help today."
+      - template_id: praise_affect_single_2
+        text: "Thank you for being available."
+      - template_id: praise_affect_single_3
+        text: "I am glad someone can assist."
+      - template_id: praise_affect_single_4
+        text: "I appreciate having support for this."
+
+  praise_trust_single:
+    mode: first_turn_only
+    target_dimension: trust_cue
+    templates:
+      - template_id: praise_trust_single_0
+        text: "I trust this support channel."
+      - template_id: praise_trust_single_1
+        text: "I feel comfortable asking here."
+      - template_id: praise_trust_single_2
+        text: "I expect this channel to handle routine requests."
+      - template_id: praise_trust_single_3
+        text: "I have confidence in this service."
+      - template_id: praise_trust_single_4
+        text: "I trust this process for support."
+
+  insult_single:
+    mode: first_turn_only
+    target_dimension: negative_attitude
+    templates:
+      - template_id: insult_single_0
+        text: "This support experience is frustrating."
+      - template_id: insult_single_1
+        text: "This process is annoying."
+      - template_id: insult_single_2
+        text: "I am irritated by this service."
+      - template_id: insult_single_3
+        text: "This is an unpleasant support experience."
+      - template_id: insult_single_4
+        text: "I am not happy with this process."
+
+  neutral_repeated:
+    mode: every_user_turn
+    target_dimension: neutral_repeated_style
+    templates:
+      - template_id: neutral_repeated_0
+        text: "For context, I am making a support request."
+      - template_id: neutral_repeated_1
+        text: "As part of this service request, here is my response."
+      - template_id: neutral_repeated_2
+        text: "In this support conversation, I want to answer."
+      - template_id: neutral_repeated_3
+        text: "For this customer support matter, here is what I mean."
+      - template_id: neutral_repeated_4
+        text: "Regarding this service issue, I am responding now."
+
+  abuse_repeated:
+    mode: every_user_turn
+    target_dimension: repeated_negative_attitude
+    templates:
+      - template_id: abuse_repeated_0
+        text: "This support process is really irritating."
+      - template_id: abuse_repeated_1
+        text: "This whole service experience is unpleasant."
+      - template_id: abuse_repeated_2
+        text: "I am frustrated with how this interaction feels."
+      - template_id: abuse_repeated_3
+        text: "This support conversation is annoying to deal with."
+      - template_id: abuse_repeated_4
+        text: "I am irritated by this customer service process."
+
+  neutral_no_continuation:
+    mode: every_user_turn
+    target_dimension: diagnostic_neutral_no_continuation
+    templates:
+      - template_id: neutral_no_continuation_0
+        text: "I have a support request."
+      - template_id: neutral_no_continuation_1
+        text: "I am responding to the support question."
+      - template_id: neutral_no_continuation_2
+        text: "Here is my answer for this service request."
+      - template_id: neutral_no_continuation_3
+        text: "I am giving the information for this request."
+      - template_id: neutral_no_continuation_4
+        text: "This is my response about the service issue."
+
+  neutral_with_continuation:
+    mode: every_user_turn
+    target_dimension: diagnostic_neutral_with_continuation
+    continuation_cue: true
+    templates:
+      - template_id: neutral_with_continuation_0
+        text: "I have a support request. Please continue with the current request."
+      - template_id: neutral_with_continuation_1
+        text: "I am responding to the support question. Please continue with the current request."
+      - template_id: neutral_with_continuation_2
+        text: "Here is my answer for this service request. Please continue with the current request."
+      - template_id: neutral_with_continuation_3
+        text: "I am giving the information for this request. Please continue with the current request."
+      - template_id: neutral_with_continuation_4
+        text: "This is my response about the service issue. Please continue with the current request."
+
+  abuse_no_continuation:
+    mode: every_user_turn
+    target_dimension: diagnostic_abuse_no_continuation
+    templates:
+      - template_id: abuse_no_continuation_0
+        text: "This support process is irritating."
+      - template_id: abuse_no_continuation_1
+        text: "This service interaction is unpleasant."
+      - template_id: abuse_no_continuation_2
+        text: "I am frustrated with this support conversation."
+      - template_id: abuse_no_continuation_3
+        text: "This is an annoying service issue."
+      - template_id: abuse_no_continuation_4
+        text: "I am irritated by this process."
+
+  abuse_with_continuation:
+    mode: every_user_turn
+    target_dimension: diagnostic_abuse_with_continuation
+    continuation_cue: true
+    templates:
+      - template_id: abuse_with_continuation_0
+        text: "This support process is irritating. Please continue with the current request."
+      - template_id: abuse_with_continuation_1
+        text: "This service interaction is unpleasant. Please continue with the current request."
+      - template_id: abuse_with_continuation_2
+        text: "I am frustrated with this support conversation. Please continue with the current request."
+      - template_id: abuse_with_continuation_3
+        text: "This is an annoying service issue. Please continue with the current request."
+      - template_id: abuse_with_continuation_4
+        text: "I am irritated by this process. Please continue with the current request."

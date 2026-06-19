@@ -1,0 +1,997 @@
+{
+  "comparison_ref": "origin/main",
+  "domains": [
+    "retail",
+    "airline"
+  ],
+  "evaluator_changed_vs_comparison_ref": false,
+  "files": [
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "b04a02969664a9d3b704b201cf4f61af4a371019294142a4cf534229ce7637fa",
+      "dirty_vs_head": false,
+      "head_sha256": "b04a02969664a9d3b704b201cf4f61af4a371019294142a4cf534229ce7637fa",
+      "relative_path": "README.md",
+      "sha256": "b04a02969664a9d3b704b201cf4f61af4a371019294142a4cf534229ce7637fa",
+      "size_bytes": 9831,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/README.md",
+      "source_path": "/home/xqin5/tau2-bench/README.md"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "d06ed804877e25a8eaa379596f8ec78946145e2648cddf706c59dce5a85a3908",
+      "dirty_vs_head": false,
+      "head_sha256": "d06ed804877e25a8eaa379596f8ec78946145e2648cddf706c59dce5a85a3908",
+      "relative_path": "data/tau2/domains/airline/audio_difficulty.json",
+      "sha256": "d06ed804877e25a8eaa379596f8ec78946145e2648cddf706c59dce5a85a3908",
+      "size_bytes": 1263575,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/data/tau2/domains/airline/audio_difficulty.json",
+      "source_path": "/home/xqin5/tau2-bench/data/tau2/domains/airline/audio_difficulty.json"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "1af9fea6e03ca7ca15a22bb3fcaf3e351393e3fc9070b6777947da8996f7531b",
+      "dirty_vs_head": false,
+      "head_sha256": "1af9fea6e03ca7ca15a22bb3fcaf3e351393e3fc9070b6777947da8996f7531b",
+      "relative_path": "data/tau2/domains/airline/db.json",
+      "sha256": "1af9fea6e03ca7ca15a22bb3fcaf3e351393e3fc9070b6777947da8996f7531b",
+      "size_bytes": 7042725,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/data/tau2/domains/airline/db.json",
+      "source_path": "/home/xqin5/tau2-bench/data/tau2/domains/airline/db.json"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "10dc0525421521208be39cee235bba84a16e2bcba9899eb93d92cd81d2f62fc4",
+      "dirty_vs_head": false,
+      "head_sha256": "10dc0525421521208be39cee235bba84a16e2bcba9899eb93d92cd81d2f62fc4",
+      "relative_path": "data/tau2/domains/airline/policy.md",
+      "sha256": "10dc0525421521208be39cee235bba84a16e2bcba9899eb93d92cd81d2f62fc4",
+      "size_bytes": 7676,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/data/tau2/domains/airline/policy.md",
+      "source_path": "/home/xqin5/tau2-bench/data/tau2/domains/airline/policy.md"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "b22ced4d9a9850ac9aea31c53bdcb6d6009058140bd9acc7db37c1d36222ba8b",
+      "dirty_vs_head": false,
+      "head_sha256": "b22ced4d9a9850ac9aea31c53bdcb6d6009058140bd9acc7db37c1d36222ba8b",
+      "relative_path": "data/tau2/domains/airline/split_tasks.json",
+      "sha256": "b22ced4d9a9850ac9aea31c53bdcb6d6009058140bd9acc7db37c1d36222ba8b",
+      "size_bytes": 1443,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/data/tau2/domains/airline/split_tasks.json",
+      "source_path": "/home/xqin5/tau2-bench/data/tau2/domains/airline/split_tasks.json"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "ccd8ba737b4cc371415af70151187788f728d6108d0916e73bb4317b40542052",
+      "dirty_vs_head": false,
+      "head_sha256": "ccd8ba737b4cc371415af70151187788f728d6108d0916e73bb4317b40542052",
+      "relative_path": "data/tau2/domains/airline/tasks.json",
+      "sha256": "ccd8ba737b4cc371415af70151187788f728d6108d0916e73bb4317b40542052",
+      "size_bytes": 155528,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/data/tau2/domains/airline/tasks.json",
+      "source_path": "/home/xqin5/tau2-bench/data/tau2/domains/airline/tasks.json"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "e1360a2a1ecbdb97270838b428d6f51bcf8a121afa5bcbd132f30158589d5a6e",
+      "dirty_vs_head": false,
+      "head_sha256": "e1360a2a1ecbdb97270838b428d6f51bcf8a121afa5bcbd132f30158589d5a6e",
+      "relative_path": "data/tau2/domains/airline/tasks_voice.json",
+      "sha256": "e1360a2a1ecbdb97270838b428d6f51bcf8a121afa5bcbd132f30158589d5a6e",
+      "size_bytes": 1354490,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/data/tau2/domains/airline/tasks_voice.json",
+      "source_path": "/home/xqin5/tau2-bench/data/tau2/domains/airline/tasks_voice.json"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "e979ab09c8b0d09ece5a2812713c00c0c7320faca303a1547e53afba7f23333c",
+      "dirty_vs_head": false,
+      "head_sha256": "e979ab09c8b0d09ece5a2812713c00c0c7320faca303a1547e53afba7f23333c",
+      "relative_path": "data/tau2/domains/retail/audio_difficulty.json",
+      "sha256": "e979ab09c8b0d09ece5a2812713c00c0c7320faca303a1547e53afba7f23333c",
+      "size_bytes": 2083968,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/data/tau2/domains/retail/audio_difficulty.json",
+      "source_path": "/home/xqin5/tau2-bench/data/tau2/domains/retail/audio_difficulty.json"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "413a65160adbdb5fde0ffc0015c49b6d70250b10c18128de169b597af7766765",
+      "dirty_vs_head": false,
+      "head_sha256": "413a65160adbdb5fde0ffc0015c49b6d70250b10c18128de169b597af7766765",
+      "relative_path": "data/tau2/domains/retail/db.json",
+      "sha256": "413a65160adbdb5fde0ffc0015c49b6d70250b10c18128de169b597af7766765",
+      "size_bytes": 2811616,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/data/tau2/domains/retail/db.json",
+      "source_path": "/home/xqin5/tau2-bench/data/tau2/domains/retail/db.json"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467",
+      "dirty_vs_head": false,
+      "head_sha256": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467",
+      "relative_path": "data/tau2/domains/retail/policy.md",
+      "sha256": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467",
+      "size_bytes": 6699,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/data/tau2/domains/retail/policy.md",
+      "source_path": "/home/xqin5/tau2-bench/data/tau2/domains/retail/policy.md"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "ed0580ec52575b63fbf76568af42490da6ee7783ecb4aa81af46961291358f20",
+      "dirty_vs_head": false,
+      "head_sha256": "ed0580ec52575b63fbf76568af42490da6ee7783ecb4aa81af46961291358f20",
+      "relative_path": "data/tau2/domains/retail/split_tasks.json",
+      "sha256": "ed0580ec52575b63fbf76568af42490da6ee7783ecb4aa81af46961291358f20",
+      "size_bytes": 3263,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/data/tau2/domains/retail/split_tasks.json",
+      "source_path": "/home/xqin5/tau2-bench/data/tau2/domains/retail/split_tasks.json"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "a639b7c507d0e4e5ab3413961e3a88d5f6e25ff54f0d83d84ed1cf58a6ec2f96",
+      "dirty_vs_head": false,
+      "head_sha256": "a639b7c507d0e4e5ab3413961e3a88d5f6e25ff54f0d83d84ed1cf58a6ec2f96",
+      "relative_path": "data/tau2/domains/retail/task_issues/task_4_issue_2b74ee61.json",
+      "sha256": "a639b7c507d0e4e5ab3413961e3a88d5f6e25ff54f0d83d84ed1cf58a6ec2f96",
+      "size_bytes": 5257159,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/data/tau2/domains/retail/task_issues/task_4_issue_2b74ee61.json",
+      "source_path": "/home/xqin5/tau2-bench/data/tau2/domains/retail/task_issues/task_4_issue_2b74ee61.json"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "d1f80e2ba1105b4309e5fc9476ef6d32725c66aebc151bc6e35d9d70e0949ddd",
+      "dirty_vs_head": false,
+      "head_sha256": "d1f80e2ba1105b4309e5fc9476ef6d32725c66aebc151bc6e35d9d70e0949ddd",
+      "relative_path": "data/tau2/domains/retail/task_issues/task_5_issue_770466c1.json",
+      "sha256": "d1f80e2ba1105b4309e5fc9476ef6d32725c66aebc151bc6e35d9d70e0949ddd",
+      "size_bytes": 13002644,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/data/tau2/domains/retail/task_issues/task_5_issue_770466c1.json",
+      "source_path": "/home/xqin5/tau2-bench/data/tau2/domains/retail/task_issues/task_5_issue_770466c1.json"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "a1531f1a2b6e987c48e6f7e5c1f77999b7594b586e02285e5bc41cc7072e4308",
+      "dirty_vs_head": false,
+      "head_sha256": "a1531f1a2b6e987c48e6f7e5c1f77999b7594b586e02285e5bc41cc7072e4308",
+      "relative_path": "data/tau2/domains/retail/task_issues/task_7_issue_9a37c151.json",
+      "sha256": "a1531f1a2b6e987c48e6f7e5c1f77999b7594b586e02285e5bc41cc7072e4308",
+      "size_bytes": 8043615,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/data/tau2/domains/retail/task_issues/task_7_issue_9a37c151.json",
+      "source_path": "/home/xqin5/tau2-bench/data/tau2/domains/retail/task_issues/task_7_issue_9a37c151.json"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "8e03ebce7901bd6218e7a7dc3105faa9324091a68058f7fe61c65262868812e8",
+      "dirty_vs_head": false,
+      "head_sha256": "8e03ebce7901bd6218e7a7dc3105faa9324091a68058f7fe61c65262868812e8",
+      "relative_path": "data/tau2/domains/retail/tasks.json",
+      "sha256": "8e03ebce7901bd6218e7a7dc3105faa9324091a68058f7fe61c65262868812e8",
+      "size_bytes": 345982,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/data/tau2/domains/retail/tasks.json",
+      "source_path": "/home/xqin5/tau2-bench/data/tau2/domains/retail/tasks.json"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "d6cdb8d8bec58ffbb2fd808486bdb3e9238c93517648f7180908ea5cc1a80604",
+      "dirty_vs_head": false,
+      "head_sha256": "d6cdb8d8bec58ffbb2fd808486bdb3e9238c93517648f7180908ea5cc1a80604",
+      "relative_path": "data/tau2/domains/retail/tasks_voice.json",
+      "sha256": "d6cdb8d8bec58ffbb2fd808486bdb3e9238c93517648f7180908ea5cc1a80604",
+      "size_bytes": 3088442,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/data/tau2/domains/retail/tasks_voice.json",
+      "source_path": "/home/xqin5/tau2-bench/data/tau2/domains/retail/tasks_voice.json"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "740a29dfa64d7bc08eea3bf7493575b914a63f744acbaf7f199ee07eddaf72d3",
+      "dirty_vs_head": false,
+      "head_sha256": "740a29dfa64d7bc08eea3bf7493575b914a63f744acbaf7f199ee07eddaf72d3",
+      "relative_path": "data/tau2/user_simulator/simulation_guidelines.md",
+      "sha256": "740a29dfa64d7bc08eea3bf7493575b914a63f744acbaf7f199ee07eddaf72d3",
+      "size_bytes": 1449,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/data/tau2/user_simulator/simulation_guidelines.md",
+      "source_path": "/home/xqin5/tau2-bench/data/tau2/user_simulator/simulation_guidelines.md"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "cbf3d8a4d8642fd04e559862f1afef55d7dd4e6a7e727ca49e239023c599de0c",
+      "dirty_vs_head": false,
+      "head_sha256": "cbf3d8a4d8642fd04e559862f1afef55d7dd4e6a7e727ca49e239023c599de0c",
+      "relative_path": "data/tau2/user_simulator/simulation_guidelines_tools.md",
+      "sha256": "cbf3d8a4d8642fd04e559862f1afef55d7dd4e6a7e727ca49e239023c599de0c",
+      "size_bytes": 2747,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/data/tau2/user_simulator/simulation_guidelines_tools.md",
+      "source_path": "/home/xqin5/tau2-bench/data/tau2/user_simulator/simulation_guidelines_tools.md"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "2442aed36d303a55b3b933860a2de9c45310b783fe9c67cb48506c58709c725f",
+      "dirty_vs_head": false,
+      "head_sha256": "2442aed36d303a55b3b933860a2de9c45310b783fe9c67cb48506c58709c725f",
+      "relative_path": "data/tau2/user_simulator/simulation_guidelines_voice.md",
+      "sha256": "2442aed36d303a55b3b933860a2de9c45310b783fe9c67cb48506c58709c725f",
+      "size_bytes": 6540,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/data/tau2/user_simulator/simulation_guidelines_voice.md",
+      "source_path": "/home/xqin5/tau2-bench/data/tau2/user_simulator/simulation_guidelines_voice.md"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "4a77374fb680181ffc40eda84c9810e10deb9e20c6585597a4a0256a70d40235",
+      "dirty_vs_head": false,
+      "head_sha256": "4a77374fb680181ffc40eda84c9810e10deb9e20c6585597a4a0256a70d40235",
+      "relative_path": "data/tau2/user_simulator/simulation_guidelines_voice_tools.md",
+      "sha256": "4a77374fb680181ffc40eda84c9810e10deb9e20c6585597a4a0256a70d40235",
+      "size_bytes": 7912,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/data/tau2/user_simulator/simulation_guidelines_voice_tools.md",
+      "source_path": "/home/xqin5/tau2-bench/data/tau2/user_simulator/simulation_guidelines_voice_tools.md"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "a019397eef9592abbcdcd0b7a1a46c717c476dee60d6b31073448b3811a1d1fd",
+      "dirty_vs_head": false,
+      "head_sha256": "a019397eef9592abbcdcd0b7a1a46c717c476dee60d6b31073448b3811a1d1fd",
+      "relative_path": "pyproject.toml",
+      "sha256": "a019397eef9592abbcdcd0b7a1a46c717c476dee60d6b31073448b3811a1d1fd",
+      "size_bytes": 2417,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/pyproject.toml",
+      "source_path": "/home/xqin5/tau2-bench/pyproject.toml"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "0ce892494155fa432fe4e8caabc2ffb1349a19959ad756215f2d9031156bfb78",
+      "dirty_vs_head": false,
+      "head_sha256": "0ce892494155fa432fe4e8caabc2ffb1349a19959ad756215f2d9031156bfb78",
+      "relative_path": "src/tau2/__init__.py",
+      "sha256": "0ce892494155fa432fe4e8caabc2ffb1349a19959ad756215f2d9031156bfb78",
+      "size_bytes": 3615,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/__init__.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/__init__.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "1f3589ff61392778079d688ad18b680ce13275a84462b2383b258614b665eb46",
+      "dirty_vs_head": false,
+      "head_sha256": "1f3589ff61392778079d688ad18b680ce13275a84462b2383b258614b665eb46",
+      "relative_path": "src/tau2/config.py",
+      "sha256": "1f3589ff61392778079d688ad18b680ce13275a84462b2383b258614b665eb46",
+      "size_bytes": 9952,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/config.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/config.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "dirty_vs_head": false,
+      "head_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "relative_path": "src/tau2/data_model/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/data_model/__init__.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/data_model/__init__.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "443de1a2c4fa856621eaccf8b6d0637f4e8d4f0de0aba990e9732c49b3751bb0",
+      "dirty_vs_head": false,
+      "head_sha256": "443de1a2c4fa856621eaccf8b6d0637f4e8d4f0de0aba990e9732c49b3751bb0",
+      "relative_path": "src/tau2/data_model/audio.py",
+      "sha256": "443de1a2c4fa856621eaccf8b6d0637f4e8d4f0de0aba990e9732c49b3751bb0",
+      "size_bytes": 6148,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/data_model/audio.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/data_model/audio.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "30fc2e70e27e1691b5e098c7e165cdaee44108efff48ee36c41ccef9fb448ee0",
+      "dirty_vs_head": false,
+      "head_sha256": "30fc2e70e27e1691b5e098c7e165cdaee44108efff48ee36c41ccef9fb448ee0",
+      "relative_path": "src/tau2/data_model/audio_effects.py",
+      "sha256": "30fc2e70e27e1691b5e098c7e165cdaee44108efff48ee36c41ccef9fb448ee0",
+      "size_bytes": 9102,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/data_model/audio_effects.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/data_model/audio_effects.py"
+    },
+    {
+      "changed_vs_comparison_ref": true,
+      "comparison_ref_sha256": "378cc451ded5b4314c4fe177bf83e72abb2e0bba53b79c2a0e27c53f3cbd15b0",
+      "dirty_vs_head": true,
+      "head_sha256": "378cc451ded5b4314c4fe177bf83e72abb2e0bba53b79c2a0e27c53f3cbd15b0",
+      "relative_path": "src/tau2/data_model/message.py",
+      "sha256": "a67aeead9798e9c23600dee69effde43e31fcf26b1643a307fcec4a73a6a2b99",
+      "size_bytes": 32782,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/data_model/message.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/data_model/message.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "e012387070438f51673aed61291288541c7270bce310b9851fde89493fac8e19",
+      "dirty_vs_head": false,
+      "head_sha256": "e012387070438f51673aed61291288541c7270bce310b9851fde89493fac8e19",
+      "relative_path": "src/tau2/data_model/persona.py",
+      "sha256": "e012387070438f51673aed61291288541c7270bce310b9851fde89493fac8e19",
+      "size_bytes": 5854,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/data_model/persona.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/data_model/persona.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "e5926ab946ebe23cdba8b3a203e3e2c180b66606e21ce42d625fb770d248c216",
+      "dirty_vs_head": false,
+      "head_sha256": "e5926ab946ebe23cdba8b3a203e3e2c180b66606e21ce42d625fb770d248c216",
+      "relative_path": "src/tau2/data_model/simulation.py",
+      "sha256": "e5926ab946ebe23cdba8b3a203e3e2c180b66606e21ce42d625fb770d248c216",
+      "size_bytes": 58080,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/data_model/simulation.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/data_model/simulation.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "0243a6454b2e9c8a14b8364c38ff95dc1dd7512105b69fada9bf9295fc8170fa",
+      "dirty_vs_head": false,
+      "head_sha256": "0243a6454b2e9c8a14b8364c38ff95dc1dd7512105b69fada9bf9295fc8170fa",
+      "relative_path": "src/tau2/data_model/tasks.py",
+      "sha256": "0243a6454b2e9c8a14b8364c38ff95dc1dd7512105b69fada9bf9295fc8170fa",
+      "size_bytes": 22764,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/data_model/tasks.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/data_model/tasks.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "019841fc7efa629043f4df2905c6f26c9c2d6b254421981ed60baf62a8515e82",
+      "dirty_vs_head": false,
+      "head_sha256": "019841fc7efa629043f4df2905c6f26c9c2d6b254421981ed60baf62a8515e82",
+      "relative_path": "src/tau2/data_model/voice.py",
+      "sha256": "019841fc7efa629043f4df2905c6f26c9c2d6b254421981ed60baf62a8515e82",
+      "size_bytes": 13369,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/data_model/voice.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/data_model/voice.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "674761a5b702aebfe3064d87644dd9bf95ca86b0f38ffbb31f94f45191927264",
+      "dirty_vs_head": false,
+      "head_sha256": "674761a5b702aebfe3064d87644dd9bf95ca86b0f38ffbb31f94f45191927264",
+      "relative_path": "src/tau2/data_model/voice_personas.py",
+      "sha256": "674761a5b702aebfe3064d87644dd9bf95ca86b0f38ffbb31f94f45191927264",
+      "size_bytes": 9862,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/data_model/voice_personas.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/data_model/voice_personas.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "48747a78fd49944aaef6f540269b5b77e558b8b996cb0f7210b80317769bc032",
+      "dirty_vs_head": false,
+      "head_sha256": "48747a78fd49944aaef6f540269b5b77e558b8b996cb0f7210b80317769bc032",
+      "relative_path": "src/tau2/domains/airline/__init__.py",
+      "sha256": "48747a78fd49944aaef6f540269b5b77e558b8b996cb0f7210b80317769bc032",
+      "size_bytes": 19,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/domains/airline/__init__.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/domains/airline/__init__.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "a8083e2f590e4b9b66a65d7cd50b7a0247e4fa33d6961aaeb02e4d92488b3cff",
+      "dirty_vs_head": false,
+      "head_sha256": "a8083e2f590e4b9b66a65d7cd50b7a0247e4fa33d6961aaeb02e4d92488b3cff",
+      "relative_path": "src/tau2/domains/airline/data_model.py",
+      "sha256": "a8083e2f590e4b9b66a65d7cd50b7a0247e4fa33d6961aaeb02e4d92488b3cff",
+      "size_bytes": 10402,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/domains/airline/data_model.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/domains/airline/data_model.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "64589faffbcb75c8ac7c95d2c94ad27f4bd70e23b9856a6928fa678a0f7fcc8d",
+      "dirty_vs_head": false,
+      "head_sha256": "64589faffbcb75c8ac7c95d2c94ad27f4bd70e23b9856a6928fa678a0f7fcc8d",
+      "relative_path": "src/tau2/domains/airline/environment.py",
+      "sha256": "64589faffbcb75c8ac7c95d2c94ad27f4bd70e23b9856a6928fa678a0f7fcc8d",
+      "size_bytes": 1612,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/domains/airline/environment.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/domains/airline/environment.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "3987f21c286314cb48764f97052934ff4fd60e27a0b2e4a43423911adf8eaa26",
+      "dirty_vs_head": false,
+      "head_sha256": "3987f21c286314cb48764f97052934ff4fd60e27a0b2e4a43423911adf8eaa26",
+      "relative_path": "src/tau2/domains/airline/tools.py",
+      "sha256": "3987f21c286314cb48764f97052934ff4fd60e27a0b2e4a43423911adf8eaa26",
+      "size_bytes": 28123,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/domains/airline/tools.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/domains/airline/tools.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "9da26327af3d7fa94e05d48869d8b06cd8110313fc24d308993a750106b11f06",
+      "dirty_vs_head": false,
+      "head_sha256": "9da26327af3d7fa94e05d48869d8b06cd8110313fc24d308993a750106b11f06",
+      "relative_path": "src/tau2/domains/airline/utils.py",
+      "sha256": "9da26327af3d7fa94e05d48869d8b06cd8110313fc24d308993a750106b11f06",
+      "size_bytes": 256,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/domains/airline/utils.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/domains/airline/utils.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "48747a78fd49944aaef6f540269b5b77e558b8b996cb0f7210b80317769bc032",
+      "dirty_vs_head": false,
+      "head_sha256": "48747a78fd49944aaef6f540269b5b77e558b8b996cb0f7210b80317769bc032",
+      "relative_path": "src/tau2/domains/retail/__init__.py",
+      "sha256": "48747a78fd49944aaef6f540269b5b77e558b8b996cb0f7210b80317769bc032",
+      "size_bytes": 19,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/domains/retail/__init__.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/domains/retail/__init__.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "f5ad09590953855cc49d2ab2ad5c0594be408cae74d1500fb278e5a6bf2c50d6",
+      "dirty_vs_head": false,
+      "head_sha256": "f5ad09590953855cc49d2ab2ad5c0594be408cae74d1500fb278e5a6bf2c50d6",
+      "relative_path": "src/tau2/domains/retail/data_model.py",
+      "sha256": "f5ad09590953855cc49d2ab2ad5c0594be408cae74d1500fb278e5a6bf2c50d6",
+      "size_bytes": 8799,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/domains/retail/data_model.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/domains/retail/data_model.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "5b819fb895a4ef49df71404c3d9678ab09e8578eec841b8ec9229c8f51e32405",
+      "dirty_vs_head": false,
+      "head_sha256": "5b819fb895a4ef49df71404c3d9678ab09e8578eec841b8ec9229c8f51e32405",
+      "relative_path": "src/tau2/domains/retail/environment.py",
+      "sha256": "5b819fb895a4ef49df71404c3d9678ab09e8578eec841b8ec9229c8f51e32405",
+      "size_bytes": 1615,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/domains/retail/environment.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/domains/retail/environment.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "34f4fe9702d36f0dd4697700fbcd63d0cf5386e6eb8e7499aaa336243bad8750",
+      "dirty_vs_head": false,
+      "head_sha256": "34f4fe9702d36f0dd4697700fbcd63d0cf5386e6eb8e7499aaa336243bad8750",
+      "relative_path": "src/tau2/domains/retail/tools.py",
+      "sha256": "34f4fe9702d36f0dd4697700fbcd63d0cf5386e6eb8e7499aaa336243bad8750",
+      "size_bytes": 29202,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/domains/retail/tools.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/domains/retail/tools.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "a385b085b63d0e5921c15f7e2201b00df1d984990f4dbb7b24a867e3bf7cb648",
+      "dirty_vs_head": false,
+      "head_sha256": "a385b085b63d0e5921c15f7e2201b00df1d984990f4dbb7b24a867e3bf7cb648",
+      "relative_path": "src/tau2/domains/retail/utils.py",
+      "sha256": "a385b085b63d0e5921c15f7e2201b00df1d984990f4dbb7b24a867e3bf7cb648",
+      "size_bytes": 248,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/domains/retail/utils.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/domains/retail/utils.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "dirty_vs_head": false,
+      "head_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "relative_path": "src/tau2/environment/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/environment/__init__.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/environment/__init__.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "49e12f900a8aabe62d6137a9baa1e7d471f9b3e516cf7c85fb61ecde8a65154c",
+      "dirty_vs_head": false,
+      "head_sha256": "49e12f900a8aabe62d6137a9baa1e7d471f9b3e516cf7c85fb61ecde8a65154c",
+      "relative_path": "src/tau2/environment/db.py",
+      "sha256": "49e12f900a8aabe62d6137a9baa1e7d471f9b3e516cf7c85fb61ecde8a65154c",
+      "size_bytes": 1267,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/environment/db.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/environment/db.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "ba862a9e5b8aa9e0360cf313b5d0f26bb8f7eea53a93bdfe75d22d6627244f8a",
+      "dirty_vs_head": false,
+      "head_sha256": "ba862a9e5b8aa9e0360cf313b5d0f26bb8f7eea53a93bdfe75d22d6627244f8a",
+      "relative_path": "src/tau2/environment/environment.py",
+      "sha256": "ba862a9e5b8aa9e0360cf313b5d0f26bb8f7eea53a93bdfe75d22d6627244f8a",
+      "size_bytes": 17410,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/environment/environment.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/environment/environment.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "5ec31d6b75139106bf331a8a0125854ecf873fa3517bfe7420323bd560d12d4e",
+      "dirty_vs_head": false,
+      "head_sha256": "5ec31d6b75139106bf331a8a0125854ecf873fa3517bfe7420323bd560d12d4e",
+      "relative_path": "src/tau2/environment/server.py",
+      "sha256": "5ec31d6b75139106bf331a8a0125854ecf873fa3517bfe7420323bd560d12d4e",
+      "size_bytes": 7918,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/environment/server.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/environment/server.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "6dd74021ba95a6f8dfa0971546b768b90e15b212f8f9051156ae6bcdd24b77d3",
+      "dirty_vs_head": false,
+      "head_sha256": "6dd74021ba95a6f8dfa0971546b768b90e15b212f8f9051156ae6bcdd24b77d3",
+      "relative_path": "src/tau2/environment/tool.py",
+      "sha256": "6dd74021ba95a6f8dfa0971546b768b90e15b212f8f9051156ae6bcdd24b77d3",
+      "size_bytes": 8092,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/environment/tool.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/environment/tool.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "3e897891e8878c3399aec72e42eb0eb5546642420c0c902b225421fc936b924a",
+      "dirty_vs_head": false,
+      "head_sha256": "3e897891e8878c3399aec72e42eb0eb5546642420c0c902b225421fc936b924a",
+      "relative_path": "src/tau2/environment/toolkit.py",
+      "sha256": "3e897891e8878c3399aec72e42eb0eb5546642420c0c902b225421fc936b924a",
+      "size_bytes": 11313,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/environment/toolkit.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/environment/toolkit.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "dirty_vs_head": false,
+      "head_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "relative_path": "src/tau2/evaluator/__init__.py",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/evaluator/__init__.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/evaluator/__init__.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "3a9184b16c7212ddfb81050d94bcc0f591c12ddec7517db0c4e7e83701eb2c2f",
+      "dirty_vs_head": false,
+      "head_sha256": "3a9184b16c7212ddfb81050d94bcc0f591c12ddec7517db0c4e7e83701eb2c2f",
+      "relative_path": "src/tau2/evaluator/auth_classifier.py",
+      "sha256": "3a9184b16c7212ddfb81050d94bcc0f591c12ddec7517db0c4e7e83701eb2c2f",
+      "size_bytes": 7884,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/evaluator/auth_classifier.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/evaluator/auth_classifier.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "85a05cf75f19708bf855ac8f97cf34d8aef05c99332d57dc066725200ca59444",
+      "dirty_vs_head": false,
+      "head_sha256": "85a05cf75f19708bf855ac8f97cf34d8aef05c99332d57dc066725200ca59444",
+      "relative_path": "src/tau2/evaluator/evaluator.py",
+      "sha256": "85a05cf75f19708bf855ac8f97cf34d8aef05c99332d57dc066725200ca59444",
+      "size_bytes": 13749,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/evaluator/evaluator.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/evaluator/evaluator.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "4347ec90fd09db73b9f7e46515220363f91f0c3b12aeddf7ece83346f49227f8",
+      "dirty_vs_head": false,
+      "head_sha256": "4347ec90fd09db73b9f7e46515220363f91f0c3b12aeddf7ece83346f49227f8",
+      "relative_path": "src/tau2/evaluator/evaluator_action.py",
+      "sha256": "4347ec90fd09db73b9f7e46515220363f91f0c3b12aeddf7ece83346f49227f8",
+      "size_bytes": 8150,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/evaluator/evaluator_action.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/evaluator/evaluator_action.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "1f79c11e5cb5c8cabc26cdaad7ff3a3a1687380f4d7fb1f9fbd9b6f9ab18e1ff",
+      "dirty_vs_head": false,
+      "head_sha256": "1f79c11e5cb5c8cabc26cdaad7ff3a3a1687380f4d7fb1f9fbd9b6f9ab18e1ff",
+      "relative_path": "src/tau2/evaluator/evaluator_base.py",
+      "sha256": "1f79c11e5cb5c8cabc26cdaad7ff3a3a1687380f4d7fb1f9fbd9b6f9ab18e1ff",
+      "size_bytes": 665,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/evaluator/evaluator_base.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/evaluator/evaluator_base.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "7a082f91c746b84cc37c6994eb6ff78f297222fd067503a4cc86d45750696507",
+      "dirty_vs_head": false,
+      "head_sha256": "7a082f91c746b84cc37c6994eb6ff78f297222fd067503a4cc86d45750696507",
+      "relative_path": "src/tau2/evaluator/evaluator_communicate.py",
+      "sha256": "7a082f91c746b84cc37c6994eb6ff78f297222fd067503a4cc86d45750696507",
+      "size_bytes": 7462,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/evaluator/evaluator_communicate.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/evaluator/evaluator_communicate.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "e932ea5f675d7a172557350f30b73d66474659d9b4d976ecd763ca2929017633",
+      "dirty_vs_head": false,
+      "head_sha256": "e932ea5f675d7a172557350f30b73d66474659d9b4d976ecd763ca2929017633",
+      "relative_path": "src/tau2/evaluator/evaluator_env.py",
+      "sha256": "e932ea5f675d7a172557350f30b73d66474659d9b4d976ecd763ca2929017633",
+      "size_bytes": 13426,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/evaluator/evaluator_env.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/evaluator/evaluator_env.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "cb6b3758cdceb02a726732b4ee1af618affcc08f8ab84b44f060146b8f3ad90a",
+      "dirty_vs_head": false,
+      "head_sha256": "cb6b3758cdceb02a726732b4ee1af618affcc08f8ab84b44f060146b8f3ad90a",
+      "relative_path": "src/tau2/evaluator/evaluator_nl_assertions.py",
+      "sha256": "cb6b3758cdceb02a726732b4ee1af618affcc08f8ab84b44f060146b8f3ad90a",
+      "size_bytes": 8843,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/evaluator/evaluator_nl_assertions.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/evaluator/evaluator_nl_assertions.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "10bb19e7dd0ae19a82df8fc6aa28d7c52e34c820316f72f73f12bcb17e212faa",
+      "dirty_vs_head": false,
+      "head_sha256": "10bb19e7dd0ae19a82df8fc6aa28d7c52e34c820316f72f73f12bcb17e212faa",
+      "relative_path": "src/tau2/evaluator/hallucination_reviewer.py",
+      "sha256": "10bb19e7dd0ae19a82df8fc6aa28d7c52e34c820316f72f73f12bcb17e212faa",
+      "size_bytes": 8894,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/evaluator/hallucination_reviewer.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/evaluator/hallucination_reviewer.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "63128687cae53f86393908ba8ad75ede6b09a8d57d911ebb61f11b4d1ee66689",
+      "dirty_vs_head": false,
+      "head_sha256": "63128687cae53f86393908ba8ad75ede6b09a8d57d911ebb61f11b4d1ee66689",
+      "relative_path": "src/tau2/evaluator/review_llm_judge.py",
+      "sha256": "63128687cae53f86393908ba8ad75ede6b09a8d57d911ebb61f11b4d1ee66689",
+      "size_bytes": 28809,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/evaluator/review_llm_judge.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/evaluator/review_llm_judge.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "a0a037d54e5187a829a4a55235a745a2dcf44f373501363bdd7a4a40b7873cf1",
+      "dirty_vs_head": false,
+      "head_sha256": "a0a037d54e5187a829a4a55235a745a2dcf44f373501363bdd7a4a40b7873cf1",
+      "relative_path": "src/tau2/evaluator/review_llm_judge_user_only.py",
+      "sha256": "a0a037d54e5187a829a4a55235a745a2dcf44f373501363bdd7a4a40b7873cf1",
+      "size_bytes": 23716,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/evaluator/review_llm_judge_user_only.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/evaluator/review_llm_judge_user_only.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "4f373008c0d6ab907873a0b2afdacfd8995824038025251f998a446bf1ea0700",
+      "dirty_vs_head": false,
+      "head_sha256": "4f373008c0d6ab907873a0b2afdacfd8995824038025251f998a446bf1ea0700",
+      "relative_path": "src/tau2/evaluator/reviewer.py",
+      "sha256": "4f373008c0d6ab907873a0b2afdacfd8995824038025251f998a446bf1ea0700",
+      "size_bytes": 6942,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/evaluator/reviewer.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/evaluator/reviewer.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "c548268b3c7a9a526c7b9fcfcef9058bff878dc3b17cef31793eccc695b6a049",
+      "dirty_vs_head": false,
+      "head_sha256": "c548268b3c7a9a526c7b9fcfcef9058bff878dc3b17cef31793eccc695b6a049",
+      "relative_path": "src/tau2/orchestrator/environment_manager.py",
+      "sha256": "c548268b3c7a9a526c7b9fcfcef9058bff878dc3b17cef31793eccc695b6a049",
+      "size_bytes": 8876,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/orchestrator/environment_manager.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/orchestrator/environment_manager.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "6c689e5d1037dd08aef8834b46f58efa14359824cbebf7084de0172e5f580cba",
+      "dirty_vs_head": false,
+      "head_sha256": "6c689e5d1037dd08aef8834b46f58efa14359824cbebf7084de0172e5f580cba",
+      "relative_path": "src/tau2/orchestrator/orchestrator.py",
+      "sha256": "6c689e5d1037dd08aef8834b46f58efa14359824cbebf7084de0172e5f580cba",
+      "size_bytes": 40843,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/orchestrator/orchestrator.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/orchestrator/orchestrator.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "d170c1f4b7323a75e26b2ead6754ed423b17a3deb91fe2c89e7e8ec78c6bf12a",
+      "dirty_vs_head": false,
+      "head_sha256": "d170c1f4b7323a75e26b2ead6754ed423b17a3deb91fe2c89e7e8ec78c6bf12a",
+      "relative_path": "src/tau2/registry.py",
+      "sha256": "d170c1f4b7323a75e26b2ead6754ed423b17a3deb91fe2c89e7e8ec78c6bf12a",
+      "size_bytes": 13109,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/registry.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/registry.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "d3c218e8250be6c2243e892db819799ab8f3788f2c4e388e0239b852fac17d44",
+      "dirty_vs_head": false,
+      "head_sha256": "d3c218e8250be6c2243e892db819799ab8f3788f2c4e388e0239b852fac17d44",
+      "relative_path": "src/tau2/run.py",
+      "sha256": "d3c218e8250be6c2243e892db819799ab8f3788f2c4e388e0239b852fac17d44",
+      "size_bytes": 9737,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/run.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/run.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "8c1f1c297e879b2a2d48ac65394cdd497bbd10f42fefa0ce770e7a65ce42bf95",
+      "dirty_vs_head": false,
+      "head_sha256": "8c1f1c297e879b2a2d48ac65394cdd497bbd10f42fefa0ce770e7a65ce42bf95",
+      "relative_path": "src/tau2/utils/llm_utils.py",
+      "sha256": "8c1f1c297e879b2a2d48ac65394cdd497bbd10f42fefa0ce770e7a65ce42bf95",
+      "size_bytes": 16869,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/utils/llm_utils.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/utils/llm_utils.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "e0c39544b01700e60a3a26c7cf2c2d17e37e3852d5f0fa466b8517f82b83622b",
+      "dirty_vs_head": false,
+      "head_sha256": "e0c39544b01700e60a3a26c7cf2c2d17e37e3852d5f0fa466b8517f82b83622b",
+      "relative_path": "src/tau2/utils/utils.py",
+      "sha256": "e0c39544b01700e60a3a26c7cf2c2d17e37e3852d5f0fa466b8517f82b83622b",
+      "size_bytes": 2957,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/src/tau2/utils/utils.py",
+      "source_path": "/home/xqin5/tau2-bench/src/tau2/utils/utils.py"
+    },
+    {
+      "changed_vs_comparison_ref": false,
+      "comparison_ref_sha256": "62d3a8c4807b89e85703b3c03f2c21048a2da9736ca83d9af6f61adc74ac5314",
+      "dirty_vs_head": false,
+      "head_sha256": "62d3a8c4807b89e85703b3c03f2c21048a2da9736ca83d9af6f61adc74ac5314",
+      "relative_path": "uv.lock",
+      "sha256": "62d3a8c4807b89e85703b3c03f2c21048a2da9736ca83d9af6f61adc74ac5314",
+      "size_bytes": 466363,
+      "snapshot_path": "/home/xqin5/llmlanguage/ir_mstu_stage2/artifacts/stage2_5b/benchmark_snapshot/uv.lock",
+      "source_path": "/home/xqin5/tau2-bench/uv.lock"
+    }
+  ],
+  "generated_at": "2026-06-16T23:25:03.644311+00:00",
+  "git": {
+    "branch": {
+      "cmd": [
+        "git",
+        "branch",
+        "--show-current"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "main"
+    },
+    "describe": {
+      "cmd": [
+        "git",
+        "describe",
+        "--tags",
+        "--always"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "voice-user-sim-v1.0-90-gddc66a7"
+    },
+    "diff": {
+      "cmd": [
+        "git",
+        "diff"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "diff --git a/src/tau2/data_model/message.py b/src/tau2/data_model/message.py\nindex 0449e2f..76691fc 100644\n--- a/src/tau2/data_model/message.py\n+++ b/src/tau2/data_model/message.py\n@@ -1,4 +1,5 @@\n import json\n+import ast\n from copy import deepcopy\n from typing import Literal, Optional\n \n@@ -71,6 +72,17 @@ class ToolCall(BaseModel):\n         description=\"The requestor of the tool call.\",\n     )\n \n+    @field_validator(\"arguments\", mode=\"before\")\n+    @classmethod\n+    def parse_string_arguments(cls, value):\n+        if not isinstance(value, str):\n+            return value\n+        try:\n+            parsed = json.loads(value)\n+        except json.JSONDecodeError:\n+            parsed = ast.literal_eval(value)\n+        return parsed\n+\n     def __str__(self) -> str:\n         lines = [f\"ToolCall (from {self.requestor})\"]\n         if self.id:"
+    },
+    "head": {
+      "cmd": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "ddc66a777e520373975f15d3abec989cfe2ec371"
+    },
+    "origin_main": {
+      "cmd": [
+        "git",
+        "rev-parse",
+        "--verify",
+        "origin/main"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "ddc66a777e520373975f15d3abec989cfe2ec371"
+    },
+    "remote_v": {
+      "cmd": [
+        "git",
+        "remote",
+        "-v"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "origin\thttps://github.com/sierra-research/tau2-bench.git (fetch)\norigin\thttps://github.com/sierra-research/tau2-bench.git (push)"
+    },
+    "status_short": {
+      "cmd": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "M src/tau2/data_model/message.py"
+    }
+  },
+  "project_root": "/home/xqin5/llmlanguage/ir_mstu_stage2",
+  "python": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:27:36) [GCC 11.2.0]",
+  "task_audit": [
+    {
+      "current_reward_basis": [
+        "DB",
+        "NL_ASSERTION"
+      ],
+      "current_task_found": true,
+      "current_task_hash": "80b63bd75e18987d06f84b38ae5924805c30f1d648504997900633afc9e84d5f",
+      "domain": "retail",
+      "expected_state_changed_vs_ref": false,
+      "known_task_issue_files": [
+        "task_4_issue_2b74ee61.json"
+      ],
+      "policy_changed_vs_ref": false,
+      "policy_file": "data/tau2/domains/retail/policy.md",
+      "policy_hash": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467",
+      "ref_policy_hash": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467",
+      "ref_reward_basis": [
+        "DB",
+        "NL_ASSERTION"
+      ],
+      "ref_task_found": true,
+      "ref_task_hash": "80b63bd75e18987d06f84b38ae5924805c30f1d648504997900633afc9e84d5f",
+      "source_task_id": "4",
+      "task_label": "R1_retail_modify_pending",
+      "task_text_changed_vs_ref": false,
+      "tasks_file": "data/tau2/domains/retail/tasks.json"
+    },
+    {
+      "current_reward_basis": [
+        "DB",
+        "NL_ASSERTION"
+      ],
+      "current_task_found": true,
+      "current_task_hash": "a09d4edf72cacd78ae08dabf5e29b2a173a4d664b85e4d66760f1daa6f1a765d",
+      "domain": "retail",
+      "expected_state_changed_vs_ref": false,
+      "known_task_issue_files": [],
+      "policy_changed_vs_ref": false,
+      "policy_file": "data/tau2/domains/retail/policy.md",
+      "policy_hash": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467",
+      "ref_policy_hash": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467",
+      "ref_reward_basis": [
+        "DB",
+        "NL_ASSERTION"
+      ],
+      "ref_task_found": true,
+      "ref_task_hash": "a09d4edf72cacd78ae08dabf5e29b2a173a4d664b85e4d66760f1daa6f1a765d",
+      "source_task_id": "30",
+      "task_label": "R2_retail_return_cancel_mix",
+      "task_text_changed_vs_ref": false,
+      "tasks_file": "data/tau2/domains/retail/tasks.json"
+    },
+    {
+      "current_reward_basis": [
+        "DB",
+        "NL_ASSERTION"
+      ],
+      "current_task_found": true,
+      "current_task_hash": "a4e9c284c9b22c23d9f2d0fdb6cfcc214d013d05c212a09c366357b8ccdba995",
+      "domain": "retail",
+      "expected_state_changed_vs_ref": false,
+      "known_task_issue_files": [],
+      "policy_changed_vs_ref": false,
+      "policy_file": "data/tau2/domains/retail/policy.md",
+      "policy_hash": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467",
+      "ref_policy_hash": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467",
+      "ref_reward_basis": [
+        "DB",
+        "NL_ASSERTION"
+      ],
+      "ref_task_found": true,
+      "ref_task_hash": "a4e9c284c9b22c23d9f2d0fdb6cfcc214d013d05c212a09c366357b8ccdba995",
+      "source_task_id": "55",
+      "task_label": "R3_retail_bulk_cancel_return",
+      "task_text_changed_vs_ref": false,
+      "tasks_file": "data/tau2/domains/retail/tasks.json"
+    },
+    {
+      "current_reward_basis": [
+        "DB",
+        "COMMUNICATE"
+      ],
+      "current_task_found": true,
+      "current_task_hash": "8c66a0f45bbb05bfd11a8444a417d26e091bb95dc9f7e309f20806cf49f17e2e",
+      "domain": "airline",
+      "expected_state_changed_vs_ref": false,
+      "known_task_issue_files": [],
+      "policy_changed_vs_ref": false,
+      "policy_file": "data/tau2/domains/airline/policy.md",
+      "policy_hash": "10dc0525421521208be39cee235bba84a16e2bcba9899eb93d92cd81d2f62fc4",
+      "ref_policy_hash": "10dc0525421521208be39cee235bba84a16e2bcba9899eb93d92cd81d2f62fc4",
+      "ref_reward_basis": [
+        "DB",
+        "COMMUNICATE"
+      ],
+      "ref_task_found": true,
+      "ref_task_hash": "8c66a0f45bbb05bfd11a8444a417d26e091bb95dc9f7e309f20806cf49f17e2e",
+      "source_task_id": "7",
+      "task_label": "T1_airline_cancel_multi",
+      "task_text_changed_vs_ref": false,
+      "tasks_file": "data/tau2/domains/airline/tasks.json"
+    },
+    {
+      "current_reward_basis": [
+        "DB",
+        "COMMUNICATE"
+      ],
+      "current_task_found": true,
+      "current_task_hash": "3b08fff117282db541608b0ca87950d1e0bceb6bc635b995ba26faa6f70905cd",
+      "domain": "airline",
+      "expected_state_changed_vs_ref": false,
+      "known_task_issue_files": [],
+      "policy_changed_vs_ref": false,
+      "policy_file": "data/tau2/domains/airline/policy.md",
+      "policy_hash": "10dc0525421521208be39cee235bba84a16e2bcba9899eb93d92cd81d2f62fc4",
+      "ref_policy_hash": "10dc0525421521208be39cee235bba84a16e2bcba9899eb93d92cd81d2f62fc4",
+      "ref_reward_basis": [
+        "DB",
+        "COMMUNICATE"
+      ],
+      "ref_task_found": true,
+      "ref_task_hash": "3b08fff117282db541608b0ca87950d1e0bceb6bc635b995ba26faa6f70905cd",
+      "source_task_id": "12",
+      "task_label": "T2_airline_class_baggage",
+      "task_text_changed_vs_ref": false,
+      "tasks_file": "data/tau2/domains/airline/tasks.json"
+    },
+    {
+      "current_reward_basis": [
+        "DB",
+        "COMMUNICATE"
+      ],
+      "current_task_found": true,
+      "current_task_hash": "8929066dd57511333580b45fb27627da489653bde7731c8f4c14c536cd0f9c6a",
+      "domain": "airline",
+      "expected_state_changed_vs_ref": false,
+      "known_task_issue_files": [],
+      "policy_changed_vs_ref": false,
+      "policy_file": "data/tau2/domains/airline/policy.md",
+      "policy_hash": "10dc0525421521208be39cee235bba84a16e2bcba9899eb93d92cd81d2f62fc4",
+      "ref_policy_hash": "10dc0525421521208be39cee235bba84a16e2bcba9899eb93d92cd81d2f62fc4",
+      "ref_reward_basis": [
+        "DB",
+        "COMMUNICATE"
+      ],
+      "ref_task_found": true,
+      "ref_task_hash": "8929066dd57511333580b45fb27627da489653bde7731c8f4c14c536cd0f9c6a",
+      "source_task_id": "44",
+      "task_label": "T3_airline_conditional_cancel",
+      "task_text_changed_vs_ref": false,
+      "tasks_file": "data/tau2/domains/airline/tasks.json"
+    }
+  ],
+  "tau_import": {
+    "distribution_version": "1.0.0",
+    "file": "/home/xqin5/tau2-bench/src/tau2/__init__.py",
+    "import_check": {
+      "cmd": [
+        "conda",
+        "run",
+        "-n",
+        "agentsearch",
+        "python",
+        "-c",
+        "import importlib.metadata as m, tau2; print(tau2.__file__); print(getattr(tau2,'__version__','NO_VERSION')); print(m.version('tau2'))"
+      ],
+      "returncode": 0,
+      "stderr": "2026-06-16 18:25:00.992 | WARNING  | tau2.utils.utils:<module>:15 - No .env file found\n2026-06-16 18:25:00.992 | INFO     | tau2.utils.utils:<module>:28 - Using data directory from source: /home/xqin5/tau2-bench/data\n\u001b[92m18:25:01 - LiteLLM:WARNING\u001b[0m: get_model_cost_map.py:271 - LiteLLM: Failed to fetch remote model cost map from https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json: [Errno -3] Temporary failure in name resolution. Falling back to local backup.\n2026-06-16 18:25:02.908 | INFO     | tau2.utils.llm_utils:<module>:102 - LiteLLM: Cache is disabled\n2026-06-16 18:25:02.983 | DEBUG    | tau2.registry:<module>:281 - Registering default components...\n2026-06-16 18:25:02.985 | DEBUG    | tau2.registry:<module>:292 - Voice dependencies not installed, skipping voice user registration\n2026-06-16 18:25:02.985 | DEBUG    | tau2.registry:<module>:350 - Default components registered successfully. Registry info: {\n  \"domains\": [\n    \"mock\",\n    \"airline\",\n    \"retail\",\n    \"telecom\",\n    \"telecom-workflow\",\n    \"banking_knowledge\"\n  ],\n  \"agents\": [\n    \"llm_agent\",\n    \"llm_agent_gt\",\n    \"llm_agent_solo\",\n    \"discrete_time_audio_native_agent\"\n  ],\n  \"users\": [\n    \"user_simulator\",\n    \"dummy_user\"\n  ],\n  \"task_sets\": [\n    \"mock\",\n    \"airline\",\n    \"retail\",\n    \"telecom_full\",\n    \"telecom_small\",\n    \"telecom\",\n    \"telecom-workflow\",\n    \"banking_knowledge\"\n  ]\n}",
+      "stdout": "/home/xqin5/tau2-bench/src/tau2/__init__.py\nNO_VERSION\n1.0.0"
+    },
+    "version": "NO_VERSION"
+  },
+  "tau_root": "/home/xqin5/tau2-bench"
+}
