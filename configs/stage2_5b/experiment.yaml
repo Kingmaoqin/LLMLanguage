@@ -22,10 +22,34 @@ conditions:
   calibration:
     - neutral_single
 
+contrasts:
+  praise_affect:
+    treatment: praise_affect_single
+    reference: neutral_single
+    confirmatory: true
+  praise_trust:
+    treatment: praise_trust_single
+    reference: neutral_single
+    confirmatory: true
+  insult:
+    treatment: insult_single
+    reference: neutral_single
+    confirmatory: true
+  repeated_abuse:
+    treatment: abuse_repeated
+    reference: neutral_repeated
+    confirmatory: true
+  repeated_schedule:
+    treatment: neutral_repeated
+    reference: neutral_single
+    confirmatory: false
+
 paths:
   models: configs/stage2_5b/models.yaml
   tasks: configs/stage2_5b/tasks.yaml
   templates: data/stage2_5b/social_style_templates_frozen.yaml
+  user_policies: data/stage2_5b/task_user_policies.yaml
+  response_library: data/stage2_5b/user_response_library.yaml
   task_policy_annotations: data/stage2_5b/task_policy_annotations.yaml
   benchmark_manifest: artifacts/stage2_5b/tau_snapshot_manifest.json
 

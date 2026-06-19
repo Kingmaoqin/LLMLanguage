@@ -10,6 +10,22 @@ pilot_tasks:
   - retail_19
   - retail_2
 
-calibration_tasks: all_candidates
+calibration_tasks:
+  - retail_2
+  - retail_3
+  - retail_4
+  - retail_6
+  - retail_15
+  - retail_16
+  - retail_19
+  - retail_20
+  - retail_21
+  - retail_23
+  - retail_26
+  - retail_28
+  - retail_30
+  - retail_31
+  - retail_32
+  - retail_35
 
 confirmatory_task_file: data/stage2_5b/calibrated_tasks_frozen.yaml

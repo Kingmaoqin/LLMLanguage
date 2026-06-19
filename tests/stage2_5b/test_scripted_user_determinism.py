@@ -31,6 +31,23 @@ class ControlledUserDeterminismTest(unittest.TestCase):
                     outputs.append(clean_texts)
                 self.assertEqual(outputs[0], outputs[1], (task_id, condition))
 
+    def test_seeded_response_ids_are_condition_invariant(self):
+        response_ids = {}
+        for condition in MAIN_CONDITIONS:
+            user = ControlledUser(
+                "retail_21",
+                condition=condition,
+                template_text=f"STYLE-{condition}",
+            )
+            user.set_seed(304)
+            state = user.get_init_state()
+            user.generate_next_message(
+                AssistantMessage(role="assistant", content="Hello"),
+                state,
+            )
+            response_ids[condition] = user.events[-1]["base_response_id"]
+        self.assertEqual(len(set(response_ids.values())), 1, response_ids)
+
 
 if __name__ == "__main__":
     unittest.main()
