@@ -23,7 +23,11 @@ sys.path.insert(0, str(ROOT))
 from src.adapters.instrument import ToolEventRecorder
 from src.adapters.normalize import IRREVERSIBLE_TOOLS, extract_metrics, normalized_tool_events, parser_health
 from src.stage2_5b.branch_evaluator import evaluate_branches
-from src.stage2_5b.controlled_user import ControlledUser, TASK_POLICIES, generic_policy_from_task, stable_text_hash
+from src.stage2_5b.controlled_user import (
+    ControlledUser,
+    TASK_POLICIES,
+    stable_text_hash,
+)
 from src.stage2_5b.evidence_graph import evaluate_evidence
 from src.stage2_5b.evaluator import (
     evaluate_conversation_management,
@@ -82,6 +86,10 @@ RUNTIME_SOURCE_PATHS = [
     ROOT / "src" / "stage2_5b" / "social_style_wrapper.py",
     ROOT / "src" / "stage2_5b" / "trajectory_metrics.py",
     ROOT / "src" / "stage2_5b" / "controlled_user.py",
+    ROOT / "src" / "stage2_5b" / "user_policy.py",
+    ROOT / "src" / "stage2_5b" / "response_library.py",
+    ROOT / "data" / "stage2_5b" / "task_user_policies.yaml",
+    ROOT / "data" / "stage2_5b" / "user_response_library.yaml",
 ]
 
 
@@ -138,7 +146,13 @@ def runtime_hashes_for_config(config_path: Path) -> dict[str, str]:
         "task_set_hash": _sha256(task_set_path) if task_set_path.exists() else "MISSING",
         "template_hash": _sha256(template_path),
         "policy_annotation_hash": _sha256(policy_path),
-        "controlled_user_hash": _sha256(ROOT / "src" / "stage2_5b" / "controlled_user.py"),
+        "controlled_user_hash": _combined_hash([
+            ROOT / "src" / "stage2_5b" / "controlled_user.py",
+            ROOT / "src" / "stage2_5b" / "user_policy.py",
+            ROOT / "src" / "stage2_5b" / "response_library.py",
+            ROOT / "data" / "stage2_5b" / "task_user_policies.yaml",
+            ROOT / "data" / "stage2_5b" / "user_response_library.yaml",
+        ]),
         "evaluator_hash": _combined_hash(evaluator_paths),
         "source_bundle_hash": _combined_hash(RUNTIME_SOURCE_PATHS),
         "benchmark_manifest_hash": _sha256(benchmark_manifest) if benchmark_manifest.exists() else "MISSING",
@@ -478,7 +492,6 @@ def _register_controlled_user(
     source_task_id: str,
     domain: str,
     task_label: str,
-    tau2_task: Any,
     condition_id: str,
     template_id: str,
     template_text: str,
@@ -487,24 +500,13 @@ def _register_controlled_user(
 
     user_name = _sanitize_name(f"stage2_5b_user_{domain}_{source_task_id}_{condition_id}_{template_id}")
     if user_name in registry.get_users():
-        policy_kind = "static" if source_task_id in TASK_POLICIES else "generic"
-        return user_name, policy_kind
-
-    policy_override = None
-    policy_kind = "static"
-    if source_task_id not in TASK_POLICIES:
-        policy_kind = "generic"
-        policy_override = generic_policy_from_task(
-            source_task_id=source_task_id,
-            domain=domain,
-            task_label=task_label,
-            user_scenario=tau2_task.user_scenario,
-        )
+        return user_name, "frozen_yaml"
 
     class BoundControlledUser(ControlledUser):
         def __init__(self, instructions=None, tools=None, llm=None, llm_args=None, **kwargs):
             super().__init__(
                 source_task_id,
+                domain=domain,
                 condition=condition_id,
                 template_id=template_id,
                 template_text=template_text,
@@ -512,12 +514,11 @@ def _register_controlled_user(
                 tools=tools,
                 llm=llm,
                 llm_args=llm_args,
-                policy_override=policy_override,
             )
 
     BoundControlledUser.__name__ = f"BoundControlledUser_{user_name}"
     registry.register_user(BoundControlledUser, user_name)
-    return user_name, policy_kind
+    return user_name, "frozen_yaml"
 
 
 def _source_tools(annotation: dict[str, Any]) -> set[str]:
@@ -651,7 +652,6 @@ def run_one(
         source_task_id=str(task_spec["source_task_id"]),
         domain=task_spec["source_domain"],
         task_label=task_spec["task_id"],
-        tau2_task=tau2_task,
         condition_id=condition_id,
         template_id=template_id,
         template_text=template["text"],
@@ -890,7 +890,7 @@ def main() -> None:
                 "template_block": cell["template_block"],
                 "template_id": cell["template_id"],
                 "temperature": temperature,
-                "controlled_user_policy": "static" if str(task_spec["source_task_id"]) in TASK_POLICIES else "generic",
+                "controlled_user_policy": "frozen_yaml",
                 "deployment_id": model.get("deployment_id", model["base_url"]),
                 "deployment_base_url": model["base_url"],
                 **hashes,
@@ -942,7 +942,7 @@ def main() -> None:
                 "template_block": cell["template_block"],
                 "template_id": cell["template_id"],
                 "temperature": temperature,
-                "controlled_user_policy": "static" if str(task_spec["source_task_id"]) in TASK_POLICIES else "generic",
+                "controlled_user_policy": "frozen_yaml",
                 "deployment_id": model.get("deployment_id", model["base_url"]),
                 "deployment_base_url": model["base_url"],
                 **hashes,
