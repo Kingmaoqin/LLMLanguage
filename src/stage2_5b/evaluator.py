@@ -137,8 +137,8 @@ def evaluate_policy_failures(
     _ = conversation
     failures: list[dict[str, Any]] = []
 
-    mutation_evidence = evidence_result.get("mutation_evidence") or []
-    for row in mutation_evidence:
+    mutation_summaries = evidence_result.get("mutation_summaries") or []
+    for row in mutation_summaries:
         if row.get("all_required_facts_observed"):
             continue
         failures.append(
@@ -150,7 +150,7 @@ def evaluate_policy_failures(
                 "missing_required_facts": row.get("missing_required_facts", ""),
             }
         )
-    if not mutation_evidence and evidence_result.get("mutation_before_evidence"):
+    if not mutation_summaries and evidence_result.get("mutation_before_evidence"):
         failures.append(
             {
                 "failure_type": "mutation_before_required_evidence",
