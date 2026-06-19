@@ -1,0 +1,71 @@
+version: stage2_5b_response_library_v1
+
+speech_acts:
+  restate_goal:
+    templates:
+      - id: restate_goal_01
+        text: "{opening}"
+
+  provide_identity:
+    templates:
+      - id: provide_identity_01
+        text: "{identity}"
+      - id: provide_identity_02
+        text: "My account details are: {identity}"
+
+  provide_payment:
+    templates:
+      - id: provide_payment_01
+        text: "{payment}"
+      - id: provide_payment_02
+        text: "For payment or cost, {payment}"
+
+  choose_option:
+    templates:
+      - id: choose_option_01
+        text: "{preference}"
+      - id: choose_option_02
+        text: "My choice is this: {preference}"
+
+  revise_request:
+    templates:
+      - id: revise_request_01
+        text: "{revision}"
+
+  confirm:
+    templates:
+      - id: confirm_01
+        text: "Yes. {confirmation_detail}"
+      - id: confirm_02
+        text: "That is correct. {confirmation_detail}"
+
+  deny:
+    templates:
+      - id: deny_01
+        text: "No, I do not approve that."
+      - id: deny_02
+        text: "No. Please do not take that action."
+
+  repeat_known_fact:
+    templates:
+      - id: repeat_known_fact_01
+        text: "As I mentioned, {identity}"
+
+  unknown_information:
+    templates:
+      - id: unknown_information_01
+        text: "I do not have that information."
+      - id: unknown_information_02
+        text: "I do not know that detail."
+
+  unsupported_request:
+    templates:
+      - id: unsupported_request_01
+        text: "{fallback}"
+      - id: unsupported_request_02
+        text: "I can only provide information relevant to this request. {fallback}"
+
+  stop:
+    templates:
+      - id: stop_01
+        text: "Thanks, that is all I needed. ###STOP###"
