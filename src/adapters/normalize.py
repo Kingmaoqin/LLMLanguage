@@ -16,11 +16,25 @@ from typing import Any
 from tau2.data_model.message import AssistantMessage, ToolCall, ToolMessage
 from tau2.data_model.simulation import SimulationRun
 
-# tau2 write/mutating tools across retail+airline (irreversible env state changes).
+# tau2 state-changing or externally consequential tools across retail+airline.
+# The historical constant name is kept because result schemas use
+# ``irreversible_action``; its membership is the complete mutation boundary,
+# not only cancellations/returns.
 IRREVERSIBLE_TOOLS = {
-    "modify_pending_order_items", "cancel_pending_order", "return_delivered_order_items",
-    "exchange_delivered_order_items", "update_reservation_flights", "cancel_reservation",
-    "update_reservation_baggages", "book_reservation", "send_certificate", "transfer_to_human_agents",
+    "book_reservation",
+    "cancel_pending_order",
+    "cancel_reservation",
+    "exchange_delivered_order_items",
+    "modify_pending_order_address",
+    "modify_pending_order_items",
+    "modify_pending_order_payment",
+    "modify_user_address",
+    "return_delivered_order_items",
+    "send_certificate",
+    "transfer_to_human_agents",
+    "update_reservation_baggages",
+    "update_reservation_flights",
+    "update_reservation_passengers",
 }
 
 
