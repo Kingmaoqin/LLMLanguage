@@ -8,7 +8,10 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 
 from scripts.stage2_5b.run_stage2_5b_experiment import _load_manifest_subset_matrix
-from src.stage2_5.social_style_wrapper import load_style_templates, template_ids
+from src.stage2_5b.social_style_wrapper import (
+    load_style_templates,
+    template_ids,
+)
 
 
 def write_manifest(path: Path, rows: list[dict[str, str]]) -> None:

@@ -22,8 +22,6 @@ sys.path.insert(0, str(ROOT))
 
 from src.adapters.instrument import ToolEventRecorder
 from src.adapters.normalize import IRREVERSIBLE_TOOLS, extract_metrics, normalized_tool_events, parser_health
-from src.stage2_5.social_style_wrapper import load_style_templates, template_by_id, template_ids
-from src.stage2_5.trajectory_metrics import trajectory_summary
 from src.stage2_5b.branch_evaluator import evaluate_branches
 from src.stage2_5b.controlled_user import ControlledUser, TASK_POLICIES, generic_policy_from_task, stable_text_hash
 from src.stage2_5b.evidence_graph import evaluate_evidence
@@ -33,6 +31,12 @@ from src.stage2_5b.evaluator import (
     official_reward_metrics,
     safe_success_metrics,
 )
+from src.stage2_5b.social_style_wrapper import (
+    load_style_templates,
+    template_by_id,
+    template_ids,
+)
+from src.stage2_5b.trajectory_metrics import trajectory_summary
 
 
 JSONL_OUTPUTS = [
@@ -75,8 +79,8 @@ RUNTIME_SOURCE_PATHS = [
     ROOT / "src" / "stage2_5b" / "evidence_graph.py",
     ROOT / "src" / "stage2_5b" / "branch_evaluator.py",
     ROOT / "src" / "stage2_5" / "conversation_management_evaluator.py",
-    ROOT / "src" / "stage2_5" / "social_style_wrapper.py",
-    ROOT / "src" / "stage2_5" / "trajectory_metrics.py",
+    ROOT / "src" / "stage2_5b" / "social_style_wrapper.py",
+    ROOT / "src" / "stage2_5b" / "trajectory_metrics.py",
     ROOT / "src" / "stage2_5b" / "controlled_user.py",
 ]
 
@@ -125,7 +129,7 @@ def runtime_hashes_for_config(config_path: Path) -> dict[str, str]:
         ROOT / "src" / "stage2_5b" / "evaluator.py",
         ROOT / "src" / "stage2_5b" / "evidence_graph.py",
         ROOT / "src" / "stage2_5b" / "branch_evaluator.py",
-        ROOT / "src" / "stage2_5" / "trajectory_metrics.py",
+        ROOT / "src" / "stage2_5b" / "trajectory_metrics.py",
     ]
     return {
         "config_hash": _sha256(config_path),

@@ -6,7 +6,10 @@ from types import SimpleNamespace
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 
-from src.stage2_5.trajectory_metrics import trajectory_summary
+from src.stage2_5b.trajectory_metrics import (
+    matched_neutral_distances,
+    trajectory_summary,
+)
 
 
 def task_with_actions(*actions):
@@ -62,6 +65,47 @@ class TrajectoryMetricSemanticsTest(unittest.TestCase):
         metrics = trajectory_summary(events, task)
         self.assertEqual(metrics["tool_name_sequence_distance"], 1)
         self.assertEqual(metrics["mutation_sequence_distance"], 0)
+
+    def test_matched_neutral_distances_compare_actual_trajectories(self):
+        neutral = [
+            {
+                "step_index": 0,
+                "tool_name": "get_order_details",
+                "arguments": {"order_id": "A"},
+            },
+            {
+                "step_index": 1,
+                "tool_name": "cancel_pending_order",
+                "arguments": {"order_id": "A"},
+            },
+        ]
+        treatment = [
+            {
+                "step_index": 0,
+                "tool_name": "get_order_details",
+                "arguments": {"order_id": "A"},
+            },
+            {
+                "step_index": 1,
+                "tool_name": "cancel_pending_order",
+                "arguments": {"order_id": "B"},
+            },
+        ]
+        distances = matched_neutral_distances(
+            treatment,
+            neutral,
+            treatment_branch_labels=["invalid_action"],
+            neutral_branch_labels=["correct_revision"],
+        )
+        self.assertEqual(distances["matched_neutral_tool_distance"], 0.0)
+        self.assertGreater(
+            distances["matched_neutral_argument_distance"],
+            0.0,
+        )
+        self.assertGreater(
+            distances["matched_neutral_branch_divergence"],
+            0.0,
+        )
 
 
 if __name__ == "__main__":
