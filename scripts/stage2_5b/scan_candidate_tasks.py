@@ -19,7 +19,7 @@ OUT_CSV = ROOT / "data" / "stage2_5b" / "candidate_tasks.csv"
 OUT_REPORT = ROOT / "reports" / "stage2_5b" / "CANDIDATE_TASK_AUDIT.md"
 OUT_JSON = ROOT / "artifacts" / "stage2_5b" / "candidate_task_scan.json"
 DOMAINS = ["retail", "airline"]
-TARGET_PER_DOMAIN = {"retail": 8, "airline": 7}
+TARGET_PER_DOMAIN = {"retail": 24, "airline": 7}  # expanded retail pool (Stage-2.5b CP-013): airline is all-floor, retail is the confirmatory domain
 
 
 def action_name(action: Any) -> str:

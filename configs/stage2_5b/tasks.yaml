@@ -1,14 +1,14 @@
 candidate_tasks_csv: data/stage2_5b/candidate_tasks.csv
 
 smoke_tasks:
-  - retail_21
-  - airline_44
+  - retail_41
+  - retail_6
 
 pilot_tasks:
-  - retail_21
-  - retail_23
-  - airline_44
-  - airline_39
+  - retail_41
+  - retail_6
+  - retail_19
+  - retail_2
 
 calibration_tasks: all_candidates
 

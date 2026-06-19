@@ -2,7 +2,7 @@ experiment:
   name: stage2_5b_confirmatory_repair
   benchmark: tau2
   temperature_main: 0.0
-  calibration_seeds: [100, 101]
+  calibration_seeds: [100, 101, 102, 103, 104, 105, 106, 107, 108, 109]
   smoke_seeds: [300]
   pilot_seeds: [300, 301]
   confirmatory_seeds: [300, 301, 302, 303, 304]

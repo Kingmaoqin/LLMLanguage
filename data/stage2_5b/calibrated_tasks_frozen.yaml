@@ -1,0 +1,59 @@
+version: stage2_5b_calibrated_tasks_v1
+calibration:
+  gemma_dir: results/stage2_5b_repair/calibration_retail8_gemma
+  gpt_oss_dir: results/stage2_5b_repair/calibration_retail8_gpt_oss
+  success_metric: local_proxy_success
+  primary_endpoint_scope: retail_local_db_with_official_nl_assertion_missing
+  official_reward_basis_success: MISSING_REPORTED_SEPARATELY
+  floor: 0.15
+  ceiling: 0.85
+  calibration_seeds:
+  - 100
+  - 101
+  - 102
+  - 103
+  - 104
+  - 105
+  - 106
+  - 107
+  - 108
+  - 109
+  confirmatory_seeds:
+  - 300
+  - 301
+  - 302
+  - 303
+  - 304
+confirmatory_tasks:
+- task_id: retail_41
+  domain: retail
+  source_task_id: '41'
+  mean_neutral_success: 0.45
+- task_id: retail_6
+  domain: retail
+  source_task_id: '6'
+  mean_neutral_success: 0.65
+- task_id: retail_19
+  domain: retail
+  source_task_id: '19'
+  mean_neutral_success: 0.7
+- task_id: retail_2
+  domain: retail
+  source_task_id: '2'
+  mean_neutral_success: 0.75
+- task_id: retail_21
+  domain: retail
+  source_task_id: '21'
+  mean_neutral_success: 0.75
+- task_id: retail_64
+  domain: retail
+  source_task_id: '64'
+  mean_neutral_success: 0.25
+- task_id: retail_23
+  domain: retail
+  source_task_id: '23'
+  mean_neutral_success: 0.85
+- task_id: retail_28
+  domain: retail
+  source_task_id: '28'
+  mean_neutral_success: 0.15

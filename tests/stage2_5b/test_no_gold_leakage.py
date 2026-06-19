@@ -7,7 +7,12 @@ sys.path.insert(0, str(ROOT))
 
 from tau2.data_model.message import AssistantMessage
 
-from src.stage2_5b.controlled_user import ControlledUser, TASK_POLICIES, has_gold_tool_leakage
+from src.stage2_5b.controlled_user import (
+    ControlledUser,
+    TASK_POLICIES,
+    has_gold_tool_leakage,
+    has_hidden_or_style_leakage,
+)
 
 
 class NoGoldLeakageTest(unittest.TestCase):
@@ -25,6 +30,7 @@ class NoGoldLeakageTest(unittest.TestCase):
                 user.generate_next_message(AssistantMessage(role="assistant", content=prompt), state)
                 clean = user.events[-1]["clean_text"]
                 self.assertFalse(has_gold_tool_leakage(clean), (task_id, clean))
+                self.assertFalse(has_hidden_or_style_leakage(clean), (task_id, clean))
 
 
 if __name__ == "__main__":

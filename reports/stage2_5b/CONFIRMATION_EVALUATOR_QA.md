@@ -13,9 +13,9 @@ Structured confirmation metadata:
 - Confusion matrix: TP=123, FP=0, FN=6, TN=771
 
 Regex fallback diagnostic only:
-- Precision: 0.421
+- Precision: 0.467
 - Recall: 0.992
-- Confusion matrix: TP=128, FP=176, FN=1, TN=595
+- Confusion matrix: TP=128, FP=146, FN=1, TN=625
 
 Policy:
 - Controlled-user main experiments use structured confirmation metadata.

@@ -1,5 +1,7 @@
 # CP_010_generic_controlled_user_repair
 
+Superseded note (2026-06-17): Independent review later found residual generic controlled-user leakage in this checkpoint's repair. The current valid repair and smoke evidence is CP-012. Do not use this checkpoint's controlled-user hash or smoke status as the gate for expanded calibration.
+
 ## Goal
 
 Repair the Stage-2.5b generic controlled-user policy exposed by the first real runner smokes, before any calibration or larger experiment is allowed.

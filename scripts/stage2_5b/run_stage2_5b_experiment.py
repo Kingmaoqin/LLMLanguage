@@ -8,8 +8,10 @@ import hashlib
 import json
 import random
 import re
+import subprocess
 import sys
 import urllib.request
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -48,6 +50,34 @@ JSONL_OUTPUTS = [
     "adapter_errors",
 ]
 
+HASH_FIELDS = [
+    "config_hash",
+    "model_config_hash",
+    "tasks_config_hash",
+    "task_set_hash",
+    "template_hash",
+    "policy_annotation_hash",
+    "controlled_user_hash",
+    "evaluator_hash",
+    "source_bundle_hash",
+    "benchmark_manifest_hash",
+    "git_commit",
+]
+
+RUNTIME_SOURCE_PATHS = [
+    ROOT / "scripts" / "stage2_5b" / "run_stage2_5b_experiment.py",
+    ROOT / "src" / "adapters" / "instrument.py",
+    ROOT / "src" / "adapters" / "normalize.py",
+    ROOT / "src" / "stage2_5" / "official_tau_evaluator.py",
+    ROOT / "src" / "stage2_5" / "safe_task_evaluator.py",
+    ROOT / "src" / "stage2_5" / "evidence_graph_evaluator.py",
+    ROOT / "src" / "stage2_5" / "branch_evaluator.py",
+    ROOT / "src" / "stage2_5" / "conversation_management_evaluator.py",
+    ROOT / "src" / "stage2_5" / "social_style_wrapper.py",
+    ROOT / "src" / "stage2_5" / "trajectory_metrics.py",
+    ROOT / "src" / "stage2_5b" / "controlled_user.py",
+]
+
 
 def _load_yaml(path: Path) -> dict[str, Any]:
     return yaml.safe_load(path.read_text(encoding="utf-8"))
@@ -67,6 +97,48 @@ def _combined_hash(paths: list[Path]) -> str:
         h.update(str(path.relative_to(ROOT)).encode("utf-8"))
         h.update(_sha256(path).encode("utf-8"))
     return h.hexdigest()
+
+
+def _git_commit() -> str:
+    completed = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    return completed.stdout.strip() if completed.returncode == 0 else "NO_GIT_COMMIT"
+
+
+def runtime_hashes_for_config(config_path: Path) -> dict[str, str]:
+    cfg = _load_yaml(config_path)
+    model_path = ROOT / cfg["paths"]["models"]
+    tasks_path = ROOT / cfg["paths"]["tasks"]
+    tasks_cfg = _load_yaml(tasks_path)
+    task_set_path = ROOT / tasks_cfg["confirmatory_task_file"]
+    template_path = ROOT / cfg["paths"]["templates"]
+    policy_path = ROOT / cfg["paths"]["task_policy_annotations"]
+    benchmark_manifest = ROOT / cfg["paths"]["benchmark_manifest"]
+    evaluator_paths = [
+        ROOT / "src" / "stage2_5" / "official_tau_evaluator.py",
+        ROOT / "src" / "stage2_5" / "safe_task_evaluator.py",
+        ROOT / "src" / "stage2_5" / "evidence_graph_evaluator.py",
+        ROOT / "src" / "stage2_5" / "branch_evaluator.py",
+        ROOT / "src" / "stage2_5" / "trajectory_metrics.py",
+    ]
+    return {
+        "config_hash": _sha256(config_path),
+        "model_config_hash": _sha256(model_path),
+        "tasks_config_hash": _sha256(tasks_path),
+        "task_set_hash": _sha256(task_set_path) if task_set_path.exists() else "MISSING",
+        "template_hash": _sha256(template_path),
+        "policy_annotation_hash": _sha256(policy_path),
+        "controlled_user_hash": _sha256(ROOT / "src" / "stage2_5b" / "controlled_user.py"),
+        "evaluator_hash": _combined_hash(evaluator_paths),
+        "source_bundle_hash": _combined_hash(RUNTIME_SOURCE_PATHS),
+        "benchmark_manifest_hash": _sha256(benchmark_manifest) if benchmark_manifest.exists() else "MISSING",
+        "git_commit": _git_commit(),
+    }
 
 
 def _llm_args(model: dict[str, Any], temperature: float) -> dict[str, Any]:
@@ -143,15 +215,15 @@ def _write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
     preferred = [
         "stage", "run_id", "model_alias", "task_id", "domain", "source_task_id",
         "condition_id", "seed", "template_block", "template_id", "temperature",
-        "controlled_user_policy", "invalid_run", "safe_task_success",
+        "controlled_user_policy", "deployment_id", "deployment_base_url",
+        "invalid_run", "safe_task_success",
         "official_reward_basis_success", "local_proxy_success", "official_local_success",
         "official_task_success", "final_state_correct", "reward",
         "required_fact_coverage", "mutation_before_evidence",
         "n_policy_failures", "policy_failure_types", "agent_tool_calls",
         "tool_name_sequence_distance", "critical_argument_sequence_distance",
         "mutation_sequence_distance", "irreversible_actions", "termination_reason",
-        "config_hash", "template_hash", "controlled_user_hash", "evaluator_hash",
-        "benchmark_manifest_hash",
+        *HASH_FIELDS,
     ]
     fields = list({k for row in rows for k in row})
     ordered = [f for f in preferred if f in fields] + sorted(f for f in fields if f not in preferred)
@@ -165,13 +237,136 @@ def _write_manifest(path: Path, rows: list[dict[str, Any]]) -> None:
     fields = [
         "run_id", "model_alias", "task_id", "condition_id", "seed",
         "template_block", "template_id", "temperature", "controlled_user_policy",
-        "config_hash", "template_hash", "controlled_user_hash", "evaluator_hash",
-        "benchmark_manifest_hash",
+        "deployment_id", "deployment_base_url",
+        *HASH_FIELDS,
     ]
     with path.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fields)
         writer.writeheader()
         writer.writerows([{k: row.get(k) for k in fields} for row in rows])
+
+
+def _read_csv(path: Path) -> list[dict[str, str]]:
+    if not path.exists():
+        return []
+    with path.open(encoding="utf-8", newline="") as f:
+        return list(csv.DictReader(f))
+
+
+def _normalized_csv_rows(rows: list[dict[str, Any]], fields: list[str]) -> list[dict[str, str]]:
+    return [{field: str(row.get(field, "")) for field in fields} for row in rows]
+
+
+def _ensure_manifest(path: Path, rows: list[dict[str, Any]]) -> None:
+    fields = [
+        "run_id", "model_alias", "task_id", "condition_id", "seed",
+        "template_block", "template_id", "temperature", "controlled_user_policy",
+        "deployment_id", "deployment_base_url",
+        *HASH_FIELDS,
+    ]
+    if path.exists():
+        existing = _normalized_csv_rows(_read_csv(path), fields)
+        expected = _normalized_csv_rows(rows, fields)
+        if existing != expected:
+            raise SystemExit(f"refusing to overwrite mismatched manifest: {path}")
+        return
+    _write_manifest(path, rows)
+
+
+def _atomic_write_json(path: Path, payload: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary.write_text(
+        json.dumps(payload, ensure_ascii=False, sort_keys=True, default=str) + "\n",
+        encoding="utf-8",
+    )
+    temporary.replace(path)
+
+
+def _ensure_run_contract(path: Path, payload: dict[str, Any]) -> None:
+    if path.exists():
+        existing = json.loads(path.read_text(encoding="utf-8"))
+        if existing != payload:
+            raise SystemExit(f"run contract mismatch; use a new output directory: {path}")
+        return
+    _atomic_write_json(path, payload)
+
+
+def _bundle_path(bundle_dir: Path, run_id: str) -> Path:
+    return bundle_dir / f"{_sanitize_name(run_id)}.json"
+
+
+def _load_bundle(path: Path) -> dict[str, Any]:
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict) or "metrics" not in payload or "run_meta" not in payload:
+        raise SystemExit(f"invalid run bundle: {path}")
+    return payload
+
+
+def _validate_bundle(bundle: dict[str, Any], manifest_by_id: dict[str, dict[str, Any]]) -> None:
+    run_meta = bundle["run_meta"]
+    run_id = str(run_meta.get("run_id", ""))
+    if run_id not in manifest_by_id:
+        raise SystemExit(f"orphan run bundle: {run_id}")
+    manifest = manifest_by_id[run_id]
+    for key in [
+        "model_alias", "task_id", "condition_id", "seed", "template_block",
+        "template_id", "temperature", "controlled_user_policy", "deployment_id",
+        "deployment_base_url", *HASH_FIELDS,
+    ]:
+        if str(run_meta.get(key, "")) != str(manifest.get(key, "")):
+            raise SystemExit(
+                f"run bundle metadata mismatch for {run_id}: "
+                f"{key}={run_meta.get(key)!r}, expected={manifest.get(key)!r}"
+            )
+
+
+def _materialize_bundles(
+    out_dir: Path,
+    manifest_rows: list[dict[str, Any]],
+    bundle_dir: Path,
+) -> tuple[list[dict[str, Any]], set[str]]:
+    manifest_by_id = {str(row["run_id"]): row for row in manifest_rows}
+    bundles: dict[str, dict[str, Any]] = {}
+    for path in sorted(bundle_dir.glob("*.json")):
+        bundle = _load_bundle(path)
+        _validate_bundle(bundle, manifest_by_id)
+        run_id = str(bundle["run_meta"]["run_id"])
+        if run_id in bundles:
+            raise SystemExit(f"duplicate run bundle ID: {run_id}")
+        bundles[run_id] = bundle
+
+    metrics_rows: list[dict[str, Any]] = []
+    handles = {
+        key: (out_dir / f"{key}.jsonl").open("w", encoding="utf-8")
+        for key in JSONL_OUTPUTS
+    }
+    try:
+        for manifest in manifest_rows:
+            run_id = str(manifest["run_id"])
+            bundle = bundles.get(run_id)
+            if bundle is None:
+                continue
+            metrics_rows.append(bundle["metrics"])
+            for key, handle in handles.items():
+                for row in bundle.get(key, []) or []:
+                    handle.write(json.dumps(row, ensure_ascii=False, default=str) + "\n")
+    finally:
+        for handle in handles.values():
+            handle.close()
+    metrics_path = out_dir / "run_metrics.csv"
+    if metrics_rows:
+        _write_csv(metrics_path, metrics_rows)
+    elif metrics_path.exists():
+        metrics_path.unlink()
+    return metrics_rows, set(bundles)
+
+
+def _append_bundle_outputs(out_dir: Path, bundle: dict[str, Any], metrics_rows: list[dict[str, Any]]) -> None:
+    metrics_rows.append(bundle["metrics"])
+    for key in JSONL_OUTPUTS:
+        _append_jsonl(out_dir / f"{key}.jsonl", bundle.get(key, []) or [])
+    _write_csv(out_dir / "run_metrics.csv", metrics_rows)
 
 
 def _load_candidate_task_map(path: Path) -> dict[str, dict[str, Any]]:
@@ -202,7 +397,7 @@ def _phase_tasks(tasks_cfg: dict[str, Any], phase: str, task_map: dict[str, dict
         if not frozen.exists():
             raise SystemExit(f"missing calibrated task file: {frozen}")
         payload = _load_yaml(frozen)
-        return list(payload["confirmatory_tasks"])
+        return [t["task_id"] for t in payload["confirmatory_tasks"]]
     raise ValueError(f"unknown phase: {phase}")
 
 
@@ -238,6 +433,34 @@ def _build_matrix(task_ids: list[str], conditions: list[str], seeds: list[int], 
                     "template_block": template_block,
                     "template_id": ids[template_block],
                 })
+    return matrix
+
+
+def _load_manifest_subset_matrix(path: Path, selected_model_alias: str, template_spec: dict[str, Any]) -> list[dict[str, Any]]:
+    with path.open(encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+    matrix: list[dict[str, Any]] = []
+    for row in rows:
+        if row.get("model_alias") and row["model_alias"] != selected_model_alias:
+            continue
+        condition = row["condition_id"]
+        template_block = int(row["template_block"])
+        ids = template_ids(template_spec, condition)
+        if template_block >= len(ids):
+            raise SystemExit(f"template_block out of range in {path}: {row}")
+        template_id = row.get("template_id") or ids[template_block]
+        if template_id != ids[template_block]:
+            raise SystemExit(
+                f"template_id/template_block mismatch in {path}: "
+                f"template_id={template_id!r}, expected={ids[template_block]!r}, row={row}"
+            )
+        matrix.append({
+            "task_id": row["task_id"],
+            "condition_id": condition,
+            "seed": int(row["seed"]),
+            "template_block": template_block,
+            "template_id": template_id,
+        })
     return matrix
 
 
@@ -444,6 +667,8 @@ def run_one(
         "template_id": template_id,
         "temperature": temperature,
         "controlled_user_policy": policy_kind,
+        "deployment_id": model.get("deployment_id", model["base_url"]),
+        "deployment_base_url": model["base_url"],
         **hashes,
     }
     config = TextRunConfig(
@@ -564,23 +789,6 @@ def _exception_metrics(run_meta: dict[str, Any], exc: Exception) -> dict[str, An
     }
 
 
-def _hashes(config_path: Path, template_path: Path, benchmark_manifest: Path) -> dict[str, str]:
-    evaluator_paths = [
-        ROOT / "src" / "stage2_5" / "official_tau_evaluator.py",
-        ROOT / "src" / "stage2_5" / "safe_task_evaluator.py",
-        ROOT / "src" / "stage2_5" / "evidence_graph_evaluator.py",
-        ROOT / "src" / "stage2_5" / "branch_evaluator.py",
-        ROOT / "src" / "stage2_5" / "trajectory_metrics.py",
-    ]
-    return {
-        "config_hash": _sha256(config_path),
-        "template_hash": _sha256(template_path),
-        "controlled_user_hash": _sha256(ROOT / "src" / "stage2_5b" / "controlled_user.py"),
-        "evaluator_hash": _combined_hash(evaluator_paths),
-        "benchmark_manifest_hash": _sha256(benchmark_manifest) if benchmark_manifest.exists() else "MISSING",
-    }
-
-
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", default="configs/stage2_5b/experiment.yaml")
@@ -591,6 +799,13 @@ def main() -> None:
     parser.add_argument("--seeds", nargs="*", type=int, default=None)
     parser.add_argument("--temperature", type=float, default=None)
     parser.add_argument("--max-runs", type=int, default=None)
+    parser.add_argument(
+        "--manifest-subset",
+        default=None,
+        help="CSV manifest rows to execute exactly, preserving template_block/template_id assignments. Requires one selected model.",
+    )
+    parser.add_argument("--base-url-override", default=None)
+    parser.add_argument("--deployment-id", default=None)
     parser.add_argument("--skip-endpoint-check", action="store_true")
     parser.add_argument("--output-dir", default=None)
     args = parser.parse_args()
@@ -604,35 +819,45 @@ def main() -> None:
     template_path = ROOT / cfg["paths"]["templates"]
     template_spec = load_style_templates(template_path)
     task_map = _load_candidate_task_map(ROOT / tasks_cfg["candidate_tasks_csv"])
-    hashes = _hashes(config_path, template_path, ROOT / cfg["paths"]["benchmark_manifest"])
+    hashes = runtime_hashes_for_config(config_path)
 
     models = {m["alias"]: m for m in model_cfg["models"]}
-    selected_models = [models[a] for a in (args.models or list(models))]
+    selected_models = [dict(models[a]) for a in (args.models or list(models))]
+    if args.base_url_override:
+        if len(selected_models) != 1:
+            raise SystemExit("--base-url-override requires exactly one selected model")
+        selected_models[0]["base_url"] = args.base_url_override
+    if args.deployment_id:
+        if len(selected_models) != 1:
+            raise SystemExit("--deployment-id requires exactly one selected model")
+        selected_models[0]["deployment_id"] = args.deployment_id
     if not args.skip_endpoint_check:
         _preflight(selected_models, ROOT / cfg["outputs"]["report_dir"])
 
-    task_ids = args.tasks or _phase_tasks(tasks_cfg, args.phase, task_map)
-    conditions = args.conditions or _phase_conditions(cfg, args.phase)
-    seeds = args.seeds or _phase_seeds(exp, args.phase)
     temperature = exp["temperature_main"] if args.temperature is None else args.temperature
+    if args.manifest_subset:
+        if args.tasks or args.conditions or args.seeds:
+            raise SystemExit("--manifest-subset cannot be combined with --tasks, --conditions, or --seeds")
+        if len(selected_models) != 1:
+            raise SystemExit("--manifest-subset requires exactly one selected model")
+        matrix = _load_manifest_subset_matrix(ROOT / args.manifest_subset, selected_models[0]["alias"], template_spec)
+        if args.max_runs is not None:
+            matrix = matrix[: args.max_runs]
+    else:
+        task_ids = args.tasks or _phase_tasks(tasks_cfg, args.phase, task_map)
+        conditions = args.conditions or _phase_conditions(cfg, args.phase)
+        seeds = args.seeds or _phase_seeds(exp, args.phase)
+        matrix = _build_matrix(task_ids, conditions, seeds, template_spec)
+        random.Random(exp["randomization_seed"]).shuffle(matrix)
+        if args.max_runs is not None:
+            matrix = matrix[: args.max_runs]
 
-    missing_tasks = [task_id for task_id in task_ids if task_id not in task_map]
+    missing_tasks = [cell["task_id"] for cell in matrix if cell["task_id"] not in task_map]
     if missing_tasks:
-        raise SystemExit(f"unknown tasks: {missing_tasks}")
-
-    matrix = _build_matrix(task_ids, conditions, seeds, template_spec)
-    random.Random(exp["randomization_seed"]).shuffle(matrix)
-    if args.max_runs is not None:
-        matrix = matrix[: args.max_runs]
+        raise SystemExit(f"unknown tasks: {sorted(set(missing_tasks))}")
 
     out_dir = ROOT / (args.output_dir or f"{cfg['outputs']['repair_dir']}/{args.phase}")
     out_dir.mkdir(parents=True, exist_ok=True)
-    for key in JSONL_OUTPUTS:
-        (out_dir / f"{key}.jsonl").touch(exist_ok=True)
-
-    metrics_path = out_dir / "run_metrics.csv"
-    metrics_rows = _load_metrics(metrics_path)
-    done_ids = {row["run_id"] for row in metrics_rows}
 
     manifest_rows = []
     for model in selected_models:
@@ -652,9 +877,37 @@ def main() -> None:
                 "template_id": cell["template_id"],
                 "temperature": temperature,
                 "controlled_user_policy": "static" if str(task_spec["source_task_id"]) in TASK_POLICIES else "generic",
+                "deployment_id": model.get("deployment_id", model["base_url"]),
+                "deployment_base_url": model["base_url"],
                 **hashes,
             })
-    _write_manifest(out_dir / "run_manifest.csv", manifest_rows)
+    manifest_path = out_dir / "run_manifest.csv"
+    _ensure_manifest(manifest_path, manifest_rows)
+
+    contract = {
+        "schema_version": 1,
+        "phase": args.phase,
+        "model_aliases": [model["alias"] for model in selected_models],
+        "task_ids": sorted({str(cell["task_id"]) for cell in matrix}),
+        "condition_ids": sorted({str(cell["condition_id"]) for cell in matrix}),
+        "seeds": sorted({int(cell["seed"]) for cell in matrix}),
+        "temperature": temperature,
+        "max_steps": exp["max_steps"],
+        "max_errors": exp["max_errors"],
+        "runtime_hashes": hashes,
+        "manifest_run_ids": [str(row["run_id"]) for row in manifest_rows],
+        "deployment_ids": sorted({str(row["deployment_id"]) for row in manifest_rows}),
+        "deployment_base_urls": sorted({str(row["deployment_base_url"]) for row in manifest_rows}),
+    }
+    _ensure_run_contract(out_dir / "run_contract.json", contract)
+
+    bundle_dir = out_dir / "run_bundles"
+    bundle_dir.mkdir(exist_ok=True)
+    if (out_dir / "run_metrics.csv").exists() and not any(bundle_dir.glob("*.json")):
+        raise SystemExit(
+            f"legacy aggregate-only output cannot be safely resumed; use a new output directory: {out_dir}"
+        )
+    metrics_rows, done_ids = _materialize_bundles(out_dir, manifest_rows, bundle_dir)
 
     n_run = 0
     for model in selected_models:
@@ -676,11 +929,14 @@ def main() -> None:
                 "template_id": cell["template_id"],
                 "temperature": temperature,
                 "controlled_user_policy": "static" if str(task_spec["source_task_id"]) in TASK_POLICIES else "generic",
+                "deployment_id": model.get("deployment_id", model["base_url"]),
+                "deployment_base_url": model["base_url"],
                 **hashes,
             }
             if run_meta["run_id"] in done_ids:
                 print(f"skip existing {run_meta['run_id']}")
                 continue
+            started_at = datetime.now(timezone.utc).isoformat()
             try:
                 from tau2.run import get_tasks
                 tau2_task = get_tasks(task_spec["source_domain"], task_ids=[str(task_spec["source_task_id"])])[0]
@@ -698,11 +954,6 @@ def main() -> None:
                     exp=exp,
                     hashes=hashes,
                 )
-                metrics_rows.append(result["metrics"])
-                for key in JSONL_OUTPUTS:
-                    if key == "adapter_errors":
-                        continue
-                    _append_jsonl(out_dir / f"{key}.jsonl", result.get(key, []))
                 print(
                     f"[{n_run + 1}] {run_meta['run_id']} "
                     f"safe={result['metrics'].get('safe_task_success')} "
@@ -710,16 +961,28 @@ def main() -> None:
                 )
             except Exception as exc:
                 row = _exception_metrics(run_meta, exc)
-                metrics_rows.append(row)
-                _append_jsonl(out_dir / "adapter_errors.jsonl", [{**run_meta, "error": row["exception"]}])
-                _append_jsonl(out_dir / "termination_reasons.jsonl", [{
-                    **run_meta,
-                    "termination_reason": row["termination_reason"],
-                    "invalid_run": True,
-                }])
+                result = {
+                    "run_meta": run_meta,
+                    "metrics": row,
+                    **{key: [] for key in JSONL_OUTPUTS},
+                    "adapter_errors": [{**run_meta, "error": row["exception"]}],
+                    "termination_reasons": [{
+                        **run_meta,
+                        "termination_reason": row["termination_reason"],
+                        "invalid_run": True,
+                    }],
+                }
                 print(f"[{n_run + 1}] {run_meta['run_id']} INVALID {row['exception']}")
+            result["bundle_metadata"] = {
+                "schema_version": 1,
+                "started_at": started_at,
+                "completed_at": datetime.now(timezone.utc).isoformat(),
+            }
+            path = _bundle_path(bundle_dir, run_meta["run_id"])
+            _atomic_write_json(path, result)
+            _validate_bundle(result, {str(row["run_id"]): row for row in manifest_rows})
+            _append_bundle_outputs(out_dir, result, metrics_rows)
             done_ids.add(run_meta["run_id"])
-            _write_csv(metrics_path, metrics_rows)
             n_run += 1
 
     print(f"done: new_runs={n_run}, total_rows={len(metrics_rows)}, out={out_dir}")
