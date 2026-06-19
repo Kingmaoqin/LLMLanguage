@@ -23,13 +23,16 @@ sys.path.insert(0, str(ROOT))
 from src.adapters.instrument import ToolEventRecorder
 from src.adapters.normalize import IRREVERSIBLE_TOOLS, extract_metrics, normalized_tool_events, parser_health
 from src.stage2_5.branch_evaluator import evaluate_branches
-from src.stage2_5.conversation_management_evaluator import evaluate_conversation_management
 from src.stage2_5.evidence_graph_evaluator import evaluate_evidence
-from src.stage2_5.official_tau_evaluator import official_local_metrics
-from src.stage2_5.safe_task_evaluator import evaluate_policy_failures, safe_success_metrics
 from src.stage2_5.social_style_wrapper import load_style_templates, template_by_id, template_ids
 from src.stage2_5.trajectory_metrics import trajectory_summary
 from src.stage2_5b.controlled_user import ControlledUser, TASK_POLICIES, generic_policy_from_task, stable_text_hash
+from src.stage2_5b.evaluator import (
+    evaluate_conversation_management,
+    evaluate_policy_failures,
+    official_reward_metrics,
+    safe_success_metrics,
+)
 
 
 JSONL_OUTPUTS = [
@@ -68,8 +71,7 @@ RUNTIME_SOURCE_PATHS = [
     ROOT / "scripts" / "stage2_5b" / "run_stage2_5b_experiment.py",
     ROOT / "src" / "adapters" / "instrument.py",
     ROOT / "src" / "adapters" / "normalize.py",
-    ROOT / "src" / "stage2_5" / "official_tau_evaluator.py",
-    ROOT / "src" / "stage2_5" / "safe_task_evaluator.py",
+    ROOT / "src" / "stage2_5b" / "evaluator.py",
     ROOT / "src" / "stage2_5" / "evidence_graph_evaluator.py",
     ROOT / "src" / "stage2_5" / "branch_evaluator.py",
     ROOT / "src" / "stage2_5" / "conversation_management_evaluator.py",
@@ -120,8 +122,7 @@ def runtime_hashes_for_config(config_path: Path) -> dict[str, str]:
     policy_path = ROOT / cfg["paths"]["task_policy_annotations"]
     benchmark_manifest = ROOT / cfg["paths"]["benchmark_manifest"]
     evaluator_paths = [
-        ROOT / "src" / "stage2_5" / "official_tau_evaluator.py",
-        ROOT / "src" / "stage2_5" / "safe_task_evaluator.py",
+        ROOT / "src" / "stage2_5b" / "evaluator.py",
         ROOT / "src" / "stage2_5" / "evidence_graph_evaluator.py",
         ROOT / "src" / "stage2_5" / "branch_evaluator.py",
         ROOT / "src" / "stage2_5" / "trajectory_metrics.py",
@@ -217,8 +218,8 @@ def _write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
         "condition_id", "seed", "template_block", "template_id", "temperature",
         "controlled_user_policy", "deployment_id", "deployment_base_url",
         "invalid_run", "safe_task_success",
-        "official_reward_basis_success", "local_proxy_success", "official_local_success",
-        "official_task_success", "final_state_correct", "reward",
+        "official_reward_basis_success", "local_proxy_success",
+        "final_state_correct", "reward",
         "required_fact_coverage", "mutation_before_evidence",
         "n_policy_failures", "policy_failure_types", "agent_tool_calls",
         "tool_name_sequence_distance", "critical_argument_sequence_distance",
@@ -702,7 +703,7 @@ def run_one(
     )
     conversation = [_conversation_row(run_meta, m) for m in (sim.messages or [])]
     controlled_events = _controlled_user_events(run_meta, orch.user, conversation)
-    official = official_local_metrics(tau2_task, sim.reward_info)
+    official = official_reward_metrics(tau2_task, sim.reward_info)
     evidence = evaluate_evidence(events, annotation)
     policy_failures = evaluate_policy_failures(
         events,
@@ -781,7 +782,6 @@ def _exception_metrics(run_meta: dict[str, Any], exc: Exception) -> dict[str, An
         "safe_task_success": None,
         "official_reward_basis_success": None,
         "local_proxy_success": None,
-        "official_local_success": None,
         "final_state_correct": None,
         "reward": None,
         "termination_reason": f"exception:{type(exc).__name__}",
