@@ -22,11 +22,11 @@ sys.path.insert(0, str(ROOT))
 
 from src.adapters.instrument import ToolEventRecorder
 from src.adapters.normalize import IRREVERSIBLE_TOOLS, extract_metrics, normalized_tool_events, parser_health
-from src.stage2_5.branch_evaluator import evaluate_branches
-from src.stage2_5.evidence_graph_evaluator import evaluate_evidence
 from src.stage2_5.social_style_wrapper import load_style_templates, template_by_id, template_ids
 from src.stage2_5.trajectory_metrics import trajectory_summary
+from src.stage2_5b.branch_evaluator import evaluate_branches
 from src.stage2_5b.controlled_user import ControlledUser, TASK_POLICIES, generic_policy_from_task, stable_text_hash
+from src.stage2_5b.evidence_graph import evaluate_evidence
 from src.stage2_5b.evaluator import (
     evaluate_conversation_management,
     evaluate_policy_failures,
@@ -72,8 +72,8 @@ RUNTIME_SOURCE_PATHS = [
     ROOT / "src" / "adapters" / "instrument.py",
     ROOT / "src" / "adapters" / "normalize.py",
     ROOT / "src" / "stage2_5b" / "evaluator.py",
-    ROOT / "src" / "stage2_5" / "evidence_graph_evaluator.py",
-    ROOT / "src" / "stage2_5" / "branch_evaluator.py",
+    ROOT / "src" / "stage2_5b" / "evidence_graph.py",
+    ROOT / "src" / "stage2_5b" / "branch_evaluator.py",
     ROOT / "src" / "stage2_5" / "conversation_management_evaluator.py",
     ROOT / "src" / "stage2_5" / "social_style_wrapper.py",
     ROOT / "src" / "stage2_5" / "trajectory_metrics.py",
@@ -123,8 +123,8 @@ def runtime_hashes_for_config(config_path: Path) -> dict[str, str]:
     benchmark_manifest = ROOT / cfg["paths"]["benchmark_manifest"]
     evaluator_paths = [
         ROOT / "src" / "stage2_5b" / "evaluator.py",
-        ROOT / "src" / "stage2_5" / "evidence_graph_evaluator.py",
-        ROOT / "src" / "stage2_5" / "branch_evaluator.py",
+        ROOT / "src" / "stage2_5b" / "evidence_graph.py",
+        ROOT / "src" / "stage2_5b" / "branch_evaluator.py",
         ROOT / "src" / "stage2_5" / "trajectory_metrics.py",
     ]
     return {
@@ -554,7 +554,7 @@ def _generic_annotation(tau2_task: Any) -> dict[str, Any]:
                 "branch_id": f"evidence_before_{tool}",
                 "trigger_fact": required_facts[0]["fact_id"] if required_facts else "",
                 "valid_actions": [tool],
-                "invalid_actions": [tool],
+                "invalid_actions": [],
             }
             for tool in writes
         ],
@@ -731,7 +731,11 @@ def run_one(
         state_after_hash=state_after,
     )
     metrics.update(official)
-    metrics.update(evidence)
+    metrics.update({
+        key: value
+        for key, value in evidence.items()
+        if key not in {"mutation_evidence", "mutation_summaries"}
+    })
     metrics.update(safe)
     metrics.update(conv)
     metrics.update(traj)
@@ -743,7 +747,13 @@ def run_one(
     })
 
     branch_rows = [{**run_meta, **row} for row in evaluate_branches(events, annotation)]
-    evidence_row = {**run_meta, **evidence}
+    evidence_rows = [
+        {**run_meta, "evidence_row_type": "required_fact", **row}
+        for row in evidence["mutation_evidence"]
+    ] + [
+        {**run_meta, "evidence_row_type": "mutation_summary", **row}
+        for row in evidence["mutation_summaries"]
+    ]
     style_events = _style_events(controlled_events)
     return {
         "run_meta": run_meta,
@@ -763,7 +773,7 @@ def run_one(
             "reward": metrics.get("reward"),
             "safe_task_success": metrics.get("safe_task_success"),
         }],
-        "evidence_events": [evidence_row],
+        "evidence_events": evidence_rows,
         "branch_decisions": branch_rows,
         "policy_failures": [{**run_meta, **f} for f in policy_failures],
         "termination_reasons": [{
