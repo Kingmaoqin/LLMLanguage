@@ -73,6 +73,51 @@ class FrozenControlledUserPolicyTest(unittest.TestCase):
             clean = user.events[-1]["base_clean_text"]
             self.assertFalse(has_hidden_or_style_leakage(clean), clean)
 
+    def test_order_id_request_with_proceed_is_not_confirmation(self):
+        user = ControlledUser("6", domain="retail")
+        state = user.get_init_state()
+        user.generate_next_message(
+            AssistantMessage(role="assistant", content="Hello"),
+            state,
+        )
+        user.generate_next_message(
+            AssistantMessage(
+                role="assistant",
+                content=(
+                    "To proceed with the exchange, could you please provide "
+                    "the order ID for the order that contains these items?"
+                ),
+            ),
+            state,
+        )
+        event = user.events[-1]
+        self.assertEqual(event["agent_request_type"], "request_identity")
+        self.assertFalse(event["confirmation_value"])
+
+    def test_confirmation_notice_that_mentions_email_is_confirmation(self):
+        user = ControlledUser("6", domain="retail")
+        state = user.get_init_state()
+        user.generate_next_message(
+            AssistantMessage(role="assistant", content="Hello"),
+            state,
+        )
+        user.generate_next_message(
+            AssistantMessage(
+                role="assistant",
+                content=(
+                    "You will receive an email with return instructions. "
+                    "Please reply yes to confirm that I should proceed."
+                ),
+            ),
+            state,
+        )
+        event = user.events[-1]
+        self.assertEqual(
+            event["agent_request_type"],
+            "request_confirmation",
+        )
+        self.assertTrue(event["confirmation_value"])
+
 
 if __name__ == "__main__":
     unittest.main()

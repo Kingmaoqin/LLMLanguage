@@ -345,20 +345,29 @@ def incoming_text(message: ValidUserInputMessage) -> str:
 
 
 def asks_identity(text: str) -> bool:
-    return any(
+    if any(
         phrase in text
         for phrase in [
-            "your name",
-            "who am i",
-            "who you are",
-            "email",
-            "zip",
-            "user id",
-            "reservation id",
-            "reservation number",
             "confirm your identity",
-            "verify",
+            "verify your identity",
+            "authenticate your identity",
         ]
+    ):
+        return True
+    requested_fields = (
+        r"(?:your name|email(?: address)?|zip(?: code)?|user id|"
+        r"reservation id|reservation number|order id|order number)"
+    )
+    return bool(
+        re.search(
+            rf"\b(?:provide|share|give|tell|confirm|verify|need)\b"
+            rf".{{0,60}}\b{requested_fields}\b",
+            text,
+        )
+        or re.search(
+            rf"\bwhat (?:is|are)\b.{{0,40}}\b{requested_fields}\b",
+            text,
+        )
     )
 
 
