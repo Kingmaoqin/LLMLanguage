@@ -12,7 +12,7 @@ sys.path.insert(0, str(ROOT))
 from tau2.run import get_tasks
 
 from src.adapters.normalize import IRREVERSIBLE_TOOLS
-from src.stage2_5.official_tau_evaluator import official_basis
+from src.stage2_5b.evaluator import official_basis
 
 
 OUT_CSV = ROOT / "data" / "stage2_5b" / "candidate_tasks.csv"

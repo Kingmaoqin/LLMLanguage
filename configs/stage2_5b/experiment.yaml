@@ -26,7 +26,7 @@ paths:
   models: configs/stage2_5b/models.yaml
   tasks: configs/stage2_5b/tasks.yaml
   templates: data/stage2_5b/social_style_templates_frozen.yaml
-  task_policy_annotations: data/stage2_5/task_policy_annotations.yaml
+  task_policy_annotations: data/stage2_5b/task_policy_annotations.yaml
   benchmark_manifest: artifacts/stage2_5b/tau_snapshot_manifest.json
 
 outputs:

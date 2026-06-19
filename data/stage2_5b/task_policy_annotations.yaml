@@ -1,4 +1,4 @@
-version: stage2_5_policy_annotations_v1
+version: stage2_5b_policy_annotations_v2
 notes: >
   First-pass policy annotations for the six existing tau2 tasks used in the
   legacy Stage-2 mini. These annotations do not replace tau2's official
