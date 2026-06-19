@@ -69,6 +69,23 @@ class NoLegacyImportsTest(unittest.TestCase):
         ]
         self.assertEqual(offenders, [])
 
+    def test_legacy_runners_are_not_in_active_locations(self):
+        old_locations = [
+            ROOT / "run_stage2_experiment.py",
+            ROOT / "scripts" / "run_stage2_5_experiment.py",
+            ROOT / "scripts" / "analyze_stage2_5.py",
+            ROOT / "src" / "valence.py",
+            ROOT / "src" / "stage2_5",
+            ROOT / "configs" / "stage2_5",
+        ]
+        self.assertEqual(
+            [str(path.relative_to(ROOT)) for path in old_locations if path.exists()],
+            [],
+        )
+        self.assertTrue(
+            (ROOT / "legacy" / "stage2_5" / "src" / "stage2_5").is_dir()
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

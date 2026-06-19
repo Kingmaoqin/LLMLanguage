@@ -82,7 +82,6 @@ RUNTIME_SOURCE_PATHS = [
     ROOT / "src" / "stage2_5b" / "evaluator.py",
     ROOT / "src" / "stage2_5b" / "evidence_graph.py",
     ROOT / "src" / "stage2_5b" / "branch_evaluator.py",
-    ROOT / "src" / "stage2_5" / "conversation_management_evaluator.py",
     ROOT / "src" / "stage2_5b" / "social_style_wrapper.py",
     ROOT / "src" / "stage2_5b" / "trajectory_metrics.py",
     ROOT / "src" / "stage2_5b" / "controlled_user.py",
