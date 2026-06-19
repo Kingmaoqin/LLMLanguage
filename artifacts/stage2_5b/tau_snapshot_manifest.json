@@ -744,7 +744,7 @@
       "source_path": "/home/xqin5/tau2-bench/uv.lock"
     }
   ],
-  "generated_at": "2026-06-16T23:25:03.644311+00:00",
+  "generated_at": "2026-06-19T05:27:34.701337+00:00",
   "git": {
     "branch": {
       "cmd": [
@@ -819,7 +819,7 @@
     }
   },
   "project_root": "/home/xqin5/llmlanguage/ir_mstu_stage2",
-  "python": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:27:36) [GCC 11.2.0]",
+  "python": "3.12.13 | packaged by Anaconda, Inc. | (main, Mar 19 2026, 20:20:58) [GCC 14.3.0]",
   "task_audit": [
     {
       "current_reward_basis": [
@@ -988,7 +988,7 @@
         "import importlib.metadata as m, tau2; print(tau2.__file__); print(getattr(tau2,'__version__','NO_VERSION')); print(m.version('tau2'))"
       ],
       "returncode": 0,
-      "stderr": "2026-06-16 18:25:00.992 | WARNING  | tau2.utils.utils:<module>:15 - No .env file found\n2026-06-16 18:25:00.992 | INFO     | tau2.utils.utils:<module>:28 - Using data directory from source: /home/xqin5/tau2-bench/data\n\u001b[92m18:25:01 - LiteLLM:WARNING\u001b[0m: get_model_cost_map.py:271 - LiteLLM: Failed to fetch remote model cost map from https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json: [Errno -3] Temporary failure in name resolution. Falling back to local backup.\n2026-06-16 18:25:02.908 | INFO     | tau2.utils.llm_utils:<module>:102 - LiteLLM: Cache is disabled\n2026-06-16 18:25:02.983 | DEBUG    | tau2.registry:<module>:281 - Registering default components...\n2026-06-16 18:25:02.985 | DEBUG    | tau2.registry:<module>:292 - Voice dependencies not installed, skipping voice user registration\n2026-06-16 18:25:02.985 | DEBUG    | tau2.registry:<module>:350 - Default components registered successfully. Registry info: {\n  \"domains\": [\n    \"mock\",\n    \"airline\",\n    \"retail\",\n    \"telecom\",\n    \"telecom-workflow\",\n    \"banking_knowledge\"\n  ],\n  \"agents\": [\n    \"llm_agent\",\n    \"llm_agent_gt\",\n    \"llm_agent_solo\",\n    \"discrete_time_audio_native_agent\"\n  ],\n  \"users\": [\n    \"user_simulator\",\n    \"dummy_user\"\n  ],\n  \"task_sets\": [\n    \"mock\",\n    \"airline\",\n    \"retail\",\n    \"telecom_full\",\n    \"telecom_small\",\n    \"telecom\",\n    \"telecom-workflow\",\n    \"banking_knowledge\"\n  ]\n}",
+      "stderr": "2026-06-19 00:27:31.429 | WARNING  | tau2.utils.utils:<module>:15 - No .env file found\n2026-06-19 00:27:31.429 | INFO     | tau2.utils.utils:<module>:28 - Using data directory from source: /home/xqin5/tau2-bench/data\n\u001b[92m00:27:31 - LiteLLM:WARNING\u001b[0m: get_model_cost_map.py:271 - LiteLLM: Failed to fetch remote model cost map from https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json: [Errno -3] Temporary failure in name resolution. Falling back to local backup.\n2026-06-19 00:27:33.958 | INFO     | tau2.utils.llm_utils:<module>:102 - LiteLLM: Cache is disabled\n2026-06-19 00:27:34.063 | DEBUG    | tau2.registry:<module>:281 - Registering default components...\n2026-06-19 00:27:34.065 | DEBUG    | tau2.registry:<module>:292 - Voice dependencies not installed, skipping voice user registration\n2026-06-19 00:27:34.065 | DEBUG    | tau2.registry:<module>:350 - Default components registered successfully. Registry info: {\n  \"domains\": [\n    \"mock\",\n    \"airline\",\n    \"retail\",\n    \"telecom\",\n    \"telecom-workflow\",\n    \"banking_knowledge\"\n  ],\n  \"agents\": [\n    \"llm_agent\",\n    \"llm_agent_gt\",\n    \"llm_agent_solo\",\n    \"discrete_time_audio_native_agent\"\n  ],\n  \"users\": [\n    \"user_simulator\",\n    \"dummy_user\"\n  ],\n  \"task_sets\": [\n    \"mock\",\n    \"airline\",\n    \"retail\",\n    \"telecom_full\",\n    \"telecom_small\",\n    \"telecom\",\n    \"telecom-workflow\",\n    \"banking_knowledge\"\n  ]\n}",
       "stdout": "/home/xqin5/tau2-bench/src/tau2/__init__.py\nNO_VERSION\n1.0.0"
     },
     "version": "NO_VERSION"
