@@ -31,6 +31,27 @@ class StyleContentSeparationTest(unittest.TestCase):
             self.assertEqual(event["speech_act"], "confirm")
             self.assertIn(event["clean_text"], event["styled_text"])
 
+    def test_repeated_condition_adds_no_extra_user_turn(self):
+        counts = {}
+        for condition in ["neutral_repeated", "abuse_repeated"]:
+            user = ControlledUser(
+                "retail_2",
+                condition=condition,
+                template_text=f"STYLE-{condition}",
+            )
+            state = user.get_init_state()
+            for prompt in [
+                "Hello",
+                "Can you verify your identity?",
+                "Which option do you prefer?",
+            ]:
+                user.generate_next_message(
+                    AssistantMessage(role="assistant", content=prompt),
+                    state,
+                )
+            counts[condition] = len(user.events)
+        self.assertEqual(counts, {"neutral_repeated": 3, "abuse_repeated": 3})
+
 
 if __name__ == "__main__":
     unittest.main()

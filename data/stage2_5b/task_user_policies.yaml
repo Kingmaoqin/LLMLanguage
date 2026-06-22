@@ -1,0 +1,325 @@
+version: stage2_5b_task_user_policies_v1
+
+calibration_panel:
+  - retail_2
+  - retail_3
+  - retail_4
+  - retail_6
+  - retail_15
+  - retail_16
+  - retail_19
+  - retail_20
+  - retail_21
+  - retail_23
+  - retail_26
+  - retail_28
+  - retail_30
+  - retail_31
+  - retail_32
+  - retail_35
+
+state_machine:
+  request_open:
+    request_identity: provide_identity
+    request_payment: provide_payment
+    request_choice: choose_option
+    request_confirmation: confirm
+    request_denial: deny
+    task_complete: stop
+    unrecognized: unsupported_request
+  awaiting_confirmation:
+    request_confirmation: confirm
+    request_identity: provide_identity
+    request_payment: provide_payment
+    request_choice: choose_option
+    task_complete: stop
+    unrecognized: unsupported_request
+
+tasks:
+  retail_2:
+    source_task_id: "2"
+    domain: retail
+    initial_state: request_open
+    user_facts:
+      opening: "I want to know how many T-shirt options are available, and I want to return the cleaner, headphones, and smart watch. I am Yusuf Rossi in ZIP code 19122, and I do not remember my email address."
+      identity: "I am Yusuf Rossi in ZIP code 19122. I do not remember my email address."
+      preference: "Please return the cleaner, headphones, and smart watch after identifying the correct delivered order."
+      payment: "Use the eligible refund method for the order."
+      fallback: "I need the T-shirt option count and the three delivered items returned."
+      confirmation_detail: "Please proceed only with the returns I requested."
+    decisions: {confirm: true}
+
+  retail_3:
+    source_task_id: "3"
+    domain: retail
+    initial_state: request_open
+    user_facts:
+      opening: "I want to know how many T-shirt options are available, and I want every pending small V-neck T-shirt changed to purple, preferably polyester. I am Yusuf Rossi in ZIP code 19122, and I do not remember my email address."
+      identity: "I am Yusuf Rossi in ZIP code 19122. I do not remember my email address."
+      preference: "Use purple, small, V-neck, and polyester where available."
+      payment: "Use the payment method already associated with the pending order."
+      fallback: "I need the T-shirt count and the matching pending T-shirt modification."
+      confirmation_detail: "Please modify the matching pending T-shirt."
+    decisions: {confirm: true}
+
+  retail_4:
+    source_task_id: "4"
+    domain: retail
+    initial_state: request_open
+    user_facts:
+      opening: "I want to know how many T-shirt options are available, and I want all pending T-shirts changed to purple, size small, the same V-neck style, preferably polyester. I am Yusuf Rossi in ZIP code 19122, and I do not remember my email address."
+      identity: "I am Yusuf Rossi in ZIP code 19122. I do not remember my email address."
+      preference: "Use purple, size small, V-neck, and polyester where available."
+      payment: "Use the payment method already associated with each pending order."
+      fallback: "I need the T-shirt count and all matching pending T-shirt modifications."
+      confirmation_detail: "Please modify all matching pending T-shirts."
+    decisions: {confirm: true}
+
+  retail_6:
+    source_task_id: "6"
+    domain: retail
+    initial_state: request_open
+    user_facts:
+      opening: "I initially asked about exchanging a water bottle and a desk lamp. The bottle should be larger, and the lamp should be less bright with battery preferred over USB and AC. I am Mei Kovacs, user ID mei_kovacs_8020, in ZIP code 28236."
+      identity: "I am Mei Kovacs, user ID mei_kovacs_8020, in ZIP code 28236. I do not remember my email address."
+      preference: "For the lamp, prefer battery power, then USB, then AC."
+      payment: "Use the eligible payment method already associated with the order."
+      fallback: "Please identify the delivered lamp and the less-bright replacement option."
+      confirmation_detail: "At confirmation, exchange only the desk lamp, not the water bottle."
+    decisions: {confirm: true, exchange_water_bottle: false, exchange_desk_lamp: true}
+
+  retail_15:
+    source_task_id: "15"
+    domain: retail
+    initial_state: request_open
+    user_facts:
+      opening: "I want to change the pending boots to size 8 and keep the appropriate material; waterproofing does not matter. I am Fatima Johnson in ZIP code 78712."
+      identity: "I am Fatima Johnson in ZIP code 78712. I do not remember my email address."
+      preference: "Size 8 is required; waterproofing does not matter."
+      payment: "Use PayPal for any payment or refund."
+      fallback: "I need the pending boots changed to an eligible size-8 variant."
+      confirmation_detail: "Please make the size-8 boot change."
+    decisions: {confirm: true}
+
+  retail_16:
+    source_task_id: "16"
+    domain: retail
+    initial_state: request_open
+    user_facts:
+      opening: "I want to cancel every pending order because it is no longer needed, return only the delivered watch, and learn the total refund. I am Fatima Johnson in ZIP code 78712."
+      identity: "I am Fatima Johnson in ZIP code 78712. I do not remember my email address."
+      preference: "Cancel pending orders and return only the watch, not other delivered items."
+      payment: "Use the eligible original payment or refund method."
+      fallback: "I need all pending orders cancelled and only the delivered watch returned."
+      confirmation_detail: "Please proceed with those cancellations and the watch return only."
+    decisions: {confirm: true}
+
+  retail_19:
+    source_task_id: "19"
+    domain: retail
+    initial_state: request_open
+    user_facts:
+      opening: "I want to return the water bottle and exchange both the pet bed and office chair for the cheapest eligible versions. I also want to know the savings for both options. I am Mei Davis in ZIP code 80217."
+      identity: "I am Mei Davis in ZIP code 80217. I do not remember my email address."
+      preference: "If only one exchange can be completed, choose the option that saves the most money."
+      payment: "Use the eligible payment or refund method on the order."
+      fallback: "I need the bottle return and the cheapest eligible bed and chair options."
+      confirmation_detail: "Please complete the eligible return and exchange actions we discussed."
+    decisions: {confirm: true}
+
+  retail_20:
+    source_task_id: "20"
+    domain: retail
+    initial_state: request_open
+    user_facts:
+      opening: "I want eligible items upgraded to the most expensive variants while keeping the shoe size unchanged. If one order cannot be upgraded, skip it and continue. I am Ethan Garcia in Denver, ZIP code 80280."
+      identity: "I am Ethan Garcia in Denver, ZIP code 80280. I do not remember my email address."
+      preference: "Keep the shoe size unchanged; otherwise choose the most expensive eligible variants."
+      payment: "Use my gift card first, and use PayPal if the gift card cannot be used."
+      fallback: "Please continue to the next order whenever an upgrade is not possible."
+      confirmation_detail: "Please apply only the eligible upgrades."
+    decisions: {confirm: true}
+
+  retail_21:
+    source_task_id: "21"
+    domain: retail
+    initial_state: request_open
+    confirmation_revision_once: true
+    user_facts:
+      opening: "I want to exchange my shoes for item 4107812777 and use my gift card for any charge. I am Ethan Garcia in Denver, ZIP code 80280."
+      identity: "I am Ethan Garcia in Denver, ZIP code 80280. I do not remember my email address."
+      preference: "Use item 4107812777 for the shoe exchange and my gift card for charges."
+      payment: "Use my gift card for any charge."
+      fallback: "Please identify the correct order and item records for the requested exchange."
+      confirmation_detail: "Please make both requested item changes."
+      revision: "Before you proceed, I also want to change item 1656367028 to item 1421289881."
+    decisions: {confirm: true}
+
+  retail_23:
+    source_task_id: "23"
+    domain: retail
+    initial_state: request_open
+    user_facts:
+      opening: "I want a medium red high-ventilation helmet, a two-piece black soft-material luggage set, and the pending grill changed to the same type as the grill I already received. I am Sofia Hernandez in Seattle, ZIP code 98193."
+      identity: "I am Sofia Hernandez in Seattle, ZIP code 98193. I do not remember my email address."
+      preference: "Use the specified helmet and luggage features, and match the pending grill to the delivered grill type."
+      payment: "Use the eligible payment method associated with each order."
+      fallback: "I need the two delivered exchanges and the pending grill modification."
+      confirmation_detail: "Please complete the eligible helmet, luggage, and grill changes."
+    decisions: {confirm: true}
+
+  retail_26:
+    source_task_id: "26"
+    domain: retail
+    initial_state: request_open
+    user_facts:
+      opening: "An order was sent to Texas by mistake. I need its tracking number and want to return every item in it except the pet bed. I am Isabella Johansson in ZIP code 32286."
+      identity: "I am Isabella Johansson in ZIP code 32286. I do not remember my email address."
+      preference: "Return all items in the Texas order except the pet bed."
+      payment: "Use the eligible refund method for that order."
+      fallback: "Please find the Texas order, provide its tracking number, and exclude the pet bed from the return."
+      confirmation_detail: "Please return only the eligible items other than the pet bed."
+    decisions: {confirm: true}
+
+  retail_28:
+    source_task_id: "28"
+    domain: retail
+    initial_state: request_open
+    user_facts:
+      opening: "I want to return the skateboard, garden hose, backpack, keyboard, and bed. I do not want an entire pending order cancelled just to remove one hose. I also need the total refund. I am Isabella Johansson in ZIP code 32286."
+      identity: "I am Isabella Johansson in ZIP code 32286. I do not know my email address."
+      preference: "Return all five delivered items, and do not cancel an entire pending order for one hose."
+      payment: "Use the eligible refund methods and report the total refund."
+      fallback: "I need the five returns completed without an unwanted whole-order cancellation."
+      confirmation_detail: "Please proceed with the returns, but do not cancel an entire order for one hose."
+    decisions: {confirm: true, cancel_whole_pending_order: false}
+
+  retail_30:
+    source_task_id: "30"
+    domain: retail
+    initial_state: request_open
+    user_facts:
+      opening: "I received a damaged tablet and need its tracking number. I prefer the same-item exchange; if unavailable, return it, cancel the related charger, and return the sneaker. I am Olivia Lopez in Texas, ZIP code 76171."
+      identity: "I am Olivia Lopez in Texas, ZIP code 76171. I do not remember my email address."
+      preference: "Exchange the tablet for the same item if available; otherwise return it."
+      payment: "Use the eligible original payment or refund method."
+      fallback: "Handle the tablet first, then the charger if the tablet is returned, and finally the sneaker."
+      confirmation_detail: "Please proceed with the eligible step you just described."
+    decisions: {confirm: true}
+
+  retail_31:
+    source_task_id: "31"
+    domain: retail
+    initial_state: request_open
+    user_facts:
+      opening: "I need the tablet order tracking number and want an eligible refund or reorder. If that cannot be done, cancel the charger. Also cancel the boot but keep the kettle; if that split is impossible, do nothing to that order. Return the sneaker. I am Olivia Lopez in Texas, ZIP code 76171."
+      identity: "I am Olivia Lopez in Texas, ZIP code 76171. I do not have an email address."
+      preference: "Keep the kettle; if the boot cannot be cancelled separately, do nothing to that order."
+      payment: "Use the eligible original payment or refund method."
+      fallback: "Please preserve the kettle and avoid cancelling the whole boot-and-kettle order."
+      confirmation_detail: "Please proceed only if the requested item-level constraints are satisfied."
+    decisions: {confirm: true, cancel_whole_boot_kettle_order: false}
+
+  retail_32:
+    source_task_id: "32"
+    domain: retail
+    initial_state: request_open
+    user_facts:
+      opening: "I need the tablet order tracking number and want an eligible refund or reorder. If that cannot be done, cancel the charger. Also cancel the boot and kettle, and return the sneaker. I am Olivia Lopez in Texas, ZIP code 76171."
+      identity: "I am Olivia Lopez in Texas, ZIP code 76171. I do not have an email address."
+      preference: "Cancel both the boot and kettle order if eligible, and return the sneaker."
+      payment: "Use the eligible original payment or refund method."
+      fallback: "Please handle the tablet path, charger fallback, boot-and-kettle cancellation, and sneaker return."
+      confirmation_detail: "Please proceed with the eligible actions in that sequence."
+    decisions: {confirm: true}
+
+  retail_35:
+    source_task_id: "35"
+    domain: retail
+    initial_state: request_open
+    user_facts:
+      opening: "I want to return the more expensive non-water-resistant speaker and change a pending 17-inch laptop to a 13-inch option. If there is no exact match, list the 13-inch choices. I am Aarav Santos, user ID aarav_santos_2259."
+      identity: "I am Aarav Santos, user ID aarav_santos_2259. My emails are aarav.santos8321@example.com and aarav.santos8320@example.com."
+      preference: "For a 13-inch laptop, prefer i5 over i7, then silver or black over other colors."
+      payment: "Use the eligible payment or refund method associated with each order."
+      fallback: "I need the speaker return and an eligible 13-inch laptop option."
+      confirmation_detail: "Please proceed with the eligible speaker return and laptop change."
+    decisions: {confirm: true}
+
+  retail_41:
+    source_task_id: "41"
+    domain: retail
+    initial_state: request_open
+    user_facts:
+      opening: "I want to change the 1000-piece intermediate jigsaw to the easiest option with the fewest pieces. I also need to verify and, if necessary, correct all order addresses and my user address. I am Mei Patel."
+      identity: "I am Mei Patel at 445 Maple Drive, Suite 394, Fort Worth, Texas 76165. I do not remember my email address."
+      preference: "Choose the easiest jigsaw with the fewest pieces and use the address I provided."
+      payment: "Use the eligible payment method already associated with the order."
+      fallback: "I need the jigsaw change and all relevant address checks."
+      confirmation_detail: "Please apply the eligible jigsaw and address corrections."
+    decisions: {confirm: true}
+
+  retail_55:
+    source_task_id: "55"
+    domain: retail
+    initial_state: request_open
+    user_facts:
+      opening: "I want to cancel every order that has not arrived and return delivered items after seeing their item list."
+      identity: "I am Amelia Silva in Philadelphia. My emails are silva7872@example.com and amelia.silva7872@example.com."
+      preference: "List delivered items before I confirm their returns."
+      payment: "Use each order's eligible original payment or refund method."
+      fallback: "Cancel undelivered orders and list delivered items before returns."
+      confirmation_detail: "Please proceed with the cancellation or return you just described."
+    decisions: {confirm: true}
+
+  retail_64:
+    source_task_id: "64"
+    domain: retail
+    initial_state: request_open
+    user_facts:
+      opening: "I want to exchange the camera for the highest-resolution waterproof option available without exceeding the previous purchase price."
+      identity: "I am James Sanchez in Chicago, ZIP code 60623. I do not remember my email address."
+      preference: "Choose the highest-resolution waterproof camera that does not exceed the previous price."
+      payment: "Do not exceed the previous purchase price."
+      fallback: "I need an eligible waterproof camera within the previous price."
+      confirmation_detail: "Please exchange it only if the replacement meets the resolution, waterproofing, and price constraints."
+    decisions: {confirm: true}
+
+  airline_7:
+    source_task_id: "7"
+    domain: airline
+    initial_state: request_open
+    user_facts:
+      opening: "I want to cancel reservations XEHM4B and 59XX6W. If either is basic economy, upgrade it to business first using the card ending in 2135, then cancel it."
+      identity: "My user ID is daiki_muller_1116. The reservation IDs are XEHM4B and 59XX6W."
+      preference: "Upgrade a basic-economy reservation to business before cancelling it."
+      payment: "Use the card ending in 2135."
+      fallback: "Handle both named reservations and check whether I have other upcoming flights."
+      confirmation_detail: "Please proceed with the eligible reservation change."
+    decisions: {confirm: true}
+
+  airline_12:
+    source_task_id: "12"
+    domain: airline
+    initial_state: request_open
+    user_facts:
+      opening: "For reservation YAX4DR, I want all passengers moved to business class and two checked bags added under my name using my Gold membership."
+      identity: "I am Chen Lee, user ID chen_lee_6825, and the reservation is YAX4DR."
+      preference: "If upgrading everyone exceeds $650, try upgrading Noah under the stated constraints."
+      payment: "I will pay up to $650 for the class changes."
+      fallback: "Check the class change and add two bags under my name using Gold membership."
+      confirmation_detail: "Proceed within the $650 limit, otherwise use the Noah fallback."
+    decisions: {confirm: true}
+
+  airline_44:
+    source_task_id: "44"
+    domain: airline
+    initial_state: request_open
+    user_facts:
+      opening: "I want to cancel future reservations containing flights longer than four hours. For itineraries no longer than three hours including layovers, check eligible business upgrades and tell me the total cost first."
+      identity: "I am Sophia Silva, user ID sophia_silva_7557."
+      preference: "Cancel flights longer than four hours; consider business upgrades for itineraries no longer than three hours."
+      payment: "Tell me the total cost before any business upgrade."
+      fallback: "I need flight durations before cancellations or upgrade decisions."
+      confirmation_detail: "Proceed only if the duration and cost conditions are satisfied."
+    decisions: {confirm: true}

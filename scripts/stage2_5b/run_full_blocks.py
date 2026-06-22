@@ -62,6 +62,17 @@ def bool_value(value: Any) -> bool:
     return str(value).strip().lower() in {"true", "1", "yes"}
 
 
+def is_opening_event(row: dict[str, Any]) -> bool:
+    """Identify the first controlled-user event across old and current schemas."""
+    event_idx = row.get("user_event_idx")
+    if event_idx not in (None, ""):
+        try:
+            return int(event_idx) == 0
+        except (TypeError, ValueError):
+            return False
+    return row.get("user_state") == "turn_0"
+
+
 def atomic_write_json(path: Path, payload: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".tmp")
@@ -246,7 +257,7 @@ def audit_block(
     for row in controlled_rows:
         if row.get("run_id", "") not in valid_ids:
             continue
-        if row.get("user_state") == "turn_0":
+        if is_opening_event(row):
             seed = str(row.get("seed", ""))
             opening_hashes[seed].add(str(row.get("clean_text_hash", "")))
             opening_conditions[seed].add(str(row.get("condition_id", "")))

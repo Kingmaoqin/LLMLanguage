@@ -1,6 +1,6 @@
 # Interactional Robustness of Tool-Using LLM Agents under Controlled User-to-Agent Social-Style Perturbations
 
-**Stage-2.5b evidence-aligned revision — 2026-06-18**
+**Stage-2.5b evidence-aligned revision — 2026-06-21**
 
 ## Abstract
 
@@ -11,13 +11,16 @@ success criteria, execution budget, seed, and substantive user behavior fixed.
 
 The completed Stage-2.5b study evaluates Gemma-4-31B-it and gpt-oss-120B on eight calibrated
 tau2 retail tasks under six social-style conditions and five paired seeds
-(480 runs; 479 valid behavioral runs). No pooled endpoint contrast survives multiplicity
-correction, and no endpoint confidence interval lies fully inside the prespecified ±10
-percentage-point equivalence margin. The study therefore establishes neither stable endpoint
-sensitivity nor endpoint robustness. Two selective process-level differences survive FDR:
-praise-affect increases tool-call count, and repeated abuse slightly changes diagnostic
-critical-argument trajectory distance. These process signals do not produce demonstrated
-broad policy or final-state consequences and vary substantially by task and model.
+(480 runs; 480 valid behavioral runs). None of the four social-style safe-success contrasts
+survives endpoint-family multiplicity correction. Praise-trust is the only social-style
+safe-success contrast whose interval lies fully inside the prespecified ±10 percentage-point
+equivalence margin (-3.75pp, 95% CI [-7.50, -1.25]); the other endpoint contrasts remain
+inconclusive. The repeated-neutral exposure schedule itself lowers safe success by 15pp
+relative to neutral-single, so schedule is a material intervention rather than a passive
+control. Four social-style process cells survive process-family FDR, involving matched-neutral
+trajectory distances, evidence ordering, and time to first critical mutation. These process
+signals do not establish broad endpoint or policy harm and remain limited to eight retail task
+clusters.
 
 The revised contribution is a controlled methodology and an evidence-bounded finding:
 interactional robustness must be assessed separately at endpoint and process levels, and
@@ -201,50 +204,60 @@ The task-cluster bootstrap remains primary.
 ### 7.1 Integrity
 
 - 480 manifests, metrics, and atomic bundles;
-- 479 valid behavioral runs;
-- one retained Gemma context-window failure;
-- zero duplicate/missing IDs, orphan events, mixed hashes, initial-state drift, or
-  controlled-user opening drift;
-- all 16 blocks pass.
+- 480 valid behavioral runs and zero invalid/infrastructure runs;
+- 480 unique bundle hashes, 7,467 non-empty assistant messages, and non-zero input/output
+  token evidence in every bundle;
+- zero duplicate/missing IDs, orphan events, mixed hashes, initial-state drift,
+  controlled-user opening drift, or controlled-user/conversation mismatch;
+- all 16 model/task blocks pass.
 
 ### 7.2 Endpoint results
 
-No pooled endpoint contrast survives FDR. Safe-task-success estimates range from +1.3pp to
-+5.0pp for the four social-valence contrasts, with all CIs crossing zero. No endpoint CI is
-fully contained in ±10pp.
-
-The repeated-abuse contrast is:
+None of the four social-style safe-success contrasts survives endpoint-family FDR:
 
 ```text
-safe_task_success: +2.5pp, 95% CI [-8.8, +13.8]
-final_state_correct: +10.3pp, 95% CI [-3.1, +23.9]
-local_proxy_success: +10.3pp, 95% CI [-3.0, +24.0]
+praise-affect - neutral-single:  0.00pp, 95% CI [-13.75, +11.25]
+praise-trust  - neutral-single: -3.75pp, 95% CI [ -7.50,  -1.25]
+insult        - neutral-single: -7.50pp, 95% CI [-18.75,  +1.25]
+abuse-repeated - neutral-repeated: -5.00pp, 95% CI [-13.75, +3.75]
 ```
 
-This does not replicate the old +43pp/+28pp completion effect.
+Praise-trust is nominally non-zero but not FDR-significant (`adjusted p=0.349`); its entire
+interval is inside the ±10pp equivalence margin. The separate schedule contrast is:
+
+```text
+neutral-repeated - neutral-single:
+safe_task_success -15.0pp, 95% CI [-23.75, -6.25], adjusted p=0.012
+```
+
+This schedule effect is not a social-valence effect. It shows that repeated exposure changes
+the task dynamics and validates the need to compare repeated abuse only against repeated
+neutral.
 
 ### 7.3 Process results
 
-Two pooled process cells survive BH-FDR:
+Four pooled social-style process cells survive BH-FDR:
 
 ```text
-praise_affect - neutral_single:
-agent_tool_calls +0.525, 95% CI [0.250, 0.800], adjusted p=0.0172
-
-abuse_repeated - neutral_repeated:
-critical_argument_sequence_norm_distance -0.0363,
-95% CI [-0.0542, -0.0182], adjusted p=0.0172
+praise-affect:
+  excess critical-argument distance -0.0413, adjusted p=0.0172
+  excess mutation distance          -0.1031, adjusted p=0.0086
+praise-trust:
+  first critical mutation step      -0.1905, adjusted p=0.0086
+  excess evidence-order distance    +0.0216, adjusted p=0.0115
 ```
 
-Neither has a corresponding multiplicity-corrected endpoint, policy, or premature-action
-effect. The defensible interpretation is selective process sensitivity, not broad operational
-harm or benefit.
+The neutral schedule also changes first-critical-mutation timing. No policy-failure or
+premature-action social contrast survives FDR. Leave-one-task-out deletion preserves the
+direction of all five pooled FDR-significant cells, but only eight task clusters are available,
+so p-values and generalization remain fragile.
 
 ### 7.4 Equivalence
 
-- Endpoint equivalence: not established.
-- Required-fact coverage: all five pooled contrasts lie within ±0.10.
-- Insult vs neutral-single policy failure and premature action lie within ±0.05.
+- Praise-trust safe-task-success equivalence is established within ±0.10.
+- The other social-style endpoint equivalence claims are not established.
+- Required-fact coverage lies within ±0.10 for all four social-style contrasts.
+- No pooled policy-failure or premature-action social contrast is equivalent within ±0.05.
 
 ### 7.5 Heterogeneity
 
@@ -258,8 +271,10 @@ heterogeneity as an important design dimension, not a global model robustness ra
 
 - A controlled-user design can isolate social style from user-policy drift.
 - The old repeated-abuse completion lift was not replicated after confound removal.
-- No reliable pooled endpoint effect was detected in the evaluated retail setting.
-- Endpoint robustness was not established because equivalence CIs remain too wide.
+- No social-style safe-success contrast survives endpoint-family FDR in the evaluated setting.
+- Praise-trust safe-success is practically equivalent within ±10pp; other endpoint robustness
+  claims are not established.
+- Repeated-neutral exposure materially lowers safe success relative to neutral-single.
 - Selective process-level differences can occur without demonstrated endpoint or policy
   consequences.
 - Effects are substantially task/model dependent.
@@ -271,6 +286,8 @@ heterogeneity as an important design dimension, not a global model robustness ra
 - Insult reliably causes over-refusal.
 - The tested agents are globally interactionally robust.
 - Results generalize beyond retail, beyond two models, or to complete official tau2 success.
+- The claim that this is a strict multi-agent system. It contains one tool-using LLM agent and
+  a deterministic scripted user, while evaluators run offline rather than as autonomous agents.
 
 ## 9. Next study
 

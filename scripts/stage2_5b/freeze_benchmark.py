@@ -147,7 +147,7 @@ def task_by_id(tasks: Any, task_id: str) -> dict[str, Any] | None:
 
 
 def load_stage2_task_map() -> dict[str, dict[str, str]]:
-    path = ROOT / "data" / "stage2_5" / "task_policy_annotations.yaml"
+    path = ROOT / "data" / "stage2_5b" / "task_policy_annotations.yaml"
     default = {
         "R1_retail_modify_pending": {"domain": "retail", "source_task_id": "4"},
         "R2_retail_return_cancel_mix": {"domain": "retail", "source_task_id": "30"},

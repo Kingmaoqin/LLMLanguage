@@ -3,19 +3,19 @@
 Status: PASS
 
 Scope:
-- QA rows: 900
+- QA rows: 936
 - Controlled-user invariance source: `results/stage2_5b_validation/controlled_user_invariance.csv`
 - QA CSV: `results/stage2_5b_validation/confirmation_qa.csv`
 
 Structured confirmation metadata:
 - Precision: 1.000
-- Recall: 0.953
-- Confusion matrix: TP=123, FP=0, FN=6, TN=771
+- Recall: 1.000
+- Confusion matrix: TP=135, FP=0, FN=0, TN=801
 
 Regex fallback diagnostic only:
-- Precision: 0.467
-- Recall: 0.992
-- Confusion matrix: TP=128, FP=146, FN=1, TN=625
+- Precision: 0.609
+- Recall: 0.993
+- Confusion matrix: TP=134, FP=86, FN=1, TN=715
 
 Policy:
 - Controlled-user main experiments use structured confirmation metadata.

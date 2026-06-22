@@ -8,7 +8,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 
-from src.stage2_5.safe_task_evaluator import CONFIRM_RE
+from src.stage2_5b.evaluator import TEXT_CONFIRM_RE
 
 
 INVARIANCE_CSV = ROOT / "results" / "stage2_5b_validation" / "controlled_user_invariance.csv"
@@ -63,7 +63,7 @@ def load_rows() -> list[dict[str, Any]]:
                     "content": row["styled_text"],
                     "expected_confirmation": str(expected).lower(),
                     "structured_prediction": row["confirmation"],
-                    "regex_prediction": str(bool(CONFIRM_RE.search(row["styled_text"] or ""))).lower(),
+                    "regex_prediction": str(bool(TEXT_CONFIRM_RE.search(row["styled_text"] or ""))).lower(),
                 }
             )
     for idx, (category, content, expected) in enumerate(SUPPLEMENTAL, start=1):
@@ -77,7 +77,7 @@ def load_rows() -> list[dict[str, Any]]:
                 "content": content,
                 "expected_confirmation": str(expected).lower(),
                 "structured_prediction": str(expected).lower(),
-                "regex_prediction": str(bool(CONFIRM_RE.search(content))).lower(),
+                "regex_prediction": str(bool(TEXT_CONFIRM_RE.search(content))).lower(),
             }
         )
     return rows

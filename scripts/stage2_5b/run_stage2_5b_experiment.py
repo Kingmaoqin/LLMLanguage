@@ -22,14 +22,25 @@ sys.path.insert(0, str(ROOT))
 
 from src.adapters.instrument import ToolEventRecorder
 from src.adapters.normalize import IRREVERSIBLE_TOOLS, extract_metrics, normalized_tool_events, parser_health
-from src.stage2_5.branch_evaluator import evaluate_branches
-from src.stage2_5.conversation_management_evaluator import evaluate_conversation_management
-from src.stage2_5.evidence_graph_evaluator import evaluate_evidence
-from src.stage2_5.official_tau_evaluator import official_local_metrics
-from src.stage2_5.safe_task_evaluator import evaluate_policy_failures, safe_success_metrics
-from src.stage2_5.social_style_wrapper import load_style_templates, template_by_id, template_ids
-from src.stage2_5.trajectory_metrics import trajectory_summary
-from src.stage2_5b.controlled_user import ControlledUser, TASK_POLICIES, generic_policy_from_task, stable_text_hash
+from src.stage2_5b.branch_evaluator import evaluate_branches
+from src.stage2_5b.controlled_user import (
+    ControlledUser,
+    TASK_POLICIES,
+    stable_text_hash,
+)
+from src.stage2_5b.evidence_graph import evaluate_evidence
+from src.stage2_5b.evaluator import (
+    evaluate_conversation_management,
+    evaluate_policy_failures,
+    official_reward_metrics,
+    safe_success_metrics,
+)
+from src.stage2_5b.social_style_wrapper import (
+    load_style_templates,
+    template_by_id,
+    template_ids,
+)
+from src.stage2_5b.trajectory_metrics import trajectory_summary
 
 
 JSONL_OUTPUTS = [
@@ -68,14 +79,16 @@ RUNTIME_SOURCE_PATHS = [
     ROOT / "scripts" / "stage2_5b" / "run_stage2_5b_experiment.py",
     ROOT / "src" / "adapters" / "instrument.py",
     ROOT / "src" / "adapters" / "normalize.py",
-    ROOT / "src" / "stage2_5" / "official_tau_evaluator.py",
-    ROOT / "src" / "stage2_5" / "safe_task_evaluator.py",
-    ROOT / "src" / "stage2_5" / "evidence_graph_evaluator.py",
-    ROOT / "src" / "stage2_5" / "branch_evaluator.py",
-    ROOT / "src" / "stage2_5" / "conversation_management_evaluator.py",
-    ROOT / "src" / "stage2_5" / "social_style_wrapper.py",
-    ROOT / "src" / "stage2_5" / "trajectory_metrics.py",
+    ROOT / "src" / "stage2_5b" / "evaluator.py",
+    ROOT / "src" / "stage2_5b" / "evidence_graph.py",
+    ROOT / "src" / "stage2_5b" / "branch_evaluator.py",
+    ROOT / "src" / "stage2_5b" / "social_style_wrapper.py",
+    ROOT / "src" / "stage2_5b" / "trajectory_metrics.py",
     ROOT / "src" / "stage2_5b" / "controlled_user.py",
+    ROOT / "src" / "stage2_5b" / "user_policy.py",
+    ROOT / "src" / "stage2_5b" / "response_library.py",
+    ROOT / "data" / "stage2_5b" / "task_user_policies.yaml",
+    ROOT / "data" / "stage2_5b" / "user_response_library.yaml",
 ]
 
 
@@ -120,11 +133,10 @@ def runtime_hashes_for_config(config_path: Path) -> dict[str, str]:
     policy_path = ROOT / cfg["paths"]["task_policy_annotations"]
     benchmark_manifest = ROOT / cfg["paths"]["benchmark_manifest"]
     evaluator_paths = [
-        ROOT / "src" / "stage2_5" / "official_tau_evaluator.py",
-        ROOT / "src" / "stage2_5" / "safe_task_evaluator.py",
-        ROOT / "src" / "stage2_5" / "evidence_graph_evaluator.py",
-        ROOT / "src" / "stage2_5" / "branch_evaluator.py",
-        ROOT / "src" / "stage2_5" / "trajectory_metrics.py",
+        ROOT / "src" / "stage2_5b" / "evaluator.py",
+        ROOT / "src" / "stage2_5b" / "evidence_graph.py",
+        ROOT / "src" / "stage2_5b" / "branch_evaluator.py",
+        ROOT / "src" / "stage2_5b" / "trajectory_metrics.py",
     ]
     return {
         "config_hash": _sha256(config_path),
@@ -133,7 +145,13 @@ def runtime_hashes_for_config(config_path: Path) -> dict[str, str]:
         "task_set_hash": _sha256(task_set_path) if task_set_path.exists() else "MISSING",
         "template_hash": _sha256(template_path),
         "policy_annotation_hash": _sha256(policy_path),
-        "controlled_user_hash": _sha256(ROOT / "src" / "stage2_5b" / "controlled_user.py"),
+        "controlled_user_hash": _combined_hash([
+            ROOT / "src" / "stage2_5b" / "controlled_user.py",
+            ROOT / "src" / "stage2_5b" / "user_policy.py",
+            ROOT / "src" / "stage2_5b" / "response_library.py",
+            ROOT / "data" / "stage2_5b" / "task_user_policies.yaml",
+            ROOT / "data" / "stage2_5b" / "user_response_library.yaml",
+        ]),
         "evaluator_hash": _combined_hash(evaluator_paths),
         "source_bundle_hash": _combined_hash(RUNTIME_SOURCE_PATHS),
         "benchmark_manifest_hash": _sha256(benchmark_manifest) if benchmark_manifest.exists() else "MISSING",
@@ -217,8 +235,8 @@ def _write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
         "condition_id", "seed", "template_block", "template_id", "temperature",
         "controlled_user_policy", "deployment_id", "deployment_base_url",
         "invalid_run", "safe_task_success",
-        "official_reward_basis_success", "local_proxy_success", "official_local_success",
-        "official_task_success", "final_state_correct", "reward",
+        "official_reward_basis_success", "local_proxy_success",
+        "final_state_correct", "reward",
         "required_fact_coverage", "mutation_before_evidence",
         "n_policy_failures", "policy_failure_types", "agent_tool_calls",
         "tool_name_sequence_distance", "critical_argument_sequence_distance",
@@ -473,7 +491,6 @@ def _register_controlled_user(
     source_task_id: str,
     domain: str,
     task_label: str,
-    tau2_task: Any,
     condition_id: str,
     template_id: str,
     template_text: str,
@@ -482,24 +499,13 @@ def _register_controlled_user(
 
     user_name = _sanitize_name(f"stage2_5b_user_{domain}_{source_task_id}_{condition_id}_{template_id}")
     if user_name in registry.get_users():
-        policy_kind = "static" if source_task_id in TASK_POLICIES else "generic"
-        return user_name, policy_kind
-
-    policy_override = None
-    policy_kind = "static"
-    if source_task_id not in TASK_POLICIES:
-        policy_kind = "generic"
-        policy_override = generic_policy_from_task(
-            source_task_id=source_task_id,
-            domain=domain,
-            task_label=task_label,
-            user_scenario=tau2_task.user_scenario,
-        )
+        return user_name, "frozen_yaml"
 
     class BoundControlledUser(ControlledUser):
         def __init__(self, instructions=None, tools=None, llm=None, llm_args=None, **kwargs):
             super().__init__(
                 source_task_id,
+                domain=domain,
                 condition=condition_id,
                 template_id=template_id,
                 template_text=template_text,
@@ -507,12 +513,11 @@ def _register_controlled_user(
                 tools=tools,
                 llm=llm,
                 llm_args=llm_args,
-                policy_override=policy_override,
             )
 
     BoundControlledUser.__name__ = f"BoundControlledUser_{user_name}"
     registry.register_user(BoundControlledUser, user_name)
-    return user_name, policy_kind
+    return user_name, "frozen_yaml"
 
 
 def _source_tools(annotation: dict[str, Any]) -> set[str]:
@@ -553,7 +558,7 @@ def _generic_annotation(tau2_task: Any) -> dict[str, Any]:
                 "branch_id": f"evidence_before_{tool}",
                 "trigger_fact": required_facts[0]["fact_id"] if required_facts else "",
                 "valid_actions": [tool],
-                "invalid_actions": [tool],
+                "invalid_actions": [],
             }
             for tool in writes
         ],
@@ -646,7 +651,6 @@ def run_one(
         source_task_id=str(task_spec["source_task_id"]),
         domain=task_spec["source_domain"],
         task_label=task_spec["task_id"],
-        tau2_task=tau2_task,
         condition_id=condition_id,
         template_id=template_id,
         template_text=template["text"],
@@ -702,7 +706,7 @@ def run_one(
     )
     conversation = [_conversation_row(run_meta, m) for m in (sim.messages or [])]
     controlled_events = _controlled_user_events(run_meta, orch.user, conversation)
-    official = official_local_metrics(tau2_task, sim.reward_info)
+    official = official_reward_metrics(tau2_task, sim.reward_info)
     evidence = evaluate_evidence(events, annotation)
     policy_failures = evaluate_policy_failures(
         events,
@@ -730,7 +734,11 @@ def run_one(
         state_after_hash=state_after,
     )
     metrics.update(official)
-    metrics.update(evidence)
+    metrics.update({
+        key: value
+        for key, value in evidence.items()
+        if key not in {"mutation_evidence", "mutation_summaries"}
+    })
     metrics.update(safe)
     metrics.update(conv)
     metrics.update(traj)
@@ -742,7 +750,13 @@ def run_one(
     })
 
     branch_rows = [{**run_meta, **row} for row in evaluate_branches(events, annotation)]
-    evidence_row = {**run_meta, **evidence}
+    evidence_rows = [
+        {**run_meta, "evidence_row_type": "required_fact", **row}
+        for row in evidence["mutation_evidence"]
+    ] + [
+        {**run_meta, "evidence_row_type": "mutation_summary", **row}
+        for row in evidence["mutation_summaries"]
+    ]
     style_events = _style_events(controlled_events)
     return {
         "run_meta": run_meta,
@@ -762,7 +776,7 @@ def run_one(
             "reward": metrics.get("reward"),
             "safe_task_success": metrics.get("safe_task_success"),
         }],
-        "evidence_events": [evidence_row],
+        "evidence_events": evidence_rows,
         "branch_decisions": branch_rows,
         "policy_failures": [{**run_meta, **f} for f in policy_failures],
         "termination_reasons": [{
@@ -781,7 +795,6 @@ def _exception_metrics(run_meta: dict[str, Any], exc: Exception) -> dict[str, An
         "safe_task_success": None,
         "official_reward_basis_success": None,
         "local_proxy_success": None,
-        "official_local_success": None,
         "final_state_correct": None,
         "reward": None,
         "termination_reason": f"exception:{type(exc).__name__}",
@@ -876,7 +889,7 @@ def main() -> None:
                 "template_block": cell["template_block"],
                 "template_id": cell["template_id"],
                 "temperature": temperature,
-                "controlled_user_policy": "static" if str(task_spec["source_task_id"]) in TASK_POLICIES else "generic",
+                "controlled_user_policy": "frozen_yaml",
                 "deployment_id": model.get("deployment_id", model["base_url"]),
                 "deployment_base_url": model["base_url"],
                 **hashes,
@@ -928,7 +941,7 @@ def main() -> None:
                 "template_block": cell["template_block"],
                 "template_id": cell["template_id"],
                 "temperature": temperature,
-                "controlled_user_policy": "static" if str(task_spec["source_task_id"]) in TASK_POLICIES else "generic",
+                "controlled_user_policy": "frozen_yaml",
                 "deployment_id": model.get("deployment_id", model["base_url"]),
                 "deployment_base_url": model["base_url"],
                 **hashes,

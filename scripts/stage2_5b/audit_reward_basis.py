@@ -12,7 +12,7 @@ sys.path.insert(0, str(ROOT))
 
 from tau2.run import get_tasks
 
-from src.stage2_5.official_tau_evaluator import official_basis
+from src.stage2_5b.evaluator import official_basis
 
 
 TASK_SPEC_PATH = ROOT / "data" / "irmstu_tasks" / "tau_adapted_tasks.yaml"

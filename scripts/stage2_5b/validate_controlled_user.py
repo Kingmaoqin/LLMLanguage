@@ -21,14 +21,12 @@ from src.stage2_5b.controlled_user import (
     ControlledUserState,
     MAIN_CONDITIONS,
     TASK_POLICIES,
-    generic_policy_from_task,
     has_gold_tool_leakage,
     has_hidden_or_style_leakage,
     stable_text_hash,
 )
 
 
-STATIC_TASK_IDS = ["4", "30", "55", "7", "12", "44"]
 STYLE_TEMPLATE_PATH = ROOT / "data" / "stage2_5b" / "social_style_templates_frozen.yaml"
 CANDIDATE_TASKS_CSV = ROOT / "data" / "stage2_5b" / "candidate_tasks.csv"
 OUT_DIR = ROOT / "results" / "stage2_5b_validation"
@@ -59,40 +57,17 @@ class TaskSpec:
     task_key: str
     source_task_id: str
     domain: str
-    policy_override: Any = None
 
 
 def load_task_specs() -> list[TaskSpec]:
-    specs = [
-        TaskSpec(task_key=f"static_{task_id}", source_task_id=task_id, domain=TASK_POLICIES[task_id].domain)
-        for task_id in STATIC_TASK_IDS
+    return [
+        TaskSpec(
+            task_key=task_key,
+            source_task_id=policy.source_task_id,
+            domain=policy.domain,
+        )
+        for task_key, policy in sorted(TASK_POLICIES.items())
     ]
-    if not CANDIDATE_TASKS_CSV.exists():
-        return specs
-    with CANDIDATE_TASKS_CSV.open("r", encoding="utf-8", newline="") as f:
-        for row in csv.DictReader(f):
-            if row.get("status") != "candidate_structural":
-                continue
-            domain = row["domain"]
-            source_task_id = str(row["source_task_id"])
-            tau2_task = get_tasks(domain, task_ids=[source_task_id])[0]
-            policy_override = None
-            if source_task_id not in TASK_POLICIES:
-                policy_override = generic_policy_from_task(
-                    source_task_id=source_task_id,
-                    domain=domain,
-                    task_label=f"{domain}_{source_task_id}",
-                    user_scenario=tau2_task.user_scenario,
-                )
-            specs.append(
-                TaskSpec(
-                    task_key=f"{domain}_{source_task_id}",
-                    source_task_id=source_task_id,
-                    domain=domain,
-                    policy_override=policy_override,
-                )
-            )
-    return specs
 
 
 def load_first_templates() -> dict[str, dict[str, str]]:
@@ -181,10 +156,10 @@ def canonical_json(value: Any) -> str:
 def run_case(spec: TaskSpec, fixture: Fixture, condition: str, template: dict[str, str]) -> dict[str, Any]:
     user = ControlledUser(
         spec.source_task_id,
+        domain=spec.domain,
         condition=condition,
         template_id=template["template_id"],
         template_text=template["text"],
-        policy_override=spec.policy_override,
     )
     state = ControlledUserState(
         messages=[],
@@ -198,13 +173,25 @@ def run_case(spec: TaskSpec, fixture: Fixture, condition: str, template: dict[st
         state,
     )
     event = user.events[-1]
+    if (
+        fixture.name == "confirmation"
+        and event["speech_act"] == "revise_request"
+    ):
+        message, _state = user.generate_next_message(
+            AssistantMessage(
+                role="assistant",
+                content=fixture.assistant_text,
+            ),
+            state,
+        )
+        event = user.events[-1]
     clean_text = event["clean_text"]
     styled_text = event["styled_text"]
     return {
         "task_id": spec.task_key,
         "source_task_id": spec.source_task_id,
         "domain": spec.domain,
-        "policy_kind": "static" if spec.policy_override is None else "generic",
+        "policy_kind": "frozen_yaml",
         "fixture": fixture.name,
         "condition": condition,
         "template_id": template["template_id"],
@@ -325,8 +312,7 @@ def write_report(rows: list[dict[str, Any]], summary_rows: list[dict[str, Any]])
         f"Status: {'PASS' if all_pass else 'FAIL'}",
         "",
         "Scope:",
-        f"- Static source tasks: {', '.join(STATIC_TASK_IDS)}",
-        f"- Candidate task specs included: {len({r['task_id'] for r in rows if not str(r['task_id']).startswith('static_')})}",
+        f"- Frozen task policies: {len({r['task_id'] for r in rows})}",
         f"- Policy kinds: {', '.join(sorted({r['policy_kind'] for r in rows}))}",
         f"- Main style conditions: {', '.join(MAIN_CONDITIONS)}",
         f"- Fixture groups: {total_groups}",
