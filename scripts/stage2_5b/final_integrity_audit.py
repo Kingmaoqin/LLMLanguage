@@ -53,6 +53,17 @@ def truthy(value: Any) -> bool:
     return str(value).strip().lower() in {"true", "1", "yes"}
 
 
+def is_opening_event(row: dict[str, Any]) -> bool:
+    """Identify the first controlled-user event across old and current schemas."""
+    event_idx = row.get("user_event_idx")
+    if event_idx not in (None, ""):
+        try:
+            return int(event_idx) == 0
+        except (TypeError, ValueError):
+            return False
+    return row.get("user_state") == "turn_0"
+
+
 def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
     fields = list(dict.fromkeys(key for row in rows for key in row))
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -108,14 +119,29 @@ def main() -> int:
         metric_ids = [row.get("run_id", "") for row in metrics]
         bundle_ids = []
         bundle_hash_mismatches = 0
+        bundle_output_mismatches = 0
+        bundle_token_mismatches = 0
         for bundle_path in bundles:
             bundle = json.loads(bundle_path.read_text(encoding="utf-8"))
             run_meta = bundle.get("run_meta") or {}
+            bundle_metrics = bundle.get("metrics") or {}
+            conversations = bundle.get("conversation_logs") or []
             bundle_ids.append(str(run_meta.get("run_id", "")))
             bundle_hash_mismatches += sum(
                 run_meta.get(field, "") != expected
                 for field, expected in expected_hashes.items()
             )
+            if not any(
+                row.get("role") == "assistant"
+                and str(row.get("content", "")).strip()
+                for row in conversations
+            ):
+                bundle_output_mismatches += 1
+            if (
+                int(bundle_metrics.get("input_tokens") or 0) <= 0
+                or int(bundle_metrics.get("output_tokens") or 0) <= 0
+            ):
+                bundle_token_mismatches += 1
         errors = []
         if not block_contract:
             errors.append("missing_run_contract")
@@ -148,6 +174,10 @@ def main() -> int:
             errors.append(f"hash_mismatches={hash_mismatches}")
         if bundle_hash_mismatches:
             errors.append(f"bundle_hash_mismatches={bundle_hash_mismatches}")
+        if bundle_output_mismatches:
+            errors.append(f"missing_nonempty_model_outputs={bundle_output_mismatches}")
+        if bundle_token_mismatches:
+            errors.append(f"missing_input_or_output_tokens={bundle_token_mismatches}")
         if {row.get("deployment_id", "") for row in metrics} not in ({job["deployment_id"]}, set()):
             errors.append("deployment_mismatch")
         invalid_ids = {row["run_id"] for row in metrics if truthy(row.get("invalid_run"))}
@@ -233,8 +263,17 @@ def main() -> int:
     controlled_openings: dict[tuple[str, str, str], set[str]] = defaultdict(set)
     controlled_opening_conditions: dict[tuple[str, str, str], set[str]] = defaultdict(set)
     controlled_opening_run_ids: list[str] = []
+    controlled_content_mismatches = sum(
+        row.get("run_id") in valid_ids
+        and not truthy(row.get("conversation_content_match", True))
+        for row in all_events["controlled_user_events"]
+    )
+    if controlled_content_mismatches:
+        global_errors.append(
+            f"controlled-user conversation mismatches={controlled_content_mismatches}"
+        )
     for row in all_events["controlled_user_events"]:
-        if row.get("run_id") in valid_ids and row.get("user_state") == "turn_0":
+        if row.get("run_id") in valid_ids and is_opening_event(row):
             group = (str(row["model_alias"]), str(row["task_id"]), str(row["seed"]))
             controlled_openings[group].add(
                 str(row.get("clean_text_hash", ""))
@@ -302,6 +341,7 @@ def main() -> int:
         f"- Initial-state groups covered: {len(initial_hashes)}",
         f"- Controlled-user opening drift groups: {len(user_drift)}",
         f"- Controlled-user valid-run openings: {len(controlled_opening_run_ids)}",
+        f"- Controlled-user conversation mismatches: {controlled_content_mismatches}",
         "",
         "## Balance",
         "",
@@ -338,8 +378,13 @@ def main() -> int:
         "## Gate decision",
         "",
         (
-            "G11_FINAL_INTEGRITY_PASS. Behavioral analyses use valid runs; the retained invalid "
-            "run is reported separately and is not reclassified as model behavior."
+            "G11_FINAL_INTEGRITY_PASS. Behavioral analyses retain MAX_STEPS as behavior; "
+            + (
+                f"{len(invalid)} invalid/infrastructure run(s) are reported separately "
+                "and are not reclassified as model behavior."
+                if invalid
+                else "no invalid/infrastructure runs were observed."
+            )
             if status == "PASS"
             else "G11_FINAL_INTEGRITY_FAIL. Confirmatory analysis is blocked."
         ),

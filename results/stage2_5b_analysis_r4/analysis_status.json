@@ -1,0 +1,11 @@
+{
+  "n_runs": 480,
+  "n_valid_runs": 480,
+  "n_invalid_runs": 0,
+  "n_pair_rows": 400,
+  "endpoint_significant_fdr": 1,
+  "process_significant_fdr": 5,
+  "endpoint_equivalent_cells": 1,
+  "glmm_status": "NOT FIT: Rscript/lme4 is unavailable in the frozen runtime. The preregistered task-cluster bootstrap remains the primary inference.",
+  "agent_task_abandonment_status": "NOT IDENTIFIABLE: the frozen user_abandonment_markers field is user-side and mostly captures the controlled user's normal STOP token. No validated agent-side abandonment classifier was frozen, so this outcome remains missing."
+}

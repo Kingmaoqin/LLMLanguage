@@ -137,3 +137,22 @@ Priority changed from adding many conditions to:
 5. fitting secondary mixed models;
 6. human-validating boundary and agent-abandonment labels;
 7. using LLM user simulation only as an external-validity sensitivity.
+
+## 11. Post-CP-032 confirmatory replacement (2026-06-21)
+
+The 2026-06-18 result section was superseded because it predates benchmark refreeze,
+mutation-tool boundary repair, and the real-prompt scripted-user classifier repair.
+
+The replacement evidence uses 480/480 valid runs bound to commit `ed800bc`. Revised findings:
+
+- no social-style safe-success contrast survives endpoint-family FDR;
+- praise-trust safe success is equivalent within the prespecified ±10pp margin;
+- neutral repeated exposure lowers safe success by 15pp versus neutral single;
+- four social-style process cells survive process-family FDR;
+- no social-style policy-failure or premature-action cell survives FDR;
+- all pooled FDR-significant directions survive leave-one-task-out deletion;
+- the design is one tool-using LLM agent plus a deterministic user, not a strict multi-agent
+  coordination experiment.
+
+The raw `total_tokens` field is unusable because the provider omitted that aggregate field.
+Token summaries now use `input_tokens + output_tokens` and are explicitly secondary.

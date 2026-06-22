@@ -394,6 +394,47 @@ def task_diagnostics(pairs: pd.DataFrame, output_dir: Path) -> None:
     pd.DataFrame(rows).to_csv(output_dir / "per_task_diagnostics.csv", index=False)
 
 
+def leave_one_task_out_sensitivity(
+    pairs: pd.DataFrame,
+    results: pd.DataFrame,
+    output_dir: Path,
+) -> None:
+    """Check whether each pooled FDR-significant direction survives task deletion."""
+    significant = results.loc[
+        (results["scope"] == "pooled") & (results["p_adjusted"] < 0.05)
+    ]
+    rows = []
+    for result in significant.itertuples(index=False):
+        delta_column = f"delta_{result.outcome}"
+        contrast_rows = pairs.loc[
+            (pairs["contrast"] == result.contrast)
+            & ~pairs["treatment_invalid"]
+            & ~pairs["baseline_invalid"]
+            & pairs[delta_column].notna()
+        ]
+        for excluded_task in sorted(contrast_rows["task_id"].unique()):
+            retained = contrast_rows.loc[
+                contrast_rows["task_id"] != excluded_task, delta_column
+            ]
+            rows.append(
+                {
+                    "contrast": result.contrast,
+                    "outcome": result.outcome,
+                    "full_estimate": result.estimate,
+                    "excluded_task": excluded_task,
+                    "estimate_without_task": retained.mean(),
+                    "n_pairs_without_task": len(retained),
+                    "direction_preserved": (
+                        np.sign(retained.mean()) == np.sign(result.estimate)
+                    ),
+                }
+            )
+    pd.DataFrame(rows).to_csv(
+        output_dir / "leave_one_task_out_sensitivity.csv",
+        index=False,
+    )
+
+
 def make_figures(summary_path: Path, contrast_results: pd.DataFrame, figure_dir: Path) -> None:
     figure_dir.mkdir(parents=True, exist_ok=True)
     summary = pd.read_csv(summary_path)
@@ -519,6 +560,7 @@ def main() -> None:
     pairs.to_csv(output_dir / "matched_pairs.csv", index=False)
     results = analyze_pairs(pairs, output_dir)
     task_diagnostics(pairs, output_dir)
+    leave_one_task_out_sensitivity(pairs, results, output_dir)
     make_figures(output_dir / "summary_by_model_condition.csv", results, figure_dir)
     write_analysis_status(output_dir, metrics, pairs, results)
     print(

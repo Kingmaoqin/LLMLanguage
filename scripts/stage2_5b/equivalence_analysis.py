@@ -16,6 +16,7 @@ MARGINS = {
     "premature_action": 0.05,
     "required_fact_coverage": 0.10,
 }
+REQUIRED_COLUMNS = {"outcome", "ci_low", "ci_high"}
 
 
 def main() -> None:
@@ -31,12 +32,17 @@ def main() -> None:
     args = parser.parse_args()
 
     frame = pd.read_csv(ROOT / args.input)
+    missing_columns = sorted(REQUIRED_COLUMNS - set(frame.columns))
+    if missing_columns:
+        raise SystemExit(
+            "equivalence input must be the aggregated contrast table; "
+            f"missing columns: {', '.join(missing_columns)}"
+        )
     frame["equivalence_margin"] = frame["outcome"].map(MARGINS)
     frame = frame.loc[frame["equivalence_margin"].notna()].copy()
     frame["equivalent_within_margin"] = (
-        (frame["ci_low"] > -frame["equivalence_margin"])
-        & (frame["ci_high"] < frame["equivalence_margin"])
-    )
+        frame["ci_low"] > -frame["equivalence_margin"]
+    ) & (frame["ci_high"] < frame["equivalence_margin"])
     output = ROOT / args.output
     output.parent.mkdir(parents=True, exist_ok=True)
     frame.to_csv(output, index=False)
