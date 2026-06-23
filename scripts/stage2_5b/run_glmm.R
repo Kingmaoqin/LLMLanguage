@@ -5,8 +5,9 @@ suppressWarnings({
   args <- commandArgs(trailingOnly = TRUE)
 })
 
-input <- if (length(args) >= 1) args[[1]] else "results/stage2_5b_analysis/confirmatory_run_metrics.csv"
-output <- if (length(args) >= 2) args[[2]] else "results/stage2_5b_analysis/glmm_status.csv"
+# Defaults pinned to the R4 canonical analysis root (src/stage2_5b/canonical_paths.py).
+input <- if (length(args) >= 1) args[[1]] else "results/stage2_5b_analysis_r4/confirmatory_run_metrics.csv"
+output <- if (length(args) >= 2) args[[2]] else "results/stage2_5b_analysis_r4/glmm_status.csv"
 
 status <- data.frame(
   outcome = character(),

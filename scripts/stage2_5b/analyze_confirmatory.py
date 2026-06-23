@@ -7,6 +7,7 @@ import csv
 import json
 import math
 import shutil
+import sys
 import warnings
 from collections import defaultdict
 from pathlib import Path
@@ -23,6 +24,13 @@ from task_cluster_bootstrap import benjamini_hochberg, task_cluster_bootstrap
 warnings.filterwarnings("ignore", message="Pandas requires version")
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
+from src.stage2_5b.canonical_paths import (  # noqa: E402
+    R4_ANALYSIS_ROOT,
+    R4_FIGURES_ROOT,
+    R4_INTEGRITY_CSV,
+    R4_RESULTS_ROOT,
+)
 CONTRASTS = {
     "praise_affect_single_vs_neutral_single": ("praise_affect_single", "neutral_single"),
     "praise_trust_single_vs_neutral_single": ("praise_trust_single", "neutral_single"),
@@ -514,24 +522,22 @@ def write_analysis_status(output_dir: Path, metrics: pd.DataFrame, pairs: pd.Dat
     )
 
 
-def main() -> None:
+def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--root",
-        default="results/stage2_5b_repair/full_blocks_retail8_confirmatory_v2_atomic",
-    )
-    parser.add_argument("--output", default="results/stage2_5b_analysis")
-    parser.add_argument("--figures", default="figures/stage2_5b")
-    parser.add_argument(
-        "--integrity-csv",
-        default="results/stage2_5b_repair/final_integrity_report.csv",
-    )
+    parser.add_argument("--root", default=R4_RESULTS_ROOT)
+    parser.add_argument("--output", default=R4_ANALYSIS_ROOT)
+    parser.add_argument("--figures", default=R4_FIGURES_ROOT)
+    parser.add_argument("--integrity-csv", default=R4_INTEGRITY_CSV)
     parser.add_argument(
         "--allow-incomplete",
         action="store_true",
         help="Permit development smoke analysis before the 480-run G11 gate.",
     )
-    args = parser.parse_args()
+    return parser
+
+
+def main() -> None:
+    args = build_parser().parse_args()
     result_root = ROOT / args.root
     output_dir = ROOT / args.output
     figure_dir = ROOT / args.figures
