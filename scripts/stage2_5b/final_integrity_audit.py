@@ -5,11 +5,18 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
+from src.stage2_5b.canonical_paths import (  # noqa: E402
+    R4_INTEGRITY_CSV,
+    R4_REPORTS_ROOT,
+    R4_RESULTS_ROOT,
+)
 EVENT_FILES = [
     "conversation_logs",
     "normalized_tool_events",
@@ -73,21 +80,16 @@ def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
         writer.writerows(rows)
 
 
-def main() -> int:
+def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--root",
-        default="results/stage2_5b_repair/full_blocks_retail8_confirmatory_v2_atomic",
-    )
-    parser.add_argument(
-        "--csv",
-        default="results/stage2_5b_repair/final_integrity_report.csv",
-    )
-    parser.add_argument(
-        "--report",
-        default="reports/stage2_5b/FINAL_INTEGRITY_AUDIT.md",
-    )
-    args = parser.parse_args()
+    parser.add_argument("--root", default=R4_RESULTS_ROOT)
+    parser.add_argument("--csv", default=R4_INTEGRITY_CSV)
+    parser.add_argument("--report", default=f"{R4_REPORTS_ROOT}/R4_FINAL_INTEGRITY_AUDIT.md")
+    return parser
+
+
+def main() -> int:
+    args = build_parser().parse_args()
 
     result_root = ROOT / args.root
     contract = json.loads((result_root / "FULL_RUN_CONTRACT.json").read_text(encoding="utf-8"))

@@ -3,11 +3,17 @@
 from __future__ import annotations
 
 import argparse
+import sys
 from pathlib import Path
 
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
+from src.stage2_5b.canonical_paths import (  # noqa: E402
+    R4_EQUIVALENCE_RESULTS,
+    R4_PAIRED_CONTRASTS,
+)
 MARGINS = {
     "safe_task_success": 0.10,
     "final_state_correct": 0.10,
@@ -19,17 +25,15 @@ MARGINS = {
 REQUIRED_COLUMNS = {"outcome", "ci_low", "ci_high"}
 
 
-def main() -> None:
+def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--input",
-        default="results/stage2_5b_analysis/paired_contrasts_task_cluster_bootstrap.csv",
-    )
-    parser.add_argument(
-        "--output",
-        default="results/stage2_5b_analysis/equivalence_results.csv",
-    )
-    args = parser.parse_args()
+    parser.add_argument("--input", default=R4_PAIRED_CONTRASTS)
+    parser.add_argument("--output", default=R4_EQUIVALENCE_RESULTS)
+    return parser
+
+
+def main() -> None:
+    args = build_parser().parse_args()
 
     frame = pd.read_csv(ROOT / args.input)
     missing_columns = sorted(REQUIRED_COLUMNS - set(frame.columns))

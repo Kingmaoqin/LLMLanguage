@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from collections import defaultdict
 from pathlib import Path
 from typing import Any, Callable
@@ -11,6 +12,12 @@ from typing import Any, Callable
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
+from src.stage2_5b.canonical_paths import (  # noqa: E402
+    R4_MATCHED_PAIRS,
+    R4_REPORTS_ROOT,
+    R4_RESULTS_ROOT,
+)
 
 
 def read_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -71,15 +78,16 @@ def summarize_trace(
     return lines
 
 
-def main() -> None:
+def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--root",
-        default="results/stage2_5b_repair/full_blocks_retail8_confirmatory_v2_atomic",
-    )
-    parser.add_argument("--pairs", default="results/stage2_5b_analysis/matched_pairs.csv")
-    parser.add_argument("--report", default="reports/stage2_5b/FAILURE_CASES.md")
-    args = parser.parse_args()
+    parser.add_argument("--root", default=R4_RESULTS_ROOT)
+    parser.add_argument("--pairs", default=R4_MATCHED_PAIRS)
+    parser.add_argument("--report", default=f"{R4_REPORTS_ROOT}/FAILURE_CASES.md")
+    return parser
+
+
+def main() -> None:
+    args = build_parser().parse_args()
     result_root = ROOT / args.root
     pairs = pd.read_csv(ROOT / args.pairs)
     tools = collect(result_root, "normalized_tool_events")

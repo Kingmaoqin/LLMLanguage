@@ -12,6 +12,18 @@ The completed confirmatory matrix is:
 2 models × 8 retail tasks × 6 social-style conditions × 5 seeds = 480 runs
 ```
 
+R4 canonical artifact roots (single source of truth — `src/stage2_5b/canonical_paths.py`):
+
+```text
+results/stage2_5b_repair/r4_confirmatory_canonical   # confirmatory runs
+results/stage2_5b_analysis_r4                         # analysis tables
+figures/stage2_5b_r4                                  # report figures
+```
+
+**Scope.** Single-session, user-to-agent social-valence perturbation on a single
+tool-using LLM agent / minimal scaffold. Multi-agent peer influence and social contagion
+are out of scope and are **not** a requirement of this proposal.
+
 Integrity result:
 
 - 480 manifests, metrics, and atomic run bundles;
@@ -30,7 +42,7 @@ Evidence-bounded finding:
 ## Key documents
 
 - [Final Chinese report](reports/stage2_5b/STAGE2_5B_FINAL_REPORT_CN.md)
-- [Final integrity audit](reports/stage2_5b/FINAL_INTEGRITY_AUDIT.md)
+- [Final integrity audit (R4)](reports/stage2_5b/R4_FINAL_INTEGRITY_AUDIT.md)
 - [Results review](reports/stage2_5b/INDEPENDENT_RESULTS_REVIEW.md)
 - [Failure and mechanism cases](reports/stage2_5b/FAILURE_CASES.md)
 - [Reproduction guide](reports/stage2_5b/REPRODUCTION_GUIDE.md)
@@ -44,13 +56,13 @@ Evidence-bounded finding:
 configs/                 frozen experiment/model/task configuration
 data/                    compact task and template specifications
 scripts/stage2_5b/       experiment, audit, bootstrap, and reporting scripts
-src/stage2_5b/           deterministic controlled-user implementation
-src/stage2_5/            evaluator and trajectory components
+src/stage2_5b/           deterministic controlled-user, evaluators, trajectory components
+src/adapters/            tau2 instrumentation and tool-event normalization
 tests/stage2_5b/         unit and resume/integrity tests
 reports/stage2_5b/       checkpoints, audits, final reports, and review
-results/stage2_5b_analysis/
-                         compact machine-readable analysis tables
-figures/stage2_5b/       final report figures
+results/stage2_5b_analysis_r4/
+                         compact machine-readable analysis tables (R4 canonical)
+figures/stage2_5b_r4/    final report figures (R4 canonical)
 ```
 
 Raw model outputs, full conversation logs, benchmark snapshots, and other large regenerable

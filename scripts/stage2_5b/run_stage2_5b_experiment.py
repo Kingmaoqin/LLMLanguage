@@ -567,20 +567,52 @@ def _generic_annotation(tau2_task: Any) -> dict[str, Any]:
     }
 
 
-def _annotation_for(task_spec: dict[str, Any], tau2_task: Any, annotations: dict[str, Any]) -> dict[str, Any]:
+# Phases that write FORMAL results: an explicit policy annotation is mandatory and the
+# reference-action-derived `_generic_annotation` fallback is forbidden (proposal Section 2.2).
+CONFIRMATORY_PHASES = frozenset({"full", "pilot"})
+
+LEGACY_NAME_BY_SOURCE = {
+    "4": "R1_retail_modify_pending",
+    "30": "R2_retail_return_cancel_mix",
+    "55": "R3_retail_bulk_cancel_return",
+    "7": "T1_airline_cancel_multi",
+    "12": "T2_airline_class_baggage",
+    "44": "T3_airline_conditional_cancel",
+}
+
+
+def _explicit_annotation(task_spec: dict[str, Any], annotations: dict[str, Any]) -> dict[str, Any] | None:
     explicit = annotations.get(task_spec["task_id"])
     if explicit:
         return explicit
-    legacy_name_by_source = {
-        "4": "R1_retail_modify_pending",
-        "30": "R2_retail_return_cancel_mix",
-        "55": "R3_retail_bulk_cancel_return",
-        "7": "T1_airline_cancel_multi",
-        "12": "T2_airline_class_baggage",
-        "44": "T3_airline_conditional_cancel",
-    }
-    explicit = annotations.get(legacy_name_by_source.get(str(task_spec["source_task_id"]), ""))
-    return explicit or _generic_annotation(tau2_task)
+    return annotations.get(LEGACY_NAME_BY_SOURCE.get(str(task_spec["source_task_id"]), ""))
+
+
+def _annotation_for(
+    task_spec: dict[str, Any],
+    tau2_task: Any,
+    annotations: dict[str, Any],
+    *,
+    phase: str,
+    allow_generic: bool = False,
+) -> dict[str, Any]:
+    explicit = _explicit_annotation(task_spec, annotations)
+    if explicit is not None:
+        return {**explicit, "annotation_source": "explicit"}
+    if phase in CONFIRMATORY_PHASES:
+        raise SystemExit(
+            f"confirmatory phase '{phase}' requires an explicit task annotation; "
+            f"missing task_id={task_spec['task_id']} (source {task_spec['source_task_id']}). "
+            "_generic_annotation fallback is forbidden for confirmatory tasks "
+            "(see data/stage2_5b/task_policy_annotations.yaml)."
+        )
+    if not allow_generic:
+        raise SystemExit(
+            f"no explicit annotation for task_id={task_spec['task_id']} in phase '{phase}'; "
+            "pass --allow-generic-annotation to permit the exploratory/debug _generic_annotation "
+            "fallback (it must not be used for formal results)."
+        )
+    return {**_generic_annotation(tau2_task), "annotation_source": "generic"}
 
 
 def _controlled_user_events(run_meta: dict[str, Any], user: Any, conversation: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -820,6 +852,15 @@ def main() -> None:
     parser.add_argument("--base-url-override", default=None)
     parser.add_argument("--deployment-id", default=None)
     parser.add_argument("--skip-endpoint-check", action="store_true")
+    parser.add_argument(
+        "--allow-generic-annotation",
+        action="store_true",
+        help=(
+            "Permit the reference-action _generic_annotation fallback in exploratory/debug "
+            "phases (calibration/smoke). Forbidden and ignored in confirmatory phases "
+            "(full/pilot), which always require explicit annotations."
+        ),
+    )
     parser.add_argument("--output-dir", default=None)
     args = parser.parse_args()
 
@@ -953,7 +994,13 @@ def main() -> None:
             try:
                 from tau2.run import get_tasks
                 tau2_task = get_tasks(task_spec["source_domain"], task_ids=[str(task_spec["source_task_id"])])[0]
-                annotation = _annotation_for(task_spec, tau2_task, annotations)
+                annotation = _annotation_for(
+                    task_spec,
+                    tau2_task,
+                    annotations,
+                    phase=args.phase,
+                    allow_generic=args.allow_generic_annotation,
+                )
                 result = run_one(
                     model=model,
                     task_spec=task_spec,

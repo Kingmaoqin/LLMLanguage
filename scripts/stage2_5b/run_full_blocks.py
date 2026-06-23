@@ -22,6 +22,7 @@ RUNNER = ROOT / "scripts/stage2_5b/run_stage2_5b_experiment.py"
 sys.path.insert(0, str(ROOT))
 
 from scripts.stage2_5b.run_stage2_5b_experiment import HASH_FIELDS, runtime_hashes_for_config
+from src.stage2_5b.canonical_paths import R4_RESULTS_ROOT
 
 EXPECTED_CONDITIONS = {
     "neutral_single",
@@ -349,7 +350,7 @@ class BlockJob:
     served_id: str
 
 
-def main() -> int:
+def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
     parser.add_argument("--models", nargs="+", default=["gemma4_31b", "gpt_oss_120b"])
     parser.add_argument("--tasks", nargs="+", default=None)
@@ -364,11 +365,15 @@ def main() -> int:
         nargs="+",
         default=["http://127.0.0.1:8192/v1"],
     )
-    parser.add_argument("--output-root", default="results/stage2_5b_repair/full_blocks_retail8_confirmatory_v2_atomic")
-    parser.add_argument("--log-dir", default="artifacts/stage2_5b/logs/full_blocks_v2_atomic")
-    parser.add_argument("--report-dir", default="reports/stage2_5b/run_blocks_v2_atomic")
+    parser.add_argument("--output-root", default=R4_RESULTS_ROOT)
+    parser.add_argument("--log-dir", default="artifacts/stage2_5b/logs/r4_confirmatory_canonical")
+    parser.add_argument("--report-dir", default="reports/stage2_5b/run_blocks_r4")
     parser.add_argument("--dry-run", action="store_true")
-    args = parser.parse_args()
+    return parser
+
+
+def main() -> int:
+    args = build_parser().parse_args()
 
     tasks = args.tasks or frozen_tasks()
     output_root = ROOT / args.output_root

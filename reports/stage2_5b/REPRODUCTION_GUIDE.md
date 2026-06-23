@@ -8,15 +8,22 @@ The confirmatory matrix is:
 2 models × 8 retail tasks × 6 conditions × 5 seeds = 480 runs
 ```
 
-Formal result root:
+Formal (R4 canonical) result root:
 
 ```text
-results/stage2_5b_repair/full_blocks_retail8_confirmatory_v2_atomic
+results/stage2_5b_repair/r4_confirmatory_canonical
 ```
 
-Do not combine this root with the preserved incomplete roots
-`full_blocks_retail8_confirmatory`, `full_blocks_retail8_confirmatory_4gpu`, or any smoke,
-pilot, calibration, or shard-repair directory.
+This is the single canonical root. All active scripts default to it
+(see `src/stage2_5b/canonical_paths.py`). The earlier round-3 roots
+`full_blocks_retail8_confirmatory_v2_atomic`, `full_blocks_retail8_confirmatory`, and
+`full_blocks_retail8_confirmatory_4gpu` are preserved for audit only and must never be
+combined with the canonical root, nor reached except by an explicit `--root` argument.
+
+> **Scope note.** This study is a single-session, user-to-agent social-valence
+> perturbation study on a single tool-using LLM agent. Multi-agent peer influence /
+> social contagion is explicitly **out of scope** and is not a requirement of the
+> proposal — it must not be treated as a current gap.
 
 ## 2. Verify frozen inputs
 
@@ -25,14 +32,17 @@ Run from `/home/xqin5/llmlanguage/ir_mstu_stage2`:
 ```bash
 sha256sum -c data/stage2_5b/calibrated_tasks_frozen.yaml.sha256
 sha256sum -c reports/stage2_5b/PREANALYSIS_PLAN.md.sha256
-python -m json.tool results/stage2_5b_repair/full_blocks_retail8_confirmatory_v2_atomic/FULL_RUN_CONTRACT.json
+python -m json.tool results/stage2_5b_repair/r4_confirmatory_canonical/FULL_RUN_CONTRACT.json
 git rev-parse HEAD
 git status --short
 ```
 
 The executable experimental state is identified by the hashes in
-`FULL_RUN_CONTRACT.json` and each block's `run_contract.json`. The project worktree is dirty,
-so the Git commit alone is not a sufficient runtime identifier.
+`FULL_RUN_CONTRACT.json` and each block's `run_contract.json`. The benchmark provenance
+(tau2 base commit + the single exported working-tree patch) is recorded in
+`artifacts/stage2_5b/benchmark_patches/PATCH_MANIFEST.json` and the snapshot manifest
+`artifacts/stage2_5b/tau_snapshot_manifest.json`; the Git commit alone is not a sufficient
+runtime identifier.
 
 ## 3. Python environment and tests
 
@@ -42,7 +52,7 @@ conda run -n agentsearch python -m py_compile \
 conda run -n agentsearch python -m unittest discover -s tests/stage2_5b
 ```
 
-Expected final Stage-2.5b unit-test result: 46 tests passing.
+Expected final Stage-2.5b unit-test result: 115 tests passing (R4 minimal-repair baseline).
 
 ## 4. Model services
 
@@ -129,11 +139,12 @@ append records after interruption.
 python scripts/stage2_5b/final_integrity_audit.py
 ```
 
-This must report `PASS` before confirmatory statistics are run. It produces:
+This must report `PASS` before confirmatory statistics are run. With no arguments it reads
+the R4 canonical root and produces:
 
 ```text
-results/stage2_5b_repair/final_integrity_report.csv
-reports/stage2_5b/FINAL_INTEGRITY_AUDIT.md
+results/stage2_5b_repair/r4_final_integrity_report.csv
+reports/stage2_5b/R4_FINAL_INTEGRITY_AUDIT.md
 ```
 
 ## 8. Confirmatory analysis
@@ -160,13 +171,13 @@ or invalidate the preregistered primary task-cluster bootstrap.
 ## 9. Main outputs
 
 ```text
-results/stage2_5b_analysis/confirmatory_run_metrics.csv
-results/stage2_5b_analysis/matched_pairs.csv
-results/stage2_5b_analysis/paired_contrasts_task_cluster_bootstrap.csv
-results/stage2_5b_analysis/equivalence_results.csv
-results/stage2_5b_analysis/per_task_diagnostics.csv
-results/stage2_5b_analysis/summary_by_model_condition.csv
-figures/stage2_5b/
+results/stage2_5b_analysis_r4/confirmatory_run_metrics.csv
+results/stage2_5b_analysis_r4/matched_pairs.csv
+results/stage2_5b_analysis_r4/paired_contrasts_task_cluster_bootstrap.csv
+results/stage2_5b_analysis_r4/equivalence_results.csv
+results/stage2_5b_analysis_r4/per_task_diagnostics.csv
+results/stage2_5b_analysis_r4/summary_by_model_condition.csv
+figures/stage2_5b_r4/
 reports/stage2_5b/FAILURE_CASES.md
 ```
 

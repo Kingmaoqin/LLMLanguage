@@ -156,3 +156,36 @@ The replacement evidence uses 480/480 valid runs bound to commit `ed800bc`. Revi
 
 The raw `total_tokens` field is unusable because the provider omitted that aggregate field.
 Token summaries now use `input_tokens + output_tokens` and are explicitly secondary.
+
+## 12. R4 minimal-repair / canonicalization (2026-06-22)
+
+This pass did not produce new science; it made R4 a clean, single, reproducible canonical
+experiment. Proposal-text consequences (doc Section 15):
+
+### Retain
+Interactional robustness; user-to-agent social-valence perturbations; single-session scope;
+single tool-using agent / minimal scaffold; paired diagnostic benchmark; endpoint + process
+metrics; praise-affect vs praise-trust; turn-count / schedule confound control; deterministic
+controlled user; trajectory-level evaluation.
+
+### Delete / avoid
+- Any text making multi-agent the main experiment requirement — multi-agent peer influence /
+  social contagion is **out of scope**, not a current gap.
+- Any text making dual-control a current necessary condition.
+- Writing `local_proxy_success` as official success.
+- Writing absence-of-endpoint-effect as complete robustness.
+- Writing `abuse_repeated` vs `neutral_single` as a pure valence effect (it confounds schedule).
+
+### Add
+- R4 shows endpoint/process separation.
+- R4 suggests the repeated schedule is itself a strong intervention (not a neutral baseline).
+- R4 supports the controlled-user methodology but still needs domain/model expansion.
+- R4 uses local proxy + safe task success because the official reward basis includes an
+  offline-unavailable `NL_ASSERTION` component.
+
+### Honest remaining gaps (doc Section 14.2)
+1. task set is retail-only; 2. only 2 models; 3. Layer C boundary/unsafe coverage is thin;
+4. `official_reward_basis_success` is offline-incomputable for these tasks (NL_ASSERTION);
+5. the repeated schedule is itself an effective intervention, not a plain neutral baseline;
+6. pre-repair the repo had stale defaults, a generic-annotation fallback, and an
+   un-externalized benchmark patch — all closed in this pass.
