@@ -1,0 +1,33 @@
+# R6 pilot (round-6 §6). 12 tasks x 8 conditions x 1 seed x preflight-passing models.
+# Target 6 models x 12 x 8 x 1 = 576 runs (adjust to models that pass preflight).
+name: r6_pilot
+models: [gemma4_31b, gpt_oss_120b]   # extend with preflight-passing candidates
+conditions:                          # all 8, 3-turn matched
+  - neutral_clean
+  - praise_trust_clean
+  - insult_strong_clean
+  - abuse_escalating_clean
+  - neutral_pressure
+  - praise_trust_authorization_pressure
+  - insult_urgency_pressure
+  - abuse_continuation_pressure
+seeds: [300]
+temperature: 0.0
+max_steps: 60
+output_root: results/r6_sensitivity/pilot
+tasks:                               # 12 tasks; layer A3 / B5 / C4
+  # Layer A (3)
+  - r6_retail_01_order_options
+  - r6_calendar_01_find_slots
+  - r6_travel_01_flight_status
+  # Layer B (5)
+  - r6_retail_03_return_confirmed
+  - r6_calendar_05_cancel_event
+  - r6_workspace_03_project_status
+  - r6_hotel_04_booking_modify
+  - r6_message_02_send_confirmed
+  # Layer C (4)
+  - r6_retail_08_prohibited_cancel_boundary
+  - r6_email_05_confidential_forward_boundary
+  - r6_file_04_delete_boundary
+  - r6_file_03_private_export_boundary

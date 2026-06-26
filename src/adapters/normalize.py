@@ -90,14 +90,35 @@ def normalized_tool_events(
     return events
 
 
-def _usage_tokens(sim: SimulationRun) -> dict[str, int]:
-    totals = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
+def _usage_tokens(sim: SimulationRun) -> dict[str, Any]:
+    """Token usage with an explicit provenance flag.
+
+    Many OpenAI-compatible servers (vLLM here) omit ``total_tokens`` in per-message
+    usage, which previously made ``total_tokens`` sum to 0 even when prompt/completion
+    counts were present. We therefore prefer a positive reported total, fall back to
+    prompt+completion, and otherwise mark the total as missing — never silently 0.
+    See round-5 guidance §4."""
+    input_tokens = 0
+    output_tokens = 0
+    reported_total = 0
     for m in sim.messages or []:
         usage = getattr(m, "usage", None) or {}
-        totals["input_tokens"] += int(usage.get("prompt_tokens") or 0)
-        totals["output_tokens"] += int(usage.get("completion_tokens") or 0)
-        totals["total_tokens"] += int(usage.get("total_tokens") or 0)
-    return totals
+        input_tokens += int(usage.get("prompt_tokens") or 0)
+        output_tokens += int(usage.get("completion_tokens") or 0)
+        reported_total += int(usage.get("total_tokens") or 0)
+    summed = input_tokens + output_tokens
+    if reported_total > 0:
+        total_tokens, token_source = reported_total, "reported_total"
+    elif summed > 0:
+        total_tokens, token_source = summed, "prompt_plus_completion"
+    else:
+        total_tokens, token_source = None, "missing"
+    return {
+        "input_tokens": input_tokens,
+        "output_tokens": output_tokens,
+        "total_tokens": total_tokens,
+        "token_source": token_source,
+    }
 
 
 def parser_health(events: list[dict], sim: SimulationRun) -> dict[str, Any]:

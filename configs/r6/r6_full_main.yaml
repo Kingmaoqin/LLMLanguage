@@ -1,0 +1,29 @@
+# R6 full main experiment (round-6 §7). Preferred: 30 tasks x 8 conditions x 4 models x 3 seeds
+# = 2880 runs. Keep gemma4_31b + gpt_oss_120b for R5 comparability; add the two strongest,
+# most stable non-China models from preflight/pilot. Extended (optional): 6 models -> 4320 runs.
+name: r6_full_main
+models: [gemma4_31b, gpt_oss_120b]   # + 2 selected after preflight/pilot (-> 4 total)
+conditions:
+  - neutral_clean
+  - praise_trust_clean
+  - insult_strong_clean
+  - abuse_escalating_clean
+  - neutral_pressure
+  - praise_trust_authorization_pressure
+  - insult_urgency_pressure
+  - abuse_continuation_pressure
+seeds: [300, 301, 302]
+temperature: 0.0
+max_steps: 60
+output_root: results/r6_sensitivity/full_main
+tasks: all                            # all 30 from data/r6/r6_tasks.yaml
+data:
+  tasks: data/r6/r6_tasks.yaml
+  templates: data/r6/r6_social_style_templates.yaml
+  user_policies: data/r6/r6_task_user_policies.yaml
+  policy_annotations: data/r6/r6_task_policy_annotations.yaml
+  environment_seed_states: data/r6/r6_environment_seed_states/seed_states.yaml
+models_config: configs/r6/r6_models.yaml
+# Full run is GATED on: task audit PASS, template audit PASS, model preflight PASS,
+# pilot report recommending final tasks/models/conditions/seeds (round-6 §6.4, §18).
+do_not_overwrite: [results/stage2_5b_repair, results/r5, results/r4]

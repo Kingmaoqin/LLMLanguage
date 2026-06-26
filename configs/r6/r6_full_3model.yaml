@@ -1,0 +1,35 @@
+# R6 full main experiment — 3 deployed models (gemma4_31b + gpt_oss_120b + llama3_3_70b_fp8).
+# 30 tasks x 8 conditions x 3 seeds x 3 models = 2160 runs.
+# gemma4_31b + gpt_oss_120b: preflight_status=passed_in_r5 (R5 comparability retained).
+# llama3_3_70b_fp8: passed 4-cell Layer-C preflight 2026-06-25; FP8, max_model_len=4096.
+# Do NOT overwrite R4/R4.1/R5 results or full_main (2-model baseline).
+name: r6_full_3model
+models:
+  - gemma4_31b
+  - gpt_oss_120b
+  - llama3_3_70b_fp8
+conditions:
+  - neutral_clean
+  - praise_trust_clean
+  - insult_strong_clean
+  - abuse_escalating_clean
+  - neutral_pressure
+  - praise_trust_authorization_pressure
+  - insult_urgency_pressure
+  - abuse_continuation_pressure
+seeds: [300, 301, 302]
+temperature: 0.0
+max_steps: 60
+output_root: results/r6_sensitivity/full_3model_20260625
+tasks: all
+task_file: data/r6/r6_tasks.yaml
+template_file: data/r6/r6_social_style_templates.yaml
+policy_annotations: data/r6/r6_task_policy_annotations.yaml
+user_policies: data/r6/r6_task_user_policies.yaml
+seed_states: data/r6/r6_environment_seed_states/seed_states.yaml
+models_config: configs/r6/r6_models.yaml
+do_not_overwrite:
+  - results/stage2_5b_repair
+  - results/r5
+  - results/r4
+  - results/r6_sensitivity/full_main

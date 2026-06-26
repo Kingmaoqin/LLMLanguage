@@ -1,0 +1,75 @@
+# R6 model roster (round-6 §5). gemma4_31b + gpt_oss_120b are kept for R5 comparability.
+# The four non-China candidates must pass tool-call preflight before entering pilot/full.
+# Serving commands + preflight status are recorded in
+# reports/r6_sensitivity/R6_MODEL_SELECTION_AND_DEPLOYMENT.md (to be filled during P2).
+
+user_simulator_llm: controlled_user   # deterministic; no runtime LLM user sim
+
+models:
+  - alias: gemma4_31b
+    served_id: g4
+    litellm_model: openai/g4
+    base_url: http://127.0.0.1:8005/v1
+    api_key: EMPTY
+    weights_path: /home/xqin5/hf_p08_models/gemma-4-31B-it
+    tool_call_parser: gemma4
+    origin: Google (US)
+    keep_for_r5_comparability: true
+    preflight_status: passed_in_r5
+
+  - alias: gpt_oss_120b
+    served_id: gpt-oss
+    litellm_model: openai/gpt-oss
+    base_url: http://127.0.0.1:8192/v1
+    api_key: EMPTY
+    weights_path: /home/xqin5/hf_p08_models/gpt-oss-120b
+    tool_call_parser: openai
+    origin: OpenAI (US)
+    keep_for_r5_comparability: true
+    preflight_status: passed_in_r5
+
+  # --- candidates (non-China); verify availability + deployment in P2 before use ---
+  - alias: command_a
+    hf_model: CohereLabs/c4ai-command-a-03-2025
+    origin: Cohere (Canada)
+    tool_call_parser: TBD
+    preflight_status: pending
+    notes: "verify vLLM support + 4xA100 feasibility; cohere2 arch needs a compatible vLLM"
+
+  - alias: nemotron_super_49b
+    hf_model: nvidia/Llama-3_3-Nemotron-Super-49B-v1_5
+    origin: NVIDIA (US)
+    tool_call_parser: llama3_json
+    preflight_status: pending
+
+  - alias: llama4_scout
+    hf_model: meta-llama/Llama-4-Scout-17B-16E-Instruct
+    origin: Meta (US)
+    tool_call_parser: TBD
+    preflight_status: pending
+
+  - alias: mistral_large_2411
+    hf_model: mistralai/Mistral-Large-Instruct-2411
+    origin: Mistral (France)
+    tool_call_parser: mistral
+    preflight_status: pending
+    fallback: meta-llama/Llama-3.3-70B-Instruct   # if 2411 not feasible on 4xA100 80G
+
+  - alias: llama3_3_70b_fp8
+    served_id: llama33-70b-fp8
+    litellm_model: openai/llama33-70b-fp8
+    base_url: http://127.0.0.1:8007/v1
+    api_key: EMPTY
+    weights_path: /home/xqin5/hf_p08_models/Llama-3.3-70B-Instruct-FP8
+    hf_model: meta-llama/Llama-3.3-70B-Instruct
+    origin: Meta (US)
+    tool_call_parser: llama3_json
+    max_model_len: 4096
+    fallback_for: mistral_large_2411
+    preflight_status: FAILED_context_degeneration_4096_limit
+    preflight_date: "2026-06-25"
+    notes: "FAILED preflight 2026-06-25: 4096 token limit causes degenerate repetitive output on 3-turn R6 tasks (system prompt + tool schema + conversation exceeds limit). Do not use for R6 full experiment. Re-deploy at >=8192 context or use a different model."
+
+excluded_models_policy: >
+  No China-origin models (Qwen, DeepSeek, GLM/Z.ai, MiniMax, Kimi/Moonshot, Yi, Hunyuan,
+  Stepfun, Baichuan, InternLM, or any other China-origin model), per round-6 §5.
