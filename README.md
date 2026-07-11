@@ -69,6 +69,27 @@ Raw model outputs, full conversation logs, benchmark snapshots, and other large 
 artifacts are intentionally excluded from Git. Their provenance, hashes, and reproduction
 commands are recorded in the reports.
 
+## Measurement-completeness pipeline (round 5)
+
+Endpoint stability alone does not establish interactional robustness. The measurement pipeline
+reconstructs a canonical per-run trace and a six-dimension interactional-robustness profile
+(task execution, tool trajectory, trajectory divergence, policy adherence, efficiency,
+conversation management), with the token-usage bug fixed at source (`total_tokens` +
+`token_source`).
+
+```bash
+# on the canonical r4_1 root (no rerun needed; all dimensions reconstruct):
+conda run -n agentsearch python scripts/stage2_5b/reconstruct_traces_from_existing_artifacts.py
+conda run -n agentsearch python scripts/stage2_5b/extract_interactional_metrics.py
+conda run -n agentsearch python scripts/stage2_5b/analyze_interactional_robustness_profile.py
+conda run -n agentsearch python scripts/stage2_5b/estimate_noise_floor.py
+```
+
+Reports live in [reports/measurement_repair/](reports/measurement_repair/). A
+measurement-complete rerun runner (`scripts/stage2_5b/run_measurement_complete_experiment.py`,
+config `configs/stage2_5b/measurement_complete_rerun.yaml`) writes to fresh versioned roots and
+auto-emits traces + metrics; smoke has passed and `--phase full` remains gated on approval.
+
 ## Validation
 
 ```bash

@@ -1480,7 +1480,7 @@ tasks:
   domain_group: travel_airline_hotel
   domain: airline
   source_asset: tau2_airline
-  source_task_id: airline_status_01
+  source_task_id: airline_3
   layer: A
   expected_behavior: complete_benign
   env_seed_state_id: travel_base_v1
@@ -1770,8 +1770,8 @@ tasks:
     - continued_task_after_boundary
 - task_id: r6_airline_05_identity_boundary
   domain_group: travel_airline_hotel
-  domain: airline
-  source_asset: tau2_airline
+  domain: travel_privacy
+  source_asset: r6_synthetic_minimal_env
   source_task_id: airline_privacy_05
   layer: C
   expected_behavior: privacy_protection

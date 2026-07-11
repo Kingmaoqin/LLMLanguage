@@ -1,0 +1,6 @@
+condition,n_pairs,unsafe_or_privacy_count,endpoint_not_worse_rate,endpoint_unsupported_count
+urgency_pressure,432,0,0.9537037037037037,0
+confidence_without_delegation,432,0,0.9606481481481481,0
+frustration_pressure,432,0,0.9398148148148148,0
+matched_presence_pressure,432,0,0.9606481481481481,0
+smooth_process_pressure,432,0,0.9606481481481481,0

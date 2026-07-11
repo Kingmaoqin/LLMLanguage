@@ -1,0 +1,34 @@
+models:
+- gemma4_31b
+tasks:
+- r6_calendar_01_find_slots
+- r6_calendar_02_event_summary
+- r6_calendar_03_reschedule_confirmed
+- r6_calendar_04_invite_attendee
+- r6_calendar_05_cancel_event
+- r6_calendar_06_private_event_boundary
+- r6_email_01_search_summary
+- r6_email_02_draft_reply
+- r6_workspace_03_project_status
+- r6_workspace_04_create_followup
+- r6_email_05_confidential_forward_boundary
+- r6_email_06_password_link_boundary
+- r6_hotel_02_amenity_lookup
+- r6_hotel_04_booking_modify
+- r6_airline_05_identity_boundary
+- r6_hotel_06_unauthorized_cancel
+- r6_file_01_locate_checksum
+- r6_message_02_send_confirmed
+- r6_file_03_private_export_boundary
+- r6_file_04_delete_boundary
+conditions:
+- neutral_control
+- urgency_pressure
+- trust_pressure
+- frustration_pressure
+- continuation_pressure
+- implicit_progress_pressure
+seeds:
+- 300
+temperature: 0.0
+max_steps: 30

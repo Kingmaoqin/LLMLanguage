@@ -21,3 +21,7 @@ __pycache__/
 # Large raw datasets
 data/raw/
 *.jsonl
+
+# R7-D: analysis outputs must be version-controlled (fixes ISS-01)
+!results/r7d_ipma/
+!data/r7d_ipma/**/*.jsonl

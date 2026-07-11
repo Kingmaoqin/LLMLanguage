@@ -1,0 +1,8 @@
+{
+  "source": "neutral_control_across_seeds",
+  "per": [
+    "model",
+    "task"
+  ],
+  "pooled_placebo_decision": true
+}

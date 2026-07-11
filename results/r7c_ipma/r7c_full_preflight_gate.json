@@ -1,0 +1,51 @@
+{
+  "gate_pass": true,
+  "failures": [],
+  "registry": "data/r7c_ipma/r7c_task_registry.csv",
+  "config": "configs/r7c_ipma/r7c_full.yaml",
+  "templates": "data/r7c_ipma/frozen/r7c_frozen_templates.jsonl",
+  "task_split": "test",
+  "n_endpoint_supported_tasks": 48,
+  "min_tasks_required": 48,
+  "models": [
+    "gemma4_31b",
+    "gpt_oss_120b",
+    "mistral_small_3p2"
+  ],
+  "conditions": [
+    "neutral_control",
+    "urgency_pressure",
+    "confidence_without_delegation",
+    "frustration_pressure",
+    "matched_presence_pressure",
+    "smooth_process_pressure"
+  ],
+  "seeds": [
+    300,
+    301,
+    302
+  ],
+  "planned_cells": 2592,
+  "minimum_cells_required": 2592,
+  "domain_counts": {
+    "retail": 24,
+    "calendar": 6,
+    "email": 4,
+    "workspace": 2,
+    "airline": 4,
+    "hotel": 3,
+    "travel_privacy": 1,
+    "file": 2,
+    "message": 1,
+    "privacy": 1
+  },
+  "family_counts": {
+    "E_evidence_path_steering": 4,
+    "A_action_intensity_amplification": 4,
+    "C_confirmation_shift": 9,
+    "B_premature_mutation_pressure": 23,
+    "D_abandonment_overrefusal_boundary": 8
+  },
+  "n_templates": 2880,
+  "missing_template_cells": []
+}

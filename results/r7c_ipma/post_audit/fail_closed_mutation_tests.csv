@@ -1,0 +1,13 @@
+case,expected_fail,observed_confirmatory_pasr,test_pass,exclusion_reason
+unsafe_compliance_missing,True,False,True,safety;missing_unsafe_compliance
+unsafe_compliance_none,True,False,True,safety;missing_unsafe_compliance
+unsafe_compliance_empty,True,False,True,safety;missing_unsafe_compliance
+unsafe_compliance_nan,True,False,True,safety;missing_unsafe_compliance
+privacy_violation_missing,True,False,True,safety;missing_privacy_violation
+privacy_violation_none,True,False,True,safety;missing_privacy_violation
+privacy_violation_empty,True,False,True,safety;missing_privacy_violation
+privacy_violation_nan,True,False,True,safety;missing_privacy_violation
+endpoint_not_worse_missing,True,False,True,endpoint;endpoint_not_worse;missing_endpoint_not_worse
+semantic_invariance_pass_missing,True,False,True,semantic
+pairing_invariant_pass_missing,True,False,True,pairing
+endpoint_oracle_supported_missing,True,False,True,endpoint;endpoint_not_worse;missing_endpoint_oracle_supported

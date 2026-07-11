@@ -1,0 +1,20 @@
+# R7/IPMA runner validation — tiny live check on the only online endpoint.
+# 1 model x (1 tau2 + 1 custom task) x 6 R7 conditions x 1 seed = 12 cells.
+# Purpose: prove R7 conditions inject + snapshots capture + traces validate,
+# before queuing the unattended full run.
+models:
+  - gemma4_31b
+tasks:
+  - r6_retail_03_return_confirmed   # tau2 domain -> snapshot capture path
+  - r6_calendar_03_reschedule_confirmed  # custom domain -> minimal-live path
+conditions:
+  - neutral_control
+  - urgency_pressure
+  - trust_pressure
+  - frustration_pressure
+  - continuation_pressure
+  - implicit_progress_pressure
+seeds:
+  - 300
+temperature: 0.0
+max_steps: 30

@@ -38,7 +38,7 @@ from src.adapters.instrument import ToolEventRecorder  # noqa: E402
 from src.adapters.normalize import normalized_tool_events  # noqa: E402
 from src.r6.tau2_controlled_user_adapter import R6Tau2ControlledUser  # noqa: E402
 from src.r6.trace_schema import validate_r6_trace  # noqa: E402
-from src.r6.minimal_env import R6RunCell, write_trace  # noqa: E402
+from src.r6.minimal_env import R6RunCell, trace_path_for, write_trace  # noqa: E402
 from src.r6.minimal_live_agent import R6MinimalLiveExecutor  # noqa: E402
 from src.stage2_5b.metrics.trace_metrics import TRACE_SCHEMA_VERSION  # noqa: E402
 
@@ -103,16 +103,62 @@ def endpoint_ok(model: dict[str, Any], timeout: float = 5.0) -> tuple[bool, str]
 
 
 def _llm_args(model: dict[str, Any], temperature: float) -> dict[str, Any]:
-    return {"api_base": model["base_url"], "api_key": model.get("api_key", "EMPTY"),
-            "temperature": temperature}
+    args = {
+        "api_base": model["base_url"],
+        "api_key": model.get("api_key", "EMPTY"),
+        "temperature": temperature,
+    }
+    max_tokens = model.get("max_tokens_per_turn", 768)
+    if max_tokens is not None:
+        args["max_tokens"] = int(max_tokens)
+    timeout = model.get("request_timeout_seconds")
+    if timeout is not None:
+        args["timeout"] = float(timeout)
+    return args
 
 
 def resolve_source(task: dict[str, Any]) -> tuple[str, str]:
     domain = str(task.get("source_domain") or task["domain"])
     sid = str(task.get("source_task_id") or "")
-    if sid.startswith(f"{domain}_"):
-        sid = sid[len(domain) + 1:]
     return domain, sid
+
+
+def tau2_source_candidates(domain: str, sid: str) -> list[str]:
+    """Return conservative tau2 task-id candidates for an R6 source task.
+
+    Most tau2 retail/airline source IDs are stored in R6 as `retail_2` or
+    `airline_12`, while tau2's `get_tasks()` expects `2` / `12`.  However some
+    newer task IDs intentionally include the domain prefix as part of the actual
+    identifier, e.g. `airline_privacy_05`.  Blindly stripping the prefix turns
+    that into the nonexistent `privacy_05`.
+
+    Try the declared source ID first, then the legacy de-prefixed form.  This is
+    resume-safe and avoids hard-coding a single special case.
+    """
+    candidates = [sid]
+    prefix = f"{domain}_"
+    if sid.startswith(prefix):
+        candidates.append(sid[len(prefix):])
+    out: list[str] = []
+    for item in candidates:
+        if item and item not in out:
+            out.append(item)
+    return out
+
+
+def get_tau2_task(domain: str, sid: str) -> tuple[Any, str]:
+    from tau2.run import get_tasks
+
+    errors: list[str] = []
+    for candidate in tau2_source_candidates(domain, sid):
+        try:
+            return get_tasks(domain, task_ids=[candidate])[0], candidate
+        except ValueError as exc:
+            errors.append(f"{candidate}: {exc}")
+    raise ValueError(
+        f"Could not resolve tau2 task for domain={domain!r}, source_task_id={sid!r}. "
+        f"Tried {tau2_source_candidates(domain, sid)!r}. Errors: {' | '.join(errors)}"
+    )
 
 
 def register_user(task_id: str, condition_id: str) -> str:
@@ -148,18 +194,37 @@ def _token_usage(sim: Any) -> dict[str, Any]:
             "tokens_total": (inp or 0) + (out or 0), "token_source": "prompt_plus_completion"}
 
 
+def _db_snapshot(orch: Any) -> Any:
+    """Full serializable snapshot of the tau2 agent DB, or None if unavailable.
+
+    R7/IPMA needs field-level final-state diffs, which the R6 hash-only capture
+    could not provide.  This reads the pydantic DB model behind the environment
+    tools and returns a JSON-safe dict.
+    """
+    try:
+        tools = getattr(orch.environment, "tools", None)
+        db = getattr(tools, "db", None)
+        if db is not None and hasattr(db, "model_dump"):
+            return db.model_dump(mode="json")
+    except Exception:  # noqa: BLE001 - snapshot is best-effort; never break a run
+        return None
+    return None
+
+
 def run_cell_live(model: dict[str, Any], task: dict[str, Any], condition_id: str,
-                  seed: int, temperature: float, max_steps: int) -> dict[str, Any]:
+                  seed: int, temperature: float, max_steps: int,
+                  capture_full_snapshots: bool = False) -> dict[str, Any]:
     from tau2.data_model.simulation import TextRunConfig
-    from tau2.run import EvaluationType, build_orchestrator, get_tasks, run_simulation
+    from tau2.run import EvaluationType, build_orchestrator, run_simulation
 
     domain, sid = resolve_source(task)
-    tau2_task = get_tasks(domain, task_ids=[sid])[0]
+    tau2_task, resolved_sid = get_tau2_task(domain, sid)
     user_name = register_user(task["task_id"], condition_id)
     run_id = f"{model['alias']}__{task['task_id']}__{condition_id}__seed{seed}__temp{temperature}"
     run_meta = {
         "run_id": run_id, "model_alias": model["alias"], "task_id": task["task_id"],
-        "source_task_id": sid, "domain": domain, "condition_id": condition_id,
+        "source_task_id": sid, "resolved_source_task_id": resolved_sid,
+        "domain": domain, "condition_id": condition_id,
         "seed": seed, "temperature": temperature, "layer": str(task.get("layer") or ""),
         "executor": "tau2_r6_live", "executor_mode": "tau2_live_model",
         "model_call_performed": True, "live_tau2_executor_available": True,
@@ -177,8 +242,15 @@ def run_cell_live(model: dict[str, Any], task: dict[str, Any], condition_id: str
     recorder = ToolEventRecorder()
     recorder.attach(orch)
     state_before = orch.environment.get_db_hash()
+    snapshot_before = _db_snapshot(orch) if capture_full_snapshots else None
     sim = run_simulation(orch, evaluation_type=EvaluationType.ALL_IGNORE_BASIS)
     state_after = orch.environment.get_db_hash()
+    snapshot_after = _db_snapshot(orch) if capture_full_snapshots else None
+
+    snapshots_available = bool(snapshot_before is not None and snapshot_after is not None)
+    run_meta["full_db_snapshot_captured"] = snapshots_available
+    if snapshots_available:
+        run_meta["field_level_state_diff_source"] = "reconstructed_from_full_snapshot"
 
     events = normalized_tool_events(
         sim, run_meta, records=recorder.agent_records(),
@@ -212,13 +284,18 @@ def run_cell_live(model: dict[str, Any], task: dict[str, Any], condition_id: str
         "branch_decisions": [],
         "final_environment_state": {
             "final_state_correct": None,
-            "final_state_evaluable": False,
-            "r6_evaluator": "not_available_for_tau2_hash_only_trace",
+            "final_state_evaluable": snapshots_available,
+            "r6_evaluator": ("reconstructable_from_full_snapshot" if snapshots_available
+                             else "not_available_for_tau2_hash_only_trace"),
             "reward": reward,
             "tau2_reward_not_used_for_r6_final_state": True,
-            "state": {"db_hash": state_after}, "state_hash": state_after,
+            "state": (snapshot_after if snapshots_available else {"db_hash": state_after}),
+            "state_hash": state_after,
         },
-        "initial_environment_state": {"state_hash": state_before},
+        "initial_environment_state": (
+            {"state": snapshot_before, "state_hash": state_before}
+            if snapshots_available else {"state_hash": state_before}
+        ),
         "field_level_state_diff": [],
         "confirmation_events": [],
         "refusal_events": refusal_events,
@@ -286,7 +363,14 @@ def main() -> int:
     ap.add_argument("--live", action="store_true", help="actually call models; without it, plan only")
     ap.add_argument("--allow-live-pilot-full", action="store_true")
     ap.add_argument("--max-cells", type=int, default=0, help="cap live cells (0 = all); useful for 1-cell smoke")
+    ap.add_argument("--skip-existing", action="store_true", help="resume safely by skipping trace files already present")
+    ap.add_argument("--templates", default=None, help="override user-template yaml (e.g. R7 IPMA conditions in R6 format)")
+    ap.add_argument("--capture-snapshots", action="store_true", help="capture full tau2 DB snapshots for field-level diffs (R7)")
     args = ap.parse_args()
+
+    if args.templates:
+        global TEMPLATES
+        TEMPLATES = Path(args.templates) if not Path(args.templates).is_absolute() else Path(args.templates)
 
     config = load_yaml(Path(args.config))
     all_tasks = load_tasks()
@@ -335,51 +419,77 @@ def main() -> int:
         annotations_path=ANNOTATIONS,
         seed_states_path=SEED_STATES,
     )
-    written, invalid, n = [], [], 0
+    written, invalid, skipped_existing, failed, n = [], [], [], [], 0
     for model in models:
+        model_max_steps = int(model.get("max_steps_override", max_steps))
         for cell0 in [c for c in live_task_cells if c["model_alias"] == model["alias"]]:
             tid, task = cell0["task_id"], all_tasks[cell0["task_id"]]
             for cond in conditions:
                 for seed in seeds:
                     if args.max_cells and n >= args.max_cells:
                         break
-                    if cell0["executor"] == "tau2_live_model":
-                        trace = run_cell_live(model, task, cond, int(seed), temperature, max_steps)
-                    else:
-                        run_id = f"{model['alias']}__{task['task_id']}__{cond}__seed{seed}__temp{temperature}"
-                        trace = minimal_live.run_cell(
-                            cell=R6RunCell(
-                                run_id=run_id,
-                                model_alias=model["alias"],
-                                task_id=task["task_id"],
-                                domain=task["domain"],
-                                layer=str(task.get("layer") or ""),
-                                condition_id=cond,
-                                seed=int(seed),
-                                temperature=temperature,
-                                executor="r6_minimal_live_model",
-                            ),
-                            model=model,
-                            max_steps=max_steps,
-                        )
-                    errs = validate_r6_trace(trace)
-                    path = write_trace(out_root, trace)
-                    n += 1
-                    if errs:
-                        invalid.append({"run_id": trace["run_id"], "errors": errs})
-                        print(f"[r6-live] INVALID trace {trace['run_id']}: {errs}")
-                    else:
-                        written.append(str(path))
-                        print(f"[r6-live] ok {trace['run_id']} final={trace['final_environment_state'].get('final_state_correct')} reward={trace['final_environment_state'].get('reward')}")
+                    run_id = f"{model['alias']}__{task['task_id']}__{cond}__seed{seed}__temp{temperature}"
+                    if args.skip_existing and trace_path_for(out_root, run_id).exists():
+                        skipped_existing.append(run_id)
+                        n += 1
+                        continue
+                    # Per-cell isolation: a single model/tool/connection error must
+                    # NOT abort the whole run.  Record the failure reason and keep
+                    # going (PDF: never silently drop failed runs).  The failed cell
+                    # writes no trace, so a later --skip-existing resume retries it.
+                    try:
+                        if cell0["executor"] == "tau2_live_model":
+                            trace = run_cell_live(model, task, cond, int(seed), temperature, model_max_steps,
+                                                  capture_full_snapshots=args.capture_snapshots)
+                        else:
+                            trace = minimal_live.run_cell(
+                                cell=R6RunCell(
+                                    run_id=run_id,
+                                    model_alias=model["alias"],
+                                    task_id=task["task_id"],
+                                    domain=task["domain"],
+                                    layer=str(task.get("layer") or ""),
+                                    condition_id=cond,
+                                    seed=int(seed),
+                                    temperature=temperature,
+                                    executor="r6_minimal_live_model",
+                                ),
+                                model=model,
+                                max_steps=model_max_steps,
+                            )
+                        errs = validate_r6_trace(trace)
+                        path = write_trace(out_root, trace)
+                        n += 1
+                        if errs:
+                            invalid.append({"run_id": trace["run_id"], "errors": errs})
+                            print(f"[r6-live] INVALID trace {trace['run_id']}: {errs}")
+                        else:
+                            written.append(str(path))
+                            print(f"[r6-live] ok {trace['run_id']} final={trace['final_environment_state'].get('final_state_correct')} reward={trace['final_environment_state'].get('reward')}")
+                    except Exception as exc:  # noqa: BLE001 - keep the batch alive
+                        n += 1
+                        reason = f"{type(exc).__name__}: {exc}"
+                        failed.append({"run_id": run_id, "error": reason[:500]})
+                        print(f"[r6-live] FAILED {run_id}: {reason[:200]}")
+    if failed:
+        # append-merge so resume passes accumulate a full failure ledger
+        fpath = out_root / "live_failures.jsonl"
+        with fpath.open("a", encoding="utf-8") as f:
+            for row in failed:
+                f.write(json.dumps(row, ensure_ascii=False) + "\n")
     summary = {
         "phase": args.phase, "executor_mode": "mixed_live_model", "model_call_performed": True,
         "traces_written": len(written), "invalid_traces": len(invalid),
         "invalid_detail": invalid, "trace_dir": str(out_root / "traces"),
+        "skipped_existing": len(skipped_existing),
+        "failed_cells": len(failed), "failed_detail": failed[:50],
         "skipped_non_tau2": plan["skipped_non_tau2"],
     }
     (out_root / "live_run_summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False),
                                                     encoding="utf-8")
     print(json.dumps(summary, indent=2, ensure_ascii=False))
+    # exit non-zero only on schema-invalid traces; per-cell run failures are
+    # recorded and retryable via resume, and must not fail the whole batch.
     return 0 if not invalid else 1
 
 

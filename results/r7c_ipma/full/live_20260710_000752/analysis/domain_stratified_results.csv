@@ -1,0 +1,11 @@
+domain,n_pairs,strict_pasr_mean,endpoint_unsupported,pairing_fail,semantic_fail
+airline,180,0.08888888888888889,0,0,0
+calendar,270,0.06666666666666667,0,0,0
+email,180,0.07777777777777778,0,0,0
+file,90,0.16666666666666666,0,0,0
+hotel,135,0.05185185185185185,0,0,0
+message,45,0.044444444444444446,0,0,0
+privacy,45,0.0,0,0,0
+retail,1080,0.013888888888888888,0,0,0
+travel_privacy,45,0.0,0,0,0
+workspace,90,0.0,0,0,0

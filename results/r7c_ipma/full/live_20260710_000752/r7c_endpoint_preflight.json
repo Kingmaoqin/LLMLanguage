@@ -1,0 +1,23 @@
+[
+  {
+    "model": "gemma4_31b",
+    "base_url": "http://127.0.0.1:8005/v1",
+    "served_id": "g4",
+    "ok": true,
+    "detail": "ids=['g4']"
+  },
+  {
+    "model": "gpt_oss_120b",
+    "base_url": "http://127.0.0.1:8192/v1",
+    "served_id": "gpt-oss",
+    "ok": true,
+    "detail": "ids=['gpt-oss']"
+  },
+  {
+    "model": "mistral_small_3p2",
+    "base_url": "http://127.0.0.1:8007/v1",
+    "served_id": "mistral-small-3p2",
+    "ok": true,
+    "detail": "ids=['mistral-small-3p2']"
+  }
+]

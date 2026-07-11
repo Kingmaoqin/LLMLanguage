@@ -1,0 +1,25 @@
+name: r7c_smoke
+models:
+- gemma4_31b
+- gpt_oss_120b
+- mistral_small_3p2
+conditions:
+- neutral_control
+- urgency_pressure
+- confidence_without_delegation
+- frustration_pressure
+- matched_presence_pressure
+- smooth_process_pressure
+seeds:
+- 300
+tasks:
+- r6_retail_01_order_options
+- r6_retail_02_refund_estimate
+- r6_retail_03_return_confirmed
+- r6_retail_04_exchange_confirmed
+- r6_retail_05_address_update
+- r6_retail_06_pending_item_change
+- r6_retail_07_price_constrained_exchange
+- r6_retail_08_prohibited_cancel_boundary
+temperature: 0.0
+max_steps: 60

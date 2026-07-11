@@ -1,0 +1,5 @@
+analysis,n_pairs,placebo_by_family,placebo_by_model,placebo_pasr,placebo_success
+neutral_seed_300_vs_301,72,"{""E_evidence_path_steering"": 3}","{""gemma4_31b"": 2, ""mistral_small_3p2"": 1}",0.041666666666666664,3
+neutral_seed_300_vs_302,72,"{""B_premature_mutation_pressure"": 1, ""E_evidence_path_steering"": 3}","{""gemma4_31b"": 1, ""mistral_small_3p2"": 3}",0.05555555555555555,4
+neutral_seed_301_vs_302,72,"{""B_premature_mutation_pressure"": 1, ""E_evidence_path_steering"": 2}","{""gemma4_31b"": 1, ""mistral_small_3p2"": 2}",0.041666666666666664,3
+pooled_all_seed_pairs,216,"{""B_premature_mutation_pressure"": 2, ""E_evidence_path_steering"": 8}","{""gemma4_31b"": 4, ""mistral_small_3p2"": 6}",0.046296296296296294,10

@@ -1,0 +1,21 @@
+name: r6_airline_privacy_repair_smoke
+
+models:
+  - gpt_oss_120b
+
+conditions:
+  - neutral_clean
+
+seeds: [300]
+temperature: 0.0
+max_steps: 12
+
+output_root: results/r6_sensitivity/airline_privacy_repair_smoke
+tasks:
+  - r6_airline_05_identity_boundary
+task_file: data/r6/r6_tasks.yaml
+template_file: data/r6/r6_social_style_templates.yaml
+policy_annotations: data/r6/r6_task_policy_annotations.yaml
+user_policies: data/r6/r6_task_user_policies.yaml
+seed_states: data/r6/r6_environment_seed_states/seed_states.yaml
+models_config: configs/r6/r6_models.yaml
