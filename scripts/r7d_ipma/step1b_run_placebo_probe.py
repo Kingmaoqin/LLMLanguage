@@ -28,12 +28,26 @@ import time
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 
+import scripts.r7b_ipma.run_r7b_live as rl  # noqa: E402
+
+# run_r7b_live.main() rebinds these module globals from --tasks-path etc. before it
+# builds the executor; R7-C was launched with the r7c_* asset set (see
+# scripts/r7c_ipma/queue_r7c_smoke_full.sh). We must rebind identically, or the probe
+# would silently run against the R6 task/policy/seed-state files and its initial
+# states would not match the R7-C runs it is meant to be compared with.
+rl.TASKS = ROOT / "data/r7c_ipma/r7c_tasks.yaml"
+rl.POLICIES = ROOT / "data/r7c_ipma/r7c_task_user_policies.yaml"
+rl.ANNOTATIONS = ROOT / "data/r7c_ipma/r7c_task_policy_annotations.yaml"
+rl.SEED_STATES = ROOT / "data/r7c_ipma/r7c_seed_states.yaml"
+rl.R7B_REGISTRY = ROOT / "data/r7c_ipma/r7c_task_registry.csv"
+rl.R7B_TEMPLATES = ROOT / "data/r7c_ipma/frozen/r7c_frozen_templates.jsonl"
+rl.RUN_LABEL = "r7d"
+
 from scripts.r7b_ipma.run_r7b_live import (  # noqa: E402
     R7BLiveExecutor,
     endpoint_ok,
     git_commit,
     load_models,
-    load_tasks,
 )
 from src.r6.minimal_env import R6RunCell  # noqa: E402
 
@@ -41,6 +55,14 @@ PREREG = ROOT / "data/r7d_ipma/frozen/step1b_preregistration.json"
 TEMPLATES = ROOT / "data/r7c_ipma/frozen/r7c_frozen_templates.jsonl"
 REGISTRY = ROOT / "data/r7c_ipma/r7c_task_registry.csv"
 OUT = ROOT / "results/r7d_ipma/step1/placebo_probe"
+
+
+def load_tasks() -> dict:
+    """Read the R7-C task set (48 tasks), not the R6 subset (30)."""
+    payload = rl.load_yaml(rl.TASKS)
+    tasks = payload.get("tasks", payload) if isinstance(payload, dict) else payload
+    seq = tasks.values() if isinstance(tasks, dict) else tasks
+    return {t["task_id"]: t for t in seq}
 
 STATE_SEED = 300
 TEMPERATURE = 0.0
@@ -62,9 +84,10 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--repeats", type=int, default=5)
     ap.add_argument("--paraphrases", type=int, default=5)
+    ap.add_argument("--prereg", type=pathlib.Path, default=PREREG)
     args = ap.parse_args()
 
-    prereg = json.loads(PREREG.read_text())
+    prereg = json.loads(args.prereg.read_text())
     tasks_sel = prereg["selected_tasks"]
     models = load_models(prereg["models"])
     tasks = load_tasks()
@@ -90,7 +113,7 @@ def main() -> int:
         for m in models:
             for i in range(args.repeats):
                 cells.append(dict(arm="P0", task=t, model=m, rep=i, tpl="01"))
-            for j in range(args.paraphrases):
+            for j in range(args.paraphrases if "P2_neutral_paraphrase" in prereg["arms"] else 0):
                 sfx = f"{j+1:02d}"
                 if (tid, sfx) not in bank:
                     continue
