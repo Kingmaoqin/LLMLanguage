@@ -1,0 +1,65 @@
+{
+  "schema_version": "ipma-icc-deterministic-import-v1",
+  "created_on": "2026-07-12",
+  "import_mode": "evaluation-only, source-derived reimplementation; no runtime import",
+  "termination_boundary": {
+    "termination_memo": {
+      "path": "/home/xqin5/multiaiagent/reports/ravel_bind/icc_deterministic_l0_pivot_v1_attempt3/ICC_REFERENCE_CONSTRUCTION_TERMINATION_MEMO.md",
+      "sha256": "0ab9947d0bc3bf0152969cfd2d1d02c15d42416f1e783aec89a852c777d17961"
+    },
+    "reuse_boundary": {
+      "path": "/home/xqin5/multiaiagent/reports/ravel_bind/icc_deterministic_l0_pivot_v1_attempt3/ICC_ASSET_REUSE_BOUNDARY.md",
+      "sha256": "1762babdf0f65717d7877c2aaa51d731ecc0cd134935996286f8e53df2184bed"
+    }
+  },
+  "imports": [
+    {
+      "asset": "ordered action sequence semantics",
+      "source_path": "/home/xqin5/multiaiagent/reports/ravel_bind/icc_exp2_v2_3/LEVEL_D_ACTION_SEQUENCE_SEMANTICS_V2_3.md",
+      "source_sha256": "018d42fb26a9dbd9ab81101451062076058ee5040b9d862a539d3d63adc6ad92",
+      "target_path": "scripts/r7d_ipma/reproducibility/ordered_trajectory_evaluator.py",
+      "target_sha256": "2fdbfd77055fdf157d79076ccd3cad41f7e843cc5be266a3e50d7e6b3a95c0a4",
+      "purpose": "preserve action order, occurrence multiplicity, nested-list order, and JSON native values in post-run evaluation",
+      "claim_boundary": "Representation and trajectory equality only; no natural-intent correctness or safety claim."
+    },
+    {
+      "asset": "order/multiplicity-preserving canonicalizer properties",
+      "source_path": "/home/xqin5/multiaiagent/src/ravel_icc_dual_ai_v2_3/canonicalizer.py",
+      "source_sha256": "951c2f26c19b70b1f38b697bf587b8843de5803284ef8d793443cf0651295e8a",
+      "target_path": "scripts/r7d_ipma/reproducibility/ordered_trajectory_evaluator.py",
+      "target_sha256": "2fdbfd77055fdf157d79076ccd3cad41f7e843cc5be266a3e50d7e6b3a95c0a4",
+      "purpose": "object-key-only canonicalization and exact ordered action comparison",
+      "claim_boundary": "The ICC AI-semantic enums, sidecars, packets, labels, and reviewer fields are not imported."
+    },
+    {
+      "asset": "deterministic mutation-test design",
+      "source_path": "/home/xqin5/multiaiagent/tests/test_icc_v2_3_canonicalizer.py",
+      "source_sha256": "6a35136f10d113fd51a64dfbc65e66f6f2efc7943c88e556c8af7eae273df641",
+      "target_path": "tests/r7d_ipma/test_ordered_trajectory_evaluator.py",
+      "target_sha256": "8c77bb32a5c943b5d8973ee859aecf88011545f48eecad79cef06d4e7fc778eb",
+      "purpose": "fault tests for insertion, deletion, duplicate, reorder, target, argument, and mutation-class changes",
+      "claim_boundary": "Synthetic mechanism coverage only; it is not an empirical IPMA effect or population bound."
+    },
+    {
+      "asset": "append-only provenance and no-write replay primitives",
+      "source_path": "/home/xqin5/multiaiagent/src/ravel_deterministic_l0/oracle.py",
+      "source_sha256": "ab1a195ecdc909c427e2476e54e003d2cdc7fc22ea195ed926716b303d007c41",
+      "target_path": "scripts/r7d_ipma/reproducibility/provenance.py",
+      "target_sha256": "f6b97a7a87ac818386f60052a8016e97aee1b0a2bc83445bfbe46ad54fa500a6",
+      "test_path": "tests/r7d_ipma/test_reproducibility_provenance.py",
+      "test_sha256": "c7c3353fce7a6a1509499c7181ce36ce6d169abff36bdbffb5f5de6eb130a991",
+      "purpose": "exclusive-create PREPARED/COMMITTED/CAPTURED/TERMINAL journal and deterministic no-model replay",
+      "claim_boundary": "No-write and replay invariants only; no ICC eligibility, reference, or correctness evidence."
+    }
+  ],
+  "firewall": {
+    "agent_runtime_imports_target_module": false,
+    "condition_selection_uses_target_module": false,
+    "prompt_uses_icc_content": false,
+    "reviewer_labels_imported": false,
+    "ai_consensus_imported": false,
+    "natural_intent_reference_imported": false,
+    "icc_eligibility_or_rates_imported": false
+  }
+}
+

@@ -1,0 +1,89 @@
+{
+  "captured_on": "2026-07-12",
+  "status": "AUDIT_ONLY_NOT_A_RUN_LOCK",
+  "main_repo": {
+    "head": "9b9541fb121c9823d5c54f78ca17c40c5c8aef5b",
+    "clean": false,
+    "note": "Pre-existing untracked results/logs plus this remediation's new uncommitted files."
+  },
+  "tau2_source": {
+    "path": "/home/xqin5/tau2-bench",
+    "head": "ddc66a777e520373975f15d3abec989cfe2ec371",
+    "clean": false,
+    "modified_files": ["src/tau2/data_model/message.py", "src/tau2/utils/llm_utils.py"],
+    "hashes": {
+      "message.py": "a67aeead9798e9c23600dee69effde43e31fcf26b1643a307fcec4a73a6a2b99",
+      "llm_utils.py": "ab36cf7d5ae3bc7c89cc4667673c39138a74fd585922d1ae52c7ffeb12662919",
+      "evaluator.py": "85a05cf75f19708bf855ac8f97cf34d8aef05c99332d57dc066725200ca59444",
+      "evaluator_env.py": "e932ea5f675d7a172557350f30b73d66474659d9b4d976ecd763ca2929017633"
+    }
+  },
+  "runtime": {
+    "python": "3.12.13",
+    "tau2": "1.0.0",
+    "vllm": "0.20.2",
+    "torch": "2.11.0",
+    "transformers": "5.12.1",
+    "litellm": "1.82.6",
+    "openai": "2.38.0",
+    "tokenizers": "0.22.2",
+    "tiktoken": "0.13.0",
+    "numpy": "1.26.4",
+    "pydantic": "2.12.3",
+    "dependency_lock_complete": false
+  },
+  "hardware": {
+    "gpu_count": 4,
+    "gpu_model": "NVIDIA A100 80GB PCIe",
+    "driver": "580.159.03",
+    "cuda_runtime_exact": "NOT_CAPTURED",
+    "gpu_uuids_captured": true
+  },
+  "endpoints": [
+    {
+      "port": 8005,
+      "served_id": "g4-v2-1",
+      "root": "/home/xqin5/hf_p08_models/gemma-4-31B-it",
+      "tensor_parallel": 1,
+      "parser": "gemma4",
+      "max_model_len": 7680,
+      "config_sha256": "e967dd38bc5cfd38bd09a995a7bf4a754075df2b46aba68f7fbb5a791e6d8dd1",
+      "tokenizer_sha256": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f",
+      "tokenizer_config_sha256": "90c3a3ba5bf53818383a58e1a776cbcacd2a038d4812eaa373e1522f2d06f3df",
+      "chat_template_sha256": "36e3a42e5cf14cd0020e72d92e1fdd9970f59b82170e421f0cbe1bb42bead3f0",
+      "weight_index_sha256": "d4aff3b976d69c123a29d1c085d7ba4de1ac3f4ca1726a7f81e1b11462a64ea2",
+      "all_weight_shards_hashed": false
+    },
+    {
+      "port": 8192,
+      "served_id": "gpt-oss",
+      "root": "/home/xqin5/hf_p08_models/gpt-oss-120b",
+      "tensor_parallel": 2,
+      "parser": "openai",
+      "max_model_len": 16384,
+      "config_sha256": "933aeb666a3fd851133ddd7686414f369bc564c4185fb5704416550879f10566",
+      "tokenizer_sha256": "0614fe83cadab421296e664e1f48f4261fa8fef6e03e63bb75c20f38e37d07d3",
+      "tokenizer_config_sha256": "9279e942392b742d633c7adbb89ebe002c98399db8926a7af5125c726f404070",
+      "chat_template_sha256": "a4c9919cbbd4acdd51ccffe22da049264b1b73e59055fa58811a99efbd7c8146",
+      "weight_index_sha256": "ede2655fdc05008561983b6e0829c600727c28d591e071077377059f03a6c00e",
+      "all_weight_shards_hashed": false
+    },
+    {
+      "port": 8007,
+      "served_id": "mistral-small-3p2",
+      "root": "/home/xqin5/hf_p08_models/Mistral-Small-3.2-24B-Instruct-2506",
+      "tensor_parallel": 1,
+      "parser": "mistral",
+      "max_model_len": 16384,
+      "config_sha256": "01ab910a5dda7995709cc355d094eabb8094b78d49240cd167188606c3ff5edb",
+      "tokenizer_tekken_sha256": "6e2501687ccd0e1f30f36319eaf2b46958b897811e246cd8eb5d385b9e3de7d1",
+      "system_prompt_sha256": "46abb4f68fd0fc834b5723c5044c13b2e4b9d70e1589fcd002f57475e6f296a0",
+      "weight_index_sha256": "664a049408e8694e5867312145b74b1971ad5472061a1f176e0806dec9b3d21c",
+      "all_weight_shards_hashed": false
+    }
+  ],
+  "endpoint_identity_get_pass": true,
+  "generation_request_sent": false,
+  "g3_a_verdict": "FAIL"
+}
+
