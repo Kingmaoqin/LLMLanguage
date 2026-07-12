@@ -1,0 +1,41 @@
+[
+  {
+    "domain": "retail",
+    "n_tools": 16,
+    "n_tasks": 114,
+    "initial_db_hash": "b25c9cb211f5efca",
+    "read_probe": "find_user_id_by_name_zip({'first_name': 'Yusuf', 'last_name': 'Rossi', 'zip': '19122'}) -> yusuf_rossi_9620",
+    "args_interpreted": true,
+    "reads_do_not_mutate": true,
+    "snapshot_restore_hash_stable": true,
+    "official_evaluator_importable": true,
+    "fresh_env_restores_initial_hash": true,
+    "gate": "PASS"
+  },
+  {
+    "domain": "airline",
+    "n_tools": 14,
+    "n_tasks": 50,
+    "initial_db_hash": "124e39a664b56402",
+    "read_probe": "get_user_details({'user_id': 'mia_li_3668'}) -> user_id='mia_li_3668' name=Name(first_name='Mia', last_name='Li') address=Addres",
+    "args_interpreted": true,
+    "reads_do_not_mutate": true,
+    "snapshot_restore_hash_stable": true,
+    "official_evaluator_importable": true,
+    "fresh_env_restores_initial_hash": true,
+    "gate": "PASS"
+  },
+  {
+    "domain": "telecom",
+    "n_tools": 13,
+    "n_tasks": 2285,
+    "initial_db_hash": "304cf5ef059852e1",
+    "read_probe": "get_customer_by_id({'customer_id': 'C1001'}) -> customer_id='C1001' full_name='John Smith' date_of_birth='1985-06-15' email='joh",
+    "args_interpreted": true,
+    "reads_do_not_mutate": true,
+    "snapshot_restore_hash_stable": true,
+    "official_evaluator_importable": true,
+    "fresh_env_restores_initial_hash": true,
+    "gate": "PASS"
+  }
+]
