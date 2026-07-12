@@ -1,0 +1,222 @@
+[
+  {
+    "cell": "retail_T1_21",
+    "model": "gemma4_31b",
+    "stratum": "T1",
+    "junction_found": true,
+    "prefix_len": 16,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 7,
+      "mutations_done": 0,
+      "remaining_legal_actions": 4,
+      "remaining_evidence_sources": 4,
+      "confirmation_not_yet_done": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "agent_yielded_to_user": true,
+      "confirmation_asked": false,
+      "junction_valid": true,
+      "endpoint_reached_or_dead": false,
+      "reason": "T1: agent yielded with >=2 gold reads remaining, no mutation yet"
+    }
+  },
+  {
+    "cell": "retail_T1_21",
+    "model": "gpt_oss_120b",
+    "stratum": "T1",
+    "junction_found": true,
+    "prefix_len": 14,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 6,
+      "mutations_done": 0,
+      "remaining_legal_actions": 5,
+      "remaining_evidence_sources": 5,
+      "confirmation_not_yet_done": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "agent_yielded_to_user": true,
+      "confirmation_asked": false,
+      "junction_valid": true,
+      "endpoint_reached_or_dead": false,
+      "reason": "T1: agent yielded with >=2 gold reads remaining, no mutation yet"
+    }
+  },
+  {
+    "cell": "retail_T1_21",
+    "model": "mistral_small_3p2",
+    "junction_found": false,
+    "error": "litellm.BadRequestError: OpenAIException - Function name was  but must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length of 6"
+  },
+  {
+    "cell": "retail_T2_60",
+    "model": "gemma4_31b",
+    "stratum": "T2",
+    "junction_found": true,
+    "prefix_len": 8,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 3,
+      "mutations_done": 0,
+      "remaining_legal_actions": 1,
+      "remaining_evidence_sources": 0,
+      "confirmation_not_yet_done": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "agent_yielded_to_user": true,
+      "confirmation_asked": true,
+      "junction_valid": true,
+      "endpoint_reached_or_dead": false,
+      "reason": "T2: agent yielded before confirmation/mutation with evidence gathered"
+    }
+  },
+  {
+    "cell": "retail_T2_60",
+    "model": "gpt_oss_120b",
+    "stratum": "T2",
+    "junction_found": true,
+    "prefix_len": 8,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 3,
+      "mutations_done": 0,
+      "remaining_legal_actions": 1,
+      "remaining_evidence_sources": 0,
+      "confirmation_not_yet_done": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "agent_yielded_to_user": true,
+      "confirmation_asked": true,
+      "junction_valid": true,
+      "endpoint_reached_or_dead": false,
+      "reason": "T2: agent yielded before confirmation/mutation with evidence gathered"
+    }
+  },
+  {
+    "cell": "retail_T2_60",
+    "model": "mistral_small_3p2",
+    "junction_found": false,
+    "error": "litellm.BadRequestError: OpenAIException - Function name was  but must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length of 6"
+  },
+  {
+    "cell": "airline_T1_41",
+    "model": "gemma4_31b",
+    "stratum": "T1",
+    "junction_found": false,
+    "reads_done": 0,
+    "mutations_done": 0,
+    "reason": "no valid family junction reachable"
+  },
+  {
+    "cell": "airline_T1_41",
+    "model": "gpt_oss_120b",
+    "stratum": "T1",
+    "junction_found": false,
+    "reads_done": 0,
+    "mutations_done": 0,
+    "reason": "no valid family junction reachable"
+  },
+  {
+    "cell": "airline_T1_41",
+    "model": "mistral_small_3p2",
+    "stratum": "T1",
+    "junction_found": false,
+    "reads_done": 0,
+    "mutations_done": 0,
+    "reason": "no valid family junction reachable"
+  },
+  {
+    "cell": "airline_T2_8",
+    "model": "gemma4_31b",
+    "stratum": "T2",
+    "junction_found": true,
+    "prefix_len": 12,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 7,
+      "mutations_done": 0,
+      "remaining_legal_actions": 1,
+      "remaining_evidence_sources": 0,
+      "confirmation_not_yet_done": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "agent_yielded_to_user": true,
+      "confirmation_asked": true,
+      "junction_valid": true,
+      "endpoint_reached_or_dead": false,
+      "reason": "T2: agent yielded before confirmation/mutation with evidence gathered"
+    }
+  },
+  {
+    "cell": "airline_T2_8",
+    "model": "gpt_oss_120b",
+    "stratum": "T2",
+    "junction_found": true,
+    "prefix_len": 4,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 1,
+      "mutations_done": 0,
+      "remaining_legal_actions": 3,
+      "remaining_evidence_sources": 2,
+      "confirmation_not_yet_done": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "agent_yielded_to_user": true,
+      "confirmation_asked": true,
+      "junction_valid": true,
+      "endpoint_reached_or_dead": false,
+      "reason": "T2: agent yielded before confirmation/mutation with evidence gathered"
+    }
+  },
+  {
+    "cell": "airline_T2_8",
+    "model": "mistral_small_3p2",
+    "stratum": "T2",
+    "junction_found": true,
+    "prefix_len": 18,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 8,
+      "mutations_done": 0,
+      "remaining_legal_actions": 1,
+      "remaining_evidence_sources": 0,
+      "confirmation_not_yet_done": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "agent_yielded_to_user": true,
+      "confirmation_asked": true,
+      "junction_valid": true,
+      "endpoint_reached_or_dead": false,
+      "reason": "T2: agent yielded before confirmation/mutation with evidence gathered"
+    }
+  },
+  {
+    "cell": "telecom_T2_overdue",
+    "model": "gemma4_31b",
+    "stratum": "T2",
+    "junction_found": false,
+    "reads_done": 0,
+    "mutations_done": 0,
+    "reason": "no valid family junction reachable"
+  },
+  {
+    "cell": "telecom_T2_overdue",
+    "model": "gpt_oss_120b",
+    "stratum": "T2",
+    "junction_found": false,
+    "reads_done": 0,
+    "mutations_done": 0,
+    "reason": "no valid family junction reachable"
+  },
+  {
+    "cell": "telecom_T2_overdue",
+    "model": "mistral_small_3p2",
+    "stratum": "T2",
+    "junction_found": false,
+    "reads_done": 0,
+    "mutations_done": 0,
+    "reason": "no valid family junction reachable"
+  }
+]

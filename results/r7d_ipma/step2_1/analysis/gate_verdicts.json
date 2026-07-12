@@ -1,0 +1,330 @@
+{
+  "G1": {
+    "n_real_suffixes": 63,
+    "n_scorable": 63,
+    "all_scorable": true,
+    "at_least_20_scorable": true,
+    "verdict": "PASS"
+  },
+  "G2": {
+    "n_cell_model_attempts": 15,
+    "n_junctions_found": 7,
+    "n_junctions_valid": 7,
+    "strata_with_valid_junction": [
+      "T1",
+      "T2"
+    ],
+    "cells": [
+      {
+        "cell": "retail_T1_21",
+        "model": "gemma4_31b",
+        "stratum": "T1",
+        "valid": true,
+        "proof": {
+          "reads_done": 7,
+          "mutations_done": 0,
+          "remaining_evidence_sources": 4,
+          "confirmation_not_yet_done": true,
+          "mutation_not_yet_done": true,
+          "endpoint_not_complete": true
+        }
+      },
+      {
+        "cell": "retail_T1_21",
+        "model": "gpt_oss_120b",
+        "stratum": "T1",
+        "valid": true,
+        "proof": {
+          "reads_done": 6,
+          "mutations_done": 0,
+          "remaining_evidence_sources": 5,
+          "confirmation_not_yet_done": true,
+          "mutation_not_yet_done": true,
+          "endpoint_not_complete": true
+        }
+      },
+      {
+        "cell": "retail_T2_60",
+        "model": "gemma4_31b",
+        "stratum": "T2",
+        "valid": true,
+        "proof": {
+          "reads_done": 3,
+          "mutations_done": 0,
+          "remaining_evidence_sources": 0,
+          "confirmation_not_yet_done": false,
+          "mutation_not_yet_done": true,
+          "endpoint_not_complete": true
+        }
+      },
+      {
+        "cell": "retail_T2_60",
+        "model": "gpt_oss_120b",
+        "stratum": "T2",
+        "valid": true,
+        "proof": {
+          "reads_done": 3,
+          "mutations_done": 0,
+          "remaining_evidence_sources": 0,
+          "confirmation_not_yet_done": false,
+          "mutation_not_yet_done": true,
+          "endpoint_not_complete": true
+        }
+      },
+      {
+        "cell": "airline_T2_8",
+        "model": "gemma4_31b",
+        "stratum": "T2",
+        "valid": true,
+        "proof": {
+          "reads_done": 7,
+          "mutations_done": 0,
+          "remaining_evidence_sources": 0,
+          "confirmation_not_yet_done": false,
+          "mutation_not_yet_done": true,
+          "endpoint_not_complete": true
+        }
+      },
+      {
+        "cell": "airline_T2_8",
+        "model": "gpt_oss_120b",
+        "stratum": "T2",
+        "valid": true,
+        "proof": {
+          "reads_done": 1,
+          "mutations_done": 0,
+          "remaining_evidence_sources": 2,
+          "confirmation_not_yet_done": false,
+          "mutation_not_yet_done": true,
+          "endpoint_not_complete": true
+        }
+      },
+      {
+        "cell": "airline_T2_8",
+        "model": "mistral_small_3p2",
+        "stratum": "T2",
+        "valid": true,
+        "proof": {
+          "reads_done": 8,
+          "mutations_done": 0,
+          "remaining_evidence_sources": 0,
+          "confirmation_not_yet_done": false,
+          "mutation_not_yet_done": true,
+          "endpoint_not_complete": true
+        }
+      }
+    ],
+    "verdict": "PASS"
+  },
+  "G3": {
+    "n_snapshots": 7,
+    "n_active_snapshots": 2,
+    "frac_active_range_le1": 0.5,
+    "max_active_tool_range": 2,
+    "cells": [
+      {
+        "cell": "retail_T1_21",
+        "model": "gemma4_31b",
+        "n_n0": 5,
+        "n0_tools": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "tool_range": 0,
+        "identical_sequences": true,
+        "active": false
+      },
+      {
+        "cell": "retail_T1_21",
+        "model": "gpt_oss_120b",
+        "n_n0": 5,
+        "n0_tools": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "tool_range": 0,
+        "identical_sequences": true,
+        "active": false
+      },
+      {
+        "cell": "retail_T2_60",
+        "model": "gemma4_31b",
+        "n_n0": 5,
+        "n0_tools": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "tool_range": 0,
+        "identical_sequences": true,
+        "active": false
+      },
+      {
+        "cell": "retail_T2_60",
+        "model": "gpt_oss_120b",
+        "n_n0": 5,
+        "n0_tools": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "tool_range": 0,
+        "identical_sequences": true,
+        "active": true
+      },
+      {
+        "cell": "airline_T2_8",
+        "model": "gemma4_31b",
+        "n_n0": 5,
+        "n0_tools": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "tool_range": 0,
+        "identical_sequences": true,
+        "active": false
+      },
+      {
+        "cell": "airline_T2_8",
+        "model": "gpt_oss_120b",
+        "n_n0": 5,
+        "n0_tools": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "tool_range": 0,
+        "identical_sequences": true,
+        "active": false
+      },
+      {
+        "cell": "airline_T2_8",
+        "model": "mistral_small_3p2",
+        "n_n0": 5,
+        "n0_tools": [
+          3,
+          1,
+          1,
+          1,
+          1
+        ],
+        "tool_range": 2,
+        "identical_sequences": false,
+        "active": true
+      }
+    ],
+    "caveat": "online vLLM: reproducibility rests on batch-invariance + fixed served-name/parser/concurrency=1; not offline-deterministic, so not bit-exact across hardware/version changes.",
+    "verdict": "FAIL"
+  },
+  "G4": {
+    "n_cells": 7,
+    "n_eligible": 0,
+    "active_models": [
+      "gpt_oss_120b"
+    ],
+    "cells": [
+      {
+        "cell": "retail_T1_21",
+        "model": "gemma4_31b",
+        "stratum": "T1",
+        "metric": "n_tool_events",
+        "n1_live": false,
+        "n1_mean": 0,
+        "p_mean": 6,
+        "p_moves_intended_dir": true,
+        "p_reward_not_worse": true,
+        "eligible": false
+      },
+      {
+        "cell": "retail_T1_21",
+        "model": "gpt_oss_120b",
+        "stratum": "T1",
+        "metric": "n_tool_events",
+        "n1_live": true,
+        "n1_mean": 1,
+        "p_mean": 1,
+        "p_moves_intended_dir": false,
+        "p_reward_not_worse": true,
+        "eligible": false
+      },
+      {
+        "cell": "retail_T2_60",
+        "model": "gemma4_31b",
+        "stratum": "T2",
+        "metric": "n_reads(before act)",
+        "n1_live": false,
+        "n1_mean": 0,
+        "p_mean": 0,
+        "p_moves_intended_dir": false,
+        "p_reward_not_worse": true,
+        "eligible": false
+      },
+      {
+        "cell": "retail_T2_60",
+        "model": "gpt_oss_120b",
+        "stratum": "T2",
+        "metric": "n_reads(before act)",
+        "n1_live": true,
+        "n1_mean": 0,
+        "p_mean": 0,
+        "p_moves_intended_dir": false,
+        "p_reward_not_worse": true,
+        "eligible": false
+      },
+      {
+        "cell": "airline_T2_8",
+        "model": "gemma4_31b",
+        "stratum": "T2",
+        "metric": "n_reads(before act)",
+        "n1_live": false,
+        "n1_mean": 0,
+        "p_mean": 0,
+        "p_moves_intended_dir": false,
+        "p_reward_not_worse": true,
+        "eligible": false
+      },
+      {
+        "cell": "airline_T2_8",
+        "model": "gpt_oss_120b",
+        "stratum": "T2",
+        "metric": "n_reads(before act)",
+        "n1_live": false,
+        "n1_mean": 0,
+        "p_mean": 0,
+        "p_moves_intended_dir": false,
+        "p_reward_not_worse": true,
+        "eligible": false
+      },
+      {
+        "cell": "airline_T2_8",
+        "model": "mistral_small_3p2",
+        "stratum": "T2",
+        "metric": "n_reads(before act)",
+        "n1_live": false,
+        "n1_mean": 0,
+        "p_mean": 0.5,
+        "p_moves_intended_dir": true,
+        "p_reward_not_worse": true,
+        "eligible": false
+      }
+    ],
+    "note": "eligibility uses PRE-treatment N1 liveness + P sensitivity, never A/treatment outcome.",
+    "verdict": "FAIL"
+  },
+  "overall": "DO_NOT_PROCEED"
+}
