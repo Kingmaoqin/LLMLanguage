@@ -1,0 +1,31 @@
+{
+  "verdicts": [
+    {
+      "id": "A1",
+      "verdict": "PASS",
+      "note": "Junction proofs show the agent requests a required fact with reads_done = 0, and exposure metrics confirm reads/mutations only occur after the reply (suffix)."
+    },
+    {
+      "id": "A2",
+      "verdict": "PARTIAL",
+      "note": "T1 read‑intensity is clearly operationalized (zero reads before junction, ≥2 reads after), but no concrete evidence for T2 confirmation‑to‑mutation handling is provided."
+    },
+    {
+      "id": "A3",
+      "verdict": "PASS",
+      "note": "P replies only add a tool‑driven double‑check and summary step, without new facts, authorization changes, policy relaxation, or altering the user’s decision."
+    },
+    {
+      "id": "A4",
+      "verdict": "PASS",
+      "note": "N1 and P replies are identical except for the explicit extra process clause in P, satisfying the matched‑branch requirement."
+    }
+  ],
+  "overall": "The experiment satisfies the natural‑junction and positive‑control criteria, though T2 operationalization lacks supporting evidence.",
+  "biggest_concern": "Absence of concrete T2 (confirmation‑to‑mutation) evidence makes it unclear whether that construct is correctly implemented.",
+  "_meta": {
+    "reviewer": "A",
+    "model": "gpt-oss",
+    "endpoint": "http://127.0.0.1:8192/v1"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "review_type": "dual-independent-agent review (local vLLM endpoints; NOT human-validated)",
+  "reviewer_A": {"model": "gpt-oss", "endpoint": "8192", "scope": "construct/junction/semantic",
+                 "verdicts": {"A1_junction_exposes_suffix": "PASS", "A2_T1T2_constructs": "PARTIAL(T2 lacks evidence)", "A3_P_process_only": "PASS", "A4_matched_branches": "PASS"}},
+  "reviewer_B": {"model": "mistral-small-3p2", "endpoint": "8007", "scope": "scorer/eligibility/outcome-bias",
+                 "verdicts": {"B1_official_scorer_no_proxy": "PASS", "B2_eligibility_no_outcome_filtering": "PASS", "B3_repro_honesty": "PARTIAL(hardware/version caveat)", "B4_min_gate_applied": "PASS"}},
+  "agreement": "no PASS-vs-FAIL conflict; both largely PASS with matching PARTIAL concerns (T2 construct evidence; online reproducibility caveat)",
+  "unresolved_disagreement": false,
+  "closed": true,
+  "note": "First dual review to CLOSE (local one-shot jobs avoid the Claude sub-agent session-limit failures of Steps 1/2/2.1)."
+}
