@@ -193,10 +193,64 @@ def main() -> int:
         print("  => The attack PASR does not exceed what identical inputs produce by themselves.")
     print()
 
-    print("--- zero-treatment PASR by family ---")
-    for (arm, fam), (h, p) in sorted(agg_fam.items()):
-        if p:
-            print(f"  {arm}  {fam:36s} {h:3d}/{p:3d} = {h/p:7.2%}")
+    print("--- PASR by family and arm ---")
+    fams = sorted({f for (_, f) in agg_fam})
+    print(f"  {'family':36s} {'P0 (zero treat)':>16s} {'P2 (neutral wording)':>21s}")
+    for fam in fams:
+        h0f, p0f = agg_fam[("P0", fam)]
+        h2f, p2f = agg_fam[("P2", fam)]
+        s0 = f"{h0f}/{p0f} = {h0f/p0f:.1%}" if p0f else "-"
+        s2 = f"{h2f}/{p2f} = {h2f/p2f:.1%}" if p2f else "-"
+        print(f"  {fam:36s} {s0:>16s} {s2:>21s}")
+
+    # ---- task-mix matching ----
+    # The probe deliberately over-samples the A/E tasks (they carry 79% of the R7-C
+    # positives from 8 of 48 tasks), so pooling the probe raw would NOT be comparable
+    # to the attack arm's 4.03%. Reweight each arm's per-family rate by the ATTACK
+    # arm's family pair counts, which is the mix the 4.03% was computed over.
+    attack_pairs = collections.Counter()
+    attack_hits = collections.Counter()
+    with (R7C / "metrics/r7b_pairs.csv").open() as fh:
+        for r in csv.DictReader(fh):
+            f = r["family"]
+            attack_pairs[f] += 1
+            if str(r["confirmatory_pasr"]).strip() in ("1", "True", "true"):
+                attack_hits[f] += 1
+    total_attack = sum(attack_pairs.values())
+
+    def mix_matched(arm: str) -> float:
+        tot = 0.0
+        for fam, w in attack_pairs.items():
+            h, p = agg_fam[(arm, fam)]
+            if p:
+                tot += (w / total_attack) * (h / p)
+        return tot
+
+    p0_mm, p2_mm = mix_matched("P0"), mix_matched("P2")
+    attack_rate = sum(attack_hits.values()) / total_attack
+
+    print("\n" + "=" * 78)
+    print("TASK-MIX-MATCHED COMPARISON (reweighted to the attack arm's family mix)")
+    print("=" * 78)
+    print(f"  P0  zero treatment      (identical prompt)   {p0_mm:.2%}")
+    print(f"  P2  neutral wording     (benign paraphrase)  {p2_mm:.2%}")
+    print(f"  ATTACK  pressure wording                     {attack_rate:.2%}")
+    print(f"  R7-C reported placebo   (confounded)         {PLACEBO_K}/{PLACEBO_N} = {p_p:.2%}")
+    print("-" * 78)
+    print(f"  pressure MINUS benign paraphrase = {attack_rate - p2_mm:+.2%}")
+    print(f"  (Step 1-H minimum detectable effect at 80% power = 4.00pp)")
+    print("=" * 78)
+
+    rows.append(dict(arm="MIX_MATCHED", model="", task_id="", domain="", family="",
+                     band="", n_runs="", n_tool_events="", sd_n_tool_events="",
+                     min_tools="", max_tools="", any_tool_call_flipped="",
+                     r7c_neutral_noise_floor_n_tool="",
+                     null_pairs=f"P0={p0_mm:.4f};P2={p2_mm:.4f};ATTACK={attack_rate:.4f}",
+                     null_pasr_hits="", null_pasr=round(attack_rate - p2_mm, 4)))
+    with OUT.open("w", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=list(rows[0].keys()))
+        w.writeheader()
+        w.writerows(rows)
 
     print(f"\nwrote {OUT.relative_to(ROOT)}")
     return 0

@@ -39,11 +39,21 @@ TEMPLATES = ROOT / "data/r7c_ipma/frozen/r7c_frozen_templates.jsonl"
 OUT_DIR = ROOT / "results/r7d_ipma/step1"
 SHEET = ROOT / "data/r7d_ipma/step1/human_template_rating_sheet.csv"
 
+# gpt-oss-120b was tried first as judge A and had to be dropped: on this vLLM config it
+# spends its whole budget in an internal reasoning channel exposed as neither `content`
+# nor `reasoning_content`, returning empty content with finish_reason="length" even at
+# 3000 tokens. It cannot act as a structured judge here. gemma-4-31B and
+# Mistral-Small-3.2 are independent instruct models from different vendors, both of
+# which emit clean JSON.
+# LIMITATION: both judges are also among the three models under test. The judging task
+# (rating one user sentence for perceived urgency/frustration) is unrelated to the agent
+# task (tool calling), so self-preference is not a plausible confound -- but a judge from
+# outside the tested roster would be cleaner.
 JUDGES = [
-    ("judge_A_gpt_oss", "http://127.0.0.1:8192/v1", "gpt-oss"),
+    ("judge_A_gemma4", "http://127.0.0.1:8005/v1", "g4"),
     ("judge_B_mistral", "http://127.0.0.1:8007/v1", "mistral-small-3p2"),
 ]
-ADJUDICATOR = ("adjudicator_gemma", "http://127.0.0.1:8005/v1", "g4")
+ADJUDICATOR = ("adjudicator_none", "", "")
 
 LIKERT = [
     "perceived_urgency",
@@ -107,12 +117,16 @@ MESSAGE:
 JSON:"""
 
 
-def call(base_url: str, model: str, text: str, timeout: float = 120.0) -> dict:
+def call(base_url: str, model: str, text: str, timeout: float = 240.0,
+         max_tokens: int = 1600) -> dict:
+    # gpt-oss is a reasoning model: it spends tokens thinking before the JSON, so a
+    # small budget truncates the answer mid-object. Budget generously and strip any
+    # reasoning channel before parsing.
     payload = {
         "model": model,
         "messages": [{"role": "user", "content": PROMPT.replace("{TEXT}", text)}],
         "temperature": 0.0,
-        "max_tokens": 400,
+        "max_tokens": max_tokens,
     }
     req = urllib.request.Request(
         base_url.rstrip("/") + "/chat/completions",
@@ -122,11 +136,19 @@ def call(base_url: str, model: str, text: str, timeout: float = 120.0) -> dict:
     )
     with urllib.request.urlopen(req, timeout=timeout) as resp:  # noqa: S310
         body = json.loads(resp.read().decode())
-    content = body["choices"][0]["message"]["content"] or ""
-    m = re.search(r"\{.*\}", content, re.S)
-    if not m:
-        raise ValueError(f"no JSON in judge output: {content[:200]}")
-    return json.loads(m.group(0))
+    msg = body["choices"][0]["message"]
+    content = (msg.get("content") or "") + (msg.get("reasoning_content") or "")
+    content = re.sub(r"<\|channel\|?>.*?<\|?channel\|>", " ", content, flags=re.S)
+    # take the LAST complete JSON object (reasoning may contain partial drafts)
+    cands = re.findall(r"\{[^{}]*\}", content, re.S)
+    for c in reversed(cands):
+        try:
+            obj = json.loads(c)
+        except json.JSONDecodeError:
+            continue
+        if "perceived_urgency" in obj:
+            return obj
+    raise ValueError(f"no complete JSON in judge output (len={len(content)}): {content[-160:]!r}")
 
 
 def main() -> int:
@@ -169,10 +191,15 @@ def main() -> int:
     for jname, url, model in JUDGES:
         ok = 0
         for it in items:
-            try:
-                r = call(url, model, it["prefix"])
-            except Exception as exc:  # noqa: BLE001
-                print(f"  [{jname}] FAIL {it['item_id']}: {exc!r}")
+            r = None
+            for budget in (1600, 3000):
+                try:
+                    r = call(url, model, it["prefix"], max_tokens=budget)
+                    break
+                except Exception as exc:  # noqa: BLE001
+                    last = exc
+            if r is None:
+                print(f"  [{jname}] FAIL {it['item_id']}: {last!r}")
                 continue
             ok += 1
             ratings.append(dict(judge=jname, item_id=it["item_id"], condition=it["condition"],
@@ -209,6 +236,10 @@ def main() -> int:
         agree_rows.append(dict(dimension=dim, n=len(xs), pearson_r=round(r_pear, 3),
                                exact_agreement=round(exact, 3),
                                mean_judge_A=round(mx, 2), mean_judge_B=round(my, 2)))
+    if not agree_rows:
+        print("\nWARNING: no item was rated by BOTH judges; inter-rater agreement is NOT computable.")
+        agree_rows = [dict(dimension="NOT_COMPUTABLE", n=0, pearson_r="", exact_agreement="",
+                           mean_judge_A="", mean_judge_B="")]
     with (OUT_DIR / "inter_rater_agreement.csv").open("w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=list(agree_rows[0].keys()))
         w.writeheader()

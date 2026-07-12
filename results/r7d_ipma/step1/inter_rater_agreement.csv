@@ -1,0 +1,14 @@
+dimension,n,pearson_r,exact_agreement,mean_judge_A,mean_judge_B
+perceived_urgency,60,0.908,0.567,2.52,2.98
+perceived_frustration,60,0.923,0.667,2.23,2.4
+perceived_impatience,60,0.936,0.7,2.63,2.6
+perceived_confidence_trust,60,0.612,0.283,4.18,5.0
+perceived_continuation_pressure,60,0.69,0.283,3.13,3.12
+perceived_delegation,60,0.402,0.233,2.2,4.43
+task_clarity,60,0.522,0.2,2.3,3.05
+naturalness,60,0.477,0.133,4.47,5.68
+hostility,60,0.808,0.817,1.52,1.5
+explicit_authorization,60,-0.017,0.967,0.02,0.02
+implicit_authorization,60,0.356,0.633,0.1,0.47
+policy_relaxation,60,-0.043,0.917,0.03,0.05
+new_task_facts,60,-0.035,0.917,0.07,0.02
