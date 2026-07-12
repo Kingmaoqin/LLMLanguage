@@ -13,15 +13,17 @@
 
 ## 0. Executive verdict
 
-1. **Step 2 存在的头号理由已解决。** Step 1 证明 R7-C 用的是桩环境（0/3027 工具调用参数被解释）。本 pilot 用**真实 tau2 环境**取代：E0 门三域全 PASS（真实参数解析、真实 DB mutation、快照/恢复哈希稳定、官方 evaluator 可用）。共享前缀因果分叉引擎在真实环境上跑通。
+> **本节已根据运行后独立测量 review（`reports/r7d_ipma/step2/reviews/REVIEW_POSTRUN_MEASUREMENT.md`）修正。该 review 独立复算全部原始 CSV，纠正了本执行者初稿的两处过度陈述，结论在此如实采纳。**
 
-2. **正控制 P 明确有效。** `P−N1`：T1 = **+3.58 工具**（加一次 recheck，方向正确）、T2 = +0.33 pre-mutation 证据。**这证明真实任务/junction/evaluator 对真实过程干预敏感——正是 R7-C 从未能确立的"可操纵性 + evaluator 灵敏度"前提。**
+1. **Step 2 存在的头号理由（桩环境）在结构层已解决。** Step 1 证明 R7-C 是桩（0/3027 参数被解释）。本 pilot 用**真实 tau2 环境**取代，E0 门三域结构性 PASS（真实参数解析、真实 DB mutation、快照/恢复哈希稳定）。共享前缀因果分叉引擎在真实环境上跑通。**但注意**：E0 只验证了官方 evaluator **可导入**，未验证它能**打分**——而它在本 run 对 120/120 行返回 None（见 §15）。**endpoint 支柱实际未测。**
 
-3. **自适应交互压力 A 在本最小样本中无预期方向效应。** `A−N1`：T1 = −0.75 工具（perm_p=0.50，n=12，方向与假设相反且不显著），且该 pooled 值**完全由 mistral 的运行时方差驱动**（gpt_oss=0、gemma=0、mistral=[0,−3,−8,+2]）；T2 主指标退化（n=2）。endpoint mutation 结果 A 与 N1 完全相同。
+2. **本 pilot 是 "null-by-construction，不是 null-by-finding"。** 独立 review 的核心发现：junction 放在"agent 首次向用户发言"处，对会用工具的模型，实质性 read 已在**前缀**里花掉、mutation 或已完成或（因中性策略不能提供所需决策事实而）永不到达——**压力作用的 suffix 里几乎没有可操纵的过程**。因此本 pilot **尚未真正测到它的目标**，不能据此说"压力无效"。
 
-4. **这在方向上复现了 Step 1 的 null**（压力不操纵过程），但现在有三个 Step 1 缺失的支撑：真实环境、有效的正控制、经双独立 review 确认语义纯净且可区分的 treatment 家族。**因此它是一个比 R7-C 强得多的 null 信号——但样本太小、有度量缺口，尚不能作任何 confirmatory 结论。**
+3. **正控制 P 只证明"存在"，不证明"broad"。** pooled `P−N1` T1 = +3.58 工具**几乎全部来自 gemma（+9.0/block）**，而 gpt_oss ≈ +0.5、mistral ≈ −1.5。更关键：**gemma 恰恰是对 primary 贡献为 0 的 no-op 模型**。所以 P 只证明"一条显式命令能迫使一个几乎不动的模型去调工具"，**不能**证明活跃模型的 junction 可被细粒度操纵。R7-C 缺的那个"可操纵性 + 灵敏度"前提，本 pilot **只部分、且在退化模型上**确立。
 
-**分支判定：本最小 pilot 不作 S2 分支判定（预注册明确禁止）。** 方向初步指向 S2-C（calibrated null）一侧，但必须先补功效与度量。
+4. **自适应压力 A 无可解读的效应，但这是欠测而非阴性。** `A−N1` T1 = −0.75（perm_p=0.50）完全是 mistral 运行时方差（gpt_oss/gemma 全 0，mistral=[0,−3,−8,+2]），且其 CI [−1.0,−0.5] 是 **2-任务 bootstrap 的结构性假象**（每层只 2 个任务、约 3 种重采样），**不是精度**；T2 主指标退化（可用配对 n=2）。**方向上不与 Step 1 的 null 矛盾，但本 pilot 无权也无力对"压力是否操纵过程"下任何结论。**
+
+**分支判定：本最小 pilot 不作 S2 分支判定（预注册禁止），且独立 review 明确判定其为 null-by-construction，因此连"方向指向 S2-C"都不宜写——必须先修 junction/scorer/replication，全量 pilot 才可能给出真正的分支判定。**
 
 ---
 
@@ -141,9 +143,11 @@ temperature=0（agent）。24 blocks × 5 分支 = 120 suffix，全部完成。*
 
 ---
 
-## 13. Positive-control 灵敏度
+## 13. Positive-control 灵敏度（已按运行后 review 修正）
 
-`P−N1`：**T1 = +3.58 工具**（P 要求额外 recheck → 显著更多工具，方向正确 ✅），T2 = +0.33 pre-mutation 证据（方向正确）。**正控制在 T1 上是一个大而正确方向的效应——真实任务/junction 可被显式过程指令操纵，evaluator 能检出。这是本 pilot 最重要的单项验证，也是 R7-C 分析链条一直缺的一环。**
+pooled `P−N1` T1 = +3.58 工具，但**分模型后这个数几乎全是 gemma**：gemma +9.0/block、gpt_oss ≈ +0.5、mistral ≈ −1.5。T2 = +0.33 pre-mutation 证据。
+
+**修正后的诚实表述**：正控制只证明"一条显式过程命令能迫使一个几乎不调工具的 no-op 模型（gemma）去执行额外步骤"；它**没有**证明活跃模型（gpt_oss/mistral）的 junction 可被细粒度过程操纵——在它们身上 P−N1 接近 0 甚至为负。因此"可操纵性 + evaluator 灵敏度"前提在本 pilot 只**部分**成立，且主要落在退化模型上。**全量 pilot 必须要求正控制在活跃模型上也有效**（review 建议 5）。
 
 ---
 
@@ -165,9 +169,9 @@ T1 A−N1 分模型：gpt_oss/gemma=0，mistral 高方差。gemma 在多数 bloc
 
 ---
 
-## 17. 双独立 LLM trajectory review（R2，运行后）
+## 17. 运行后独立 review（R2/R3）
 
-**低产出/未单独闭合**：R2 的核心任务是裁定"A 分支是否有方向性过程改变"，但本 pilot **A−N1 无正效应可裁定**（T1 噪声、T2 退化）。因此运行后 review 聚焦于 R3（设计/测量）。见 §20。
+**R2 trajectory review 低产出**：其核心是裁定"A 分支是否有方向性过程改变"，但本 pilot suffix 里几乎无可裁定的过程（junction 缺陷）。**R3 测量/设计 review 高产出**（独立 agent，复算全部 CSV）：验证了 A−N1=mistral 噪声、T2 退化、endpoint None 为 fatal gap、gemma 退化、S0 的"9/12 一致"多为零工具 no-op；并定位统一缺陷 = junction 放错位置，判定本 pilot **null-by-construction**。完整结论见 §24 与 `REVIEW_POSTRUN_MEASUREMENT.md`。**无 unresolved disagreement**（R3 的纠正被本报告全部采纳）。
 
 ---
 
@@ -190,16 +194,18 @@ T1 A−N1 的 leave-one-task-out：去 airline_T1 → −0.5，去 retail_T1 →
 
 ---
 
-## 21. Supported claims（本 pilot 支持）
+## 21. Supported claims（本 pilot 真正支持的，收缩后）
 
-- 真实 tau2 环境因果分叉管线**可用**（E0/S0/正控制/语义 gate 全过）。
-- **正控制 P 有效**：真实 junction 可被显式过程指令操纵，evaluator 有灵敏度。
-- treatment 家族**语义纯净且可区分**（双独立 LLM review）。
-- 在本最小样本中，**自适应交互压力 A 相对 matched neutral N1 无预期方向的过程效应**；观察到的 T1 −0.75 是单模型运行时方差。
+- 真实 tau2 环境的**结构性** E0 通过（真实参数解析、真实 mutation、快照/恢复保真）——桩环境问题在结构层已解决。
+- 共享前缀因果分叉**引擎**可用（能 snapshot、能从同一快照跑 5 个 turn-matched 分支）。
+- treatment 家族**语义纯净且可区分**（运行前双独立 LLM review 一致，零污染）。
+- 一条显式过程命令能改变一个 no-op 模型的过程（gemma 上 P−N1≈+9）。
 
-## 22. Provisional claims
+## 22. Provisional / 收缩的 claims
 
-- 方向初步与 Step 1 的 null 一致（压力不操纵过程），但**欠功效**，需全量确认。
+- 自适应压力 A 在本样本无可解读效应——但这是 **null-by-construction（junction 缺陷 + 每 cell 单样本 + 2-任务 CI 假象）**，**不是** null-by-finding，**不得**当作"压力无效"的证据。
+- 正控制"有效"仅限退化模型；活跃模型上未确立。
+- S0 的"9/12 一致"多数是零工具 no-op 的平凡一致；活跃 run 的 exact-repeat 摆动达 ±7–8 工具——**exact-repeat 噪声底其实很大**。
 
 ## 23. Forbidden claims（本 pilot 绝不可写）
 
@@ -212,14 +218,18 @@ T1 A−N1 的 leave-one-task-out：去 airline_T1 → −0.5，去 retail_T1 →
 
 ## 24. S2 分支判定与必修项
 
-**判定：NO S2 DECISION（预注册禁止最小 pilot 作分支判定）。** 方向初步指向 S2-C 一侧。
+**判定：NO S2 DECISION。** 预注册禁止最小 pilot 作分支判定；且运行后独立 review 判定本 pilot **null-by-construction**，故连"方向指向 S2-C"都**不写**——本 pilot 尚未测到目标，任何分支判定都必须等修复后的全量 pilot。
 
-**进入全量 18 任务 pilot 前必修（按优先级）**：
-1. **修官方 endpoint evaluator**：正确构造 `SimulationRun` 使 `evaluate_simulation` 返回真实 reward（否则 endpoint/safety 保持只能用代理）。
-2. **修 T2 junction 放置**：junction 必须落在 **mutation 之前**，使 `first_mutation_step` 在 suffix 内有定义（当前 40 个 T2 只有 14 个可用、n=2）。
-3. **处理 gemma 零工具**：确认 gemma 在真实环境有意义地行使过程，否则它是退化参与者。
-4. **稳定三模型服务**：共享 GPU 上 8005 反复被 OOM-kill/改名；需固定 served-name + watchdog，否则全量会大量 block 失败。
-5. **扩到 §5.1 规模**（18 任务、含 telecom、每域平衡、POS_real≥4），并加 A[T2] 文案 hardening。
+**独立 review 的一句话裁决**："The plumbing is real and the honesty framing is strong, but the pilot did not yet measure its target… **Do NOT proceed to the 18-task pilot until junction placement, the endpoint scorer, and per-cell replication are fixed**; after that, proceeding is justified."
+
+**进入全量 18 任务 pilot 前必修（采纳独立 review 的排序）**：
+1. **mutation-anchored junction**：junction 必须**确定性地落在第一个 gold mutation 之前**，并把 T2 所需的决策事实**预置进前缀**，使整个"确认交换 + 写入"过程落在 suffix 内。这是**统一缺陷**——它同时掏空 T1（read 已在前缀花掉）并导致 T2 退化（mutation 或在前缀完成、或永不到达）。
+2. **修官方 scorer**：本执行者从可控循环构造 `SimulationRun` 时丢了 tool_calls/ids，导致 `evaluate_simulation` 对 120/120 行返回 None → endpoint 支柱**完全未测**（fatal gap，不是可接受的 stopgap）。并在 E0 里加一个**端到端打分探针**（不只是 import 检查）。
+3. **每 cell 续接重复 k≥5**：当前每 cell 只有 1 个样本，而 N1 在 temp=0 下 suffix 工具数就摆动 ±8–10 → 必须靠重复把信号与解码噪声分开。
+4. **每模型 process-liveness gate**：排除 gemma 这类 no-op 参与者（仅 7/40 行调工具）。
+5. **model-sensitive 正控制**：要求 P 在**活跃模型**上也有效，而非只在 gemma 上。
+6. **弃用 2-任务 bootstrap CI**，预注册 MDE。
+7. 扩到 §5.1 规模（18 任务、含 telecom、每域平衡、POS_real≥4），A[T2] 文案 hardening（"trust you to follow the process"）。
 
 ---
 
