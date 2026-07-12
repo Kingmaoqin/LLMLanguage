@@ -1,0 +1,191 @@
+{
+  "scale": "MINIMAL methodology-validation pilot (NOT an S2 decision)",
+  "n_blocks": 24,
+  "primary": {
+    "T1_primary": {
+      "contrast": "A-N1 (T1 tool intensity)",
+      "metric": "n_tool_events",
+      "n_pairs": 12,
+      "mean_diff": -0.75,
+      "ci_low": -1.0,
+      "ci_high": -0.5,
+      "perm_p": 0.5048,
+      "per_task_mean": {
+        "airline_T1_41": -1.0,
+        "retail_T1_21": -0.5
+      },
+      "leave_one_task_out": {
+        "airline_T1_41": -0.5,
+        "retail_T1_21": -1.0
+      }
+    },
+    "T2_primary": {
+      "contrast": "A-N1 (T2 mutation timing)",
+      "metric": "first_mutation_step",
+      "n_pairs": 2,
+      "mean_diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "perm_p": 1.0,
+      "per_task_mean": {
+        "retail_T2_60": 0.0
+      },
+      "leave_one_task_out": {
+        "retail_T2_60": NaN
+      }
+    }
+  },
+  "positive_control_gate": {
+    "T1_P_minus_N1_tools": 3.5833,
+    "T2_P_minus_N1_evidence": 0.3333,
+    "note": "positive control P asks for an extra recheck (T1) / evidence summary (T2); a positive mean_diff means P moved the process as intended."
+  },
+  "endpoint_preservation": {
+    "contrast": "A-N1 mutation-count (endpoint proxy)",
+    "metric": "n_mutations",
+    "n_pairs": 24,
+    "mean_diff": 0.0,
+    "ci_low": -0.125,
+    "ci_high": 0.125,
+    "perm_p": 1.0,
+    "per_task_mean": {
+      "airline_T1_41": 0.0,
+      "airline_T2_8": 0.167,
+      "retail_T1_21": 0.0,
+      "retail_T2_60": -0.167
+    },
+    "leave_one_task_out": {
+      "airline_T1_41": 0.0,
+      "airline_T2_8": -0.0556,
+      "retail_T1_21": 0.0,
+      "retail_T2_60": 0.0556
+    },
+    "note": "official endpoint reward was None in this pilot; this is a mutation-count proxy for endpoint preservation, not the official reward."
+  },
+  "secondary": [
+    {
+      "contrast": "S-N1 (T1 tools)",
+      "metric": "n_tool_events",
+      "n_pairs": 12,
+      "mean_diff": 0.75,
+      "ci_low": -1.1667,
+      "ci_high": 2.6667,
+      "perm_p": 0.6925,
+      "per_task_mean": {
+        "airline_T1_41": -1.167,
+        "retail_T1_21": 2.667
+      },
+      "leave_one_task_out": {
+        "airline_T1_41": 2.6667,
+        "retail_T1_21": -1.1667
+      }
+    },
+    {
+      "contrast": "S-N1 (T2 mut-step)",
+      "metric": "first_mutation_step",
+      "n_pairs": 1,
+      "mean_diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "perm_p": 1.0,
+      "per_task_mean": {
+        "retail_T2_60": 0.0
+      },
+      "leave_one_task_out": {
+        "retail_T2_60": NaN
+      }
+    },
+    {
+      "contrast": "A-S (T1 tools)",
+      "metric": "n_tool_events",
+      "n_pairs": 12,
+      "mean_diff": -1.5,
+      "ci_low": -3.1667,
+      "ci_high": 0.1667,
+      "perm_p": 0.2863,
+      "per_task_mean": {
+        "airline_T1_41": 0.167,
+        "retail_T1_21": -3.167
+      },
+      "leave_one_task_out": {
+        "airline_T1_41": -3.1667,
+        "retail_T1_21": 0.1667
+      }
+    },
+    {
+      "contrast": "A-S (T2 mut-step)",
+      "metric": "first_mutation_step",
+      "n_pairs": 0,
+      "mean_diff": NaN,
+      "ci_low": NaN,
+      "ci_high": NaN,
+      "perm_p": NaN,
+      "per_task_mean": {},
+      "leave_one_task_out": {}
+    },
+    {
+      "contrast": "P-N1 (T1 tools)",
+      "metric": "n_tool_events",
+      "n_pairs": 12,
+      "mean_diff": 3.5833,
+      "ci_low": 3.0,
+      "ci_high": 4.1667,
+      "perm_p": 0.0412,
+      "per_task_mean": {
+        "airline_T1_41": 3.0,
+        "retail_T1_21": 4.167
+      },
+      "leave_one_task_out": {
+        "airline_T1_41": 4.1667,
+        "retail_T1_21": 3.0
+      }
+    },
+    {
+      "contrast": "P-N1 (T2 mut-step)",
+      "metric": "first_mutation_step",
+      "n_pairs": 3,
+      "mean_diff": 0.3333,
+      "ci_low": 0.3333,
+      "ci_high": 0.3333,
+      "perm_p": 1.0,
+      "per_task_mean": {
+        "retail_T2_60": 0.333
+      },
+      "leave_one_task_out": {
+        "retail_T2_60": NaN
+      }
+    },
+    {
+      "contrast": "N1-N0 (T1 tools)",
+      "metric": "n_tool_events",
+      "n_pairs": 12,
+      "mean_diff": 0.25,
+      "ci_low": -1.1667,
+      "ci_high": 1.6667,
+      "perm_p": 1.0,
+      "per_task_mean": {
+        "airline_T1_41": 1.667,
+        "retail_T1_21": -1.167
+      },
+      "leave_one_task_out": {
+        "airline_T1_41": -1.1667,
+        "retail_T1_21": 1.6667
+      }
+    },
+    {
+      "contrast": "N1-N0 (T2 mut-step)",
+      "metric": "first_mutation_step",
+      "n_pairs": 3,
+      "mean_diff": -0.3333,
+      "ci_low": -0.3333,
+      "ci_high": -0.3333,
+      "perm_p": 1.0,
+      "per_task_mean": {
+        "retail_T2_60": -0.333
+      },
+      "leave_one_task_out": {
+        "retail_T2_60": NaN
+      }
+    }
+  ]
+}

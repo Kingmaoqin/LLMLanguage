@@ -30,8 +30,14 @@ from tau2.data_model.message import (
     UserMessage,
 )
 
+import os as _os
+
+# gemma-4-31B on :8005 was OOM-killed by shared-GPU contention and relaunched with the
+# served name "g4-v2-1" (same gemma-4-31B-it weights, gemma4 tool parser). Endpoints are
+# overridable via env so a co-tenant restart with a new served name doesn't require a code
+# edit mid-run.
 MODEL_ENDPOINTS = {
-    "gemma4_31b": ("openai/g4", "http://127.0.0.1:8005/v1"),
+    "gemma4_31b": (f"openai/{_os.environ.get('R7D_GEMMA_NAME', 'g4-v2-1')}", "http://127.0.0.1:8005/v1"),
     "gpt_oss_120b": ("openai/gpt-oss", "http://127.0.0.1:8192/v1"),
     "mistral_small_3p2": ("openai/mistral-small-3p2", "http://127.0.0.1:8007/v1"),
 }
