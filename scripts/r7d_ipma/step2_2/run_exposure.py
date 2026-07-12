@@ -112,7 +112,7 @@ def main() -> int:
                 continue
             # full battery on a live cell
             for rep in range(args.reps):
-                branch("N0", [N0_TEXT], rep)
+                branch("N0", [cell["n1_reply"]], rep)  # exact-repeat of the fact-supplying neutral reply
             for rep in range(1, args.reps):     # already have N1 rep0
                 branch("N1", [cell["n1_reply"]], rep)
             for rep in range(args.reps):
