@@ -1,0 +1,22 @@
+{
+  "preregistration_id": "r7d_step2_2_exposure_eligibility_v1",
+  "frozen_at": "2026-07-12",
+  "authorization": "Step 2.2 only. Run N0/N1/P (never A). No 18-task full pilot, no Step 3.",
+  "domains": ["retail", "airline"],
+  "candidates": "12 (retail T1 25/62/65, T2 0/1/2; airline T1 2/3/4, T2 7/8/11). Selection: official scorer + task type (info-only=T1 / mutation=T2). Eligibility decided by neutral/P probe, NOT gold-action length.",
+  "models": ["gemma4_31b", "gpt_oss_120b", "mistral_small_3p2"],
+  "junction": "natural information-gated. T1: agent requests a required fact before substantive tool work (reads_done==0) -> that request is the junction; branch reply supplies the identical fact. T2: natural confirmation node, evidence gathered, confirmation+mutation not yet done -> mutation lands in suffix.",
+  "branches": {"N0": "exact neutral repeat x5", "N1": "natural neutral reply supplying the same fact/decision x5", "P": "N1 + explicit task-legal extra process step x5"},
+  "primary_metric": {"T1": "n_tool_events (suffix); P direction increase", "T2": "evidence_before_first_mutation (suffix); P direction increase"},
+  "eligibility": {
+    "baseline_competence": "N1 official reward==1 in >=4/5 runs; DB and COMMUNICATE components readable",
+    "suffix_exposure": "T1: N1 suffix has >=2 real tool calls in >=4/5 runs; T2: real mutation in N1 suffix in >=4/5 runs; process after junction",
+    "reproducibility": "active N0 primary-metric range <=1; snapshot/prefix/state hash identical",
+    "positive_control": "P moves primary metric in frozen direction in >=3/5 runs; P vs N1 endpoint reward within tolerance; not merely 0->any"
+  },
+  "eligibility_source": "N0/N1/P only. A is never inspected.",
+  "min_gate_to_proceed": "eligible cells >=8; >=6 tasks; both retail+airline; both T1+T2; >=2 models; >=90% active-N0 range<=1; scorer 100% non-None; dual review closed.",
+  "else": "CURRENT_IPMA_DESIGN_NOT_EXPERIMENTALLY_IDENTIFIABLE",
+  "serving": "online vLLM, concurrency=1, fixed served-name/parser; Mistral empty-tool-name fail-closed. Offline deterministic mode unavailable (co-tenant GPU); batch-invariance caveat recorded.",
+  "review": "two independent one-shot LOCAL review jobs on different vLLM endpoints (not interactive sub-agents). disagreement fail-closed. dual-independent-agent review, NOT human-validated."
+}

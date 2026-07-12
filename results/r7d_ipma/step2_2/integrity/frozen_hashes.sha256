@@ -1,0 +1,5 @@
+# Step 2.2 frozen assets — 2026-07-12T20:36:46Z, git 08bdf05
+a92222621a9e9ce6d7fddf4f59675b884bdb25705d59f4478b8ab7418975671e  data/r7d_ipma/frozen/step2_2_registry.jsonl
+ae53311f5d509a8f92e05e207e83160d32501be35fb0d48e696a1bcbe6e9a497  data/r7d_ipma/frozen/step2_2_preregistration.json
+11f20229c89473a20f2a9bac9458e31a93d63f88870c18d6563ae31427294ba9  scripts/r7d_ipma/step2_2/runner_v3.py
+19a8d2d665194a348239977a65d8cd46b1f6780909148c1478b6a41571fc51cc  scripts/r7d_ipma/step2_2/build_registry.py
