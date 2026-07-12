@@ -334,6 +334,7 @@ def main() -> int:
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--environment-lock", type=Path, required=True)
     args = parser.parse_args()
+    args.run_root.parent.mkdir(parents=True, exist_ok=True)
     args.run_root.mkdir(parents=False, exist_ok=False)
     manifest_hash = hashlib.sha256(args.manifest.read_bytes()).hexdigest()
     environment_hash = hashlib.sha256(args.environment_lock.read_bytes()).hexdigest()

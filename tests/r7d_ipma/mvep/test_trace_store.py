@@ -39,6 +39,16 @@ def test_existing_root_and_terminal_resume_fail_closed(tmp_path):
         store.append("CALL_EXCEPTION", {})
 
 
+def test_nested_parent_then_exclusive_leaf_lifecycle(tmp_path):
+    parent = tmp_path / "results" / "r7d_ipma" / "mvep"
+    parent.mkdir(parents=True, exist_ok=True)
+    root = parent / "run_v1"
+    store = TraceStore.create(root, {"trajectory_id": "x"}, "a" * 64)
+    store.terminal("PASS")
+    with pytest.raises(FileExistsError):
+        TraceStore.create(root, {"trajectory_id": "replacement"}, "a" * 64)
+
+
 def test_tamper_and_missing_sequence_are_detected(tmp_path):
     root = tmp_path / "run"
     store = TraceStore.create(root, {"trajectory_id": "x"}, "a" * 64)
@@ -62,4 +72,3 @@ def test_full_trace_completeness_and_token_fail_closed():
     assert trace_complete(trace) == (True, [])
     broken = copy.deepcopy(trace); broken["tokens"]["tool"] = None
     assert trace_complete(broken)[0] is False
-
