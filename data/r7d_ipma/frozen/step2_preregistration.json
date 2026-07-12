@@ -1,0 +1,31 @@
+{
+  "preregistration_id": "r7d_step2_minimal_pilot_v1",
+  "frozen_at": "2026-07-11",
+  "authorization": "多轮实验的prompt authorizes Step 2 pilot only. This is a MINIMAL pilot chosen by the research lead ('先做最小可行 pilot'). No Step 3, no ProcessGuard, no full confirmatory study.",
+  "scale": {
+    "tasks": 4,
+    "domains": [
+      "retail",
+      "airline"
+    ],
+    "strata": [
+      "T1",
+      "T2"
+    ],
+    "models": [
+      "gemma4_31b",
+      "gpt_oss_120b",
+      "mistral_small_3p2"
+    ],
+    "prefix_replicates": 2,
+    "branches": 5,
+    "total_suffix_continuations": 120
+  },
+  "external_validity": "NOT claimed. telecom + 18-task set deferred to full pilot pending approval.",
+  "primary_estimand": "A - N1 per stratum, paired within (task,model,snapshot,replicate)",
+  "task_selection": "blind, by gold-action structure only; NO R7-C PASR / condition ranking / high-signal task used (verified: task ids chosen from structural filters in build_task_registry.py).",
+  "environment": "official tau2 retail/airline environments; real tool arg parsing, real DB mutation, official evaluate_simulation; E0 gate PASS.",
+  "review": "dual-independent-LLM (two fresh, isolated review agents; different model families where possible; disagreements fail-closed and are marked UNRESOLVED_DISAGREEMENT; NOT human-validated). If reviewers cannot close -> REVIEW_NOT_CLOSED.",
+  "decision": "The minimal pilot yields NO S2 branch decision. It yields: (a) pipeline validity, (b) A−N1 direction + CI, (c) a recommendation on whether to run the full 18-task pilot.",
+  "stop_rule": "Freeze -> gates -> run 120 -> analyze -> dual post-run review -> report -> STOP for research-lead approval."
+}
