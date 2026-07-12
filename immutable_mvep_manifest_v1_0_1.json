@@ -1,0 +1,24 @@
+{
+  "schema_version": "r7d-immutable-mvep-manifest-v1.0.1",
+  "base_manifest": "immutable_mvep_manifest.json",
+  "base_manifest_sha256": "e6276dda097c53f5d1d987c66ba1aa894b55ff0580e4dcdc38862db86c371c4b",
+  "environment_lock_addendum": "MVEP_ENVIRONMENT_LOCK_V1_0_1.json",
+  "environment_lock_addendum_sha256": "98f4f89938dc3b2c62fb4fce31fd9c016aed7957b08d89314a3ad4e55be0741b",
+  "result_blind": true,
+  "incident_only": true,
+  "run_root": "results/r7d_ipma/mvep/run_v1_20260712",
+  "continued_call_budget": {"endpoint_liveness": 3, "trajectories": 8},
+  "preincident_calls": {"endpoint_liveness": 0, "trajectories": 0},
+  "allowed_change": {
+    "runner_sha256_old": "f03bd1962c3b1e734d3d58ea088f48e0b679a33d87b8105b7e15d5552ea4bad1",
+    "runner_sha256_new": "fe1e162affd165e33cf770f390fbb4827494759a4d016c5dab42a8ac3bf60c64",
+    "description": "create fixed parent directories before exclusive leaf run-root creation"
+  },
+  "seal_tests": {"passed": 29, "failed": 0},
+  "unchanged_hashes_in_base_manifest": [
+    "raw_trace_schema", "junction_spec", "fixtures", "replay", "trace_store",
+    "junction", "evaluator", "dependency_lock", "tau2_vendor_patch"
+  ],
+  "stop_conditions": "identical to base manifest; no automatic retry after any model call failure"
+}
+

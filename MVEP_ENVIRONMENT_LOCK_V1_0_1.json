@@ -1,0 +1,32 @@
+{
+  "schema_version": "r7d-mvep-environment-lock-addendum-v1.0.1",
+  "base_lock": "MVEP_ENVIRONMENT_LOCK.json",
+  "base_lock_sha256": "d61cbcaa8af831d469a7c6937546e076fe8ac95e54116ed34d3d54c97bca4e83",
+  "git": {
+    "branch": "r7d-mvep-remediation-v1",
+    "code_commit": "13df00c0c275b90716287e6bd3fb309a83eb96cf",
+    "dirty_status_before_reseal": false
+  },
+  "incident": {
+    "classification": "ABORTED-PRE-CALL",
+    "liveness_calls": 0,
+    "trajectories": 0,
+    "scientific_results": 0,
+    "patch_scope": "run-root parent directory lifecycle only",
+    "runner_sha256": "fe1e162affd165e33cf770f390fbb4827494759a4d016c5dab42a8ac3bf60c64",
+    "test_sha256": "82708e8b5548539f0694297897c9c63b21d3a14581c5c3b4543fa81405ae3c98",
+    "incident_report_sha256": "3f70cd77a507132a0e679e4650e310d462186fa96eabb995c7f114efb9d02886"
+  },
+  "models": {
+    "gpt_oss_120b": {
+      "tokenizer_sha256": "0614fe83cadab421296e664e1f48f4261fa8fef6e03e63bb75c20f38e37d07d3"
+    }
+  },
+  "unchanged": [
+    "all model and endpoint identities", "all model shard hashes",
+    "sampling and zero-retry policy", "fixtures and cell order",
+    "junction specification", "trace schema", "evaluator", "replay",
+    "pass rule and claim boundary"
+  ]
+}
+
