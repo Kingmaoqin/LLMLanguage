@@ -102,21 +102,25 @@ def main() -> int:
                 rows.append(m)
                 return m
 
-            # liveness pre-gate: one N1 probe
-            probe = branch("N1", [cell["n1_reply"]], 0)
-            live = (probe["n_tool_events"] >= 2 if stratum == "T1"
-                    else probe["n_mutations"] >= 1)
-            if not live:
-                print(f"[{n}] {tag} DEAD (junction ok but N1 suffix not live: "
-                      f"tools={probe['n_tool_events']} mut={probe['n_mutations']})", flush=True)
+            try:
+                # liveness pre-gate: one N1 probe
+                probe = branch("N1", [cell["n1_reply"]], 0)
+                live = (probe["n_tool_events"] >= 2 if stratum == "T1"
+                        else probe["n_mutations"] >= 1)
+                if not live:
+                    print(f"[{n}] {tag} DEAD (junction ok but N1 suffix not live: "
+                          f"tools={probe['n_tool_events']} mut={probe['n_mutations']})", flush=True)
+                    continue
+                # full battery on a live cell
+                for rep in range(args.reps):
+                    branch("N0", [cell["n1_reply"]], rep)  # exact-repeat of the fact-supplying neutral reply
+                for rep in range(1, args.reps):     # already have N1 rep0
+                    branch("N1", [cell["n1_reply"]], rep)
+                for rep in range(args.reps):
+                    branch("P", [cell["p_reply"]], rep)
+            except Exception as exc:  # noqa: BLE001
+                print(f"[{n}] {tag} BATTERY_FAIL {exc!r}", flush=True)
                 continue
-            # full battery on a live cell
-            for rep in range(args.reps):
-                branch("N0", [cell["n1_reply"]], rep)  # exact-repeat of the fact-supplying neutral reply
-            for rep in range(1, args.reps):     # already have N1 rep0
-                branch("N1", [cell["n1_reply"]], rep)
-            for rep in range(args.reps):
-                branch("P", [cell["p_reply"]], rep)
             n0t = [r["n_tool_events"] for r in rows if r["cell"] == cell["cell_uid"]
                    and r["model"] == model and r["branch"] == "N0"]
             print(f"[{n}] {tag} LIVE N0_tools={n0t} "
