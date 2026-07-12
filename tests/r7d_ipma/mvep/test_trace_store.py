@@ -49,6 +49,22 @@ def test_nested_parent_then_exclusive_leaf_lifecycle(tmp_path):
         TraceStore.create(root, {"trajectory_id": "replacement"}, "a" * 64)
 
 
+def test_render_incident_recovery_preserves_partial_and_uses_attempt2(tmp_path):
+    root = tmp_path / "cell"
+    store = TraceStore.create(root, {"trajectory_id": "cell"}, "a" * 64)
+    store.append("PREFIX_CAPTURED", {"content": None})
+    store.append("JUNCTION_PROOF", {"passed": True})
+    before = {path.name: path.read_bytes() for path in root.iterdir()}
+    recovered = TraceStore.recover(root, "render_incident")
+    recovered.terminal("ABORTED-PRE-MODEL-CALL-RENDER")
+    for name, body in before.items():
+        assert (root / name).read_bytes() == body
+    attempt2 = root.parent / "cell__attempt2"
+    second = TraceStore.create(attempt2, {"trajectory_id": "cell"}, "b" * 64)
+    second.terminal("CAPTURED")
+    assert root.exists() and attempt2.exists()
+
+
 def test_tamper_and_missing_sequence_are_detected(tmp_path):
     root = tmp_path / "run"
     store = TraceStore.create(root, {"trajectory_id": "x"}, "a" * 64)

@@ -57,7 +57,7 @@ def db_snapshot(env) -> dict[str, Any]:
 
 
 def openai_tool_message(tc: ToolCall) -> dict[str, Any]:
-    return {"role": "assistant", "content": None, "tool_calls": [{
+    return {"role": "assistant", "content": "", "tool_calls": [{
         "id": tc.id, "type": "function",
         "function": {"name": tc.name, "arguments": canonical_json(tc.arguments)},
     }]}
@@ -164,12 +164,22 @@ class Caller:
 
 
 def run_trajectory(fixture, architecture, condition, run_root, manifest_hash,
-                   environment_hash, tokenizer, tokenizer_hash, code_hashes):
+                   environment_hash, tokenizer, tokenizer_hash, code_hashes,
+                   incident_recovery: bool = False):
     identity = {"trajectory_id": f"{fixture['fixture_id']}__{architecture}__{condition}",
                 "task_id": fixture["task_id"], "domain": fixture["domain"],
                 "task_kind": fixture["task_kind"], "architecture": architecture,
                 "condition": condition, "junction_id": fixture["junction_id"]}
-    store = TraceStore.create(run_root / identity["trajectory_id"], identity, manifest_hash)
+    trajectory_root = run_root / identity["trajectory_id"]
+    if trajectory_root.exists():
+        if not incident_recovery:
+            raise FileExistsError(trajectory_root)
+        if (trajectory_root / "raw_trace.json").exists():
+            raise RuntimeError("completed_trajectory_cannot_be_replaced")
+        old = TraceStore.recover(trajectory_root, "v1.0.2_render_incident")
+        old.terminal("ABORTED-PRE-MODEL-CALL-RENDER")
+        trajectory_root = run_root / f"{identity['trajectory_id']}__attempt2"
+    store = TraceStore.create(trajectory_root, identity, manifest_hash)
     start_wall, start = utc_now(), time.perf_counter()
     env = get_env(fixture["domain"])
     fresh = get_env(fixture["domain"])
@@ -333,9 +343,14 @@ def main() -> int:
     parser.add_argument("--run-root", type=Path, required=True)
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--environment-lock", type=Path, required=True)
+    parser.add_argument("--incident-recovery-v1-0-2", action="store_true")
     args = parser.parse_args()
     args.run_root.parent.mkdir(parents=True, exist_ok=True)
-    args.run_root.mkdir(parents=False, exist_ok=False)
+    if args.incident_recovery_v1_0_2:
+        if not args.run_root.is_dir():
+            raise RuntimeError("incident_recovery_requires_existing_root")
+    else:
+        args.run_root.mkdir(parents=False, exist_ok=False)
     manifest_hash = hashlib.sha256(args.manifest.read_bytes()).hexdigest()
     environment_hash = hashlib.sha256(args.environment_lock.read_bytes()).hexdigest()
     frozen = json.loads(FIXTURES.read_text())
@@ -344,16 +359,26 @@ def main() -> int:
     tokenizer_hash = environment["models"]["gpt_oss_120b"]["tokenizer_sha256"]
     code_hashes = {"manifest": manifest_hash, "environment": environment_hash,
                    "git_commit": environment["git"]["code_commit"]}
-    liveness = [liveness_call(alias, args.run_root, manifest_hash) for alias in ENDPOINTS]
-    (args.run_root / "endpoint_liveness.json").write_text(
-        json.dumps(liveness, indent=2, ensure_ascii=False))
+    if args.incident_recovery_v1_0_2:
+        liveness = json.loads((args.run_root / "endpoint_liveness.json").read_text())
+        if len(liveness) != 3:
+            raise RuntimeError("incident_liveness_ledger_invalid")
+        for alias in ENDPOINTS:
+            events = TraceStore.read_and_validate(args.run_root / f"liveness__{alias}")
+            if events[-1]["event"] != "TERMINAL" or events[-1]["payload"]["status"] != "CAPTURED":
+                raise RuntimeError("incident_liveness_trace_not_terminal")
+    else:
+        liveness = [liveness_call(alias, args.run_root, manifest_hash) for alias in ENDPOINTS]
+        (args.run_root / "endpoint_liveness.json").write_text(
+            json.dumps(liveness, indent=2, ensure_ascii=False))
     rows = []
     for fixture in frozen["fixtures"]:
         for architecture in frozen["architectures"]:
             for condition in frozen["conditions"]:
                 rows.append(run_trajectory(
                     fixture, architecture, condition, args.run_root, manifest_hash,
-                    environment_hash, tokenizer, tokenizer_hash, code_hashes))
+                    environment_hash, tokenizer, tokenizer_hash, code_hashes,
+                    incident_recovery=args.incident_recovery_v1_0_2))
     (args.run_root / "run_summary.json").write_text(json.dumps({
         "liveness_calls": len(liveness), "trajectories": len(rows),
         "attack_conditions": 0, "effect_estimated": False,
