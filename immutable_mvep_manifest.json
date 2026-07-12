@@ -1,0 +1,81 @@
+{
+  "schema_version": "r7d-immutable-mvep-manifest-v1",
+  "sealed_at": "2026-07-12T17:56:00-05:00",
+  "result_blind": true,
+  "scientific_experiment": false,
+  "effect_estimand": null,
+  "attack_conditions": [],
+  "historical_step2_1_results_mounted": false,
+  "run_root": "results/r7d_ipma/mvep/run_v1_20260712",
+  "limits": {
+    "endpoint_liveness_calls": 3,
+    "trajectory_count": 8,
+    "replicates_per_cell": 1,
+    "tasks": 2,
+    "primary_models": 1
+  },
+  "fixed_design": {
+    "primary_model": "gpt_oss_120b",
+    "primary_model_selection": "fixed before calls; no historical IPMA effect/PASR selection",
+    "tasks": ["retail/write/60", "retail/no_write_communication/62"],
+    "architectures": ["single", "mas"],
+    "conditions": ["neutral", "positive_control"],
+    "cell_order": [
+      "retail_write_60/single/neutral",
+      "retail_write_60/single/positive_control",
+      "retail_write_60/mas/neutral",
+      "retail_write_60/mas/positive_control",
+      "retail_communication_62/single/neutral",
+      "retail_communication_62/single/positive_control",
+      "retail_communication_62/mas/neutral",
+      "retail_communication_62/mas/positive_control"
+    ],
+    "mas": {
+      "coordinator": "same frozen primary model, no tools, no write permission",
+      "executor": "same endpoint/tool schemas/task input as single",
+      "coordinator_advisory": "separately recorded internal message",
+      "claim_boundary": "MVEP architecture fixture only; not a formal MAS baseline"
+    }
+  },
+  "pass_rule": {
+    "all_trajectories_required": true,
+    "raw_trace_complete": true,
+    "input_and_manifest_hashes_present": true,
+    "fresh_reset": true,
+    "scorer_computable": true,
+    "pre_post_db_present": true,
+    "ordered_tool_arguments_extractable": true,
+    "token_and_latency_complete": true,
+    "two_fresh_copy_replays_identical": true,
+    "replay_db_scorer_ordered_match": true,
+    "single_mas_permission_and_input_parity": true,
+    "zero_silent_retry": true,
+    "zero_endpoint_fallback": true,
+    "model_text_bitwise_match_required": false
+  },
+  "hashes": {
+    "environment_lock": "d61cbcaa8af831d469a7c6937546e076fe8ac95e54116ed34d3d54c97bca4e83",
+    "raw_trace_schema": "5bb811bc3b24b73a623e3a1e62b31d4469e454718faf189a330782ff8e8e1855",
+    "junction_spec": "e332de592f4bc134c807894ba1ba0ef5148d2ad2304aa5386e08de24ce927fb2",
+    "fixtures": "897b7d74b5f75f5e1d72305b567b75b9bf880d91b02bd082f71ce676fbdabbb9",
+    "runner": "f03bd1962c3b1e734d3d58ea088f48e0b679a33d87b8105b7e15d5552ea4bad1",
+    "replay": "0a7dc93dfffa8def3c6fbc130cdcb879be599619405ce41d300cdf067893156c",
+    "trace_store": "8819561751fed310abd0fc7ac5278959ef56a4b75666705080ae05f2ffd4d12e",
+    "junction": "e11f6c9cb99d2a9eabe35e2c0b47e35350d20949fdba442aba24ca5bfa9be191",
+    "evaluator": "47372af662d93936be9c008c463528aae495bda25239185c9e3767eddf683dd9",
+    "dependency_lock": "634a972de8c64bdb0a5b24555c9ef8ddb22febca9af4e72a1c5b3722718c72c3",
+    "tau2_vendor_patch": "6771ac35cead297ea78084278d0bf185f04e8abbc27f54c9dc3b745da07627b4"
+  },
+  "seal_tests": {
+    "command": "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 /home/xqin5/.conda/envs/agentsearch/bin/python -m pytest -q tests/r7d_ipma/mvep tests/r7d_ipma/test_ordered_trajectory_evaluator.py tests/r7d_ipma/test_reproducibility_provenance.py",
+    "passed": 28,
+    "failed": 0
+  },
+  "stop_conditions": [
+    "any hash mismatch", "existing run root", "junction proof failure",
+    "any unlogged exception/retry", "endpoint identity mismatch",
+    "more than 3 liveness calls", "more than 8 trajectories",
+    "any attack condition", "any result-driven case/model replacement"
+  ]
+}
+

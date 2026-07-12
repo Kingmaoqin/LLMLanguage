@@ -1,0 +1,147 @@
+{
+  "schema_version": "r7d-mvep-environment-lock-v1",
+  "frozen_at": "2026-07-12T17:55:00-05:00",
+  "scope": "MVEP infrastructure only; no IPMA effect, attack, or 18-task pilot",
+  "git": {
+    "branch": "r7d-mvep-remediation-v1",
+    "code_commit": "b01bd668a5caba3880e108f9b0d1f2145c61e1f9",
+    "code_tree": "4e006499b2a10eb192d65844828e1f3f0ba3980e",
+    "run_worktree": "/home/xqin5/llmlanguage/ir_mstu_stage2_mvep_v1",
+    "dirty_status_before_lock": false,
+    "source_results_reused": false
+  },
+  "tau2": {
+    "version": "1.0.0",
+    "source_repo": "/home/xqin5/tau2-bench",
+    "source_commit": "ddc66a777e520373975f15d3abec989cfe2ec371",
+    "normalization_mode": "vendored exact diff",
+    "vendor_patch": "vendor/tau2_normalization/tau2_normalization_ddc66a7.patch",
+    "vendor_patch_sha256": "6771ac35cead297ea78084278d0bf185f04e8abbc27f54c9dc3b745da07627b4",
+    "live_diff_sha256_at_seal": "6771ac35cead297ea78084278d0bf185f04e8abbc27f54c9dc3b745da07627b4",
+    "message_py_sha256": "a67aeead9798e9c23600dee69effde43e31fcf26b1643a307fcec4a73a6a2b99",
+    "llm_utils_py_sha256": "ab36cf7d5ae3bc7c89cc4667673c39138a74fd585922d1ae52c7ffeb12662919",
+    "evaluator_py_sha256": "85a05cf75f19708bf855ac8f97cf34d8aef05c99332d57dc066725200ca59444",
+    "evaluator_env_py_sha256": "e932ea5f675d7a172557350f30b73d66474659d9b4d976ecd763ca2929017633"
+  },
+  "python_environment": {
+    "interpreter": "/home/xqin5/.conda/envs/agentsearch/bin/python",
+    "python": "3.12.13",
+    "python_binary_sha256": "af64bf24ab96f1b32a27a05227853f6fff979cbab568587cd25e6dd91bd05bdf",
+    "conda_history_sha256": "eebdbceae637d41c1929580b685760c56ad49f548d885549a98a7bdbfb6767b0",
+    "dependency_lock": "environment/mvep_agentsearch_pip_freeze.txt",
+    "dependency_lock_sha256": "634a972de8c64bdb0a5b24555c9ef8ddb22febca9af4e72a1c5b3722718c72c3",
+    "uses_user_site_packages": true,
+    "test_environment": {"PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1"},
+    "core_versions": {
+      "pandas": "2.3.3", "pytz": "2026.2", "litellm": "1.82.6",
+      "openai": "2.38.0", "tokenizers": "0.22.2", "transformers": "5.8.1",
+      "torch": "2.11.0", "numpy": "1.26.4", "pydantic": "2.12.3",
+      "vllm": "0.20.2"
+    }
+  },
+  "hardware": {
+    "os": "Linux-5.15.0-179-generic-x86_64-with-glibc2.35",
+    "cuda_compiler": "12.4.131",
+    "driver": "580.159.03",
+    "gpus": [
+      {"index": 0, "uuid": "GPU-fa40c167-2d0c-5d52-e9a1-6c8edc49748c", "model": "NVIDIA A100 80GB PCIe"},
+      {"index": 1, "uuid": "GPU-49f76911-d43e-cbf0-ec40-37e57b1ea481", "model": "NVIDIA A100 80GB PCIe"},
+      {"index": 2, "uuid": "GPU-c55136b1-2f64-2504-84a8-44b23fd89519", "model": "NVIDIA A100 80GB PCIe"},
+      {"index": 3, "uuid": "GPU-2984464c-4e3a-6fc2-a533-7ddb989c4e8e", "model": "NVIDIA A100 80GB PCIe"}
+    ]
+  },
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "seed": 20260712,
+    "max_tokens": 1024,
+    "timeout_seconds": 90,
+    "retry_policy": "zero_retry",
+    "provider_fallback": false,
+    "silent_retry": false
+  },
+  "models": {
+    "gemma4_31b": {
+      "endpoint": "http://127.0.0.1:8005/v1",
+      "served_model": "g4-v2-1",
+      "root": "/home/xqin5/hf_p08_models/gemma-4-31B-it",
+      "gpu_mapping": [3],
+      "tensor_parallel": 1,
+      "tool_parser": "gemma4",
+      "startup_command": "CUDA_VISIBLE_DEVICES=3 /home/xqin5/.conda/envs/p08_skilloverload/bin/vllm serve /home/xqin5/hf_p08_models/gemma-4-31B-it --port 8005 --served-model-name g4-v2-1 --enable-auto-tool-choice --tool-call-parser gemma4 --tensor-parallel-size 1 --gpu-memory-utilization 0.82 --max-model-len 7680 --max-num-batched-tokens 4096 --max-num-seqs 8",
+      "config_sha256": "e967dd38bc5cfd38bd09a995a7bf4a754075df2b46aba68f7fbb5a791e6d8dd1",
+      "tokenizer_sha256": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f",
+      "tokenizer_config_sha256": "90c3a3ba5bf53818383a58e1a776cbcacd2a038d4812eaa373e1522f2d06f3df",
+      "chat_template_sha256": "36e3a42e5cf14cd0020e72d92e1fdd9970f59b82170e421f0cbe1bb42bead3f0",
+      "weight_shards": {
+        "model-00001-of-00002.safetensors": "eeef8791537bc04f110967c513149e037d2a9ae97d49add7291ebfa62806bbfa",
+        "model-00002-of-00002.safetensors": "018912220f559f7025d60333e0996183cd538aa77ad6f4988a89ce47be681f10"
+      }
+    },
+    "gpt_oss_120b": {
+      "endpoint": "http://127.0.0.1:8192/v1",
+      "served_model": "gpt-oss",
+      "root": "/home/xqin5/hf_p08_models/gpt-oss-120b",
+      "gpu_mapping": [0, 1],
+      "tensor_parallel": 2,
+      "tool_parser": "openai",
+      "startup_command": "CUDA_VISIBLE_DEVICES=0,1 /home/xqin5/.conda/envs/p08_skilloverload/bin/vllm serve /home/xqin5/hf_p08_models/gpt-oss-120b --port 8192 --served-model-name gpt-oss --tensor-parallel-size 2 --max-model-len 16384 --gpu-memory-utilization 0.9 --enable-auto-tool-choice --tool-call-parser openai",
+      "config_sha256": "933aeb666a3fd851133ddd7686414f369bc564c4185fb5704416550879f10566",
+      "tokenizer_sha256": "0614fe83cadab421296e664e1f48f4261fa8fef6e03e63bb75c20f38e37d07d3",
+      "tokenizer_config_sha256": "9279e942392b742d633c7adbb89ebe002c98399db8926a7af5125c726f404070",
+      "chat_template_sha256": "a4c9919cbbd4acdd51ccffe22da049264b1b73e59055fa58811a99efbd7c8146",
+      "weight_shards": {
+        "model-00000-of-00014.safetensors": "695218884684c611fe08a74751ee443f971e9bd9bc062edba822da3fe45969b7",
+        "model-00001-of-00014.safetensors": "a881aa5f561b26a22b14a8262aa61849ace349ffd73d74769e030ac90a1fcf8a",
+        "model-00002-of-00014.safetensors": "022478dd04398c5bdb545a5be0a6437ecc2eb53d1dbd29edafcfff4b3ddf0a41",
+        "model-00003-of-00014.safetensors": "47aee9e7b9d5bedb215042c01ccededd9bd9c30b0dddea862dc2506b9d6c74de",
+        "model-00004-of-00014.safetensors": "f6c2752acda607b1d5ca52df9e75c1b9b2761e6875ff10c9bd6ddac473c0262e",
+        "model-00005-of-00014.safetensors": "0c8dd401544c31cb93b8459eee7da20ea2a07626a59455d7d92b85257df9b46c",
+        "model-00006-of-00014.safetensors": "28d839f2e027985a8b14e45f2323798862eddb7770ee9800ea6b7c803abee489",
+        "model-00007-of-00014.safetensors": "c8958c5f183c04f6ea959cfd90562b5128124154b2bbf979b8a22b9405b30ed8",
+        "model-00008-of-00014.safetensors": "bf1f2a88868ffc37d520dcf77d26f0e823710b5e682d473ff10f6974fa3b7517",
+        "model-00009-of-00014.safetensors": "f72d34a4004241b45c332b61f8ffa124e9a913bc1ab442b66e717d3e94e741ce",
+        "model-00010-of-00014.safetensors": "f48c867c2cb0a44bfc2f8768cb98e4aec9a350946fceacfebdcad5d32ad4a471",
+        "model-00011-of-00014.safetensors": "a06851b2cfd35f48722f823bc1ab8f7bcb4a878a5b8e975f4d3544f230454eeb",
+        "model-00012-of-00014.safetensors": "3af33667c307e20ae2a7648ea52653de46dd0171601ec5c696e47a2f5d5bf1e4",
+        "model-00013-of-00014.safetensors": "bcbcb74b043e071d1e05471d500d74dcf661175e00878ed302ccdf1801a75aef",
+        "model-00014-of-00014.safetensors": "54b1be1609696c307cc5ca117b1fa54feaddebffa04e9c2db117652a01964230"
+      }
+    },
+    "mistral_small_3p2": {
+      "endpoint": "http://127.0.0.1:8007/v1",
+      "served_model": "mistral-small-3p2",
+      "root": "/home/xqin5/hf_p08_models/Mistral-Small-3.2-24B-Instruct-2506",
+      "gpu_mapping": [2],
+      "tensor_parallel": 1,
+      "tool_parser": "mistral",
+      "startup_command": "/home/xqin5/.conda/envs/p08_skilloverload/bin/vllm serve /home/xqin5/hf_p08_models/Mistral-Small-3.2-24B-Instruct-2506 --port 8007 --served-model-name mistral-small-3p2 --tensor-parallel-size 1 --max-model-len 16384 --gpu-memory-utilization 0.9192626953125 --enable-auto-tool-choice --tool-call-parser mistral --limit-mm-per-prompt {\"image\":0}",
+      "config_sha256": "01ab910a5dda7995709cc355d094eabb8094b78d49240cd167188606c3ff5edb",
+      "tokenizer_tekken_sha256": "6e2501687ccd0e1f30f36319eaf2b46958b897811e246cd8eb5d385b9e3de7d1",
+      "system_prompt_sha256": "46abb4f68fd0fc834b5723c5044c13b2e4b9d70e1589fcd002f57475e6f296a0",
+      "weight_shards": {
+        "model-00001-of-00010.safetensors": "91831c2ce219df0ce63bc33c6249e5cb01db8d93816bcebf975f1c406286520e",
+        "model-00002-of-00010.safetensors": "8ffe80706a66b2f5ef1fb058806ccf09f124ec4ad38af7a377e44ab1ee2fd664",
+        "model-00003-of-00010.safetensors": "99ec66e891f9563f568734eadfc5b7701e04620e8e163d4d5755277a3b50cf2f",
+        "model-00004-of-00010.safetensors": "e1df1527b12b1eb5cbd9a50914f9e6eb24e885ec830a3c16b5eed6ad0b53a396",
+        "model-00005-of-00010.safetensors": "3556ac03f47c24eb8ad27c237e25baad639c651d9596fd72cb1523137bf56163",
+        "model-00006-of-00010.safetensors": "2c41e6f80f2b5ca384ce703eac048a13daf2aff689c3acca66a8943f45338aae",
+        "model-00007-of-00010.safetensors": "62a725f154f6ba942a36b5cc450db2b2df32f434e3224558c789bc04fa05fd36",
+        "model-00008-of-00010.safetensors": "3a1a6ac77e6434418bb7273b68a7b3534fed5217c990061c92a8f990dd6ab20e",
+        "model-00009-of-00010.safetensors": "e1fffc9bb2b77d4d2382c1bd9053e9d017741d67ca00cc6f77034a294f2f5cfd",
+        "model-00010-of-00010.safetensors": "116ef7ae6fa0fd46b478324e4aa6a49f448afed900ca9f71d4fbd3d02289bbd4"
+      }
+    }
+  },
+  "sealed_code_assets": {
+    "raw_trace_schema": "5bb811bc3b24b73a623e3a1e62b31d4469e454718faf189a330782ff8e8e1855",
+    "junction_spec": "e332de592f4bc134c807894ba1ba0ef5148d2ad2304aa5386e08de24ce927fb2",
+    "fixtures": "897b7d74b5f75f5e1d72305b567b75b9bf880d91b02bd082f71ce676fbdabbb9",
+    "runner": "f03bd1962c3b1e734d3d58ea088f48e0b679a33d87b8105b7e15d5552ea4bad1",
+    "replay": "0a7dc93dfffa8def3c6fbc130cdcb879be599619405ce41d300cdf067893156c",
+    "trace_store": "8819561751fed310abd0fc7ac5278959ef56a4b75666705080ae05f2ffd4d12e",
+    "junction": "e11f6c9cb99d2a9eabe35e2c0b47e35350d20949fdba442aba24ca5bfa9be191",
+    "evaluator": "47372af662d93936be9c008c463528aae495bda25239185c9e3767eddf683dd9"
+  }
+}
+
