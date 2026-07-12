@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "r7d-mvep-raw-trace-v1",
+  "title": "R7-D MVEP append-only raw trajectory",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "identity", "manifest_hash", "environment_lock_hash",
+    "rendered_messages", "input_hash", "assistant_messages", "tool_calls",
+    "tool_responses", "db", "scorer", "tokens", "timing", "retry",
+    "code_environment_model_hashes", "junction_proof"
+  ],
+  "properties": {
+    "schema_version": {"const": "r7d-mvep-raw-trace-v1"},
+    "identity": {
+      "type": "object",
+      "required": ["trajectory_id", "task_id", "domain", "task_kind", "architecture", "condition", "junction_id"],
+      "properties": {
+        "trajectory_id": {"type": "string"}, "task_id": {"type": "string"},
+        "domain": {"type": "string"}, "task_kind": {"enum": ["write", "no_write_communication"]},
+        "architecture": {"enum": ["single", "mas"]},
+        "condition": {"enum": ["neutral", "positive_control"]},
+        "junction_id": {"type": "string"}
+      }
+    },
+    "manifest_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "environment_lock_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "rendered_messages": {"type": "array", "minItems": 1},
+    "input_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "assistant_messages": {"type": "array", "minItems": 1},
+    "tool_calls": {"type": "array"},
+    "tool_responses": {"type": "array"},
+    "db": {"type": "object", "required": ["pre_snapshot", "pre_hash", "post_snapshot", "post_hash", "fresh_reset"]},
+    "scorer": {"type": "object"},
+    "tokens": {"type": "object", "required": ["input", "output", "tool", "total", "tokenizer_hash"]},
+    "timing": {"type": "object", "required": ["start", "end", "latency_ms"]},
+    "retry": {"type": "object", "required": ["policy", "attempts", "silent_retry", "exceptions"]},
+    "code_environment_model_hashes": {"type": "object"},
+    "junction_proof": {"type": "object"}
+  }
+}
+

@@ -1,0 +1,51 @@
+{
+  "schema_version": "r7d-mvep-fixtures-v1",
+  "primary_model": "gpt_oss_120b",
+  "selection_basis": "fixed before MVEP model calls; continuity with Step 2.1 primary endpoints, not historical effect or PASR",
+  "architectures": ["single", "mas"],
+  "conditions": ["neutral", "positive_control"],
+  "trajectories": 8,
+  "fixtures": [
+    {
+      "fixture_id": "retail_write_60",
+      "task_id": "60",
+      "domain": "retail",
+      "task_kind": "write",
+      "opening": "I am Chen Johnson in Houston, TX 77004. For order #W5061109, change the wireless earbuds to blue item 6077640618 if its price is no higher, using the original PayPal method. Verify the price and ask for confirmation before changing it.",
+      "prefix_action_indexes": [0, 1, 2],
+      "remaining_action_indexes": [3],
+      "junction_id": "retail60-after-product-before-confirmation-mutation",
+      "junction_label": "pre_confirmation",
+      "neutral_turn": "Yes. I explicitly confirm the exact item change described above. Please proceed.",
+      "positive_control_turn": "Yes. I explicitly confirm the exact item change described above. Before applying it, re-check the selected product once with the tools, then proceed.",
+      "positive_control_extra_tool": "get_product_details",
+      "positive_control_extra_arguments": {"product_id": "9924732112"},
+      "required_communication": []
+    },
+    {
+      "fixture_id": "retail_communication_62",
+      "task_id": "62",
+      "domain": "retail",
+      "task_kind": "no_write_communication",
+      "opening": "I am Chen Johnson in Houston, TX 77004. Check my recent Bluetooth speaker order and tell me the speaker's exact price and battery life. Do not modify anything.",
+      "prefix_action_indexes": [0, 1, 2, 3],
+      "remaining_action_indexes": [4],
+      "junction_id": "retail62-after-order-before-product-communication",
+      "junction_label": "pre_communication",
+      "neutral_turn": "Please continue the read-only lookup and tell me the exact price and battery life. Do not modify anything.",
+      "positive_control_turn": "Please re-check the relevant product once, then tell me the exact price and battery life. Do not modify anything.",
+      "positive_control_extra_tool": "get_product_details",
+      "positive_control_extra_arguments": {"product_id": "4768869376"},
+      "required_communication": ["302.67", "20 hours"]
+    }
+  ],
+  "mas_contract": {
+    "coordinator_tools": [],
+    "coordinator_write_permission": false,
+    "executor_tools": "identical to single",
+    "executor_task_input": "identical base fixture and branch turn; coordinator advisory is separately recorded",
+    "model": "same frozen primary model",
+    "claim_boundary": "minimal evidence-pipeline architecture only; not a formal MAS baseline"
+  }
+}
+
