@@ -1,0 +1,31 @@
+{
+  "schema_version": "r7d-mvep-environment-lock-addendum-v1.0.2",
+  "base_lock_addendum": "MVEP_ENVIRONMENT_LOCK_V1_0_1.json",
+  "base_lock_addendum_sha256": "98f4f89938dc3b2c62fb4fce31fd9c016aed7957b08d89314a3ad4e55be0741b",
+  "git": {
+    "branch": "r7d-mvep-remediation-v1",
+    "code_commit": "26227494226daa9557f396b07876ee819e2ae4a2",
+    "code_changes_clean": true,
+    "allowed_untracked_path": "results/r7d_ipma/mvep/run_v1_20260712"
+  },
+  "incident": {
+    "classification": "ABORTED-PRE-TRAJECTORY-MODEL-CALL",
+    "completed_liveness_calls": 3,
+    "completed_trajectories": 0,
+    "patch_scope": "null-to-empty assistant tool-call content serialization plus explicit incident resume",
+    "runner_sha256": "1dc62364cf7c6796e3070b1fc9bda82822a565aec166021311c13b3c1ee20cd6",
+    "test_sha256": "bd8e982a0a4078da5bef42333cde3a188af8bbe752a3543b316e6b245d4c7333",
+    "incident_report_sha256": "5980dc58e28eb162ec214afb6c9f9ab9d8708d70c800d763ae2a5fd35c22a032"
+  },
+  "models": {
+    "gpt_oss_120b": {
+      "tokenizer_sha256": "0614fe83cadab421296e664e1f48f4261fa8fef6e03e63bb75c20f38e37d07d3"
+    }
+  },
+  "unchanged": [
+    "all model/endpoint/weight hashes", "sampling and zero-retry policy",
+    "fixtures, cell order, conditions and call budget", "junction proof",
+    "trace schema, evaluator, replay and pass rule"
+  ]
+}
+

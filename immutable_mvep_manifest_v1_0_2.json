@@ -1,0 +1,24 @@
+{
+  "schema_version": "r7d-immutable-mvep-manifest-v1.0.2",
+  "base_manifest_addendum": "immutable_mvep_manifest_v1_0_1.json",
+  "base_manifest_addendum_sha256": "a77a5d3d12c57edd0c1c04e0f6b0203ea616e4c73c65636028042ca0e74b4769",
+  "environment_lock_addendum": "MVEP_ENVIRONMENT_LOCK_V1_0_2.json",
+  "environment_lock_addendum_sha256": "a71c5d0cd544ec85adf352090e279853b2b75e7301651ecddcbe934a79b86571",
+  "result_blind": true,
+  "incident_only": true,
+  "run_root": "results/r7d_ipma/mvep/run_v1_20260712",
+  "completed_call_ledger": {"endpoint_liveness": 3, "trajectories": 0},
+  "remaining_call_budget": {"endpoint_liveness": 0, "trajectories": 8},
+  "allowed_changes": [
+    "assistant tool-call content null -> empty string for deterministic rendering",
+    "validate and skip completed liveness artifacts",
+    "append terminal marker to partial trajectory and use exclusive attempt2 directory"
+  ],
+  "runner_sha256_old": "fe1e162affd165e33cf770f390fbb4827494759a4d016c5dab42a8ac3bf60c64",
+  "runner_sha256_new": "1dc62364cf7c6796e3070b1fc9bda82822a565aec166021311c13b3c1ee20cd6",
+  "offline_render_probe": {"passed": true, "rendered_characters": 19842},
+  "seal_tests": {"passed": 30, "failed": 0},
+  "unchanged": "all scientific and evaluation assets in the base manifest",
+  "stop_conditions": "identical to base; no liveness replay and no automatic trajectory retry"
+}
+
