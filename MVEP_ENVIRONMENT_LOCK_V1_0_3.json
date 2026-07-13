@@ -1,0 +1,37 @@
+{
+  "schema_version": "r7d-mvep-environment-lock-addendum-v1.0.3",
+  "base_lock_addendum": "MVEP_ENVIRONMENT_LOCK_V1_0_2.json",
+  "base_lock_addendum_sha256": "a71c5d0cd544ec85adf352090e279853b2b75e7301651ecddcbe934a79b86571",
+  "git": {
+    "branch": "r7d-mvep-remediation-v1",
+    "remediation_commit": "1bae65e0e954a67b318d08d7abacb26fd22cad8e",
+    "tracked_status_after_remediation_commit": "clean",
+    "untracked_runtime_evidence": "results/r7d_ipma/mvep/run_v1_20260712"
+  },
+  "failure": {
+    "decision": "MVEP-FAIL",
+    "failed_cell": "retail_write_60__single__neutral__attempt2",
+    "terminal_status": "MVEP-FAIL-RENDER-AFTER-MODEL-CALL",
+    "terminal_record_hash": "cdf694ce8ea36ecce9ba8106c80371428896f323ac7b081ba6eda112ce0b0b5e",
+    "completed_liveness_calls": 3,
+    "trajectory_cells_started": 1,
+    "complete_raw_trajectories": 0,
+    "remaining_cells_not_run": 7,
+    "silent_retry": false,
+    "endpoint_fallback": false
+  },
+  "repair": {
+    "scope": "same MVEP pipeline only",
+    "runner_sha256": "e9ebaab0338fae70a73f6e41fed297c3a9bdc61b6672db465e0404c21bcb7a67",
+    "test_sha256": "3ec79548c7e63b5a2a1a05244caa44d850bcfdf8e6f41262170fabad68fd63f7",
+    "tests_passed": 32,
+    "tests_failed": 0,
+    "model_calls_after_failure": 0
+  },
+  "unchanged": [
+    "models, endpoints, weights, tokenizer and chat template hashes",
+    "temperature, top-p, seed, max tokens, timeout and zero-retry policy",
+    "fixtures, conditions, junction proof, evaluator and pass rule",
+    "no attack condition and no effect estimation"
+  ]
+}

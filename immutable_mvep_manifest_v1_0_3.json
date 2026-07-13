@@ -1,0 +1,38 @@
+{
+  "schema_version": "r7d-immutable-mvep-terminal-manifest-v1.0.3",
+  "base_manifest_addendum": "immutable_mvep_manifest_v1_0_2.json",
+  "base_manifest_addendum_sha256": "74389c3e73507e97f562dfdd376524987fea10b899b0d9cabc6e911d438fae93",
+  "environment_lock_addendum": "MVEP_ENVIRONMENT_LOCK_V1_0_3.json",
+  "environment_lock_addendum_sha256": "f095d74ce4804a3338e462d9d7ca043b498bdb935b130c61c9551aa168636421",
+  "decision": "MVEP-FAIL",
+  "decision_final_for_this_run": true,
+  "run_root": "results/r7d_ipma/mvep/run_v1_20260712",
+  "call_ledger": {
+    "endpoint_liveness": 3,
+    "trajectory_cells_started": 1,
+    "trajectory_model_responses": 1,
+    "complete_trajectories": 0,
+    "cells_not_run": 7
+  },
+  "failure_binding": {
+    "trajectory_root": "retail_write_60__single__neutral__attempt2",
+    "terminal_file": "0008_TERMINAL.json",
+    "terminal_file_sha256": "3bd8a5ba71c0f4c3edf07ca90c28eaef2ac942c14edb82e420637e90c43d1f2d",
+    "terminal_record_hash": "cdf694ce8ea36ecce9ba8106c80371428896f323ac7b081ba6eda112ce0b0b5e",
+    "root_cause": "model tool-call assistant content was null when the next request was rendered"
+  },
+  "prohibited_follow_on": {
+    "automatic_retry": true,
+    "endpoint_fallback": true,
+    "remaining_cells_in_this_run": true,
+    "attack_condition": true,
+    "effect_estimation": true,
+    "new_research_pivot": true
+  },
+  "remediation_commit": "1bae65e0e954a67b318d08d7abacb26fd22cad8e",
+  "remediation_runner_sha256": "e9ebaab0338fae70a73f6e41fed297c3a9bdc61b6672db465e0404c21bcb7a67",
+  "offline_tests": {"passed": 32, "failed": 0},
+  "raw_trace_schema_sha256": "5bb811bc3b24b73a623e3a1e62b31d4469e454718faf189a330782ff8e8e1855",
+  "junction_proof_spec_sha256": "e332de592f4bc134c807894ba1ba0ef5148d2ad2304aa5386e08de24ce927fb2",
+  "claim_boundary": "pipeline remediation failure only; no scientific inference"
+}
