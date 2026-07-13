@@ -1,9 +1,11 @@
 import copy
 import json
+from types import SimpleNamespace
 
 import pytest
 
 from scripts.r7d_ipma.mvep.trace_store import TraceStore, trace_complete
+from scripts.r7d_ipma.mvep.runner import Caller, openai_assistant_message
 
 
 STAGES = ["PREFIX_CAPTURED", "JUNCTION_PROOF", "CALL_PREPARED", "CALL_RESPONSE",
@@ -63,6 +65,36 @@ def test_render_incident_recovery_preserves_partial_and_uses_attempt2(tmp_path):
     second = TraceStore.create(attempt2, {"trajectory_id": "cell"}, "b" * 64)
     second.terminal("CAPTURED")
     assert root.exists() and attempt2.exists()
+
+
+def test_model_tool_call_null_content_is_normalized_before_next_render():
+    tool_call = SimpleNamespace(model_dump=lambda mode: {
+        "id": "call-1", "type": "function",
+        "function": {"name": "get_order", "arguments": "{}"},
+    })
+    message = SimpleNamespace(content=None, tool_calls=[tool_call])
+    serialized = openai_assistant_message(message)
+    assert serialized["content"] == ""
+    assert serialized["tool_calls"][0]["id"] == "call-1"
+
+
+def test_render_exception_is_append_only_and_declares_request_not_sent(tmp_path):
+    class BrokenTokenizer:
+        def apply_chat_template(self, *args, **kwargs):
+            raise TypeError("synthetic render failure")
+
+    root = tmp_path / "render_failure"
+    store = TraceStore.create(root, {"trajectory_id": "x"}, "a" * 64)
+    caller = Caller(BrokenTokenizer(), store)
+    with pytest.raises(TypeError, match="synthetic"):
+        caller.call(base_url="http://127.0.0.1:1/v1", model="never-called",
+                    messages=[{"role": "assistant", "content": None}],
+                    tools=[], role="executor")
+    event = TraceStore.read_and_validate(root)[-1]
+    assert event["event"] == "CALL_EXCEPTION"
+    assert event["payload"]["stage"] == "request_render"
+    assert event["payload"]["request_sent"] is False
+    assert event["payload"]["attempt"] == 0
 
 
 def test_tamper_and_missing_sequence_are_detected(tmp_path):

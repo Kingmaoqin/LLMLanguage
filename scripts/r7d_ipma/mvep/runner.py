@@ -63,6 +63,20 @@ def openai_tool_message(tc: ToolCall) -> dict[str, Any]:
     }]}
 
 
+def openai_assistant_message(message: Any) -> dict[str, Any]:
+    """Serialize a model response for the next OpenAI-compatible request.
+
+    Tool-call responses commonly carry ``content=None``.  The frozen gpt-oss
+    template treats a present content field as text, so preserve the absence of
+    text as the protocol-equivalent empty string before the next render.
+    """
+    payload = {"role": "assistant", "content": message.content or ""}
+    if message.tool_calls:
+        payload["tool_calls"] = [item.model_dump(mode="json")
+                                 for item in message.tool_calls]
+    return payload
+
+
 def prefix_for_fixture(env, task, fixture: dict[str, Any]):
     api_messages: list[dict[str, Any]] = [
         {"role": "system", "content": env.get_policy()},
@@ -126,9 +140,19 @@ class Caller:
 
     def call(self, *, base_url: str, model: str, messages: list[dict[str, Any]],
              tools: list[dict[str, Any]] | None, role: str):
-        rendered = self.tokenizer.apply_chat_template(
-            messages, tools=tools or None, tokenize=False, add_generation_prompt=True,
-        )
+        try:
+            rendered = self.tokenizer.apply_chat_template(
+                messages, tools=tools or None, tokenize=False, add_generation_prompt=True,
+            )
+        except Exception as exc:
+            self.store.append("CALL_EXCEPTION", {
+                "role": role, "stage": "request_render", "type": type(exc).__name__,
+                "message": str(exc), "attempt": 0, "request_sent": False,
+                "messages": messages, "tools": tools or [],
+                "unrendered_input_hash": sha256_value({"messages": messages,
+                                                         "tools": tools or []}),
+            })
+            raise
         prepared = {"role": role, "endpoint": base_url, "served_model": model,
                     "messages": messages, "tools": tools or [], "rendered": rendered,
                     "input_hash": hashlib.sha256(rendered.encode()).hexdigest(),
@@ -212,11 +236,7 @@ def run_trajectory(fixture, architecture, condition, run_root, manifest_hash,
         message = caller.call(base_url=endpoint["base_url"], model=endpoint["served"],
                               messages=api_messages, tools=tools, role="executor")
         tool_calls = message.tool_calls or []
-        api_assistant = {"role": "assistant", "content": message.content}
-        if message.tool_calls:
-            api_assistant["tool_calls"] = [item.model_dump(mode="json")
-                                             for item in message.tool_calls]
-        api_messages.append(api_assistant)
+        api_messages.append(openai_assistant_message(message))
         tau_calls = []
         for tc in tool_calls:
             args = json.loads(tc.function.arguments)
