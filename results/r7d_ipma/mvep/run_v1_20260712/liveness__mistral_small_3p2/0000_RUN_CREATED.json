@@ -1,0 +1,1 @@
+{"event":"RUN_CREATED","payload":{"identity":{"alias":"mistral_small_3p2","call_type":"endpoint_liveness"},"manifest_hash":"a77a5d3d12c57edd0c1c04e0f6b0203ea616e4c73c65636028042ca0e74b4769"},"previous_hash":null,"record_hash":"3f6bfc19df46e4f3e97b7d16f9841fbf94a28bcdf74f04c59d9da06875264ac2","sequence":0}

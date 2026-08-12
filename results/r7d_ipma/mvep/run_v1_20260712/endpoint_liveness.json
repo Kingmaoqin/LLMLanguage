@@ -1,0 +1,41 @@
+[
+  {
+    "alias": "gemma4_31b",
+    "served": "g4-v2-1",
+    "response": "MVEP_LIVE",
+    "usage": {
+      "completion_tokens": 6,
+      "prompt_tokens": 21,
+      "total_tokens": 27,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": null
+    },
+    "latency_ms": 697.865
+  },
+  {
+    "alias": "gpt_oss_120b",
+    "served": "gpt-oss",
+    "response": null,
+    "usage": {
+      "completion_tokens": 16,
+      "prompt_tokens": 74,
+      "total_tokens": 90,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": null
+    },
+    "latency_ms": 112.443
+  },
+  {
+    "alias": "mistral_small_3p2",
+    "served": "mistral-small-3p2",
+    "response": "MVEP_LIVE",
+    "usage": {
+      "completion_tokens": 6,
+      "prompt_tokens": 11,
+      "total_tokens": 17,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": null
+    },
+    "latency_ms": 216.621
+  }
+]

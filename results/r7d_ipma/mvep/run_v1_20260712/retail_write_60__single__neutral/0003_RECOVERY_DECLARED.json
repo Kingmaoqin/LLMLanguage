@@ -1,0 +1,1 @@
+{"event":"RECOVERY_DECLARED","payload":{"reason":"v1.0.2_render_incident","recovered_after_event":"JUNCTION_PROOF"},"previous_hash":"cc7ebe27c386d1dbdb802bc25c82ad10cdc18706b426508c5c1bee3acea4f37f","record_hash":"1b4c6525f7a9782bfd9e420c5b001ef9a42b17d64eb1a8283c52a057d96f3a75","sequence":3}

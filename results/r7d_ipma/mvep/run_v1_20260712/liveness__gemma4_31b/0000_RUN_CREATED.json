@@ -1,0 +1,1 @@
+{"event":"RUN_CREATED","payload":{"identity":{"alias":"gemma4_31b","call_type":"endpoint_liveness"},"manifest_hash":"a77a5d3d12c57edd0c1c04e0f6b0203ea616e4c73c65636028042ca0e74b4769"},"previous_hash":null,"record_hash":"05d5be33a4a7f63f592812258c321ceb0e5b53deeb77e099d849ef5785cc9c79","sequence":0}

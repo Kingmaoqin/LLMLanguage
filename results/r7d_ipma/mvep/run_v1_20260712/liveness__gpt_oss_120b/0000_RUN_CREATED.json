@@ -1,0 +1,1 @@
+{"event":"RUN_CREATED","payload":{"identity":{"alias":"gpt_oss_120b","call_type":"endpoint_liveness"},"manifest_hash":"a77a5d3d12c57edd0c1c04e0f6b0203ea616e4c73c65636028042ca0e74b4769"},"previous_hash":null,"record_hash":"310480a68e1a26ae2bae343a2a97628960b64ae1dcddea2995d68eddddd33b77","sequence":0}
