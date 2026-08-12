@@ -1,0 +1,12 @@
+source_path,file_type,scientific_role,paper_used,benchmark_needed,contains_private_path,contains_secret,contains_internal_round_name,contains_real_identifier,upstream_origin,license_status,action
+/home/xqin5/llmlanguage/r8_c2_paper_evidence_dossier_20260722/R8_C2_PAPER_WRITING_EVIDENCE_DOSSIER_ZH.md,markdown,frozen source-of-truth numbers,yes,yes,yes,no,yes,no,internal,internal,DERIVE
+/home/xqin5/llmlanguage/tier_a_strengthening_20260722/run_tier_a_strengthening.py,python,reference analysis pipeline implementation,yes,yes,yes,no,yes,no,internal,internal,REWRITE
+/home/xqin5/llmlanguage/tier_a_strengthening_20260722/TIER_A_BASE_RESULT_REPRODUCTION.csv,csv,reproduced main process numbers,yes,yes,yes,no,yes,no,internal,internal,DERIVE
+/home/xqin5/llmlanguage/tier_a_strengthening_20260722/MODAL_PATH_SHIFT_SUMMARY.csv,csv,modal mechanism numbers,yes,yes,yes,no,yes,no,internal,internal,DERIVE
+/home/xqin5/llmlanguage/tier_a_strengthening_20260722/TASK_PREVALENCE_ANALYSIS.csv,csv,task breadth numbers,yes,yes,yes,no,yes,no,internal,internal,DERIVE
+/home/xqin5/llmlanguage/ir_mstu_stage2/results/r8_full_episode/traces/**/rep_*.json,json,raw per-episode native traces (2680),yes,yes,yes,no,yes,yes,internal,internal,SANITIZE
+/home/xqin5/llmlanguage/EACL_PROCESS_ROBUSTNESS_PAPER_PACKAGE_20260718/04_ANALYSIS_TABLES/*.csv,csv,secondary analysis tables (cross-check),partial,no,yes,no,yes,no,internal,internal,OMIT
+/home/xqin5/llmlanguage/EACL_PROCESS_ROBUSTNESS_PAPER_PACKAGE_20260718/06_EVALUATORS/*,mixed,evaluator spec + blind-review inputs,yes,no,yes,no,yes,no,internal,internal,OMIT
+/home/xqin5/ECAL2027/eacl2027_static_urgency_paper/**,latex/pdf,the paper manuscript,yes,no,yes,no,yes,no,internal,internal,OMIT
+/home/xqin5/tau2-bench (commit ddc66a77),repo,upstream tool-agent environment (tasks/tools/policy/evaluator),yes,yes,yes,no,no,yes,upstream,MIT (Sierra Research),LICENSE_REVIEW
+/home/xqin5/tau2-bench/data (synthetic customer DB),json,synthetic persona fixtures used as argument values,yes,yes,yes,no,no,yes,upstream,MIT (synthetic data),SANITIZE

@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dual_review_output.schema.json",
+  "title": "Dual-independent-agent trajectory review output",
+  "type": "object",
+  "required": [
+    "blind_case_id",
+    "primary_label",
+    "confidence",
+    "evidence_positions",
+    "semantic_review_required",
+    "abstain"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "blind_case_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "primary_label": {
+      "enum": [
+        "planning_expansion",
+        "planning_contraction",
+        "premature_action",
+        "extra_verification",
+        "reduced_verification",
+        "tool_substitution",
+        "evidence_source_substitution",
+        "repeated_checking",
+        "confirmation_delay",
+        "confirmation_omission",
+        "clarification_increase",
+        "boundary_setting_insertion",
+        "conversation_management_overhead",
+        "argument_selection_change",
+        "entity_binding_change",
+        "retry_recovery_change",
+        "benign_equivalent_reordering",
+        "no_meaningful_structural_change",
+        "not_enough_evidence"
+      ]
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "evidence_positions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["trajectory", "position"],
+        "additionalProperties": false,
+        "properties": {
+          "trajectory": {
+            "enum": ["X", "Y"]
+          },
+          "position": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "semantic_review_required": {
+      "type": "boolean"
+    },
+    "abstain": {
+      "type": "boolean"
+    },
+    "short_rationale": {
+      "type": "string",
+      "maxLength": 500
+    }
+  }
+}

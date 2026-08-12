@@ -1,0 +1,1810 @@
+{
+  "phase": "pre",
+  "n_candidates_reviewed": 300,
+  "agree_clean": 260,
+  "agree_flagged": 2,
+  "disputed": 38,
+  "fail_closed_rule": "disputed candidates are NOT accepted; recorded as disputed",
+  "rows": [
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": false,
+      "reviewer_b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": false,
+      "reviewer_b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": false,
+      "reviewer_b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": false,
+      "reviewer_b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": false,
+      "reviewer_b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-S",
+      "reviewer_a": false,
+      "reviewer_b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "reviewer_a": true,
+      "reviewer_b": true,
+      "verdict": "clean"
+    }
+  ]
+}

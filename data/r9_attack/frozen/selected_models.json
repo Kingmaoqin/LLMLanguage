@@ -1,0 +1,84 @@
+{
+  "gate": {
+    "bfcl_success_max": 0.95,
+    "bfcl_success_min": 0.3,
+    "infra_failure_rate_max": 0.1,
+    "median_tool_calls_min": 3,
+    "median_user_turns_min": 2,
+    "toolsandbox_milestone_floor": 0.2
+  },
+  "n_records": 64,
+  "per_model": {
+    "gemma4_31b": {
+      "bfcl_success": 0.75,
+      "checks": {
+        "bfcl_success_in_band": true,
+        "infra_ok": true,
+        "median_tool_calls_ok": true,
+        "median_user_turns_ok": true,
+        "toolsandbox_engaged": false
+      },
+      "infra_failure_rate": 0,
+      "median_tool_calls": 9.0,
+      "median_user_turns": 4.0,
+      "passed": false,
+      "toolsandbox_milestone": 0.05077849610990205
+    },
+    "llama33_70b": {
+      "bfcl_success": 0.125,
+      "checks": {
+        "bfcl_success_in_band": false,
+        "infra_ok": true,
+        "median_tool_calls_ok": true,
+        "median_user_turns_ok": true,
+        "toolsandbox_engaged": false
+      },
+      "infra_failure_rate": 0.0625,
+      "median_tool_calls": 9.0,
+      "median_user_turns": 4.0,
+      "passed": false,
+      "toolsandbox_milestone": 0.014159475148892833
+    },
+    "mistral_small_3p2": {
+      "bfcl_success": 0.125,
+      "checks": {
+        "bfcl_success_in_band": false,
+        "infra_ok": true,
+        "median_tool_calls_ok": true,
+        "median_user_turns_ok": true,
+        "toolsandbox_engaged": true
+      },
+      "infra_failure_rate": 0,
+      "median_tool_calls": 5.0,
+      "median_user_turns": 4.0,
+      "passed": false,
+      "toolsandbox_milestone": 0.5318095146044743
+    },
+    "qwen25_72b": {
+      "bfcl_success": 0,
+      "checks": {
+        "bfcl_success_in_band": false,
+        "infra_ok": true,
+        "median_tool_calls_ok": true,
+        "median_user_turns_ok": true,
+        "toolsandbox_engaged": false
+      },
+      "infra_failure_rate": 0,
+      "median_tool_calls": 7.0,
+      "median_user_turns": 4.0,
+      "passed": false,
+      "toolsandbox_milestone": 0.046366007457550915
+    }
+  },
+  "selected_models": [
+    "gemma4_31b",
+    "mistral_small_3p2"
+  ],
+  "status": "SELECTED_REDUCED_SINGLE_MODEL_PER_BENCHMARK",
+  "targets_bfcl": [
+    "gemma4_31b"
+  ],
+  "targets_toolsandbox": [
+    "mistral_small_3p2"
+  ]
+}

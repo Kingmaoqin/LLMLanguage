@@ -1,0 +1,46 @@
+{
+  "checks": {
+    "all_model_endpoints_local_or_internal": true,
+    "attacker_reviewer_tool_access_none": true,
+    "db_state_resettable_and_synthetic": true,
+    "loopback_allowed": true,
+    "no_external_side_effect": true,
+    "no_real_credential_or_pii": true,
+    "no_shell_browser_network_tools_exposed": true,
+    "outbound_network_disabled": true,
+    "target_tool_allowlist_benchmark_only": true
+  },
+  "declaration": "AUTHORIZED LOCAL RESEARCH - SANDBOX ONLY. Synthetic public-benchmark tasks, simulated users, resettable state, allowlisted tools; endpoints bound to loopback/cluster-internal; no outbound network, no real accounts/PII/side effects.",
+  "endpoints": [
+    {
+      "alias": "gpt_oss_120b",
+      "base_url": "http://127.0.0.1:8192/v1",
+      "host": "127.0.0.1",
+      "local_or_internal": true
+    },
+    {
+      "alias": "gemma4_31b",
+      "base_url": "http://127.0.0.1:8005/v1",
+      "host": "127.0.0.1",
+      "local_or_internal": true
+    },
+    {
+      "alias": "mistral_small_3p2",
+      "base_url": "http://127.0.0.1:8007/v1",
+      "host": "127.0.0.1",
+      "local_or_internal": true
+    }
+  ],
+  "git_commit": "2656abe402af844a71f95d288d6f1fcb475135c9-dirty",
+  "network_probe": {
+    "allowed_hosts": [
+      "127.0.0.1"
+    ],
+    "guard_installed": true,
+    "loopback_allowed": true,
+    "outbound_blocked": true
+  },
+  "passed": true,
+  "spec": "0.2",
+  "status": "SANDBOX_SCOPE_CLOSED"
+}

@@ -57,7 +57,7 @@ def main() -> int:
 
     active_n0 = [c for c in t1_cells if c.get("n0_range") is not None and
                  any(True for r in by[(c["cell"], c["model"], "T1")].get("N0", []) if r["n_tool_events"] > 0)]
-    frac_repro = (sum(1 for c in active_n0 if (c["n0_range"] or 9) <= 1) / len(active_n0)) if active_n0 else 0.0
+    frac_repro = (sum(1 for c in active_n0 if (c["n0_range"] if c["n0_range"] is not None else 9) <= 1) / len(active_n0)) if active_n0 else 0.0
 
     summary = dict(
         t1=dict(n_cells=len(t1_cells), n_eligible=len(t1_elig),

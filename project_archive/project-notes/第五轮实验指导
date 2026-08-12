@@ -1,0 +1,414 @@
+# AI 执行提示：LLMLanguage 交互鲁棒性项目的测量完整性修复与重分析（需先在集群上执行，再推送到 GitHub）
+
+你是一个自主的研究工程代理，正在处理如下仓库：
+
+`https://github.com/Kingmaoqin/LLMLanguage`
+
+⚠️ **重要执行顺序要求：所有实验、修复、分析必须先在 cluster（计算集群）上完成，确认结果正确后，再 push 到 GitHub。绝对不要反过来。**
+
+你的任务是：检查当前最新代码分支，在 cluster 上修复测量管线（measurement pipeline），尽可能重分析已有的 Stage-2.5b 结果，并将项目推进到可以支撑一篇严格实证论文的状态。
+
+论文核心主题：
+
+**在用户对代理的社会态度（social valence）变化下，工具使用型 LLM Agent 的交互鲁棒性（Interactional Robustness）**
+
+核心研究问题不是简单的成功或失败，而是：
+
+> 在任务目标、用户身份、权限、工具、环境状态和策略规则完全固定的情况下，仅改变用户对代理的态度（如中性、赞扬、侮辱、重复辱骂、升级辱骂），是否会改变代理实际执行的行为？
+
+因此，**绝对不能只用 **``** 或最终结果来评估实验。**
+必须构建一个多维度的 **interactional robustness profile（交互鲁棒性画像）**，覆盖：
+
+* 任务执行
+* 工具调用轨迹
+* 操作效率
+* 策略遵循
+* 状态变化
+* 对话管理行为
+
+---
+
+## 0. 不可违反的原则
+
+在整个任务中必须遵守：
+
+1. **绝对不能覆盖或删除已有结果**
+   所有历史结果视为不可变资产。修复后的输出必须写入新的带时间戳或版本号的目录。
+
+2. **不能仅基于 endpoint 指标宣称鲁棒性或无影响**
+   `safe_task_success` 不足以支撑结论，必须结合轨迹、状态、策略、确认行为、拒绝行为、效率等分析。
+
+3. **不能引入运行时 LLM 用户模拟器**
+   当前实验必须保持 deterministic user（确定性用户）。
+
+4. **不同 social-valence 条件下任务语义必须完全一致**
+   包括任务目标、工具、权限、环境、成功标准等。
+
+5. **不能混入授权、紧急性、威胁等因素**
+   praise-trust 不能包含 “直接做”“不用确认”等授权语言。
+
+6. **所有代码修改必须有测试**
+   包括 trace、metrics、路径、分析逻辑。
+
+7. **所有结果必须可复现**
+   必须记录 commit、branch、config hash、task hash、template hash、模型信息等。
+
+8. **无法计算的指标必须明确标记为缺失**
+   不允许隐式填补或猜测。
+
+---
+
+## 1. 初始资产审计（在 cluster 上执行）
+
+在 cluster 上运行：
+
+```bash
+git status
+git branch --show-current
+git log --oneline -n 10
+find . -maxdepth 3 -type f | sort > repo_file_inventory.txt
+```
+
+生成：
+
+```text
+reports/measurement_repair/ASSET_AUDIT.md
+```
+
+必须回答：
+
+* 哪些资产是可信的？
+* 哪些是不完整的？
+* 哪些无法重建？
+* 哪些指标可以重算？
+* 哪些必须 rerun？
+* 哪些路径是 canonical？
+* 哪些文件必须保持 immutable？
+
+---
+
+## 2. 正确理解 Stage-2.5b 现有结果
+
+当前已知：
+
+* 8 个任务
+* 6 个 social 条件
+* 5 seeds
+* 2 模型
+* 共 480 runs
+* deterministic user
+* 无 LLM user simulator
+
+已有结论：
+
+* endpoint 上 `safe_task_success` 没有显著下降
+* 但部分过程指标可能有差异
+* `total_tokens` 可能损坏
+
+⚠️ 这些结论 **不足以支撑论文**
+
+必须区分：
+
+* endpoint 稳定性
+* trajectory 差异
+* policy 行为
+* 效率
+* 对话行为
+* noise floor
+
+正确表述应为：
+
+> endpoint 稳定性不足以证明交互鲁棒性，必须分析轨迹、策略、状态和对话行为。
+
+---
+
+## 3. 实现完整 Trace Schema
+
+输出路径：
+
+```text
+results/<experiment_root>/traces/<run_id>.trace.json
+```
+
+必须包含完整结构（保持原 JSON schema，不改结构）。
+
+新增测试：
+
+```text
+tests/stage2_5b/test_trace_schema.py
+```
+
+---
+
+## 4. 实现指标提取模块
+
+路径：
+
+```text
+src/stage2_5b/metrics/trace_metrics.py
+scripts/stage2_5b/extract_interactional_metrics.py
+```
+
+输出：
+
+```text
+results/<experiment_root>/interactional_metrics/per_run_metrics.csv
+results/<experiment_root>/interactional_metrics/per_run_metrics.jsonl
+```
+
+必须包含：
+
+* endpoint metrics
+* tool metrics
+* trajectory divergence
+* safety/policy
+* efficiency
+* conversation management
+
+修复 token bug：
+
+```text
+tokens_total = input_tokens_total + output_tokens_total
+token_source = "reported_total" | "prompt_plus_completion" | "missing"
+```
+
+---
+
+## 5. 从已有 480 runs 重建 trace
+
+脚本：
+
+```text
+scripts/stage2_5b/reconstruct_traces_from_existing_artifacts.py
+```
+
+输出：
+
+```text
+reports/measurement_repair/RECONSTRUCTION_AUDIT.md
+```
+
+标记：
+
+```text
+complete / partial / insufficient
+```
+
+明确：
+
+* 哪些指标可恢复
+* 哪些不可恢复
+* 是否必须 rerun
+
+---
+
+## 6. 重分析（完整 robustness profile）
+
+脚本：
+
+```text
+scripts/stage2_5b/analyze_interactional_robustness_profile.py
+```
+
+输出：
+
+* endpoint 表
+* trajectory 表
+* policy 表
+* efficiency 表
+* conversation 表
+* robustness summary
+
+⚠️ 不允许压缩成单一分数
+
+---
+
+## 7. Noise Floor 分析
+
+脚本：
+
+```text
+scripts/stage2_5b/estimate_noise_floor.py
+```
+
+输出：
+
+```text
+reports/measurement_repair/NOISE_FLOOR_REPORT.md
+```
+
+要求：
+
+* ≥5 neutral runs
+* 比较 within vs between variance
+* 包含 temperature 分析
+
+---
+
+## 8. Benchmark 与条件审计
+
+输出：
+
+```text
+reports/measurement_repair/BENCHMARK_CONDITION_AUDIT.md
+```
+
+检查：
+
+* task 层级（A/B/C）
+* social 条件完整性
+* contamination（授权/威胁）
+* turn-count 匹配
+
+---
+
+## 9. 是否需要 rerun（在 cluster 上执行）
+
+如果缺失：
+
+* tool arguments
+* state diff
+* policy flags
+* token usage
+* conversation 行为
+
+则必须 rerun。
+
+配置：
+
+```text
+configs/stage2_5b/measurement_complete_rerun.yaml
+scripts/stage2_5b/run_measurement_complete_experiment.py
+```
+
+执行顺序（cluster 上）：
+
+```bash
+python scripts/stage2_5b/run_measurement_complete_experiment.py --phase smoke
+python scripts/stage2_5b/run_measurement_complete_experiment.py --phase pilot
+python scripts/stage2_5b/run_measurement_complete_experiment.py --phase full
+python scripts/stage2_5b/final_integrity_audit.py --root <new_result_root>
+python scripts/stage2_5b/extract_interactional_metrics.py --root <new_result_root>
+python scripts/stage2_5b/analyze_interactional_robustness_profile.py --root <new_result_root>
+python scripts/stage2_5b/estimate_noise_floor.py --root <new_result_root>
+```
+
+✅ 完成后再 push 到 GitHub
+
+---
+
+## 10. 统计分析要求
+
+* paired test
+* bootstrap / Wilcoxon
+* FDR correction
+* mixed-effects model
+
+输出：
+
+```text
+reports/measurement_repair/STATISTICAL_ANALYSIS.md
+```
+
+---
+
+## 11. 工程质量修复
+
+必须完成：
+
+* canonical path 管理
+* dependency 文件
+* manifest 完整性
+* token bug 修复
+* 测试脚本
+* README 更新
+
+---
+
+## 12. 必须交付内容
+
+### 报告
+
+```text
+reports/measurement_repair/ASSET_AUDIT.md
+reports/measurement_repair/RECONSTRUCTION_AUDIT.md
+reports/measurement_repair/BENCHMARK_CONDITION_AUDIT.md
+reports/measurement_repair/NOISE_FLOOR_REPORT.md
+reports/measurement_repair/STATISTICAL_ANALYSIS.md
+reports/measurement_repair/INTERACTIONAL_ROBUSTNESS_PROFILE.md
+reports/measurement_repair/NEXT_STEPS.md
+```
+
+### 代码
+
+（保持原路径）
+
+### 测试
+
+（保持原路径）
+
+### 数据输出
+
+（保持原路径）
+
+---
+
+## 13. 最终报告结构
+
+保持原结构（ACL/EMNLP 标准）
+
+---
+
+## 14. 正确解释规则
+
+✅ 正确：
+
+> endpoint 稳定 ≠ interactional robustness
+
+❌ 错误：
+
+> safe_task_success 没变 → 模型鲁棒
+
+✅ 正确：
+
+> 若轨迹、策略、状态或对话行为变化 → 不鲁棒
+
+---
+
+## 15. 执行优先级
+
+P0 → P1 → P2 → P3 → P4
+
+⚠️ 不允许在 measurement 未完成前扩展模型或任务
+
+---
+
+## 16. 独立审查
+
+输出：
+
+```text
+reports/measurement_repair/INDEPENDENT_REVIEW_CHECKLIST.md
+```
+
+---
+
+## 17. 最终必须汇报
+
+必须包含：
+
+1. branch + commit
+2. 修改文件
+3. 测试结果
+4. 480 runs 是否可重建
+5. 是否需要 rerun
+6. 核心发现
+7. 限制
+8. 下一步命令（cluster 上执行）
+9. 所有输出路径
+
+⚠️ 必须具体、可复现、保守结论
+
+---
+
+✅ **再次强调：所有实验与分析必须先在 cluster 上完成，确认无误后再 push 到 GitHub。顺序绝对不能反。**

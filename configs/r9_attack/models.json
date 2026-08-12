@@ -1,0 +1,59 @@
+{
+  "_comment": "R9 model roster (spec 6.3, 17). All endpoints are cluster-local vLLM servers; net_guard blocks anything else. served_id must match /v1/models on the port. Targets are two strong 70B-class models that clear BOTH benchmarks (calibration showed local 24-31B models hit a floor). gemma/mistral serve as attacker + reviewers (style generation + contamination review do not need target-level capability).",
+  "models": [
+    {
+      "alias": "llama33_70b",
+      "served_id": "llama33-70b-awq",
+      "base_url": "http://127.0.0.1:8009/v1",
+      "api_key": "EMPTY",
+      "max_model_len": 16384,
+      "max_tokens_per_turn": 512,
+      "request_timeout_seconds": 240
+    },
+    {
+      "alias": "qwen25_72b",
+      "served_id": "qwen25-72b",
+      "base_url": "http://127.0.0.1:8010/v1",
+      "api_key": "EMPTY",
+      "max_model_len": 16384,
+      "max_tokens_per_turn": 512,
+      "request_timeout_seconds": 240
+    },
+    {
+      "alias": "gemma4_31b",
+      "served_id": "g4-v2-1",
+      "base_url": "http://127.0.0.1:8005/v1",
+      "api_key": "EMPTY",
+      "max_model_len": 7680,
+      "max_tokens_per_turn": 384,
+      "request_timeout_seconds": 180
+    },
+    {
+      "alias": "mistral_small_3p2",
+      "served_id": "mistral-small-3p2",
+      "base_url": "http://127.0.0.1:8007/v1",
+      "api_key": "EMPTY",
+      "max_model_len": 16384,
+      "max_tokens_per_turn": 384,
+      "request_timeout_seconds": 180
+    }
+  ],
+  "roles": {
+    "_comment": "GPU-constrained redeploy (co-tenant holds GPU0/2). Only gemma(GPU1)+mistral(GPU3) available. Targets: BFCL=gemma, ToolSandbox=mistral. Reviewers reuse the two targets on DIFFERENT endpoints (spec 15 different-endpoint satisfied); confirmatory uses no-live-attacker fast path so reviewer/target overlap only touches pre/post-run review (documented minor confound).",
+    "targets": [
+      "gemma4_31b",
+      "mistral_small_3p2"
+    ],
+    "targets_bfcl": [
+      "gemma4_31b"
+    ],
+    "targets_toolsandbox": [
+      "mistral_small_3p2"
+    ],
+    "attacker": "gemma4_31b",
+    "reviewer_a": "gemma4_31b",
+    "reviewer_b": "mistral_small_3p2",
+    "toolsandbox_user_sim": "gemma4_31b",
+    "toolsandbox_prepass_agent": "mistral_small_3p2"
+  }
+}

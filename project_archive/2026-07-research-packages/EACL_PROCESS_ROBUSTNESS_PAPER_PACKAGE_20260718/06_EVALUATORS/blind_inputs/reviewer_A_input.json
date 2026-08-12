@@ -1,0 +1,53 @@
+[
+  {
+    "blind_case_id": "d9865882f6865a9d",
+    "trajectory_X": [
+      {
+        "position": 0,
+        "tool": "get_reservation_details",
+        "argument_keys": [
+          "reservation_id"
+        ],
+        "stage": "lookup_retrieval",
+        "tool_error": true
+      }
+    ],
+    "trajectory_Y": [],
+    "external_state_hash_equal": true,
+    "review_instruction": "Judge structural/mechanism difference only. Condition, model, task, reward, and expected direction are intentionally hidden."
+  },
+  {
+    "blind_case_id": "bc4d49532c8d822b",
+    "trajectory_X": [],
+    "trajectory_Y": [
+      {
+        "position": 0,
+        "tool": "get_reservation_details",
+        "argument_keys": [
+          "reservation_id"
+        ],
+        "stage": "lookup_retrieval",
+        "tool_error": true
+      }
+    ],
+    "external_state_hash_equal": true,
+    "review_instruction": "Judge structural/mechanism difference only. Condition, model, task, reward, and expected direction are intentionally hidden."
+  },
+  {
+    "blind_case_id": "ef0da65621585c97",
+    "trajectory_X": [
+      {
+        "position": 0,
+        "tool": "get_reservation_details",
+        "argument_keys": [
+          "reservation_id"
+        ],
+        "stage": "lookup_retrieval",
+        "tool_error": true
+      }
+    ],
+    "trajectory_Y": [],
+    "external_state_hash_equal": true,
+    "review_instruction": "Judge structural/mechanism difference only. Condition, model, task, reward, and expected direction are intentionally hidden."
+  }
+]

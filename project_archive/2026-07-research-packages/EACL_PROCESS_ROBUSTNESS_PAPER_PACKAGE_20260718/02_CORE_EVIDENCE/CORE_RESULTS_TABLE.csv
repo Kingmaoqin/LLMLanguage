@@ -1,0 +1,8 @@
+claim_id,result,status,effect_size,confidence_interval,corrected_p_value,paper_location
+C01,R6 形成完整的 3×30×8×3=2160 条 live-model trace 矩阵。,SUPPORTED,,,,Main/Table 1
+C04,R6 的 clean social-style 条件在 tau2 子集上改变工具名序列，且高于 neutral-neutral 漂移。,PARTIALLY_SUPPORTED,"praise_trust_vs_neutral: Δadj=0.150, CI[0.077,0.239], q=0.0141; insult_vs_neutral: Δadj=0.174, CI[0.060,0.283], q=0.03729; abuse_vs_neutral: Δadj=0.130, CI[0.033,0.235], q=0.05421",,,Main secondary + full appendix
+C05,R6 存在 final-DB-hash 相同但工具轨迹不同的配对。,PARTIALLY_SUPPORTED,tau2 same-hash+different-tool rates: praise .411; process-frustration .389; escalating complaint .356,,,Main descriptive result
+C08,Pressure/urgency/continuation alters action intensity and confirmation timing in R6.,SUPPORTED,tool calls +0.400/+0.800/+0.452; confirmation-before-action +0.133,"see source table; e.g. urgency tool calls [0.507,1.111]",q=.031/.010/.031; confirmation q=.004,Main
+C13,R7-C strict PASR is no larger than its neutral-neutral placebo.,SUPPORTED,attack .0403; pooled placebo .0463,,,Main methodology/audit result
+C14,R8 full-episode urgency/frustration does not change official tau2 reward by ≥5pp pooled.,SUPPORTED,C3 +.024; C4 -.006 reward,"C3 [-.024,.071]; C4 [-.052,.039]",.749/.879,Main
+C15,R8 pooled process changes are below preregistered practical importance.,SUPPORTED,C3 +0.50/+6.4%; C4 +0.69/+8.7%,"C3 [.072,.935]; C4 [.195,1.215]",.089/.054,Main

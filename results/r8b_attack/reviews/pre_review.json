@@ -1,0 +1,2408 @@
+{
+  "n": 400,
+  "clean": 294,
+  "flagged": 21,
+  "disputed": 85,
+  "rows": [
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": false,
+      "b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": false,
+      "b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": false,
+      "b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": false,
+      "b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": false,
+      "b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": false,
+      "b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": false,
+      "b": true,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": false,
+      "b": false,
+      "verdict": "flagged"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-F",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": true,
+      "b": false,
+      "verdict": "disputed"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-C",
+      "a": true,
+      "b": true,
+      "verdict": "clean"
+    },
+    {
+      "tactic": "TAC-U",
+      "a": false,
+      "b": false,
+      "verdict": "flagged"
+    }
+  ]
+}

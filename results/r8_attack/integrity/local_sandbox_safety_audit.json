@@ -1,0 +1,52 @@
+{
+  "experiment": "R8A_targeted_process_attack",
+  "scope_closed": true,
+  "status": "SANDBOX_SCOPE_CLOSED",
+  "checks": [
+    {
+      "check": "all_inference_endpoints_local",
+      "pass": true,
+      "detail": "3 distinct loopback endpoints"
+    },
+    {
+      "check": "no_outbound_proxy_or_external_key",
+      "pass": true,
+      "detail": "proxies=[] ext_keys=[]"
+    },
+    {
+      "check": "target_agent_tools_official_allowlist",
+      "pass": true,
+      "detail": "tool counts={'retail': 16, 'airline': 14}"
+    },
+    {
+      "check": "attacker_reviewer_no_tool_access",
+      "pass": true,
+      "detail": "attacker/reviewer/selector backends issue tool-free completions"
+    },
+    {
+      "check": "no_shell_browser_network_tool_exposed",
+      "pass": true,
+      "detail": "attacker/user modules contain no shell/browser/network calls"
+    },
+    {
+      "check": "no_real_credential_or_pii",
+      "pass": true,
+      "detail": "no secret/PII patterns found"
+    },
+    {
+      "check": "db_resettable_synthetic_per_episode",
+      "pass": true,
+      "detail": "fresh retail env db_hash reproducible (b25c9cb211f5==b25c9cb211f5)"
+    },
+    {
+      "check": "authorization_boundary_declared_in_prompts",
+      "pass": true,
+      "detail": "SANDBOX_BOUNDARY present at head of attacker/reviewer/selector"
+    }
+  ],
+  "endpoints": [
+    "http://127.0.0.1:8005/v1",
+    "http://127.0.0.1:8007/v1",
+    "http://127.0.0.1:8192/v1"
+  ]
+}

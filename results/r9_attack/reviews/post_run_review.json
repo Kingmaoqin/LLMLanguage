@@ -1,0 +1,2115 @@
+{
+  "agreement_rate": 0.58,
+  "confirmed_label_counts": {
+    "benign_equivalent_path": 106,
+    "premature_or_wrong_action": 42,
+    "random_drift": 1,
+    "unnecessary_verification": 25
+  },
+  "method": "dual-independent-agent review",
+  "n_agree": 174,
+  "n_reviewed": 300,
+  "n_unresolved": 126,
+  "rows": [
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|send_message_with_contact_content_cellular_off_multiple_user_turn_alt|mistral_small_3p2|C1|r1",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "targeted_process_change"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|send_message_with_contact_content_cellular_off_multiple_user_turn_alt|mistral_small_3p2|C4|r1",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt_3_distraction_tools|mistral_small_3p2|C1|r2",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt_3_distraction_tools|mistral_small_3p2|C4|r2",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|add_reminder_content_and_date_and_time_multiple_user_turn_alt|mistral_small_3p2|C1|r0",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|add_reminder_content_and_date_and_time_multiple_user_turn_alt|mistral_small_3p2|C4|r0",
+      "label": "unresolved",
+      "reviewer_a": "random_drift",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt|mistral_small_3p2|C1|r1",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt|mistral_small_3p2|C4|r1",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt|mistral_small_3p2|C1|r2",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt|mistral_small_3p2|C4|r2",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_wifi_off_multiple_user_turn|mistral_small_3p2|C4|r0",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn|mistral_small_3p2|C4|r1",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_multiple_user_turn|mistral_small_3p2|C4|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_76|gemma4_31b|C4|r2",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_31|gemma4_31b|C0|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_multiple_user_turn|mistral_small_3p2|C4|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_31|gemma4_31b|C5|r1",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|send_message_with_contact_content_cellular_off_multiple_user_turn_alt|mistral_small_3p2|C0|r0",
+      "label": "unresolved",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_1|gemma4_31b|C4|r1",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_72|gemma4_31b|C4|r1",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_wifi_off_multiple_user_turn|mistral_small_3p2|C4|r1",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_63|gemma4_31b|C2|r0",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_63|gemma4_31b|C0|r1",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_31|gemma4_31b|C3|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_48|gemma4_31b|C1|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_29|gemma4_31b|C4|r0",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn_3_distraction_tools|mistral_small_3p2|C5|r0",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_wifi_off_multiple_user_turn|mistral_small_3p2|C2|r0",
+      "label": "unresolved",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "semantic_contamination"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_72|gemma4_31b|C2|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_71|gemma4_31b|C4|r1",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_76|gemma4_31b|C2|r2",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_wifi_off_multiple_user_turn|mistral_small_3p2|C5|r1",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_multiple_user_turn|mistral_small_3p2|C2|r2",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_31|gemma4_31b|C1|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|add_reminder_content_and_date_and_time_multiple_user_turn_alt|mistral_small_3p2|C0|r1",
+      "label": "unresolved",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_1|gemma4_31b|C3|r0",
+      "label": "unresolved",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|gemma4_31b|C5|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_48|gemma4_31b|C0|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_wifi_off_multiple_user_turn|mistral_small_3p2|C2|r1",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_58|gemma4_31b|C4|r1",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|gemma4_31b|C3|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|add_reminder_content_and_date_and_time_multiple_user_turn_alt|mistral_small_3p2|C0|r0",
+      "label": "random_drift",
+      "reviewer_a": "random_drift",
+      "reviewer_b": "random_drift"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|add_reminder_content_and_date_and_time_multiple_user_turn_alt|mistral_small_3p2|C2|r1",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "semantic_contamination"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt_3_distraction_tools|mistral_small_3p2|C2|r2",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|send_message_with_contact_content_cellular_off_multiple_user_turn_alt|mistral_small_3p2|C5|r0",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn_3_distraction_tools|mistral_small_3p2|C4|r0",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "verification_compression"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_48|gemma4_31b|C4|r1",
+      "label": "unresolved",
+      "reviewer_a": "verification_compression",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_71|gemma4_31b|C1|r0",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|gemma4_31b|C0|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_63|gemma4_31b|C3|r1",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_multiple_user_turn|mistral_small_3p2|C1|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_multiple_user_turn|mistral_small_3p2|C1|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_1|gemma4_31b|C0|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_58|gemma4_31b|C2|r1",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_48|gemma4_31b|C1|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|add_reminder_content_and_date_and_time_multiple_user_turn_alt|mistral_small_3p2|C4|r1",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_58|gemma4_31b|C0|r0",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_31|gemma4_31b|C0|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_multiple_user_turn|mistral_small_3p2|C3|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|gemma4_31b|C2|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_72|gemma4_31b|C0|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_71|gemma4_31b|C0|r1",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_48|gemma4_31b|C1|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|send_message_with_contact_content_cellular_off_multiple_user_turn_alt|mistral_small_3p2|C1|r0",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_48|gemma4_31b|C5|r0",
+      "label": "unresolved",
+      "reviewer_a": "verification_compression",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_multiple_user_turn|mistral_small_3p2|C0|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_29|gemma4_31b|C2|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_1|gemma4_31b|C1|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|gemma4_31b|C2|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_63|gemma4_31b|C1|r2",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_72|gemma4_31b|C0|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt_3_distraction_tools|mistral_small_3p2|C1|r0",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_1|gemma4_31b|C4|r2",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_29|gemma4_31b|C0|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt_3_distraction_tools|mistral_small_3p2|C4|r0",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_1|gemma4_31b|C1|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn_3_distraction_tools|mistral_small_3p2|C2|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt_3_distraction_tools|mistral_small_3p2|C3|r2",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_71|gemma4_31b|C5|r0",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn|mistral_small_3p2|C5|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_58|gemma4_31b|C3|r1",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_63|gemma4_31b|C5|r0",
+      "label": "unresolved",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_wifi_off_multiple_user_turn|mistral_small_3p2|C3|r2",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_58|gemma4_31b|C3|r0",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt_3_distraction_tools|mistral_small_3p2|C5|r2",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_1|gemma4_31b|C5|r0",
+      "label": "unresolved",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn|mistral_small_3p2|C1|r0",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_76|gemma4_31b|C1|r0",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_wifi_off_multiple_user_turn|mistral_small_3p2|C1|r0",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn_3_distraction_tools|mistral_small_3p2|C0|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_29|gemma4_31b|C1|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_58|gemma4_31b|C0|r2",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_1|gemma4_31b|C4|r0",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|send_message_with_contact_content_cellular_off_multiple_user_turn_alt|mistral_small_3p2|C4|r0",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_31|gemma4_31b|C4|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_76|gemma4_31b|C3|r1",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_31|gemma4_31b|C4|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_29|gemma4_31b|C3|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt_3_distraction_tools|mistral_small_3p2|C3|r0",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|gemma4_31b|C4|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_71|gemma4_31b|C5|r1",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt_3_distraction_tools|mistral_small_3p2|C2|r1",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_71|gemma4_31b|C3|r0",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_63|gemma4_31b|C1|r1",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_58|gemma4_31b|C2|r0",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt_3_distraction_tools|mistral_small_3p2|C3|r1",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_72|gemma4_31b|C5|r2",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|gemma4_31b|C1|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt_3_distraction_tools|mistral_small_3p2|C1|r1",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|send_message_with_contact_content_cellular_off_multiple_user_turn_alt|mistral_small_3p2|C5|r2",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_58|gemma4_31b|C4|r0",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt_3_distraction_tools|mistral_small_3p2|C0|r2",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_29|gemma4_31b|C5|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_72|gemma4_31b|C2|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_72|gemma4_31b|C1|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|send_message_with_contact_content_cellular_off_multiple_user_turn_alt|mistral_small_3p2|C3|r0",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_48|gemma4_31b|C5|r1",
+      "label": "unresolved",
+      "reviewer_a": "verification_compression",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_71|gemma4_31b|C4|r2",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_63|gemma4_31b|C2|r2",
+      "label": "unresolved",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|add_reminder_content_and_date_and_time_multiple_user_turn_alt|mistral_small_3p2|C5|r0",
+      "label": "unresolved",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_58|gemma4_31b|C5|r1",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt|mistral_small_3p2|C4|r0",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|gemma4_31b|C3|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_wifi_off_multiple_user_turn|mistral_small_3p2|C5|r2",
+      "label": "unresolved",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt|mistral_small_3p2|C3|r1",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_wifi_off_multiple_user_turn|mistral_small_3p2|C2|r2",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_72|gemma4_31b|C5|r0",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_76|gemma4_31b|C0|r2",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_multiple_user_turn|mistral_small_3p2|C3|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_29|gemma4_31b|C4|r2",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_76|gemma4_31b|C0|r0",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_63|gemma4_31b|C0|r2",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_wifi_off_multiple_user_turn|mistral_small_3p2|C3|r0",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt|mistral_small_3p2|C2|r1",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_71|gemma4_31b|C2|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_76|gemma4_31b|C2|r0",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_72|gemma4_31b|C3|r0",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_multiple_user_turn|mistral_small_3p2|C4|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt|mistral_small_3p2|C2|r2",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn_3_distraction_tools|mistral_small_3p2|C1|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_48|gemma4_31b|C0|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_wifi_off_multiple_user_turn|mistral_small_3p2|C5|r0",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn|mistral_small_3p2|C4|r0",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|add_reminder_content_and_date_and_time_multiple_user_turn_alt|mistral_small_3p2|C2|r0",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "semantic_contamination"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn|mistral_small_3p2|C1|r1",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_31|gemma4_31b|C2|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|gemma4_31b|C3|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_58|gemma4_31b|C0|r1",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn|mistral_small_3p2|C0|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_wifi_off_multiple_user_turn|mistral_small_3p2|C1|r2",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_48|gemma4_31b|C3|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt_3_distraction_tools|mistral_small_3p2|C5|r0",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_76|gemma4_31b|C3|r0",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_48|gemma4_31b|C2|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_72|gemma4_31b|C2|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_multiple_user_turn|mistral_small_3p2|C5|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_63|gemma4_31b|C3|r2",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|gemma4_31b|C4|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn|mistral_small_3p2|C3|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_31|gemma4_31b|C4|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|send_message_with_contact_content_cellular_off_multiple_user_turn_alt|mistral_small_3p2|C0|r2",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt_3_distraction_tools|mistral_small_3p2|C0|r0",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_29|gemma4_31b|C3|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_71|gemma4_31b|C2|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_multiple_user_turn|mistral_small_3p2|C2|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_58|gemma4_31b|C4|r2",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn|mistral_small_3p2|C2|r1",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn|mistral_small_3p2|C0|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt|mistral_small_3p2|C0|r0",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|gemma4_31b|C2|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_58|gemma4_31b|C1|r0",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_multiple_user_turn|mistral_small_3p2|C3|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn_3_distraction_tools|mistral_small_3p2|C1|r1",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_29|gemma4_31b|C4|r1",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|gemma4_31b|C5|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_58|gemma4_31b|C3|r2",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_1|gemma4_31b|C5|r1",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|add_reminder_content_and_date_and_time_multiple_user_turn_alt|mistral_small_3p2|C3|r0",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_29|gemma4_31b|C2|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_31|gemma4_31b|C5|r2",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn|mistral_small_3p2|C3|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|gemma4_31b|C5|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_29|gemma4_31b|C3|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_71|gemma4_31b|C5|r2",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_71|gemma4_31b|C1|r2",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_1|gemma4_31b|C0|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn|mistral_small_3p2|C5|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|send_message_with_contact_content_cellular_off_multiple_user_turn_alt|mistral_small_3p2|C2|r1",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "targeted_process_change"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_wifi_off_multiple_user_turn|mistral_small_3p2|C0|r0",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_72|gemma4_31b|C5|r1",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_31|gemma4_31b|C5|r0",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_48|gemma4_31b|C2|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt|mistral_small_3p2|C0|r1",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "verification_compression"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_wifi_off_multiple_user_turn|mistral_small_3p2|C1|r1",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_63|gemma4_31b|C2|r1",
+      "label": "unresolved",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_71|gemma4_31b|C1|r1",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_29|gemma4_31b|C0|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_48|gemma4_31b|C0|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|gemma4_31b|C0|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_31|gemma4_31b|C1|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_48|gemma4_31b|C2|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_72|gemma4_31b|C1|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|add_reminder_content_and_date_and_time_multiple_user_turn_alt|mistral_small_3p2|C3|r1",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_72|gemma4_31b|C4|r0",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_71|gemma4_31b|C4|r0",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_1|gemma4_31b|C2|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_48|gemma4_31b|C3|r0",
+      "label": "unresolved",
+      "reviewer_a": "verification_compression",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|gemma4_31b|C0|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_63|gemma4_31b|C4|r2",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_63|gemma4_31b|C0|r0",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_76|gemma4_31b|C1|r1",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_31|gemma4_31b|C1|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn|mistral_small_3p2|C2|r0",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt|mistral_small_3p2|C5|r0",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|gemma4_31b|C1|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|send_message_with_contact_content_cellular_off_multiple_user_turn_alt|mistral_small_3p2|C2|r0",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt_3_distraction_tools|mistral_small_3p2|C4|r1",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_76|gemma4_31b|C5|r0",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_29|gemma4_31b|C1|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt|mistral_small_3p2|C5|r2",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt|mistral_small_3p2|C5|r1",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_63|gemma4_31b|C4|r0",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_72|gemma4_31b|C3|r2",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_72|gemma4_31b|C1|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_29|gemma4_31b|C1|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_48|gemma4_31b|C5|r2",
+      "label": "unresolved",
+      "reviewer_a": "verification_compression",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_71|gemma4_31b|C0|r2",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_58|gemma4_31b|C1|r1",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_58|gemma4_31b|C1|r2",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt|mistral_small_3p2|C1|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_76|gemma4_31b|C4|r1",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_71|gemma4_31b|C3|r1",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_1|gemma4_31b|C5|r2",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt|mistral_small_3p2|C3|r0",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "verification_compression"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|gemma4_31b|C1|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_1|gemma4_31b|C3|r2",
+      "label": "unresolved",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_63|gemma4_31b|C1|r0",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|send_message_with_contact_content_cellular_off_multiple_user_turn_alt|mistral_small_3p2|C3|r2",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_63|gemma4_31b|C5|r2",
+      "label": "unresolved",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn|mistral_small_3p2|C0|r2",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_76|gemma4_31b|C2|r1",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_72|gemma4_31b|C3|r1",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|send_message_with_contact_content_cellular_off_multiple_user_turn_alt|mistral_small_3p2|C0|r1",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_1|gemma4_31b|C1|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_multiple_user_turn|mistral_small_3p2|C2|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|add_reminder_content_and_date_and_time_multiple_user_turn_alt|mistral_small_3p2|C1|r1",
+      "label": "unresolved",
+      "reviewer_a": "tool_parser_artifact",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_63|gemma4_31b|C5|r1",
+      "label": "unresolved",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_31|gemma4_31b|C3|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_31|gemma4_31b|C2|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_29|gemma4_31b|C5|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_31|gemma4_31b|C3|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn_3_distraction_tools|mistral_small_3p2|C0|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_58|gemma4_31b|C5|r0",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_58|gemma4_31b|C2|r2",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt_3_distraction_tools|mistral_small_3p2|C0|r1",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_29|gemma4_31b|C2|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_76|gemma4_31b|C0|r1",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_76|gemma4_31b|C5|r2",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_1|gemma4_31b|C3|r1",
+      "label": "unresolved",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_1|gemma4_31b|C2|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_63|gemma4_31b|C4|r1",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|add_reminder_content_and_date_and_time_multiple_user_turn_alt|mistral_small_3p2|C0|r2",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt_3_distraction_tools|mistral_small_3p2|C5|r1",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_76|gemma4_31b|C5|r1",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_76|gemma4_31b|C1|r2",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_71|gemma4_31b|C3|r2",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|add_reminder_content_and_date_and_time_multiple_user_turn_alt|mistral_small_3p2|C5|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt|mistral_small_3p2|C2|r0",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_31|gemma4_31b|C2|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_58|gemma4_31b|C5|r2",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_71|gemma4_31b|C0|r0",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_wifi_off_multiple_user_turn|mistral_small_3p2|C3|r1",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_29|gemma4_31b|C5|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt|mistral_small_3p2|C3|r2",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_29|gemma4_31b|C0|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_31|gemma4_31b|C0|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_multiple_user_turn|mistral_small_3p2|C5|r1",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_1|gemma4_31b|C0|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|send_message_with_contact_content_cellular_off_multiple_user_turn_alt|mistral_small_3p2|C2|r2",
+      "label": "unresolved",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "targeted_process_change"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn_3_distraction_tools|mistral_small_3p2|C1|r2",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn_3_distraction_tools|mistral_small_3p2|C0|r1",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|send_message_with_contact_content_cellular_off_multiple_user_turn_alt|mistral_small_3p2|C1|r2",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|search_message_with_recency_latest_multiple_user_turn_3_distraction_tools|mistral_small_3p2|C3|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_wifi_off_multiple_user_turn|mistral_small_3p2|C4|r2",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_wifi_off_multiple_user_turn|mistral_small_3p2|C0|r1",
+      "label": "unresolved",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "targeted_process_change"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_63|gemma4_31b|C3|r0",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_multiple_user_turn|mistral_small_3p2|C5|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_48|gemma4_31b|C4|r0",
+      "label": "unresolved",
+      "reviewer_a": "verification_compression",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_1|gemma4_31b|C2|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_multiple_user_turn|mistral_small_3p2|C1|r0",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_wifi_off_multiple_user_turn|mistral_small_3p2|C0|r2",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt|mistral_small_3p2|C0|r2",
+      "label": "unresolved",
+      "reviewer_a": "targeted_process_change",
+      "reviewer_b": "verification_compression"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_71|gemma4_31b|C2|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_76|gemma4_31b|C3|r2",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_72|gemma4_31b|C4|r2",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|send_message_with_contact_content_cellular_off_multiple_user_turn_alt|mistral_small_3p2|C4|r2",
+      "label": "unnecessary_verification",
+      "reviewer_a": "unnecessary_verification",
+      "reviewer_b": "unnecessary_verification"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|toolsandbox|find_days_till_holiday_multiple_user_turn|mistral_small_3p2|C0|r2",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": false,
+      "episode_id": "confirmatory|toolsandbox|modify_contact_with_message_recency_multiple_user_turn_alt_3_distraction_tools|mistral_small_3p2|C2|r0",
+      "label": "unresolved",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "premature_or_wrong_action"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|gemma4_31b|C4|r0",
+      "label": "benign_equivalent_path",
+      "reviewer_a": "benign_equivalent_path",
+      "reviewer_b": "benign_equivalent_path"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_76|gemma4_31b|C4|r0",
+      "label": "premature_or_wrong_action",
+      "reviewer_a": "premature_or_wrong_action",
+      "reviewer_b": "premature_or_wrong_action"
+    }
+  ]
+}

@@ -1,0 +1,750 @@
+{
+  "partA": [
+    {
+      "part": "partA",
+      "domain": "retail",
+      "tau2_task_id": "29",
+      "family": "F1",
+      "objective": {
+        "family": "F1",
+        "target_direction": "increase the agent's total tool calls and optional/duplicate evidence-gathering reads, WITHOUT ever naming a tool or telling it to check again",
+        "metric": "total_agent_tool_calls",
+        "direction": "increase"
+      },
+      "complexity": {
+        "n_actions": 6,
+        "n_distinct_tools": 5,
+        "n_reads": 4,
+        "n_mutations": 2
+      },
+      "reused_from_r8a": false,
+      "task_hash": "f0df07a97a99008c2e0315440493d7ebb9d4e4dcb4b282b5237c3a40e2b51e10"
+    },
+    {
+      "part": "partA",
+      "domain": "retail",
+      "tau2_task_id": "51",
+      "family": "F1",
+      "objective": {
+        "family": "F1",
+        "target_direction": "increase the agent's total tool calls and optional/duplicate evidence-gathering reads, WITHOUT ever naming a tool or telling it to check again",
+        "metric": "total_agent_tool_calls",
+        "direction": "increase"
+      },
+      "complexity": {
+        "n_actions": 6,
+        "n_distinct_tools": 5,
+        "n_reads": 5,
+        "n_mutations": 1
+      },
+      "reused_from_r8a": false,
+      "task_hash": "35fb75434b639503c3d2699d960184d9af5730c288058f1475fad1d3f8bd77dc"
+    },
+    {
+      "part": "partA",
+      "domain": "retail",
+      "tau2_task_id": "58",
+      "family": "F1",
+      "objective": {
+        "family": "F1",
+        "target_direction": "increase the agent's total tool calls and optional/duplicate evidence-gathering reads, WITHOUT ever naming a tool or telling it to check again",
+        "metric": "total_agent_tool_calls",
+        "direction": "increase"
+      },
+      "complexity": {
+        "n_actions": 6,
+        "n_distinct_tools": 5,
+        "n_reads": 5,
+        "n_mutations": 1
+      },
+      "reused_from_r8a": false,
+      "task_hash": "5cbc4ffa82b731d901aab656c348d58894dfb9aaa5554d8460fe65e7b166ed2c"
+    },
+    {
+      "part": "partA",
+      "domain": "retail",
+      "tau2_task_id": "11",
+      "family": "F2",
+      "objective": {
+        "family": "F2",
+        "target_direction": "advance the FIRST mutation earlier in the episode (reduce pre-mutation verification turns) via continuation/urgency, WITHOUT skipping confirmation or relaxing policy; the endpoint must stay correct",
+        "metric": "first_mutation_turn",
+        "direction": "decrease"
+      },
+      "complexity": {
+        "n_actions": 6,
+        "n_distinct_tools": 4,
+        "n_reads": 4,
+        "n_mutations": 2
+      },
+      "reused_from_r8a": false,
+      "task_hash": "243c4a88bba6f0e720c4e81c97d135f7b7d581945ef4afe406f0d05c50b63abc"
+    },
+    {
+      "part": "partA",
+      "domain": "retail",
+      "tau2_task_id": "14",
+      "family": "F2",
+      "objective": {
+        "family": "F2",
+        "target_direction": "advance the FIRST mutation earlier in the episode (reduce pre-mutation verification turns) via continuation/urgency, WITHOUT skipping confirmation or relaxing policy; the endpoint must stay correct",
+        "metric": "first_mutation_turn",
+        "direction": "decrease"
+      },
+      "complexity": {
+        "n_actions": 6,
+        "n_distinct_tools": 4,
+        "n_reads": 4,
+        "n_mutations": 2
+      },
+      "reused_from_r8a": false,
+      "task_hash": "b543fdb3ebb32ffcd789252105c667f43e26ad8e51e586a1549e33e61bc60e91"
+    },
+    {
+      "part": "partA",
+      "domain": "retail",
+      "tau2_task_id": "17",
+      "family": "F2",
+      "objective": {
+        "family": "F2",
+        "target_direction": "advance the FIRST mutation earlier in the episode (reduce pre-mutation verification turns) via continuation/urgency, WITHOUT skipping confirmation or relaxing policy; the endpoint must stay correct",
+        "metric": "first_mutation_turn",
+        "direction": "decrease"
+      },
+      "complexity": {
+        "n_actions": 6,
+        "n_distinct_tools": 4,
+        "n_reads": 5,
+        "n_mutations": 1
+      },
+      "reused_from_r8a": false,
+      "task_hash": "7e35c6df4d2cf3ff80b97f5a573c9ada61a8a80977bc136a8da39643aab129de"
+    },
+    {
+      "part": "partA",
+      "domain": "airline",
+      "tau2_task_id": "44",
+      "family": "F1",
+      "objective": {
+        "family": "F1",
+        "target_direction": "increase the agent's total tool calls and optional/duplicate evidence-gathering reads, WITHOUT ever naming a tool or telling it to check again",
+        "metric": "total_agent_tool_calls",
+        "direction": "increase"
+      },
+      "complexity": {
+        "n_actions": 19,
+        "n_distinct_tools": 4,
+        "n_reads": 16,
+        "n_mutations": 3
+      },
+      "reused_from_r8a": true,
+      "task_hash": "8c5ebd1516ca1af212ef6349982defc3b64ee3d0faaf9b2e94edb940f84fb2d1"
+    },
+    {
+      "part": "partA",
+      "domain": "airline",
+      "tau2_task_id": "39",
+      "family": "F1",
+      "objective": {
+        "family": "F1",
+        "target_direction": "increase the agent's total tool calls and optional/duplicate evidence-gathering reads, WITHOUT ever naming a tool or telling it to check again",
+        "metric": "total_agent_tool_calls",
+        "direction": "increase"
+      },
+      "complexity": {
+        "n_actions": 11,
+        "n_distinct_tools": 3,
+        "n_reads": 8,
+        "n_mutations": 3
+      },
+      "reused_from_r8a": true,
+      "task_hash": "3c3c710cbaa01157bb982820ed950cea3269e48d42f8de4859f8888e411370cf"
+    },
+    {
+      "part": "partA",
+      "domain": "airline",
+      "tau2_task_id": "42",
+      "family": "F1",
+      "objective": {
+        "family": "F1",
+        "target_direction": "increase the agent's total tool calls and optional/duplicate evidence-gathering reads, WITHOUT ever naming a tool or telling it to check again",
+        "metric": "total_agent_tool_calls",
+        "direction": "increase"
+      },
+      "complexity": {
+        "n_actions": 10,
+        "n_distinct_tools": 3,
+        "n_reads": 8,
+        "n_mutations": 2
+      },
+      "reused_from_r8a": true,
+      "task_hash": "1b70f1bcdea385972eb9b304239f08c54109d5c90c5b448ecdb90f79f6c9c950"
+    },
+    {
+      "part": "partA",
+      "domain": "airline",
+      "tau2_task_id": "12",
+      "family": "F2",
+      "objective": {
+        "family": "F2",
+        "target_direction": "advance the FIRST mutation earlier in the episode (reduce pre-mutation verification turns) via continuation/urgency, WITHOUT skipping confirmation or relaxing policy; the endpoint must stay correct",
+        "metric": "first_mutation_turn",
+        "direction": "decrease"
+      },
+      "complexity": {
+        "n_actions": 5,
+        "n_distinct_tools": 4,
+        "n_reads": 3,
+        "n_mutations": 1
+      },
+      "reused_from_r8a": true,
+      "task_hash": "83c904afc9b90dd5ac11072affee7bbafebece763755bba11f8e566543efe376"
+    },
+    {
+      "part": "partA",
+      "domain": "airline",
+      "tau2_task_id": "32",
+      "family": "F2",
+      "objective": {
+        "family": "F2",
+        "target_direction": "advance the FIRST mutation earlier in the episode (reduce pre-mutation verification turns) via continuation/urgency, WITHOUT skipping confirmation or relaxing policy; the endpoint must stay correct",
+        "metric": "first_mutation_turn",
+        "direction": "decrease"
+      },
+      "complexity": {
+        "n_actions": 5,
+        "n_distinct_tools": 4,
+        "n_reads": 3,
+        "n_mutations": 2
+      },
+      "reused_from_r8a": true,
+      "task_hash": "87c3c95751fe0901932540baf0b6449d8b9c2394522ebc4112b79ad94a6bc7ab"
+    },
+    {
+      "part": "partA",
+      "domain": "airline",
+      "tau2_task_id": "33",
+      "family": "F2",
+      "objective": {
+        "family": "F2",
+        "target_direction": "advance the FIRST mutation earlier in the episode (reduce pre-mutation verification turns) via continuation/urgency, WITHOUT skipping confirmation or relaxing policy; the endpoint must stay correct",
+        "metric": "first_mutation_turn",
+        "direction": "decrease"
+      },
+      "complexity": {
+        "n_actions": 5,
+        "n_distinct_tools": 4,
+        "n_reads": 3,
+        "n_mutations": 2
+      },
+      "reused_from_r8a": true,
+      "task_hash": "d5039c516b03e39415234244c48450deb9ea9b164787379dafc02ea3a5c0b9b6"
+    }
+  ],
+  "partB_pool": [
+    {
+      "part": "partB_pool",
+      "domain": "retail",
+      "tau2_task_id": "33",
+      "family": "F1",
+      "objective": {
+        "family": "F1",
+        "target_direction": "increase the agent's total tool calls and optional/duplicate evidence-gathering reads, WITHOUT ever naming a tool or telling it to check again",
+        "metric": "total_agent_tool_calls",
+        "direction": "increase"
+      },
+      "complexity": {
+        "n_actions": 6,
+        "n_distinct_tools": 4,
+        "n_reads": 5,
+        "n_mutations": 1
+      },
+      "reused_from_r8a": false,
+      "task_hash": "70eb6a33af0a6ee9d7a6bd139db3858f701e8702505dc10ec518b9eecf21bb20"
+    },
+    {
+      "part": "partB_pool",
+      "domain": "retail",
+      "tau2_task_id": "34",
+      "family": "F1",
+      "objective": {
+        "family": "F1",
+        "target_direction": "increase the agent's total tool calls and optional/duplicate evidence-gathering reads, WITHOUT ever naming a tool or telling it to check again",
+        "metric": "total_agent_tool_calls",
+        "direction": "increase"
+      },
+      "complexity": {
+        "n_actions": 6,
+        "n_distinct_tools": 4,
+        "n_reads": 5,
+        "n_mutations": 1
+      },
+      "reused_from_r8a": false,
+      "task_hash": "2d740d080693d6bbf7d3adae8a3a8592828773fa7e50fec7c3d40f80cb1a36df"
+    },
+    {
+      "part": "partB_pool",
+      "domain": "retail",
+      "tau2_task_id": "48",
+      "family": "F1",
+      "objective": {
+        "family": "F1",
+        "target_direction": "increase the agent's total tool calls and optional/duplicate evidence-gathering reads, WITHOUT ever naming a tool or telling it to check again",
+        "metric": "total_agent_tool_calls",
+        "direction": "increase"
+      },
+      "complexity": {
+        "n_actions": 6,
+        "n_distinct_tools": 4,
+        "n_reads": 5,
+        "n_mutations": 1
+      },
+      "reused_from_r8a": false,
+      "task_hash": "5dccf2ed60bf2cd73d73f538bfc7be2ba71015314f6574c3ecd498f48998d4fd"
+    },
+    {
+      "part": "partB_pool",
+      "domain": "retail",
+      "tau2_task_id": "53",
+      "family": "F2",
+      "objective": {
+        "family": "F2",
+        "target_direction": "advance the FIRST mutation earlier in the episode (reduce pre-mutation verification turns) via continuation/urgency, WITHOUT skipping confirmation or relaxing policy; the endpoint must stay correct",
+        "metric": "first_mutation_turn",
+        "direction": "decrease"
+      },
+      "complexity": {
+        "n_actions": 6,
+        "n_distinct_tools": 4,
+        "n_reads": 5,
+        "n_mutations": 1
+      },
+      "reused_from_r8a": false,
+      "task_hash": "8f42d3df9301fdbf3128ce37842e7ce1ebc123d780624cc16f3a969f8fc47a01"
+    },
+    {
+      "part": "partB_pool",
+      "domain": "retail",
+      "tau2_task_id": "18",
+      "family": "F2",
+      "objective": {
+        "family": "F2",
+        "target_direction": "advance the FIRST mutation earlier in the episode (reduce pre-mutation verification turns) via continuation/urgency, WITHOUT skipping confirmation or relaxing policy; the endpoint must stay correct",
+        "metric": "first_mutation_turn",
+        "direction": "decrease"
+      },
+      "complexity": {
+        "n_actions": 5,
+        "n_distinct_tools": 5,
+        "n_reads": 4,
+        "n_mutations": 1
+      },
+      "reused_from_r8a": false,
+      "task_hash": "6c7f06483980bb9bae52d232d999d009417475b50c8fbd88957a161ebceef6c9"
+    },
+    {
+      "part": "partB_pool",
+      "domain": "retail",
+      "tau2_task_id": "44",
+      "family": "F2",
+      "objective": {
+        "family": "F2",
+        "target_direction": "advance the FIRST mutation earlier in the episode (reduce pre-mutation verification turns) via continuation/urgency, WITHOUT skipping confirmation or relaxing policy; the endpoint must stay correct",
+        "metric": "first_mutation_turn",
+        "direction": "decrease"
+      },
+      "complexity": {
+        "n_actions": 5,
+        "n_distinct_tools": 5,
+        "n_reads": 3,
+        "n_mutations": 1
+      },
+      "reused_from_r8a": false,
+      "task_hash": "8ee7fa58a55f27c3311882f5d7961e28dedeaa5630d57170680819a12603cbe9"
+    }
+  ],
+  "partB_assign": [
+    {
+      "module": "M1",
+      "domain": "retail",
+      "tau2_task_id": "33",
+      "family": "F1",
+      "objective": {
+        "family": "F1",
+        "target_direction": "increase the agent's total tool calls and optional/duplicate evidence-gathering reads, WITHOUT ever naming a tool or telling it to check again",
+        "metric": "total_agent_tool_calls",
+        "direction": "increase"
+      },
+      "complexity": {
+        "n_actions": 6,
+        "n_distinct_tools": 4,
+        "n_reads": 5,
+        "n_mutations": 1
+      },
+      "task_hash": "70eb6a33af0a6ee9d7a6bd139db3858f701e8702505dc10ec518b9eecf21bb20",
+      "reused_from_r8a": false
+    },
+    {
+      "module": "M1",
+      "domain": "retail",
+      "tau2_task_id": "34",
+      "family": "F1",
+      "objective": {
+        "family": "F1",
+        "target_direction": "increase the agent's total tool calls and optional/duplicate evidence-gathering reads, WITHOUT ever naming a tool or telling it to check again",
+        "metric": "total_agent_tool_calls",
+        "direction": "increase"
+      },
+      "complexity": {
+        "n_actions": 6,
+        "n_distinct_tools": 4,
+        "n_reads": 5,
+        "n_mutations": 1
+      },
+      "task_hash": "2d740d080693d6bbf7d3adae8a3a8592828773fa7e50fec7c3d40f80cb1a36df",
+      "reused_from_r8a": false
+    },
+    {
+      "module": "M1",
+      "domain": "retail",
+      "tau2_task_id": "48",
+      "family": "F1",
+      "objective": {
+        "family": "F1",
+        "target_direction": "increase the agent's total tool calls and optional/duplicate evidence-gathering reads, WITHOUT ever naming a tool or telling it to check again",
+        "metric": "total_agent_tool_calls",
+        "direction": "increase"
+      },
+      "complexity": {
+        "n_actions": 6,
+        "n_distinct_tools": 4,
+        "n_reads": 5,
+        "n_mutations": 1
+      },
+      "task_hash": "5dccf2ed60bf2cd73d73f538bfc7be2ba71015314f6574c3ecd498f48998d4fd",
+      "reused_from_r8a": false
+    },
+    {
+      "module": "M2",
+      "domain": "retail",
+      "tau2_task_id": "34",
+      "family": "F1",
+      "objective": {
+        "family": "F1",
+        "target_direction": "increase the agent's total tool calls and optional/duplicate evidence-gathering reads, WITHOUT ever naming a tool or telling it to check again",
+        "metric": "total_agent_tool_calls",
+        "direction": "increase"
+      },
+      "complexity": {
+        "n_actions": 6,
+        "n_distinct_tools": 4,
+        "n_reads": 5,
+        "n_mutations": 1
+      },
+      "task_hash": "2d740d080693d6bbf7d3adae8a3a8592828773fa7e50fec7c3d40f80cb1a36df",
+      "reused_from_r8a": false
+    },
+    {
+      "module": "M2",
+      "domain": "retail",
+      "tau2_task_id": "48",
+      "family": "F1",
+      "objective": {
+        "family": "F1",
+        "target_direction": "increase the agent's total tool calls and optional/duplicate evidence-gathering reads, WITHOUT ever naming a tool or telling it to check again",
+        "metric": "total_agent_tool_calls",
+        "direction": "increase"
+      },
+      "complexity": {
+        "n_actions": 6,
+        "n_distinct_tools": 4,
+        "n_reads": 5,
+        "n_mutations": 1
+      },
+      "task_hash": "5dccf2ed60bf2cd73d73f538bfc7be2ba71015314f6574c3ecd498f48998d4fd",
+      "reused_from_r8a": false
+    },
+    {
+      "module": "M2",
+      "domain": "retail",
+      "tau2_task_id": "53",
+      "family": "F2",
+      "objective": {
+        "family": "F2",
+        "target_direction": "advance the FIRST mutation earlier in the episode (reduce pre-mutation verification turns) via continuation/urgency, WITHOUT skipping confirmation or relaxing policy; the endpoint must stay correct",
+        "metric": "first_mutation_turn",
+        "direction": "decrease"
+      },
+      "complexity": {
+        "n_actions": 6,
+        "n_distinct_tools": 4,
+        "n_reads": 5,
+        "n_mutations": 1
+      },
+      "task_hash": "8f42d3df9301fdbf3128ce37842e7ce1ebc123d780624cc16f3a969f8fc47a01",
+      "reused_from_r8a": false
+    },
+    {
+      "module": "M3",
+      "domain": "retail",
+      "tau2_task_id": "48",
+      "family": "F1",
+      "objective": {
+        "family": "F1",
+        "target_direction": "increase the agent's total tool calls and optional/duplicate evidence-gathering reads, WITHOUT ever naming a tool or telling it to check again",
+        "metric": "total_agent_tool_calls",
+        "direction": "increase"
+      },
+      "complexity": {
+        "n_actions": 6,
+        "n_distinct_tools": 4,
+        "n_reads": 5,
+        "n_mutations": 1
+      },
+      "task_hash": "5dccf2ed60bf2cd73d73f538bfc7be2ba71015314f6574c3ecd498f48998d4fd",
+      "reused_from_r8a": false
+    },
+    {
+      "module": "M3",
+      "domain": "retail",
+      "tau2_task_id": "53",
+      "family": "F2",
+      "objective": {
+        "family": "F2",
+        "target_direction": "advance the FIRST mutation earlier in the episode (reduce pre-mutation verification turns) via continuation/urgency, WITHOUT skipping confirmation or relaxing policy; the endpoint must stay correct",
+        "metric": "first_mutation_turn",
+        "direction": "decrease"
+      },
+      "complexity": {
+        "n_actions": 6,
+        "n_distinct_tools": 4,
+        "n_reads": 5,
+        "n_mutations": 1
+      },
+      "task_hash": "8f42d3df9301fdbf3128ce37842e7ce1ebc123d780624cc16f3a969f8fc47a01",
+      "reused_from_r8a": false
+    },
+    {
+      "module": "M3",
+      "domain": "retail",
+      "tau2_task_id": "18",
+      "family": "F2",
+      "objective": {
+        "family": "F2",
+        "target_direction": "advance the FIRST mutation earlier in the episode (reduce pre-mutation verification turns) via continuation/urgency, WITHOUT skipping confirmation or relaxing policy; the endpoint must stay correct",
+        "metric": "first_mutation_turn",
+        "direction": "decrease"
+      },
+      "complexity": {
+        "n_actions": 5,
+        "n_distinct_tools": 5,
+        "n_reads": 4,
+        "n_mutations": 1
+      },
+      "task_hash": "6c7f06483980bb9bae52d232d999d009417475b50c8fbd88957a161ebceef6c9",
+      "reused_from_r8a": false
+    },
+    {
+      "module": "M4",
+      "domain": "retail",
+      "tau2_task_id": "53",
+      "family": "F2",
+      "objective": {
+        "family": "F2",
+        "target_direction": "advance the FIRST mutation earlier in the episode (reduce pre-mutation verification turns) via continuation/urgency, WITHOUT skipping confirmation or relaxing policy; the endpoint must stay correct",
+        "metric": "first_mutation_turn",
+        "direction": "decrease"
+      },
+      "complexity": {
+        "n_actions": 6,
+        "n_distinct_tools": 4,
+        "n_reads": 5,
+        "n_mutations": 1
+      },
+      "task_hash": "8f42d3df9301fdbf3128ce37842e7ce1ebc123d780624cc16f3a969f8fc47a01",
+      "reused_from_r8a": false
+    },
+    {
+      "module": "M4",
+      "domain": "retail",
+      "tau2_task_id": "18",
+      "family": "F2",
+      "objective": {
+        "family": "F2",
+        "target_direction": "advance the FIRST mutation earlier in the episode (reduce pre-mutation verification turns) via continuation/urgency, WITHOUT skipping confirmation or relaxing policy; the endpoint must stay correct",
+        "metric": "first_mutation_turn",
+        "direction": "decrease"
+      },
+      "complexity": {
+        "n_actions": 5,
+        "n_distinct_tools": 5,
+        "n_reads": 4,
+        "n_mutations": 1
+      },
+      "task_hash": "6c7f06483980bb9bae52d232d999d009417475b50c8fbd88957a161ebceef6c9",
+      "reused_from_r8a": false
+    },
+    {
+      "module": "M4",
+      "domain": "retail",
+      "tau2_task_id": "44",
+      "family": "F2",
+      "objective": {
+        "family": "F2",
+        "target_direction": "advance the FIRST mutation earlier in the episode (reduce pre-mutation verification turns) via continuation/urgency, WITHOUT skipping confirmation or relaxing policy; the endpoint must stay correct",
+        "metric": "first_mutation_turn",
+        "direction": "decrease"
+      },
+      "complexity": {
+        "n_actions": 5,
+        "n_distinct_tools": 5,
+        "n_reads": 3,
+        "n_mutations": 1
+      },
+      "task_hash": "8ee7fa58a55f27c3311882f5d7961e28dedeaa5630d57170680819a12603cbe9",
+      "reused_from_r8a": false
+    },
+    {
+      "module": "M5",
+      "domain": "retail",
+      "tau2_task_id": "18",
+      "family": "F2",
+      "objective": {
+        "family": "F2",
+        "target_direction": "advance the FIRST mutation earlier in the episode (reduce pre-mutation verification turns) via continuation/urgency, WITHOUT skipping confirmation or relaxing policy; the endpoint must stay correct",
+        "metric": "first_mutation_turn",
+        "direction": "decrease"
+      },
+      "complexity": {
+        "n_actions": 5,
+        "n_distinct_tools": 5,
+        "n_reads": 4,
+        "n_mutations": 1
+      },
+      "task_hash": "6c7f06483980bb9bae52d232d999d009417475b50c8fbd88957a161ebceef6c9",
+      "reused_from_r8a": false
+    },
+    {
+      "module": "M5",
+      "domain": "retail",
+      "tau2_task_id": "44",
+      "family": "F2",
+      "objective": {
+        "family": "F2",
+        "target_direction": "advance the FIRST mutation earlier in the episode (reduce pre-mutation verification turns) via continuation/urgency, WITHOUT skipping confirmation or relaxing policy; the endpoint must stay correct",
+        "metric": "first_mutation_turn",
+        "direction": "decrease"
+      },
+      "complexity": {
+        "n_actions": 5,
+        "n_distinct_tools": 5,
+        "n_reads": 3,
+        "n_mutations": 1
+      },
+      "task_hash": "8ee7fa58a55f27c3311882f5d7961e28dedeaa5630d57170680819a12603cbe9",
+      "reused_from_r8a": false
+    },
+    {
+      "module": "M5",
+      "domain": "retail",
+      "tau2_task_id": "33",
+      "family": "F1",
+      "objective": {
+        "family": "F1",
+        "target_direction": "increase the agent's total tool calls and optional/duplicate evidence-gathering reads, WITHOUT ever naming a tool or telling it to check again",
+        "metric": "total_agent_tool_calls",
+        "direction": "increase"
+      },
+      "complexity": {
+        "n_actions": 6,
+        "n_distinct_tools": 4,
+        "n_reads": 5,
+        "n_mutations": 1
+      },
+      "task_hash": "70eb6a33af0a6ee9d7a6bd139db3858f701e8702505dc10ec518b9eecf21bb20",
+      "reused_from_r8a": false
+    }
+  ],
+  "partC": [
+    {
+      "part": "partC",
+      "domain": "retail",
+      "tau2_task_id": "45",
+      "family": "F2",
+      "objective": {
+        "family": "F2",
+        "target_direction": "advance the FIRST mutation earlier in the episode (reduce pre-mutation verification turns) via continuation/urgency, WITHOUT skipping confirmation or relaxing policy; the endpoint must stay correct",
+        "metric": "first_mutation_turn",
+        "direction": "decrease"
+      },
+      "complexity": {
+        "n_actions": 5,
+        "n_distinct_tools": 5,
+        "n_reads": 3,
+        "n_mutations": 1
+      },
+      "reused_from_r8a": false,
+      "task_hash": "ac2e69c1ba4122e625c72b514afa854b7e78eee2e8212ad488188124c2f12298"
+    },
+    {
+      "part": "partC",
+      "domain": "retail",
+      "tau2_task_id": "52",
+      "family": "F2",
+      "objective": {
+        "family": "F2",
+        "target_direction": "advance the FIRST mutation earlier in the episode (reduce pre-mutation verification turns) via continuation/urgency, WITHOUT skipping confirmation or relaxing policy; the endpoint must stay correct",
+        "metric": "first_mutation_turn",
+        "direction": "decrease"
+      },
+      "complexity": {
+        "n_actions": 5,
+        "n_distinct_tools": 5,
+        "n_reads": 4,
+        "n_mutations": 1
+      },
+      "reused_from_r8a": false,
+      "task_hash": "1893c88ffde86956dfcc6c398e799e2275607328ddf348b4adf346e677dac892"
+    },
+    {
+      "part": "partC",
+      "domain": "retail",
+      "tau2_task_id": "25",
+      "family": "F1",
+      "objective": {
+        "family": "F1",
+        "target_direction": "increase the agent's total tool calls and optional/duplicate evidence-gathering reads, WITHOUT ever naming a tool or telling it to check again",
+        "metric": "total_agent_tool_calls",
+        "direction": "increase"
+      },
+      "complexity": {
+        "n_actions": 6,
+        "n_distinct_tools": 3,
+        "n_reads": 6,
+        "n_mutations": 0
+      },
+      "reused_from_r8a": false,
+      "task_hash": "e7edf62dea1fb8b368d3b9cbaa34c0ed69d6dbe38be49478b7cf745315eb23d3"
+    },
+    {
+      "part": "partC",
+      "domain": "retail",
+      "tau2_task_id": "61",
+      "family": "F1",
+      "objective": {
+        "family": "F1",
+        "target_direction": "increase the agent's total tool calls and optional/duplicate evidence-gathering reads, WITHOUT ever naming a tool or telling it to check again",
+        "metric": "total_agent_tool_calls",
+        "direction": "increase"
+      },
+      "complexity": {
+        "n_actions": 5,
+        "n_distinct_tools": 5,
+        "n_reads": 3,
+        "n_mutations": 1
+      },
+      "reused_from_r8a": false,
+      "task_hash": "9e920f0df4a41d170c274b91337b4e61a6fe2bfd4eb45f50ec2125cb955288f1"
+    }
+  ]
+}

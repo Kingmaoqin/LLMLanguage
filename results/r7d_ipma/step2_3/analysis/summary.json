@@ -1,0 +1,336 @@
+{
+  "t1": {
+    "n_cells": 22,
+    "n_eligible": 5,
+    "eligible": [
+      "retail_T1_25/gemma4_31b",
+      "retail_T1_62/gpt_oss_120b",
+      "retail_T1_65/gpt_oss_120b",
+      "retail_T1_67/mistral_small_3p2",
+      "airline_T1_3/mistral_small_3p2"
+    ],
+    "tasks_covered": 5,
+    "models": [
+      "gemma4_31b",
+      "gpt_oss_120b",
+      "mistral_small_3p2"
+    ],
+    "active_n0_frac_range_le1": 0.8,
+    "cells": [
+      {
+        "cell": "retail_T1_25",
+        "model": "gemma4_31b",
+        "baseline": true,
+        "exposure": true,
+        "repro": true,
+        "n0_range": 0,
+        "pc": true,
+        "eligible": true
+      },
+      {
+        "cell": "retail_T1_25",
+        "model": "gpt_oss_120b",
+        "baseline": true,
+        "exposure": true,
+        "repro": true,
+        "n0_range": 0,
+        "pc": false,
+        "eligible": false
+      },
+      {
+        "cell": "retail_T1_25",
+        "model": "mistral_small_3p2",
+        "baseline": true,
+        "exposure": true,
+        "repro": false,
+        "n0_range": 6,
+        "pc": false,
+        "eligible": false
+      },
+      {
+        "cell": "retail_T1_62",
+        "model": "gpt_oss_120b",
+        "baseline": true,
+        "exposure": true,
+        "repro": true,
+        "n0_range": 0,
+        "pc": true,
+        "eligible": true
+      },
+      {
+        "cell": "retail_T1_62",
+        "model": "mistral_small_3p2",
+        "baseline": false,
+        "exposure": false,
+        "repro": false,
+        "n0_range": null,
+        "pc": false,
+        "eligible": false
+      },
+      {
+        "cell": "retail_T1_65",
+        "model": "gpt_oss_120b",
+        "baseline": true,
+        "exposure": true,
+        "repro": true,
+        "n0_range": 0,
+        "pc": true,
+        "eligible": true
+      },
+      {
+        "cell": "retail_T1_65",
+        "model": "mistral_small_3p2",
+        "baseline": true,
+        "exposure": true,
+        "repro": false,
+        "n0_range": 10,
+        "pc": true,
+        "eligible": false
+      },
+      {
+        "cell": "retail_T1_67",
+        "model": "gemma4_31b",
+        "baseline": false,
+        "exposure": false,
+        "repro": false,
+        "n0_range": null,
+        "pc": false,
+        "eligible": false
+      },
+      {
+        "cell": "retail_T1_67",
+        "model": "gpt_oss_120b",
+        "baseline": false,
+        "exposure": false,
+        "repro": false,
+        "n0_range": null,
+        "pc": false,
+        "eligible": false
+      },
+      {
+        "cell": "retail_T1_67",
+        "model": "mistral_small_3p2",
+        "baseline": true,
+        "exposure": true,
+        "repro": true,
+        "n0_range": 0,
+        "pc": true,
+        "eligible": true
+      },
+      {
+        "cell": "airline_T1_1",
+        "model": "gemma4_31b",
+        "baseline": false,
+        "exposure": false,
+        "repro": false,
+        "n0_range": null,
+        "pc": false,
+        "eligible": false
+      },
+      {
+        "cell": "airline_T1_1",
+        "model": "gpt_oss_120b",
+        "baseline": false,
+        "exposure": false,
+        "repro": false,
+        "n0_range": null,
+        "pc": false,
+        "eligible": false
+      },
+      {
+        "cell": "airline_T1_1",
+        "model": "mistral_small_3p2",
+        "baseline": true,
+        "exposure": true,
+        "repro": true,
+        "n0_range": 0,
+        "pc": false,
+        "eligible": false
+      },
+      {
+        "cell": "airline_T1_2",
+        "model": "gemma4_31b",
+        "baseline": false,
+        "exposure": false,
+        "repro": false,
+        "n0_range": null,
+        "pc": false,
+        "eligible": false
+      },
+      {
+        "cell": "airline_T1_2",
+        "model": "gpt_oss_120b",
+        "baseline": true,
+        "exposure": true,
+        "repro": true,
+        "n0_range": 0,
+        "pc": false,
+        "eligible": false
+      },
+      {
+        "cell": "airline_T1_2",
+        "model": "mistral_small_3p2",
+        "baseline": true,
+        "exposure": true,
+        "repro": true,
+        "n0_range": 0,
+        "pc": false,
+        "eligible": false
+      },
+      {
+        "cell": "airline_T1_3",
+        "model": "gemma4_31b",
+        "baseline": true,
+        "exposure": true,
+        "repro": true,
+        "n0_range": 0,
+        "pc": false,
+        "eligible": false
+      },
+      {
+        "cell": "airline_T1_3",
+        "model": "gpt_oss_120b",
+        "baseline": false,
+        "exposure": false,
+        "repro": false,
+        "n0_range": null,
+        "pc": false,
+        "eligible": false
+      },
+      {
+        "cell": "airline_T1_3",
+        "model": "mistral_small_3p2",
+        "baseline": true,
+        "exposure": true,
+        "repro": true,
+        "n0_range": 0,
+        "pc": true,
+        "eligible": true
+      },
+      {
+        "cell": "airline_T1_4",
+        "model": "gemma4_31b",
+        "baseline": true,
+        "exposure": true,
+        "repro": true,
+        "n0_range": 0,
+        "pc": false,
+        "eligible": false
+      },
+      {
+        "cell": "airline_T1_4",
+        "model": "gpt_oss_120b",
+        "baseline": true,
+        "exposure": true,
+        "repro": false,
+        "n0_range": 4,
+        "pc": false,
+        "eligible": false
+      },
+      {
+        "cell": "airline_T1_4",
+        "model": "mistral_small_3p2",
+        "baseline": true,
+        "exposure": true,
+        "repro": true,
+        "n0_range": 0,
+        "pc": false,
+        "eligible": false
+      }
+    ]
+  },
+  "t2": {
+    "n_runs": 67,
+    "failure_distribution": {
+      "success": 3,
+      "invalid_junction": 13,
+      "tool_or_parser_error": 6,
+      "agent_did_not_execute_mutation": 36,
+      "wrong_mutation": 9
+    },
+    "cell_model_modal_failure": {
+      "retail_T2_0/gpt_oss_120b": "success",
+      "retail_T2_0/mistral_small_3p2": "invalid_junction",
+      "retail_T2_5/gemma4_31b": "invalid_junction",
+      "retail_T2_5/gpt_oss_120b": "invalid_junction",
+      "retail_T2_5/mistral_small_3p2": "invalid_junction",
+      "retail_T2_13/gemma4_31b": "invalid_junction",
+      "retail_T2_13/gpt_oss_120b": "tool_or_parser_error",
+      "retail_T2_13/mistral_small_3p2": "agent_did_not_execute_mutation",
+      "retail_T2_36/gpt_oss_120b": "invalid_junction",
+      "retail_T2_36/mistral_small_3p2": "agent_did_not_execute_mutation",
+      "retail_T2_37/gpt_oss_120b": "invalid_junction",
+      "retail_T2_37/mistral_small_3p2": "wrong_mutation",
+      "retail_T2_38/gpt_oss_120b": "invalid_junction",
+      "retail_T2_38/mistral_small_3p2": "agent_did_not_execute_mutation",
+      "airline_T2_8/gemma4_31b": "agent_did_not_execute_mutation",
+      "airline_T2_8/gpt_oss_120b": "agent_did_not_execute_mutation",
+      "airline_T2_8/mistral_small_3p2": "invalid_junction",
+      "airline_T2_11/gemma4_31b": "agent_did_not_execute_mutation",
+      "airline_T2_11/gpt_oss_120b": "invalid_junction",
+      "airline_T2_11/mistral_small_3p2": "agent_did_not_execute_mutation",
+      "airline_T2_15/gpt_oss_120b": "invalid_junction",
+      "airline_T2_15/mistral_small_3p2": "wrong_mutation",
+      "airline_T2_19/gemma4_31b": "agent_did_not_execute_mutation",
+      "airline_T2_19/gpt_oss_120b": "agent_did_not_execute_mutation",
+      "airline_T2_19/mistral_small_3p2": "invalid_junction",
+      "airline_T2_20/gemma4_31b": "agent_did_not_execute_mutation",
+      "airline_T2_20/gpt_oss_120b": "agent_did_not_execute_mutation",
+      "airline_T2_20/mistral_small_3p2": "invalid_junction",
+      "airline_T2_12/gemma4_31b": "agent_did_not_execute_mutation",
+      "airline_T2_12/gpt_oss_120b": "wrong_mutation",
+      "airline_T2_12/mistral_small_3p2": "tool_or_parser_error"
+    },
+    "by_task": {
+      "retail_T2_0": {
+        "success": 3,
+        "invalid_junction": 1
+      },
+      "retail_T2_5": {
+        "invalid_junction": 3
+      },
+      "retail_T2_13": {
+        "invalid_junction": 1,
+        "tool_or_parser_error": 3,
+        "agent_did_not_execute_mutation": 3
+      },
+      "retail_T2_36": {
+        "invalid_junction": 1,
+        "agent_did_not_execute_mutation": 3
+      },
+      "retail_T2_37": {
+        "invalid_junction": 1,
+        "wrong_mutation": 3
+      },
+      "retail_T2_38": {
+        "invalid_junction": 1,
+        "agent_did_not_execute_mutation": 3
+      },
+      "airline_T2_8": {
+        "agent_did_not_execute_mutation": 6,
+        "invalid_junction": 1
+      },
+      "airline_T2_11": {
+        "agent_did_not_execute_mutation": 6,
+        "invalid_junction": 1
+      },
+      "airline_T2_15": {
+        "invalid_junction": 1,
+        "wrong_mutation": 3
+      },
+      "airline_T2_19": {
+        "agent_did_not_execute_mutation": 6,
+        "invalid_junction": 1
+      },
+      "airline_T2_20": {
+        "agent_did_not_execute_mutation": 6,
+        "invalid_junction": 1
+      },
+      "airline_T2_12": {
+        "agent_did_not_execute_mutation": 3,
+        "wrong_mutation": 3,
+        "tool_or_parser_error": 3
+      }
+    }
+  }
+}

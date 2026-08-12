@@ -1,0 +1,83 @@
+[
+  {
+    "case_id": "ANON_R6_01_119bb47f0876",
+    "condition_blind_codes": {
+      "X": "neutral_clean",
+      "Y": "insult_strong_clean"
+    },
+    "condition_blind_note": "Mapping retained here for audit; reviewer inputs must remove this mapping.",
+    "external_state_hash_equal": true,
+    "tool_name_sequence_distance": 1.0,
+    "X": [
+      {
+        "position": 0,
+        "tool": "get_reservation_details",
+        "argument_keys": [
+          "reservation_id"
+        ],
+        "stage": "lookup_retrieval",
+        "tool_error": true
+      }
+    ],
+    "Y": [],
+    "source_hashes": {
+      "X": "d97a06e88d402a567f7efa561ee2c501e51a73725ed361fc06a0321886cd9f3b",
+      "Y": "7ec6c838ea753a4afa957da1615b9ca23aed01793d489ccb8dc8e1012da37b25"
+    },
+    "privacy": "Argument values and conversation text omitted; task/model/seed replaced by salted case ID."
+  },
+  {
+    "case_id": "ANON_R6_02_762dd087c791",
+    "condition_blind_codes": {
+      "X": "neutral_clean",
+      "Y": "insult_strong_clean"
+    },
+    "condition_blind_note": "Mapping retained here for audit; reviewer inputs must remove this mapping.",
+    "external_state_hash_equal": true,
+    "tool_name_sequence_distance": 1.0,
+    "X": [
+      {
+        "position": 0,
+        "tool": "get_reservation_details",
+        "argument_keys": [
+          "reservation_id"
+        ],
+        "stage": "lookup_retrieval",
+        "tool_error": true
+      }
+    ],
+    "Y": [],
+    "source_hashes": {
+      "X": "5d408aacd4ecb876f8a320f81f143fa3889a3d6d3c5e4cf633b560f9f4c961a6",
+      "Y": "29241a8c65e59422bef24de4abf66086cedd8255f006d34220b5889fa32d9efe"
+    },
+    "privacy": "Argument values and conversation text omitted; task/model/seed replaced by salted case ID."
+  },
+  {
+    "case_id": "ANON_R6_03_98ebe3573d66",
+    "condition_blind_codes": {
+      "X": "neutral_clean",
+      "Y": "insult_strong_clean"
+    },
+    "condition_blind_note": "Mapping retained here for audit; reviewer inputs must remove this mapping.",
+    "external_state_hash_equal": true,
+    "tool_name_sequence_distance": 1.0,
+    "X": [
+      {
+        "position": 0,
+        "tool": "get_reservation_details",
+        "argument_keys": [
+          "reservation_id"
+        ],
+        "stage": "lookup_retrieval",
+        "tool_error": true
+      }
+    ],
+    "Y": [],
+    "source_hashes": {
+      "X": "5d791aa24b8ac31eaa4f3f6037b6051d683a0096273259562282f5f548869e37",
+      "Y": "b004f67da8e54b383ffa84d953f1b47d2f22e9486f08da27632acbcc14109b8a"
+    },
+    "privacy": "Argument values and conversation text omitted; task/model/seed replaced by salted case ID."
+  }
+]

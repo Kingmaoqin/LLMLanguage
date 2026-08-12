@@ -1,0 +1,87 @@
+{
+  "verdict": "PASS",
+  "allow_partial": true,
+  "checks": {
+    "expected_episodes": 2700,
+    "present_episodes": 2680,
+    "missing": 20,
+    "missing_frac": 0.0074,
+    "unexplained_missing": 0,
+    "duplicate_run_ids": 0,
+    "unexpected_run_ids": 0,
+    "reward_none": 0,
+    "reward_inconsistent": 0,
+    "hash_mismatch": 0,
+    "tool_count_double_impl_mismatch": 0,
+    "initial_db_leakage_tasks": 0,
+    "infra_error_files": 20,
+    "parse_failures": 0
+  },
+  "details": {
+    "missing_sample": [
+      "r8_airline_18_mistral_small_3p2_C0_rep0",
+      "r8_airline_23_mistral_small_3p2_C0_rep2",
+      "r8_airline_23_mistral_small_3p2_C3_rep1",
+      "r8_airline_32_mistral_small_3p2_C4_rep2",
+      "r8_airline_42_mistral_small_3p2_C0_rep4",
+      "r8_airline_8_mistral_small_3p2_C1_rep4",
+      "r8_airline_8_mistral_small_3p2_C3_rep1",
+      "r8_airline_8_mistral_small_3p2_C3_rep4",
+      "r8_retail_10_mistral_small_3p2_C0_rep2",
+      "r8_retail_10_mistral_small_3p2_C0_rep3",
+      "r8_retail_10_mistral_small_3p2_C0_rep4",
+      "r8_retail_20_mistral_small_3p2_C0_rep0",
+      "r8_retail_20_mistral_small_3p2_C2_rep0",
+      "r8_retail_20_mistral_small_3p2_C2_rep3",
+      "r8_retail_20_mistral_small_3p2_C2_rep4",
+      "r8_retail_20_mistral_small_3p2_C3_rep2",
+      "r8_retail_20_mistral_small_3p2_C3_rep3",
+      "r8_retail_20_mistral_small_3p2_C4_rep1",
+      "r8_retail_20_mistral_small_3p2_C4_rep2",
+      "r8_retail_20_mistral_small_3p2_C4_rep3"
+    ],
+    "unexplained_missing_sample": [],
+    "duplicate_run_ids": [],
+    "unexpected_sample": [],
+    "reward_none": [],
+    "reward_inconsistent": [],
+    "hash_mismatch": [],
+    "tool_count_mismatch": [],
+    "initial_db_leakage": {},
+    "infra_error_files": [
+      "results/r8_full_episode/traces/airline/18/mistral_small_3p2/C0/rep_0.error.json",
+      "results/r8_full_episode/traces/airline/23/mistral_small_3p2/C0/rep_2.error.json",
+      "results/r8_full_episode/traces/airline/23/mistral_small_3p2/C3/rep_1.error.json",
+      "results/r8_full_episode/traces/airline/32/mistral_small_3p2/C4/rep_2.error.json",
+      "results/r8_full_episode/traces/airline/42/mistral_small_3p2/C0/rep_4.error.json",
+      "results/r8_full_episode/traces/airline/8/mistral_small_3p2/C1/rep_4.error.json",
+      "results/r8_full_episode/traces/airline/8/mistral_small_3p2/C3/rep_1.error.json",
+      "results/r8_full_episode/traces/airline/8/mistral_small_3p2/C3/rep_4.error.json",
+      "results/r8_full_episode/traces/retail/10/mistral_small_3p2/C0/rep_2.error.json",
+      "results/r8_full_episode/traces/retail/10/mistral_small_3p2/C0/rep_3.error.json",
+      "results/r8_full_episode/traces/retail/10/mistral_small_3p2/C0/rep_4.error.json",
+      "results/r8_full_episode/traces/retail/20/mistral_small_3p2/C0/rep_0.error.json",
+      "results/r8_full_episode/traces/retail/20/mistral_small_3p2/C2/rep_0.error.json",
+      "results/r8_full_episode/traces/retail/20/mistral_small_3p2/C2/rep_3.error.json",
+      "results/r8_full_episode/traces/retail/20/mistral_small_3p2/C2/rep_4.error.json",
+      "results/r8_full_episode/traces/retail/20/mistral_small_3p2/C3/rep_2.error.json",
+      "results/r8_full_episode/traces/retail/20/mistral_small_3p2/C3/rep_3.error.json",
+      "results/r8_full_episode/traces/retail/20/mistral_small_3p2/C4/rep_1.error.json",
+      "results/r8_full_episode/traces/retail/20/mistral_small_3p2/C4/rep_2.error.json",
+      "results/r8_full_episode/traces/retail/20/mistral_small_3p2/C4/rep_3.error.json"
+    ],
+    "parse_failures": []
+  },
+  "selected_counts": {
+    "retail": {
+      "read": 6,
+      "single": 6,
+      "compound": 6
+    },
+    "airline": {
+      "read": 4,
+      "single": 4,
+      "compound": 10
+    }
+  }
+}

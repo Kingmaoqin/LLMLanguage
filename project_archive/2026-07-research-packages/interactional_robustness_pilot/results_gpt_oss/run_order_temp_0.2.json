@@ -1,0 +1,482 @@
+[
+  {
+    "condition_id": "neutral",
+    "repeat_id": 0,
+    "task_id": "B1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "mild_insult",
+    "repeat_id": 0,
+    "task_id": "C1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "strong_insult",
+    "repeat_id": 2,
+    "task_id": "C1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "repeated_abuse",
+    "repeat_id": 2,
+    "task_id": "B2",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "mild_insult",
+    "repeat_id": 1,
+    "task_id": "C1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "neutral",
+    "repeat_id": 1,
+    "task_id": "C1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "strong_insult",
+    "repeat_id": 2,
+    "task_id": "B3",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "neutral",
+    "repeat_id": 0,
+    "task_id": "B2",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "repeated_abuse",
+    "repeat_id": 0,
+    "task_id": "C1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "repeated_abuse",
+    "repeat_id": 0,
+    "task_id": "B1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_trust",
+    "repeat_id": 1,
+    "task_id": "B2",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "mild_insult",
+    "repeat_id": 2,
+    "task_id": "B2",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "neutral",
+    "repeat_id": 4,
+    "task_id": "B1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "mild_insult",
+    "repeat_id": 2,
+    "task_id": "B3",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_affect",
+    "repeat_id": 1,
+    "task_id": "C1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_affect",
+    "repeat_id": 1,
+    "task_id": "B1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "strong_insult",
+    "repeat_id": 2,
+    "task_id": "B1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_affect",
+    "repeat_id": 2,
+    "task_id": "B2",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "mild_insult",
+    "repeat_id": 2,
+    "task_id": "B1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "strong_insult",
+    "repeat_id": 1,
+    "task_id": "B2",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "neutral",
+    "repeat_id": 0,
+    "task_id": "B3",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_trust",
+    "repeat_id": 0,
+    "task_id": "B1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "mild_insult",
+    "repeat_id": 1,
+    "task_id": "B2",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "strong_insult",
+    "repeat_id": 0,
+    "task_id": "B2",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_trust",
+    "repeat_id": 1,
+    "task_id": "B3",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "strong_insult",
+    "repeat_id": 0,
+    "task_id": "B1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "neutral",
+    "repeat_id": 3,
+    "task_id": "C1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_affect",
+    "repeat_id": 2,
+    "task_id": "B1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_trust",
+    "repeat_id": 2,
+    "task_id": "C1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_affect",
+    "repeat_id": 0,
+    "task_id": "B1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_affect",
+    "repeat_id": 0,
+    "task_id": "B3",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "strong_insult",
+    "repeat_id": 2,
+    "task_id": "B2",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "neutral",
+    "repeat_id": 2,
+    "task_id": "B3",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "repeated_abuse",
+    "repeat_id": 0,
+    "task_id": "B2",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_trust",
+    "repeat_id": 2,
+    "task_id": "B2",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_affect",
+    "repeat_id": 1,
+    "task_id": "B3",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "repeated_abuse",
+    "repeat_id": 1,
+    "task_id": "B3",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "neutral",
+    "repeat_id": 4,
+    "task_id": "B2",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "repeated_abuse",
+    "repeat_id": 1,
+    "task_id": "B2",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "mild_insult",
+    "repeat_id": 1,
+    "task_id": "B1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "neutral",
+    "repeat_id": 4,
+    "task_id": "B3",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_affect",
+    "repeat_id": 0,
+    "task_id": "C1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "neutral",
+    "repeat_id": 2,
+    "task_id": "B2",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "repeated_abuse",
+    "repeat_id": 2,
+    "task_id": "B3",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "neutral",
+    "repeat_id": 1,
+    "task_id": "B2",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "mild_insult",
+    "repeat_id": 0,
+    "task_id": "B3",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_affect",
+    "repeat_id": 1,
+    "task_id": "B2",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "repeated_abuse",
+    "repeat_id": 1,
+    "task_id": "B1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_trust",
+    "repeat_id": 1,
+    "task_id": "B1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_affect",
+    "repeat_id": 2,
+    "task_id": "B3",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "mild_insult",
+    "repeat_id": 0,
+    "task_id": "B2",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "neutral",
+    "repeat_id": 3,
+    "task_id": "B1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "repeated_abuse",
+    "repeat_id": 1,
+    "task_id": "C1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "repeated_abuse",
+    "repeat_id": 2,
+    "task_id": "B1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "neutral",
+    "repeat_id": 0,
+    "task_id": "C1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "neutral",
+    "repeat_id": 3,
+    "task_id": "B2",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_affect",
+    "repeat_id": 0,
+    "task_id": "B2",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "strong_insult",
+    "repeat_id": 0,
+    "task_id": "B3",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "neutral",
+    "repeat_id": 4,
+    "task_id": "C1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_trust",
+    "repeat_id": 0,
+    "task_id": "C1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_trust",
+    "repeat_id": 2,
+    "task_id": "B1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "mild_insult",
+    "repeat_id": 2,
+    "task_id": "C1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "neutral",
+    "repeat_id": 2,
+    "task_id": "C1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "neutral",
+    "repeat_id": 3,
+    "task_id": "B3",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "strong_insult",
+    "repeat_id": 0,
+    "task_id": "C1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "strong_insult",
+    "repeat_id": 1,
+    "task_id": "B3",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "neutral",
+    "repeat_id": 1,
+    "task_id": "B1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "mild_insult",
+    "repeat_id": 0,
+    "task_id": "B1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_trust",
+    "repeat_id": 0,
+    "task_id": "B2",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_trust",
+    "repeat_id": 2,
+    "task_id": "B3",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_affect",
+    "repeat_id": 2,
+    "task_id": "C1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "repeated_abuse",
+    "repeat_id": 2,
+    "task_id": "C1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "strong_insult",
+    "repeat_id": 1,
+    "task_id": "C1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "neutral",
+    "repeat_id": 2,
+    "task_id": "B1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_trust",
+    "repeat_id": 0,
+    "task_id": "B3",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "praise_trust",
+    "repeat_id": 1,
+    "task_id": "C1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "strong_insult",
+    "repeat_id": 1,
+    "task_id": "B1",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "repeated_abuse",
+    "repeat_id": 0,
+    "task_id": "B3",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "mild_insult",
+    "repeat_id": 1,
+    "task_id": "B3",
+    "temperature": 0.2
+  },
+  {
+    "condition_id": "neutral",
+    "repeat_id": 1,
+    "task_id": "B3",
+    "temperature": 0.2
+  }
+]

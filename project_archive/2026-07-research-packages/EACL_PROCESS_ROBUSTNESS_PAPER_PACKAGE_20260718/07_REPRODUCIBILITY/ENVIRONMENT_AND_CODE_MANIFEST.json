@@ -1,0 +1,88 @@
+{
+  "manifest_version": "1.0",
+  "audit_mode": "read-only source audit; offline deterministic analysis only",
+  "source_root": "/home/xqin5/llmlanguage",
+  "package_root": "/home/xqin5/llmlanguage/EACL_PROCESS_ROBUSTNESS_PAPER_PACKAGE_20260718",
+  "audit_started_at": "2026-07-18T22:31:43-05:00",
+  "package_created_at": "2026-07-18T22:35:44-05:00",
+  "timezone": "America/Chicago",
+  "host": "dhai.bme.e.uh.edu",
+  "os": "Linux 5.15.0-179-generic x86_64 GNU/Linux",
+  "python": {
+    "version": "3.12.7",
+    "executable_family": "system Anaconda Python",
+    "new_dependencies_installed": false
+  },
+  "source_snapshot": {
+    "files": 26760,
+    "bytes": 6297434484,
+    "trace_like_paths_indexed": 17119,
+    "core_source_files_copied": 22,
+    "inventory": "../01_INVENTORY/ASSET_INVENTORY.csv",
+    "source_manifest": "../01_INVENTORY/SOURCE_MANIFEST.json"
+  },
+  "repositories": [
+    {
+      "path": "/home/xqin5/llmlanguage/ir_mstu_stage2",
+      "head": "2656abe402af844a71f95d288d6f1fcb475135c9",
+      "branch": "r7d-construct-causal-rebuild",
+      "dirty": true,
+      "tracked_changes": 1,
+      "git_status_line_count": 154,
+      "untracked_status_lines": 153,
+      "tracked_change": "scripts/r7d_ipma/step2_3/analyze_2_3.py",
+      "note": "Dirty/untracked state pre-existed this audit and was not modified."
+    },
+    {
+      "path": "/home/xqin5/llmlanguage/ir_mstu_stage2_mvep_v1",
+      "head": "408f4796b6fa2824c298b678c0d1f494c9a96a88",
+      "branch": "r7d-mvep-remediation-v1",
+      "dirty": true,
+      "tracked_changes": 0,
+      "git_status_line_count": 27,
+      "untracked_status_lines": 27,
+      "untracked_root": "results/r7d_ipma/mvep/",
+      "note": "Git-file worktree; not treated as independent replication."
+    }
+  ],
+  "generated_code": [
+    {
+      "path": "../10_SCRIPTS/build_inventory.py",
+      "sha256": "547914257e9edcef75abefb5723feb50515aeaac5f405b55bfe7d2d4e5770675",
+      "purpose": "source inventory and SHA-256 manifest"
+    },
+    {
+      "path": "../10_SCRIPTS/offline_reanalysis.py",
+      "sha256": "15fdcafeb4ce1357f500dac49f632fa346e9c584df58bbc2f1b4423fe84c8e04",
+      "purpose": "R6/R8 parsing, paired metrics, placebo calibration, claim matrix and trace index"
+    },
+    {
+      "path": "../10_SCRIPTS/construct_blind_review_inputs.py",
+      "sha256": "9750fa766162929c7ed09c4bcff99170d9c0a1aa01dd1ddfb91dc074e35c3e17",
+      "purpose": "condition-blind A/B input construction; no reviewer invocation"
+    }
+  ],
+  "review_schema": {
+    "path": "../06_EVALUATORS/dual_review_output.schema.json",
+    "sha256": "1b85e7c12de3ee8314bca0e669d6ca232bceb9bdf231c3e0edbff676568fddc8"
+  },
+  "randomness": {
+    "offline_analysis": "fixed seeds embedded in script",
+    "review_input_seeds": [2026071801, 2026071802]
+  },
+  "prohibited_actions_confirmation": {
+    "new_model_endpoint_started": false,
+    "new_agent_rollout": false,
+    "remote_llm_called": false,
+    "gpu_model_called": false,
+    "dual_ai_review_executed": false,
+    "source_files_modified": false
+  },
+  "known_non_reproducible_components": [
+    "historical remote model serving environment",
+    "served-tokenizer accounting for all protocols",
+    "R6 tau2 field-level correctness",
+    "semantic safety/privacy labels",
+    "temporary or reverted external writes when absent from traces"
+  ]
+}

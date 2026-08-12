@@ -1,0 +1,8 @@
+dimension,level,metric,n_tasks,effect,ci_low,ci_high,p,interaction_test,interaction_p
+model,gemma4_31b,tool_name_distance,36,0.14273787244338182,0.08804942579507931,0.2022585802013831,9.999000099990002e-05,descriptive stratum; formal test below,
+model,gpt_oss_120b,tool_name_distance,36,0.0624252407549509,-0.0005179626767489178,0.14154753864962197,0.09429057094290572,descriptive stratum; formal test below,
+model,mistral_small_3p2,tool_name_distance,36,0.051196884994284625,0.009662103573135806,0.09402168836861483,0.025197480251974803,descriptive stratum; formal test below,
+model,OMNIBUS_INTERACTION,tool_name_distance,36,,,,,Friedman paired task interaction omnibus,0.12185845595422101
+domain,airline,tool_name_distance,18,0.1078301436645732,0.05978736681513532,0.15697248606280884,0.0006999300069993001,descriptive stratum; formal test below,
+domain,retail,tool_name_distance,18,0.0634216328938551,0.016511680127999577,0.11902721283346279,0.019998000199980003,descriptive stratum; formal test below,
+domain,OMNIBUS_INTERACTION,tool_name_distance,0,,,,,paired Wilcoxon task interaction,

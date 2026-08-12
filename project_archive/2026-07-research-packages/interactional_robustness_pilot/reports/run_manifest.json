@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "run_experiment.py",
+    "--config",
+    "config.yaml",
+    "--temperature",
+    "0.2",
+    "--subset",
+    "B1",
+    "B2",
+    "B3",
+    "C1"
+  ],
+  "package_versions": {
+    "PyYAML": "6.0.3",
+    "matplotlib": "3.9.2",
+    "numpy": "1.26.4",
+    "pandas": "3.0.3"
+  },
+  "randomization_seed": 20260602,
+  "subset": [
+    "B1",
+    "B2",
+    "B3",
+    "C1"
+  ],
+  "temperature": 0.2
+}

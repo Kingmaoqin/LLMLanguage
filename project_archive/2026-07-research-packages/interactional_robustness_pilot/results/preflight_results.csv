@@ -1,0 +1,13 @@
+run_id,model_alias,protocol,temperature,tool_call_emitted,json_parseable,schema_valid,arguments_match_schema,unexpected_tool_called,final_response_incorporated_tool_result,error
+preflight_qwen_native_tool_calls_0,qwen,native_tool_calls,0.0,True,True,True,True,False,True,
+preflight_qwen_native_tool_calls_1,qwen,native_tool_calls,0.0,True,True,True,True,False,True,
+preflight_qwen_native_tool_calls_2,qwen,native_tool_calls,0.0,True,True,True,True,False,True,
+preflight_qwen_native_tool_calls_3,qwen,native_tool_calls,0.2,True,True,True,True,False,True,
+preflight_qwen_native_tool_calls_4,qwen,native_tool_calls,0.2,True,True,True,True,False,True,
+preflight_qwen_native_tool_calls_5,qwen,native_tool_calls,0.2,True,True,True,True,False,True,
+preflight_gpt_oss_native_tool_calls_0,gpt_oss,native_tool_calls,0.0,True,True,True,True,False,True,
+preflight_gpt_oss_native_tool_calls_1,gpt_oss,native_tool_calls,0.0,True,True,True,True,False,True,
+preflight_gpt_oss_native_tool_calls_2,gpt_oss,native_tool_calls,0.0,True,True,True,True,False,True,
+preflight_gpt_oss_native_tool_calls_3,gpt_oss,native_tool_calls,0.2,True,True,True,True,False,True,
+preflight_gpt_oss_native_tool_calls_4,gpt_oss,native_tool_calls,0.2,True,True,True,True,False,True,
+preflight_gpt_oss_native_tool_calls_5,gpt_oss,native_tool_calls,0.2,True,True,True,True,False,True,

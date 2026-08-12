@@ -1,0 +1,24 @@
+models:
+- model_alias: qwen
+  base_url: http://127.0.0.1:8000/v1
+  model_id: Qwen2.5-7B-Instruct
+  api_key: EMPTY
+  serving_backend: unknown
+  supports_seed: true
+  supports_usage: true
+  supports_tool_calls: true
+  tool_protocol: native_tool_calls
+  preflight_passed: true
+  notes: 'Detected model IDs: [''Qwen2.5-7B-Instruct'']; native tool preflight valid
+    6/6'
+- model_alias: gpt_oss
+  base_url: http://127.0.0.1:8002/v1
+  model_id: gpt-oss-120b
+  api_key: EMPTY
+  serving_backend: unknown
+  supports_seed: true
+  supports_usage: true
+  supports_tool_calls: true
+  tool_protocol: native_tool_calls
+  preflight_passed: true
+  notes: 'Detected model IDs: [''gpt-oss-120b'']; native tool preflight valid 6/6'

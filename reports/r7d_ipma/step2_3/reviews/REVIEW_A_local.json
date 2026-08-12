@@ -1,0 +1,31 @@
+{
+  "verdicts": [
+    {
+      "id": "A1",
+      "verdict": "PASS",
+      "note": "Eligibility logic is computed solely from N0, N1, and P branches as shown in the analysis script, with no reference to any Treatment‑A outcomes."
+    },
+    {
+      "id": "A2",
+      "verdict": "PASS",
+      "note": "The four gates (baseline reward, exposure, reproducibility, positive‑control) are implemented exactly as described and the eligibility table shows they were applied without using any other information."
+    },
+    {
+      "id": "A3",
+      "verdict": "PASS",
+      "note": "The selection_basis field for every cell states \"official scorer + task type; blind, NOT PASR/mid‑phase,\" confirming a blind pool construction."
+    },
+    {
+      "id": "A4",
+      "verdict": "PARTIAL",
+      "note": "The data confirm that only 5 eligible cells (covering 5 tasks) were obtained and no T2 cells qualified, but the claim that the positive‑control gate alone is the bottleneck is not fully substantiated; reproducibility also rejects many model‑task combos."
+    }
+  ],
+  "overall": "The evidence largely supports the authors' honest conclusion that the expansion failed to meet the eligibility targets, though the attribution of the bottleneck to the positive‑control gate alone is only partially justified.",
+  "biggest_concern": "The statement that the positive‑control gate, not reproducibility, is the sole limiting factor is not fully backed by the presented diagnostics.",
+  "_meta": {
+    "reviewer": "A",
+    "model": "gpt-oss",
+    "endpoint": "http://127.0.0.1:8192/v1"
+  }
+}

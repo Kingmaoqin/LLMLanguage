@@ -1,0 +1,1065 @@
+[
+  {
+    "cell": "retail_T1_25",
+    "model": "gemma4_31b",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "retail_T1_25",
+    "model": "gpt_oss_120b",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "retail_T1_25",
+    "model": "mistral_small_3p2",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "retail_T1_62",
+    "model": "gemma4_31b",
+    "stratum": "T1",
+    "junction_found": false,
+    "proof": null,
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "retail_T1_62",
+    "model": "gpt_oss_120b",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "retail_T1_62",
+    "model": "mistral_small_3p2",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "retail_T1_65",
+    "model": "gemma4_31b",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "retail_T1_65",
+    "model": "gpt_oss_120b",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "retail_T1_65",
+    "model": "mistral_small_3p2",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "retail_T1_67",
+    "model": "gemma4_31b",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "retail_T1_67",
+    "model": "gpt_oss_120b",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "retail_T1_67",
+    "model": "mistral_small_3p2",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "airline_T1_1",
+    "model": "gemma4_31b",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "airline_T1_1",
+    "model": "gpt_oss_120b",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "airline_T1_1",
+    "model": "mistral_small_3p2",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "airline_T1_2",
+    "model": "gemma4_31b",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "airline_T1_2",
+    "model": "gpt_oss_120b",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "airline_T1_2",
+    "model": "mistral_small_3p2",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "airline_T1_3",
+    "model": "gemma4_31b",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "airline_T1_3",
+    "model": "gpt_oss_120b",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "airline_T1_3",
+    "model": "mistral_small_3p2",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "airline_T1_4",
+    "model": "gemma4_31b",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "airline_T1_4",
+    "model": "gpt_oss_120b",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "airline_T1_4",
+    "model": "mistral_small_3p2",
+    "stratum": "T1",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T1",
+      "reads_done": 0,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": false,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": ">=2 reads become possible only after the reply",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T1: agent requesting a required fact before any substantive read"
+    },
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "retail_T2_0",
+    "model": "gemma4_31b",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 4,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 4
+  },
+  {
+    "cell": "retail_T2_0",
+    "model": "gpt_oss_120b",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 4,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": false,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 4
+  },
+  {
+    "cell": "retail_T2_0",
+    "model": "mistral_small_3p2",
+    "stratum": "T2",
+    "junction_found": false,
+    "proof": null,
+    "reads_at_junction": 4
+  },
+  {
+    "cell": "retail_T2_5",
+    "model": "gemma4_31b",
+    "stratum": "T2",
+    "junction_found": false,
+    "proof": null,
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "retail_T2_5",
+    "model": "gpt_oss_120b",
+    "stratum": "T2",
+    "junction_found": false,
+    "proof": null,
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "retail_T2_5",
+    "model": "mistral_small_3p2",
+    "stratum": "T2",
+    "junction_found": false,
+    "proof": null,
+    "reads_at_junction": 2
+  },
+  {
+    "cell": "retail_T2_13",
+    "model": "gemma4_31b",
+    "stratum": "T2",
+    "junction_found": false,
+    "proof": null,
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "retail_T2_13",
+    "model": "gpt_oss_120b",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 4,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 4
+  },
+  {
+    "cell": "retail_T2_13",
+    "model": "mistral_small_3p2",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 3,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": false,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 3
+  },
+  {
+    "cell": "retail_T2_36",
+    "model": "gemma4_31b",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 3,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 3
+  },
+  {
+    "cell": "retail_T2_36",
+    "model": "gpt_oss_120b",
+    "stratum": "T2",
+    "junction_found": false,
+    "proof": null,
+    "reads_at_junction": 1
+  },
+  {
+    "cell": "retail_T2_36",
+    "model": "mistral_small_3p2",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 3,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 3
+  },
+  {
+    "cell": "retail_T2_37",
+    "model": "gemma4_31b",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 3,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 3
+  },
+  {
+    "cell": "retail_T2_37",
+    "model": "gpt_oss_120b",
+    "stratum": "T2",
+    "junction_found": false,
+    "proof": null,
+    "reads_at_junction": 1
+  },
+  {
+    "cell": "retail_T2_37",
+    "model": "mistral_small_3p2",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 4,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": false,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 4
+  },
+  {
+    "cell": "retail_T2_38",
+    "model": "gemma4_31b",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 3,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 3
+  },
+  {
+    "cell": "retail_T2_38",
+    "model": "gpt_oss_120b",
+    "stratum": "T2",
+    "junction_found": false,
+    "proof": null,
+    "reads_at_junction": 1
+  },
+  {
+    "cell": "retail_T2_38",
+    "model": "mistral_small_3p2",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 3,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 3
+  },
+  {
+    "cell": "airline_T2_8",
+    "model": "gemma4_31b",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 2,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 2
+  },
+  {
+    "cell": "airline_T2_8",
+    "model": "gpt_oss_120b",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 2,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 2
+  },
+  {
+    "cell": "airline_T2_8",
+    "model": "mistral_small_3p2",
+    "stratum": "T2",
+    "junction_found": false,
+    "proof": null,
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "airline_T2_11",
+    "model": "gemma4_31b",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 4,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 4
+  },
+  {
+    "cell": "airline_T2_11",
+    "model": "gpt_oss_120b",
+    "stratum": "T2",
+    "junction_found": false,
+    "proof": null,
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "airline_T2_11",
+    "model": "mistral_small_3p2",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 4,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 4
+  },
+  {
+    "cell": "airline_T2_15",
+    "model": "gemma4_31b",
+    "junction_found": false,
+    "error": "litellm.ContextWindowExceededError: litellm.BadRequestError: ContextWindowExceededError: OpenAIException - This model's "
+  },
+  {
+    "cell": "airline_T2_15",
+    "model": "gpt_oss_120b",
+    "stratum": "T2",
+    "junction_found": false,
+    "proof": null,
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "airline_T2_15",
+    "model": "mistral_small_3p2",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 5,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 5
+  },
+  {
+    "cell": "airline_T2_19",
+    "model": "gemma4_31b",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 4,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 4
+  },
+  {
+    "cell": "airline_T2_19",
+    "model": "gpt_oss_120b",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 2,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 2
+  },
+  {
+    "cell": "airline_T2_19",
+    "model": "mistral_small_3p2",
+    "stratum": "T2",
+    "junction_found": false,
+    "proof": null,
+    "reads_at_junction": 6
+  },
+  {
+    "cell": "airline_T2_20",
+    "model": "gemma4_31b",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 2,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 2
+  },
+  {
+    "cell": "airline_T2_20",
+    "model": "gpt_oss_120b",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 1,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 1
+  },
+  {
+    "cell": "airline_T2_20",
+    "model": "mistral_small_3p2",
+    "stratum": "T2",
+    "junction_found": false,
+    "proof": null,
+    "reads_at_junction": 0
+  },
+  {
+    "cell": "airline_T2_12",
+    "model": "gemma4_31b",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 6,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 6
+  },
+  {
+    "cell": "airline_T2_12",
+    "model": "gpt_oss_120b",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 3,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 3
+  },
+  {
+    "cell": "airline_T2_12",
+    "model": "mistral_small_3p2",
+    "stratum": "T2",
+    "junction_found": true,
+    "proof": {
+      "stratum": "T2",
+      "reads_done": 4,
+      "mutations_done": 0,
+      "agent_yielded_to_user": true,
+      "fact_requested": true,
+      "confirmation_asked": true,
+      "mutation_not_yet_done": true,
+      "endpoint_not_complete": true,
+      "exposure_expectation": "confirmation+mutation land in the suffix",
+      "junction_valid": true,
+      "dead": false,
+      "reason": "T2: natural confirmation node, evidence gathered, mutation not yet done"
+    },
+    "reads_at_junction": 4
+  }
+]

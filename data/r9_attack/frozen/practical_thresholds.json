@@ -1,0 +1,18 @@
+{
+  "dev_neutral_noise": {
+    "compression": {
+      "n": 12,
+      "neutral_mean": 11.083333333333334,
+      "neutral_sd": 9.93695403811226
+    },
+    "inflation": {
+      "n": 12,
+      "neutral_mean": 1.5,
+      "neutral_sd": 0.6373774391990981
+    }
+  },
+  "endpoint_risk_difference_min_pp": -5.0,
+  "frozen_before_test": true,
+  "relative_change_min": 0.2,
+  "standardized_effect_min": 0.5
+}

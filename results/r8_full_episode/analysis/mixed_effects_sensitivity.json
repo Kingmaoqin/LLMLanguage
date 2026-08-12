@@ -1,0 +1,87 @@
+{
+  "n_episodes": 2679,
+  "n_tasks": 36,
+  "reference_condition": "C1 (matched adaptive neutral)",
+  "role": "SENSITIVITY ONLY — does NOT replace the paired cluster-bootstrap / clustered-permutation primary (spec 12.2/12.3).",
+  "P1_reward": {
+    "model": "mixed-effects logistic (task random intercept)",
+    "formula": "reward_bin ~ condition + model + domain + task_type",
+    "fixed_effects": {
+      "condition[T.C0]": {
+        "coef_logodds": 1.2657534672031472,
+        "sd": 0.13845017699100157,
+        "z": 9.142302990955466
+      },
+      "condition[T.C2]": {
+        "coef_logodds": 0.15005558938240407,
+        "sd": 0.15418987417316177,
+        "z": 0.973187053865063
+      },
+      "condition[T.C3]": {
+        "coef_logodds": 0.26933642892921356,
+        "sd": 0.15258085100155344,
+        "z": 1.7652046581288985
+      },
+      "condition[T.C4]": {
+        "coef_logodds": -0.12006225815632836,
+        "sd": 0.1577966410009927,
+        "z": -0.7608670082880474
+      }
+    },
+    "method": "BinomialBayesMixedGLM.fit_vb (variational)"
+  },
+  "P2_tool_calls": {
+    "model": "count sensitivity for tool calls",
+    "formula": "total_agent_tool_calls ~ condition + model + domain + task_type",
+    "nb_alpha_estimated": 0.1095702172822337,
+    "negbin_glm_cluster_robust": {
+      "condition[T.C0]": {
+        "coef_log": 0.12108505681477155,
+        "se": 0.030465880566406044,
+        "p": 7.054268410432575e-05,
+        "irr": 1.1287209136901872
+      },
+      "condition[T.C2]": {
+        "coef_log": 0.056469606379893615,
+        "se": 0.024782033050560114,
+        "p": 0.022687814919673997,
+        "irr": 1.0580944549906004
+      },
+      "condition[T.C3]": {
+        "coef_log": 0.05832047165649806,
+        "se": 0.027539849362738313,
+        "p": 0.03420253642324642,
+        "irr": 1.0600546587536608
+      },
+      "condition[T.C4]": {
+        "coef_log": 0.08087162437024772,
+        "se": 0.030777599533031785,
+        "p": 0.008598624700130253,
+        "irr": 1.0842316987050262
+      }
+    },
+    "mixedlm_task_random_intercept": {
+      "condition[T.C0]": {
+        "coef_calls": 1.0396587465868674,
+        "se": 0.23139678620388118,
+        "p": 7.023678480698605e-06
+      },
+      "condition[T.C2]": {
+        "coef_calls": 0.47839894493069474,
+        "se": 0.23095753637998745,
+        "p": 0.03832405722944559
+      },
+      "condition[T.C3]": {
+        "coef_calls": 0.4762144386345052,
+        "se": 0.2311674977002491,
+        "p": 0.03939465635921167
+      },
+      "condition[T.C4]": {
+        "coef_calls": 0.6931485655262715,
+        "se": 0.23106690752802483,
+        "p": 0.0027017974788365756
+      }
+    },
+    "limitation": "statsmodels provides no negative-binomial MIXED model; the NB fit uses task-cluster-robust SEs and the mixed model uses a Gaussian approximation. Both are SENSITIVITY ONLY and do not replace the pre-registered paired bootstrap/permutation primary."
+  }
+}

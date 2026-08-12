@@ -1,0 +1,50 @@
+protocol,family,contrast,metric,n_pairs_total,n_pairs_evaluable,missing_rate,mean_delta,median_delta,positive_delta_rate,accounting_scope,claim_eligibility
+R6,pure_valence,praise_trust_vs_neutral,tool_calls,270,270,0.0,0.3925925925925926,0.0,0.3,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pure_valence,praise_trust_vs_neutral,unique_tool_calls,270,270,0.0,0.06296296296296296,0.0,0.15185185185185185,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pure_valence,praise_trust_vs_neutral,redundant_calls,270,270,0.0,0.16296296296296298,0.0,0.1037037037037037,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pure_valence,praise_trust_vs_neutral,mutations,270,270,0.0,0.07777777777777778,0.0,0.0962962962962963,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pure_valence,praise_trust_vs_neutral,token_delta,270,180,0.33333333333333337,838.3833333333333,38.5,0.6,prompt_plus_completion_or_agent_duration; minimal executor only for 1440/2160 rows,APPENDIX_ONLY_PARTIAL_ACCOUNTING
+R6,pure_valence,praise_trust_vs_neutral,duration_delta,270,180,0.33333333333333337,1.2846078197161357,0.2648817300796509,0.5833333333333334,prompt_plus_completion_or_agent_duration; minimal executor only for 1440/2160 rows,APPENDIX_ONLY_PARTIAL_ACCOUNTING
+R6,pure_valence,praise_trust_vs_neutral,final_db_hash_changed,270,270,0,0.08518518518518518,,0.08518518518518518,hash-only external-state comparison,SUPPORTED_DESCRIPTIVE_NOT_TASK_SUCCESS
+R6,pure_valence,insult_vs_neutral,tool_calls,270,270,0.0,-0.24444444444444444,0.0,0.15185185185185185,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pure_valence,insult_vs_neutral,unique_tool_calls,270,270,0.0,-0.2111111111111111,0.0,0.1037037037037037,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pure_valence,insult_vs_neutral,redundant_calls,270,270,0.0,0,0.0,0.025925925925925925,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pure_valence,insult_vs_neutral,mutations,270,270,0.0,-0.014814814814814815,0.0,0.07407407407407407,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pure_valence,insult_vs_neutral,token_delta,270,180,0.33333333333333337,-425.2888888888889,70.0,0.6055555555555555,prompt_plus_completion_or_agent_duration; minimal executor only for 1440/2160 rows,APPENDIX_ONLY_PARTIAL_ACCOUNTING
+R6,pure_valence,insult_vs_neutral,duration_delta,270,180,0.33333333333333337,0.4031091822518243,0.471108078956604,0.6166666666666667,prompt_plus_completion_or_agent_duration; minimal executor only for 1440/2160 rows,APPENDIX_ONLY_PARTIAL_ACCOUNTING
+R6,pure_valence,insult_vs_neutral,final_db_hash_changed,270,270,0,0.09259259259259259,,0.09259259259259259,hash-only external-state comparison,SUPPORTED_DESCRIPTIVE_NOT_TASK_SUCCESS
+R6,pure_valence,abuse_vs_neutral,tool_calls,270,270,0.0,-0.11481481481481481,0.0,0.15185185185185185,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pure_valence,abuse_vs_neutral,unique_tool_calls,270,270,0.0,-0.11481481481481481,0.0,0.09259259259259259,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pure_valence,abuse_vs_neutral,redundant_calls,270,270,0.0,0.03333333333333333,0.0,0.05185185185185185,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pure_valence,abuse_vs_neutral,mutations,270,270,0.0,0.007407407407407408,0.0,0.06666666666666667,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pure_valence,abuse_vs_neutral,token_delta,270,180,0.33333333333333337,-158.87777777777777,56.5,0.6,prompt_plus_completion_or_agent_duration; minimal executor only for 1440/2160 rows,APPENDIX_ONLY_PARTIAL_ACCOUNTING
+R6,pure_valence,abuse_vs_neutral,duration_delta,270,180,0.33333333333333337,0.7072815140088399,0.32297515869140625,0.55,prompt_plus_completion_or_agent_duration; minimal executor only for 1440/2160 rows,APPENDIX_ONLY_PARTIAL_ACCOUNTING
+R6,pure_valence,abuse_vs_neutral,final_db_hash_changed,270,270,0,0.07777777777777778,,0.07777777777777778,hash-only external-state comparison,SUPPORTED_DESCRIPTIVE_NOT_TASK_SUCCESS
+R6,pressure_factorial,neutral_pressure_vs_clean,tool_calls,270,270,0.0,0.4,0.0,0.27037037037037037,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pressure_factorial,neutral_pressure_vs_clean,unique_tool_calls,270,270,0.0,0.014814814814814815,0.0,0.1111111111111111,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pressure_factorial,neutral_pressure_vs_clean,redundant_calls,270,270,0.0,0.14074074074074075,0.0,0.07777777777777778,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pressure_factorial,neutral_pressure_vs_clean,mutations,270,270,0.0,0.03333333333333333,0.0,0.09259259259259259,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pressure_factorial,neutral_pressure_vs_clean,token_delta,270,180,0.33333333333333337,1328.2055555555555,115.5,0.7333333333333333,prompt_plus_completion_or_agent_duration; minimal executor only for 1440/2160 rows,APPENDIX_ONLY_PARTIAL_ACCOUNTING
+R6,pressure_factorial,neutral_pressure_vs_clean,duration_delta,270,180,0.33333333333333337,2.2352963672743904,0.5339264869689941,0.6,prompt_plus_completion_or_agent_duration; minimal executor only for 1440/2160 rows,APPENDIX_ONLY_PARTIAL_ACCOUNTING
+R6,pressure_factorial,neutral_pressure_vs_clean,final_db_hash_changed,270,270,0,0.0962962962962963,,0.0962962962962963,hash-only external-state comparison,SUPPORTED_DESCRIPTIVE_NOT_TASK_SUCCESS
+R6,pressure_factorial,praise_auth_vs_praise_clean,tool_calls,270,270,0.0,-0.2814814814814815,0.0,0.16666666666666666,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pressure_factorial,praise_auth_vs_praise_clean,unique_tool_calls,270,270,0.0,-0.11481481481481481,0.0,0.0962962962962963,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pressure_factorial,praise_auth_vs_praise_clean,redundant_calls,270,270,0.0,-0.1111111111111111,0.0,0.04814814814814815,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pressure_factorial,praise_auth_vs_praise_clean,mutations,270,270,0.0,-0.05925925925925926,0.0,0.07037037037037037,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pressure_factorial,praise_auth_vs_praise_clean,token_delta,270,180,0.33333333333333337,-613.1333333333333,12.5,0.5555555555555556,prompt_plus_completion_or_agent_duration; minimal executor only for 1440/2160 rows,APPENDIX_ONLY_PARTIAL_ACCOUNTING
+R6,pressure_factorial,praise_auth_vs_praise_clean,duration_delta,270,180,0.33333333333333337,-0.71712709930208,0.1421337127685547,0.5555555555555556,prompt_plus_completion_or_agent_duration; minimal executor only for 1440/2160 rows,APPENDIX_ONLY_PARTIAL_ACCOUNTING
+R6,pressure_factorial,praise_auth_vs_praise_clean,final_db_hash_changed,270,270,0,0.1,,0.1,hash-only external-state comparison,SUPPORTED_DESCRIPTIVE_NOT_TASK_SUCCESS
+R6,pressure_factorial,insult_urgency_vs_insult_clean,tool_calls,270,270,0.0,0.8,0.0,0.362962962962963,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pressure_factorial,insult_urgency_vs_insult_clean,unique_tool_calls,270,270,0.0,0.35555555555555557,0.0,0.26296296296296295,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pressure_factorial,insult_urgency_vs_insult_clean,redundant_calls,270,270,0.0,0.14444444444444443,0.0,0.11851851851851852,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pressure_factorial,insult_urgency_vs_insult_clean,mutations,270,270,0.0,0.12962962962962962,0.0,0.1111111111111111,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pressure_factorial,insult_urgency_vs_insult_clean,token_delta,270,180,0.33333333333333337,1655.8277777777778,46.5,0.5777777777777777,prompt_plus_completion_or_agent_duration; minimal executor only for 1440/2160 rows,APPENDIX_ONLY_PARTIAL_ACCOUNTING
+R6,pressure_factorial,insult_urgency_vs_insult_clean,duration_delta,270,180,0.33333333333333337,1.4857077121734619,0.10251188278198242,0.5166666666666667,prompt_plus_completion_or_agent_duration; minimal executor only for 1440/2160 rows,APPENDIX_ONLY_PARTIAL_ACCOUNTING
+R6,pressure_factorial,insult_urgency_vs_insult_clean,final_db_hash_changed,270,270,0,0.08148148148148149,,0.08148148148148149,hash-only external-state comparison,SUPPORTED_DESCRIPTIVE_NOT_TASK_SUCCESS
+R6,pressure_factorial,abuse_continuation_vs_abuse_clean,tool_calls,270,270,0.0,0.45185185185185184,0.0,0.3111111111111111,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pressure_factorial,abuse_continuation_vs_abuse_clean,unique_tool_calls,270,270,0.0,0.13703703703703704,0.0,0.18888888888888888,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pressure_factorial,abuse_continuation_vs_abuse_clean,redundant_calls,270,270,0.0,0.08148148148148149,0.0,0.1111111111111111,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pressure_factorial,abuse_continuation_vs_abuse_clean,mutations,270,270,0.0,0.05185185185185185,0.0,0.14444444444444443,complete_trace_counter,SUPPORTED_DESCRIPTIVE
+R6,pressure_factorial,abuse_continuation_vs_abuse_clean,token_delta,270,180,0.33333333333333337,996.9777777777778,83.0,0.5777777777777777,prompt_plus_completion_or_agent_duration; minimal executor only for 1440/2160 rows,APPENDIX_ONLY_PARTIAL_ACCOUNTING
+R6,pressure_factorial,abuse_continuation_vs_abuse_clean,duration_delta,270,180,0.33333333333333337,1.300510088602702,0.3239595890045166,0.5833333333333334,prompt_plus_completion_or_agent_duration; minimal executor only for 1440/2160 rows,APPENDIX_ONLY_PARTIAL_ACCOUNTING
+R6,pressure_factorial,abuse_continuation_vs_abuse_clean,final_db_hash_changed,270,270,0,0.14814814814814814,,0.14814814814814814,hash-only external-state comparison,SUPPORTED_DESCRIPTIVE_NOT_TASK_SUCCESS

@@ -1,0 +1,30 @@
+{
+  "review_type": "dual-independent-agent review (local vLLM; NOT human)",
+  "mode": "prerun_semantic",
+  "template_bank_hash": "0d6765eeb5aa36a47f9c86310b4015f2984bf69977f02d7d089f00fc579629ba",
+  "per_condition_samples": 100,
+  "blind_group_map": {
+    "G1": "C1",
+    "G2": "C2",
+    "G3": "C3",
+    "G4": "C4"
+  },
+  "reviewer_checks": {
+    "A": {
+      "status": "COMPLETE",
+      "contamination_total": 0,
+      "c3_urgency_gt_c1": true,
+      "c4_frustration_gt_c1": true,
+      "c1_no_pressure": true
+    },
+    "B": {
+      "status": "COMPLETE",
+      "contamination_total": 0,
+      "c3_urgency_gt_c1": true,
+      "c4_frustration_gt_c1": true,
+      "c1_no_pressure": true
+    }
+  },
+  "closed": true,
+  "requirement": "contamination=0; C3 urgency>C1; C4 frustration>C1; C1 no pressure"
+}

@@ -1,0 +1,9 @@
+internal_source,public_artifact,transformation,notes
+/home/xqin5/llmlanguage/ir_mstu_stage2/results/r8_full_episode/traces/**/rep_*.json,data/paper/trajectories/{airline,retail}.jsonl,"derive public EpisodeRecords; drop user-message text; pseudonymize all argument VALUES via a global equality-preserving map; rename conditions/models to semantic ids",2680 episodes; distances preserved bit-for-bit
+internal condition labels C0..C4,benchmark/conditions/conditions.jsonl + misroute/conditions/*,"C0->native_baseline, C1->matched_neutral, C2->static_urgency, C3->adaptive_urgency, C4->frustration",semantic names only
+internal model labels gemma4_31b/gpt_oss_120b/mistral_small_3p2,model_a/model_b/model_c,anonymized stable ids,served-label + 'not recovered' caveat documented in benchmark_card
+tier_a_strengthening/run_tier_a_strengthening.py (metric pipeline),misroute/ (schema,trajectories,metrics,placebo,robustness,mechanism),"clean reimplementation as a modular library; identical numeric semantics",reproduces frozen values exactly
+R8_C2 dossier frozen numbers (tables 1-6),paper/expected_results.json,"transcribe audited frozen values + tolerances",gated by reproduce-paper; recomputed == expected
+R8_C2 dossier lineage (upstream commit/license),benchmark/upstream_manifest.json + docs/upstream.md + NOTICE,"extract upstream project/commit/license/attribution",tau2-bench MIT
+tau2-bench airline/retail tasks/tools/policy/evaluator,docs/upstream.md + NOTICE + THIRD_PARTY_LICENSE_AUDIT.md,"attribution only; NOT vendored as source",derived records exercise them
+internal round terminology (R6-R9, Tier-A, C2 candidate),removed,"renamed to paper_v1 / joint-criterion / static_urgency / paper_reproduction",validate_release.py enforces absence

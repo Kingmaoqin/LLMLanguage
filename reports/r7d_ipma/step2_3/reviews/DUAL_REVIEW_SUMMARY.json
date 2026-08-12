@@ -1,0 +1,35 @@
+{
+  "review_type": "dual-independent-agent review (local vLLM endpoints; NOT human-validated)",
+  "phase": "R7-D Step 2.3 (final eligibility expansion + T2 failure decomposition)",
+  "reviewer_A": {
+    "model": "gpt-oss",
+    "endpoint": "http://127.0.0.1:8192/v1",
+    "scope": "T1 eligibility / construct / outcome-bias",
+    "verdicts": {
+      "A1_eligibility_only_from_N0N1P": "PASS",
+      "A2_four_gates_no_leakage": "PASS",
+      "A3_blind_pool_not_PASR": "PASS",
+      "A4_expansion_failed_bottleneck_is_PC": "PARTIAL(PC-gate is the largest filter among live-baseline cells but reproducibility and dead baselines also remove cells; attribution to PC alone not fully substantiated)"
+    }
+  },
+  "reviewer_B": {
+    "model": "mistral-small-3p2",
+    "endpoint": "http://127.0.0.1:8007/v1",
+    "scope": "T2 7-class decomposition / official scorer components / null-vs-artifact",
+    "verdicts": {
+      "B1_taxonomy_grounded_in_official_DB_and_COMMUNICATE": "PASS",
+      "B2_agent_did_not_execute_mutation_is_real": "PARTIAL(plausibly real but lacks direct per-run confirmation of agent termination)",
+      "B3_zero_communicate_fail_classes_are_real_null": "FAIL(zero counts cannot be claimed as real nulls; COMMUNICATE-after-correct-mutation was reachable in only 3/67 runs -> severely underpowered)",
+      "B4_context_window_truncation_flagged_as_caveat": "PASS"
+    }
+  },
+  "agreement": "Reviewers cover disjoint rubrics; NO PASS-vs-FAIL conflict on any shared item. Both accept the honest headline (expansion did not meet the min-gate; T2 dominated by non-execution of mutation) but each flags an over-claim.",
+  "actions_taken_in_main_report": [
+    "A4: bottleneck attribution rewritten with the explicit 3-way tally (5 eligible / 7 lost to PC-gate only / 3 lost to reproducibility / 7 never produced a live baseline).",
+    "B3: the COMMUNICATE-failure zero-classes are DOWNGRADED from 'real null' to 'real-but-underpowered null' (only 3/67 runs reached a correct-DB mutation where COMMUNICATE could fail); the report does NOT claim COMMUNICATE is never the bottleneck.",
+    "B2: 'agent_did_not_execute_mutation' is defined operationally (junction found, 0 suffix mutations, agent did not keep asking) and the report notes per-run trajectory confirmation is not yet human-verified."
+  ],
+  "unresolved_disagreement": false,
+  "closed": true,
+  "note": "Both reviewers produced full verdicts against different local endpoints in separate processes; the two PARTIAL/FAIL items are accepted and reflected as limitations rather than overturned."
+}
