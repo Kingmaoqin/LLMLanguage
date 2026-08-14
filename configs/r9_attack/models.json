@@ -36,6 +36,24 @@
       "max_model_len": 16384,
       "max_tokens_per_turn": 384,
       "request_timeout_seconds": 180
+    },
+    {
+      "alias": "qwen35_397b",
+      "served_id": "ravel-qwen35-397b-gptq",
+      "base_url": "http://127.0.0.1:8203/v1",
+      "api_key": "EMPTY",
+      "max_model_len": 16384,
+      "max_tokens_per_turn": 512,
+      "request_timeout_seconds": 240
+    },
+    {
+      "alias": "qwen35_2b",
+      "served_id": "ravel-qwen35-2b-user",
+      "base_url": "http://127.0.0.1:8205/v1",
+      "api_key": "EMPTY",
+      "max_model_len": 16384,
+      "max_tokens_per_turn": 512,
+      "request_timeout_seconds": 240
     }
   ],
   "roles": {

@@ -38,11 +38,18 @@ from scripts.r9_attack.common.io_utils import (  # noqa: E402
 
 SPLIT_SEED = 20260722
 
+# Faithful-REDUCED scale (pre-registered before confirmatory; chosen by the fixed ToolSandbox
+# pool ceiling, NOT tuned to any result). The clean ToolSandbox pool has only 31 usable unique
+# scenarios (13 mutating, which are the ONLY ones on which compression VerificationDepth is
+# well-defined), so ToolSandbox totals across all four disjoint splits must stay <= 31 and the
+# compression (mutating) demand <= 13. BFCL has ample supply. Structure (all stages/conditions/
+# both benchmarks/both families/gates/integrity/dual-review) is complete; only per-cell N is
+# reduced from the spec budget. Scaling back up is a config change only (--sizes-json).
 SIZES = {
-    "calibration": {"bfcl": 16, "toolsandbox": 16},
-    "dev": {"bfcl": 8, "toolsandbox": 8},
-    "test": {"bfcl": 24, "toolsandbox": 16},
-    "confounder": {"bfcl": 6, "toolsandbox": 6},
+    "calibration": {"bfcl": 8, "toolsandbox": 6},
+    "dev": {"bfcl": 8, "toolsandbox": 6},
+    "test": {"bfcl": 20, "toolsandbox": 10},
+    "confounder": {"bfcl": 4, "toolsandbox": 4},
 }
 
 
@@ -84,23 +91,22 @@ def is_mutating(task: TaskSpec) -> bool:
 
 
 def _assign_families(tasks: list[TaskSpec], rng: random.Random) -> list[tuple[TaskSpec, str]]:
-    """Assign families so Compression only ever lands on MUTATING tasks (P1).
+    """Assign families ~50/50 with Compression only ever on MUTATING tasks (P1).
 
-    Mutating tasks are split between the two families (Compression needs them; Inflation
-    can use them too); any read-only tasks go to Inflation. Balanced as evenly as the pool
-    allows. Assignment uses only task metadata, not any pilot result.
+    Compression's primary metric needs a state-changing action, so Compression tasks are
+    drawn from the mutating pool. Inflation works on any task, so it takes all read-only
+    tasks plus the leftover mutating tasks. Targeting a 50/50 balance (spec 9.1) while
+    honouring the constraint: Compression = up to half the tasks, all from mutating;
+    Inflation = the rest. Uses task metadata only, never a pilot outcome.
     """
     mutating = sorted([t for t in tasks if is_mutating(t)], key=lambda t: t.task_id)
     readonly = sorted([t for t in tasks if not is_mutating(t)], key=lambda t: t.task_id)
     rng.shuffle(mutating)
     rng.shuffle(readonly)
-    out: list[tuple[TaskSpec, str]] = []
-    # Half the mutating tasks -> Compression; the rest of mutating + all read-only -> Inflation.
-    n_comp = len(mutating) // 2
-    for i, t in enumerate(mutating):
-        out.append((t, COMPRESSION if i < n_comp else INFLATION))
-    for t in readonly:
-        out.append((t, INFLATION))
+    n_comp = min(len(mutating), len(tasks) // 2)  # balanced 50/50 when mutating is plentiful
+    out: list[tuple[TaskSpec, str]] = [(t, COMPRESSION) for t in mutating[:n_comp]]
+    out += [(t, INFLATION) for t in mutating[n_comp:]]
+    out += [(t, INFLATION) for t in readonly]
     rng.shuffle(out)
     return out
 

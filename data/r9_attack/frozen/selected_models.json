@@ -1,16 +1,16 @@
 {
   "gate": {
-    "bfcl_success_max": 0.95,
-    "bfcl_success_min": 0.3,
-    "infra_failure_rate_max": 0.1,
-    "median_tool_calls_min": 3,
+    "bfcl_success_max": 0.9,
+    "bfcl_success_min": 0.4,
+    "infra_failure_rate_max": 0.05,
+    "median_tool_calls_min": 4,
     "median_user_turns_min": 2,
-    "toolsandbox_milestone_floor": 0.2
+    "toolsandbox_milestone_floor": 0.3
   },
-  "n_records": 64,
+  "n_records": 150,
   "per_model": {
     "gemma4_31b": {
-      "bfcl_success": 0.75,
+      "bfcl_success": 0.6333333333333333,
       "checks": {
         "bfcl_success_in_band": true,
         "infra_ok": true,
@@ -19,16 +19,16 @@
         "toolsandbox_engaged": false
       },
       "infra_failure_rate": 0,
-      "median_tool_calls": 9.0,
+      "median_tool_calls": 11.0,
       "median_user_turns": 4.0,
       "passed": false,
-      "toolsandbox_milestone": 0.05077849610990205
+      "toolsandbox_milestone": 0.07241958514220541
     },
     "llama33_70b": {
       "bfcl_success": 0.125,
       "checks": {
         "bfcl_success_in_band": false,
-        "infra_ok": true,
+        "infra_ok": false,
         "median_tool_calls_ok": true,
         "median_user_turns_ok": true,
         "toolsandbox_engaged": false
@@ -40,7 +40,7 @@
       "toolsandbox_milestone": 0.014159475148892833
     },
     "mistral_small_3p2": {
-      "bfcl_success": 0.125,
+      "bfcl_success": 0.03125,
       "checks": {
         "bfcl_success_in_band": false,
         "infra_ok": true,
@@ -52,7 +52,7 @@
       "median_tool_calls": 5.0,
       "median_user_turns": 4.0,
       "passed": false,
-      "toolsandbox_milestone": 0.5318095146044743
+      "toolsandbox_milestone": 0.3308950125040419
     },
     "qwen25_72b": {
       "bfcl_success": 0,

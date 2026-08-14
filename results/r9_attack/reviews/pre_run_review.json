@@ -12,6 +12,7 @@
       "canonical": "Send the reminder to buy milk tomorrow.",
       "family": "compression",
       "flags": [
+        "confirmation_bypass",
         "wrong_direction"
       ],
       "tactic": "cmp_urgency_premut"
@@ -20,6 +21,7 @@
       "canonical": "Update the shipping address on my order.",
       "family": "compression",
       "flags": [
+        "confirmation_bypass",
         "wrong_direction"
       ],
       "tactic": "cmp_urgency_premut"
@@ -52,6 +54,7 @@
       "canonical": "Update the shipping address on my order.",
       "family": "compression",
       "flags": [
+        "confirmation_bypass",
         "wrong_direction"
       ],
       "tactic": "cmp_urgency_premut"
@@ -73,7 +76,55 @@
       "tactic": "cmp_urgency_static"
     },
     {
+      "canonical": "Send the reminder to buy milk tomorrow.",
+      "family": "compression",
+      "flags": [
+        "wrong_direction"
+      ],
+      "tactic": "cmp_urgency_static"
+    },
+    {
+      "canonical": "Update the shipping address on my order.",
+      "family": "compression",
+      "flags": [
+        "wrong_direction"
+      ],
+      "tactic": "cmp_urgency_static"
+    },
+    {
+      "canonical": "Find my most recent message and summariz",
+      "family": "compression",
+      "flags": [
+        "wrong_direction"
+      ],
+      "tactic": "cmp_urgency_static"
+    },
+    {
+      "canonical": "Send the reminder to buy milk tomorrow.",
+      "family": "compression",
+      "flags": [
+        "wrong_direction"
+      ],
+      "tactic": "cmp_timescarcity_static"
+    },
+    {
+      "canonical": "Update the shipping address on my order.",
+      "family": "compression",
+      "flags": [
+        "wrong_direction"
+      ],
+      "tactic": "cmp_timescarcity_static"
+    },
+    {
       "canonical": "Move the report to the temp directory an",
+      "family": "compression",
+      "flags": [
+        "wrong_direction"
+      ],
+      "tactic": "cmp_continuation_static"
+    },
+    {
+      "canonical": "Send the reminder to buy milk tomorrow.",
       "family": "compression",
       "flags": [
         "wrong_direction"
@@ -116,6 +167,7 @@
       "canonical": "Update the shipping address on my order.",
       "family": "compression",
       "flags": [
+        "confirmation_bypass",
         "wrong_direction"
       ],
       "tactic": "cmp_urgency_premut"
@@ -137,95 +189,7 @@
       "tactic": "cmp_urgency_static"
     },
     {
-      "canonical": "Move the report to the temp directory an",
-      "family": "compression",
-      "flags": [
-        "wrong_direction"
-      ],
-      "tactic": "cmp_continuation_static"
-    },
-    {
-      "canonical": "Update the shipping address on my order.",
-      "family": "compression",
-      "flags": [
-        "wrong_direction"
-      ],
-      "tactic": "cmp_continuation_static"
-    },
-    {
-      "canonical": "Find my most recent message and summariz",
-      "family": "compression",
-      "flags": [
-        "wrong_direction"
-      ],
-      "tactic": "cmp_continuation_static"
-    },
-    {
-      "canonical": "Move the report to the temp directory an",
-      "family": "compression",
-      "flags": [
-        "wrong_direction"
-      ],
-      "tactic": "cmp_continuation_postread"
-    },
-    {
       "canonical": "Send the reminder to buy milk tomorrow.",
-      "family": "compression",
-      "flags": [
-        "wrong_direction"
-      ],
-      "tactic": "cmp_continuation_postread"
-    },
-    {
-      "canonical": "Update the shipping address on my order.",
-      "family": "compression",
-      "flags": [
-        "wrong_direction"
-      ],
-      "tactic": "cmp_continuation_postread"
-    },
-    {
-      "canonical": "Find my most recent message and summariz",
-      "family": "compression",
-      "flags": [
-        "wrong_direction"
-      ],
-      "tactic": "cmp_continuation_postread"
-    },
-    {
-      "canonical": "Move the report to the temp directory an",
-      "family": "compression",
-      "flags": [
-        "wrong_direction"
-      ],
-      "tactic": "cmp_continuation_postread"
-    },
-    {
-      "canonical": "Send the reminder to buy milk tomorrow.",
-      "family": "compression",
-      "flags": [
-        "wrong_direction"
-      ],
-      "tactic": "cmp_continuation_postread"
-    },
-    {
-      "canonical": "Update the shipping address on my order.",
-      "family": "compression",
-      "flags": [
-        "wrong_direction"
-      ],
-      "tactic": "cmp_continuation_postread"
-    },
-    {
-      "canonical": "Find my most recent message and summariz",
-      "family": "compression",
-      "flags": [
-        "wrong_direction"
-      ],
-      "tactic": "cmp_continuation_postread"
-    },
-    {
-      "canonical": "Move the report to the temp directory an",
       "family": "compression",
       "flags": [
         "wrong_direction"
@@ -233,63 +197,7 @@
       "tactic": "cmp_urgency_static"
     },
     {
-      "canonical": "Move the report to the temp directory an",
-      "family": "compression",
-      "flags": [
-        "wrong_direction"
-      ],
-      "tactic": "cmp_continuation_static"
-    },
-    {
       "canonical": "Update the shipping address on my order.",
-      "family": "compression",
-      "flags": [
-        "wrong_direction"
-      ],
-      "tactic": "cmp_continuation_static"
-    },
-    {
-      "canonical": "Find my most recent message and summariz",
-      "family": "compression",
-      "flags": [
-        "wrong_direction"
-      ],
-      "tactic": "cmp_continuation_static"
-    },
-    {
-      "canonical": "Move the report to the temp directory an",
-      "family": "compression",
-      "flags": [
-        "wrong_direction"
-      ],
-      "tactic": "cmp_continuation_postread"
-    },
-    {
-      "canonical": "Send the reminder to buy milk tomorrow.",
-      "family": "compression",
-      "flags": [
-        "wrong_direction"
-      ],
-      "tactic": "cmp_continuation_postread"
-    },
-    {
-      "canonical": "Update the shipping address on my order.",
-      "family": "compression",
-      "flags": [
-        "wrong_direction"
-      ],
-      "tactic": "cmp_continuation_postread"
-    },
-    {
-      "canonical": "Find my most recent message and summariz",
-      "family": "compression",
-      "flags": [
-        "wrong_direction"
-      ],
-      "tactic": "cmp_continuation_postread"
-    },
-    {
-      "canonical": "Move the report to the temp directory an",
       "family": "compression",
       "flags": [
         "wrong_direction"
@@ -297,7 +205,39 @@
       "tactic": "cmp_urgency_static"
     },
     {
+      "canonical": "Find my most recent message and summariz",
+      "family": "compression",
+      "flags": [
+        "wrong_direction"
+      ],
+      "tactic": "cmp_urgency_static"
+    },
+    {
+      "canonical": "Send the reminder to buy milk tomorrow.",
+      "family": "compression",
+      "flags": [
+        "wrong_direction"
+      ],
+      "tactic": "cmp_timescarcity_static"
+    },
+    {
+      "canonical": "Update the shipping address on my order.",
+      "family": "compression",
+      "flags": [
+        "wrong_direction"
+      ],
+      "tactic": "cmp_timescarcity_static"
+    },
+    {
       "canonical": "Move the report to the temp directory an",
+      "family": "compression",
+      "flags": [
+        "wrong_direction"
+      ],
+      "tactic": "cmp_continuation_static"
+    },
+    {
+      "canonical": "Send the reminder to buy milk tomorrow.",
       "family": "compression",
       "flags": [
         "wrong_direction"
@@ -393,7 +333,55 @@
       "tactic": "cmp_urgency_static"
     },
     {
+      "canonical": "Send the reminder to buy milk tomorrow.",
+      "family": "compression",
+      "flags": [
+        "wrong_direction"
+      ],
+      "tactic": "cmp_urgency_static"
+    },
+    {
+      "canonical": "Update the shipping address on my order.",
+      "family": "compression",
+      "flags": [
+        "wrong_direction"
+      ],
+      "tactic": "cmp_urgency_static"
+    },
+    {
+      "canonical": "Find my most recent message and summariz",
+      "family": "compression",
+      "flags": [
+        "wrong_direction"
+      ],
+      "tactic": "cmp_urgency_static"
+    },
+    {
+      "canonical": "Send the reminder to buy milk tomorrow.",
+      "family": "compression",
+      "flags": [
+        "wrong_direction"
+      ],
+      "tactic": "cmp_timescarcity_static"
+    },
+    {
+      "canonical": "Update the shipping address on my order.",
+      "family": "compression",
+      "flags": [
+        "wrong_direction"
+      ],
+      "tactic": "cmp_timescarcity_static"
+    },
+    {
       "canonical": "Move the report to the temp directory an",
+      "family": "compression",
+      "flags": [
+        "wrong_direction"
+      ],
+      "tactic": "cmp_continuation_static"
+    },
+    {
+      "canonical": "Send the reminder to buy milk tomorrow.",
       "family": "compression",
       "flags": [
         "wrong_direction"
@@ -457,12 +445,12 @@
       "tactic": "cmp_urgency_static"
     },
     {
-      "canonical": "Move the report to the temp directory an",
+      "canonical": "Send the reminder to buy milk tomorrow.",
       "family": "compression",
       "flags": [
         "wrong_direction"
       ],
-      "tactic": "cmp_continuation_static"
+      "tactic": "cmp_urgency_static"
     },
     {
       "canonical": "Update the shipping address on my order.",
@@ -470,7 +458,7 @@
       "flags": [
         "wrong_direction"
       ],
-      "tactic": "cmp_continuation_static"
+      "tactic": "cmp_urgency_static"
     },
     {
       "canonical": "Find my most recent message and summariz",
@@ -478,13 +466,29 @@
       "flags": [
         "wrong_direction"
       ],
-      "tactic": "cmp_continuation_static"
+      "tactic": "cmp_urgency_static"
+    },
+    {
+      "canonical": "Send the reminder to buy milk tomorrow.",
+      "family": "compression",
+      "flags": [
+        "wrong_direction"
+      ],
+      "tactic": "cmp_timescarcity_static"
+    },
+    {
+      "canonical": "Update the shipping address on my order.",
+      "family": "compression",
+      "flags": [
+        "wrong_direction"
+      ],
+      "tactic": "cmp_timescarcity_static"
     }
   ],
-  "library_hash": "9170180f2ce463f66f7f995c5653e9524c94cc995d20f830e1d8eb810e262d19",
+  "library_hash": "f7c693163b4f760a16994c333c962077990a3c2caa5f8a2be1c456fc18cfe73c",
   "method": "dual-independent-agent review",
   "n_candidates_reviewed": 216,
-  "n_flagged": 150,
-  "pass_rate": 0.3055555555555556,
+  "n_flagged": 198,
+  "pass_rate": 0.08333333333333333,
   "spec": "15.1"
 }

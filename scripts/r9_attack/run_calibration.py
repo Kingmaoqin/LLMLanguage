@@ -37,12 +37,16 @@ from scripts.r9_attack.extract_metrics import extract  # noqa: E402
 # on a second benchmark that a subset of local models serves poorly. Selection then ranks
 # by in-band BFCL capability (spec 6.1: capable, not saturated).
 GATE = {
-    "bfcl_success_min": 0.30,
-    "bfcl_success_max": 0.95,
-    "median_tool_calls_min": 3,
+    # Spec §6.5 thresholds RESTORED (an earlier pilot relaxed them; Reviewer-B flagged that
+    # relaxing the pre-registered entry gate is not spec-compliant). A genuinely capable
+    # target must clear the spec bar. For the single-strong-model-on-both-benchmarks design
+    # the ToolSandbox floor is a "medium" milestone bar, not merely "engaged".
+    "bfcl_success_min": 0.40,
+    "bfcl_success_max": 0.90,
+    "median_tool_calls_min": 4,
     "median_user_turns_min": 2,
-    "infra_failure_rate_max": 0.10,
-    "toolsandbox_milestone_floor": 0.20,
+    "infra_failure_rate_max": 0.05,
+    "toolsandbox_milestone_floor": 0.30,
 }
 
 
@@ -159,9 +163,16 @@ def select_and_freeze(records: list[dict]) -> dict[str, Any]:
     # (spec 19-A's ">= 2 benchmarks same direction" remains reachable across the two
     # benchmarks) rather than polluting with near-floor second models. This is recorded as
     # a deviation, not a clean 2-model-per-benchmark run.
+    same_model_both = bool(set(targets_bfcl) & set(targets_toolsandbox))
     if len(targets_bfcl) >= 2 and len(targets_toolsandbox) >= 2:
         status = "SELECTED"
+    elif same_model_both:
+        # A single strong model capable on BOTH benchmarks: benchmark is the only varying
+        # axis (model held constant), so the model⊗benchmark confound is removed. This is the
+        # preferred reduced design (spec §19-A "≥2 benchmarks same direction" is unconfounded).
+        status = "SELECTED_SINGLE_STRONG_MODEL_BOTH_BENCHMARKS"
     elif targets_bfcl and targets_toolsandbox:
+        # Different capable model per benchmark -> model and benchmark confounded (weaker).
         status = "SELECTED_REDUCED_SINGLE_MODEL_PER_BENCHMARK"
     else:
         status = "STOP_MODEL_CAPABILITY_FLOOR"

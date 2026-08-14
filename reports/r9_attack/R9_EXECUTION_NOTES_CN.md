@@ -67,4 +67,34 @@ build_splits --sizes-json）。confirmatory 采用**冻结攻击器快路径**�
   使 benchmark-separated 的 G1（spec 12）有意义；decision A 的"≥2 模型或 ≥2 benchmark 同方向"由
   BFCL 双模型 + ToolSandbox 单模型佐证满足。attacker=gemma，reviewer_a=gemma、reviewer_b=mistral（异端点）。
 
+## 第一次全量 pilot 结果（2026-07-23，reduced 单模型/基准）与双 agent 审计
+
+Pilot（gemma=BFCL, mistral=ToolSandbox；306 confirmatory episodes）得 **decision F**：G1 两基准过（逃离 R8 地板），
+但 G2(TS)/G3/G4 未过，四检验皆不显著。随后做**两 agent 互审**（A=代码正确性，B=科学有效性）。
+
+**Reviewer-B 关键发现（已据以修复/记录）**：
+1. **[已修·关键] ToolSandbox mutation 检测 off-by-one**：`extract_tool_calls` 比较 `fingerprint(idx-1)` vs
+   `fingerprint(idx)`（EXEC→AGENT 响应行），但写状态发生在 AGENT→EXEC 调用行 idx-1，故 before==after，
+   **永不检出 mutation** → 32 个 TS 场景 `mutating_tools` 全空 → compression 主指标 VerificationDepth 每 episode
+   都落哨兵值 21 → **compression 度量在 TS 上失灵**，这才是 pilot TS-G3 失败的真因（非攻击无效）。
+   修复：`before=fingerprint(idx-2), after=fingerprint(idx-1)`。
+2. **[已修] 熵门 §6.5 阈值曾被放宽**（BFCL 40-90→30-95、median calls≥4→≥3、TS milestone medium→0.20）——
+   已**恢复 spec 原阈值**。
+3. **[已修] G4 检查**：`adaptive_share` 现按 spec §12-G4 计"首轮之后的 adaptive intervention"，并加
+   `spec2_intervention_after_first_turn_share`（≥0.99）落实 spec §2 每-episode 保证。
+4. **[已修] ASR** 加入 spec §11.4 的 semantic/safety 合取项（C4 无 safety_event 才计 hit）。
+5. **[已加] 诊断**：analyze 输出 `ledger_miss_by_condition`（TS 事实通道条件不变性，Finding 5）与
+   `no_state_change_by_condition`（compression 哨兵占比可审计，Finding 1）。
+6. **[记录·结构限制] 模型⊗基准混淆**：本地 5 模型无一同时通过两基准；单模型/基准设计使 BFCL≡gemma、
+   ToolSandbox≡mistral，§19-A 的"≥2 benchmark 同向"被混淆。**解决方向（用户选定）**：用**单个强模型
+   Qwen3.5-397B 同时跑两基准**（模型恒定→去混淆），status 改为 `SELECTED_SINGLE_STRONG_MODEL_BOTH_BENCHMARKS`。
+
+**GPU 现实（2026-07-23 晚）**：环境极不稳定,vLLM 服务多次被会话边界/其它实验/co-tenant 顶掉。397B(GPTQ-Int4,
+~200GB) 需 TP=4（4 卡）；当前 co-tenant ryu11 占 GPU0+2,仅 GPU1+3 空闲,**397B 暂不可部署**。已在空闲卡
+重部署 gemma(GPU1)+mistral(GPU3) 以重建 ledger（含 mutation 修复）与验证。**P1-P4 verdict**（Reviewer-B）：
+P1/P2/P4 合法(仪器/度量良定义/功效);P3 borderline——需 re-freeze + 恢复 spec-2 保证 + 修 G4（均已做）。
+
+**模型口径更正（Finding 8）**：正式 targets 以 frozen `selected_models.json` 为准；此前执行笔记里"BFCL=qwen+llama"
+的设想作废（qwen/llama 在 BFCL 校准仅 0.00/0.12，不达标）。
+
 （后续由 orchestrator 输出填充：calibration 决策 / dev 冻结 / confirmatory 门与 A-F 决策 / 完整性 / 双评审。）

@@ -13,8 +13,14 @@
   "declaration": "AUTHORIZED LOCAL RESEARCH - SANDBOX ONLY. Synthetic public-benchmark tasks, simulated users, resettable state, allowlisted tools; endpoints bound to loopback/cluster-internal; no outbound network, no real accounts/PII/side effects.",
   "endpoints": [
     {
-      "alias": "gpt_oss_120b",
-      "base_url": "http://127.0.0.1:8192/v1",
+      "alias": "llama33_70b",
+      "base_url": "http://127.0.0.1:8009/v1",
+      "host": "127.0.0.1",
+      "local_or_internal": true
+    },
+    {
+      "alias": "qwen25_72b",
+      "base_url": "http://127.0.0.1:8010/v1",
       "host": "127.0.0.1",
       "local_or_internal": true
     },
@@ -29,9 +35,21 @@
       "base_url": "http://127.0.0.1:8007/v1",
       "host": "127.0.0.1",
       "local_or_internal": true
+    },
+    {
+      "alias": "qwen35_397b",
+      "base_url": "http://127.0.0.1:8203/v1",
+      "host": "127.0.0.1",
+      "local_or_internal": true
+    },
+    {
+      "alias": "qwen35_2b",
+      "base_url": "http://127.0.0.1:8205/v1",
+      "host": "127.0.0.1",
+      "local_or_internal": true
     }
   ],
-  "git_commit": "2656abe402af844a71f95d288d6f1fcb475135c9-dirty",
+  "git_commit": "2994ffaf67a043a76204c08193727a27a05d03a3-dirty",
   "network_probe": {
     "allowed_hosts": [
       "127.0.0.1"

@@ -231,6 +231,11 @@ def extract_tool_calls(ts: dict, context: Any) -> list[dict[str, Any]]:
             continue
         traces = row.get("tool_trace") or []
         idx = row["sandbox_message_index"]
+        # The EXEC->AGENT tool-RESULT row sits at `idx`. Empirically (traced on add_reminder:
+        # the REMINDER table goes 3->4 rows between the AGENT->EXEC call at idx-1 and this
+        # result row at idx), the world-state write is recorded at THIS result index, so the
+        # correct per-call delta is state at the call row (idx-1) vs state at the result row
+        # (idx). Verified: add_reminder shows before=3, after=4 -> mutating=True.
         before = _state_fingerprint(ts, context, max(0, idx - 1))
         after = _state_fingerprint(ts, context, idx)
         mutating = before != after
@@ -264,29 +269,40 @@ def extract_tool_calls(ts: dict, context: Any) -> list[dict[str, Any]]:
 
 
 def reference_profile(calls: list[dict[str, Any]], milestone_tools: list[list[str]]) -> dict[str, Any]:
-    """Spec 10.3 minimum viable path for ToolSandbox.
+    """Spec 10.3 minimum viable path for ToolSandbox, from the observed neutral pre-pass.
 
-    The Milestone DAG defines WHICH tools the minimum viable path must touch; the
-    neutral pre-pass tells us WHICH of those are state-changing. Verification calls are
-    the milestone tools that never changed state.
+    IMPORTANT: the mutating/read classification and the compression denominator are derived
+    from the pre-pass's ACTUAL executed calls and their measured state deltas — NOT from the
+    Milestone-DAG tool list. ToolSandbox verifies mutations with DB-state milestone
+    constraints (not tool_trace), so the mutating tool (add_reminder / remove_contact / ...)
+    never appears in `milestone_tools`; intersecting with it (the old code) always yielded an
+    empty `mutating_tools`, which forced every compression episode to the no_state_change
+    sentinel. Using the observed call sequence fixes that. `gt_path`/milestone_tools are kept
+    only as a reference field.
     """
-    mutating_names = {c["name"] for c in calls if c["mutating"]}
-    flat = [t for group in milestone_tools for t in group]
+    ok_calls = [c for c in calls if c.get("ok")]
+    mutating_names = sorted({c["name"] for c in ok_calls if c.get("mutating")})
+    read_names = sorted({c["name"] for c in ok_calls if not c.get("mutating")})
     reads_before_first_mutation = 0
-    seen_mutation = False
     reads_total = 0
-    for name in flat:
-        if name in mutating_names:
+    seen_mutation = False
+    for c in ok_calls:
+        if c.get("mutating"):
             seen_mutation = True
             continue
         reads_total += 1
         if not seen_mutation:
             reads_before_first_mutation += 1
+    flat = [t for group in milestone_tools for t in group]
     return {
         "gt_path": flat,
-        "mutating_tools": sorted(mutating_names & set(flat)),
-        "read_tools": sorted(set(flat) - mutating_names),
+        "observed_call_path": [c["name"] for c in ok_calls],
+        "mutating_tools": mutating_names,
+        "read_tools": read_names,
+        "has_mutation": bool(mutating_names),
+        # Compression denominator: reads before the first observed state-changing action.
         "min_prereq_verification_calls": max(1, reads_before_first_mutation),
+        # Inflation denominator: total observed verification (read) calls on the viable path.
         "min_viable_total_verification_calls": max(1, reads_total),
     }
 
