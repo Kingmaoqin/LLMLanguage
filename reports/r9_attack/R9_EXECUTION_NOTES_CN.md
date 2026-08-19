@@ -97,4 +97,48 @@ P1/P2/P4 合法(仪器/度量良定义/功效);P3 borderline——需 re-freeze 
 **模型口径更正（Finding 8）**：正式 targets 以 frozen `selected_models.json` 为准；此前执行笔记里"BFCL=qwen+llama"
 的设想作废（qwen/llama 在 BFCL 校准仅 0.00/0.12，不达标）。
 
-（后续由 orchestrator 输出填充：calibration 决策 / dev 冻结 / confirmatory 门与 A-F 决策 / 完整性 / 双评审。）
+## 全量执行 + 数据洁净化最终结果（2026-08-14）
+
+**执行**：faithful-reduced 规模（SIZES 由 ToolSandbox 池上限预注册：cal 8+6 / dev 8+6 / test 20+10 /
+confounder 4+4，conf-repeats=5）。targets_bfcl=[gemma4_31b]、targets_toolsandbox=[mistral_small_3p2]
+（`SELECTED_REDUCED_SINGLE_MODEL_PER_BENCHMARK`）。confirmatory 用冻结攻击器快路径。397B 因 ryu11 占
+GPU0+2、TP=4 不可部署，故用 gemma/mistral（model⊗benchmark 混淆如实披露）。
+
+**⚠️ 关键数据洁净化（决定性）**：首轮 orchestrator 跑完后发现 `ResultsSink` **跨运行累积**——confirmatory
+文件混入 306 条上一轮 pilot 的陈旧 episode（234 条旧任务 + 12 个 block 因 block 级去重被跳过、保留了 pilot
+旧仪器记录共 ~72 条）。这污染了分析（1114 条中仅 808 条为本轮）。**已洁净化**：按"本轮日志实际执行的
+block"过滤 → 补跑 12 个缺失 block（新鲜）→ 按 episode_id 去重 → **最终 880 条唯一、150/150 block、
+20 BFCL + 10 TS 任务，全部本轮新鲜、修复后仪器**（备份于 `results/r9_attack/_contaminated_backup_0814/`）。
+洁净化后 **完整性从 INTEGRITY_FAIL 变为 INTEGRITY_OK**（此前 69 个 canonical "no frozen message" 全部源于
+陈旧旧任务不在冻结缓存中；直接跨条件核验本就 0 真实不变性违规、ledger_miss=0）。**洁净化还消除了一个被污染
+数据夸大的边缘压缩信号**（compression_C4_C3 在污染数据 CI 勉强不含 0，洁净后明确跨 0）——正是不做 p-hacking
+的价值所在。
+
+**洁净数据最终门（spec 12）**：
+- **G1 基线能力**：BFCL C0=0.71 ✅、ToolSandbox C0=0.72 ✅ → **过**（逃离 R8 地板）。
+- **G2 脚手架中性**：BFCL ✅（0.71→0.74）；**ToolSandbox ❌**（C0=0.72→C1=0.36，中性脚手架把 TS 成功率砍半）。
+- **G3 阳性对照**：compression ❌、inflation ❌（最强 C5 显式指令仅单格达 ≥0.5SD）。
+- **G4 攻击暴露**：❌（adaptive_after_first_turn=0.49<0.70；spec2=0.93<0.99；mean_iv=3.11；fallback=0.068）。
+
+**四个主假设检验（洁净，Holm）**：无一稳健排除 0——
+- compression_C4_C1: mean=−2.21 CI=[−5.95, 0.49]（跨 0）
+- compression_C4_C3: mean=−2.41 CI=[−5.99, 0.39]（跨 0）
+- inflation_C4_C1: mean=−0.09 CI=[−0.43, 0.13]（跨 0）
+- inflation_C4_C3: mean=0.15 CI=[0.015, 0.32]（CI 排除 0 但 p_holm=0.456，置换检验不拒绝，边缘不稳健）
+
+**ASR/FPR（洁净）**：compression asr=0.013/fpr=0.0；inflation asr=0.014/fpr=0.071 —— 基本无成功的端点保持攻击。
+
+**决策：F — PLATFORM_NOT_VALID_FOR_CAUSAL_INTERPRETATION**。诚实的预注册结论：即便修复仪器 + 洁净数据，
+平台仍未过 G2/G3/G4，且无主检验稳健显著 → 攻击效应**不可作因果解释**。**遵守预注册，不再迭代指标/阈值翻盘。**
+
+**已披露的真实局限**：
+1. **TS 压缩被哨兵主导**（no_state_change: C0=0.44、C1=0.92、C2=1.0、C3=0.96、C4=0.60、C5=0.43）——TS
+   可变场景太浅（add_reminder=1 读即写，基线 VD≈1），压缩攻击几乎无操作空间；BFCL 才是压缩的 informative 基准
+   （BFCL 哨兵 0%，指标完全可测）。
+2. **G2 TS 脚手架非中性**——mistral 在 TS 加中性脚手架即掉一半，scaffold 混淆。
+3. **model⊗benchmark 混淆**（BFCL≡gemma、TS≡mistral）——TS 的问题可能是 mistral 特有；去混淆需 397B 同跑两基准
+   （GPU 释放后可复跑）。
+4. **次要产物仍含 pilot 记录（非决策关键，已披露）**：confounder（§10，136 条）与 post-run 双评审（§9，跑在洁净化
+   前的 1114 条上）未重跑；它们属 spec-16/15 的边界/定性模块，不进入 G1–G4 决策。calibration 报告段亦含历史候选模型。
+
+**推送**：mid-run 快照 `ccaad2c`；洁净最终结果随后 push（confirmatory 洁净 880 + 分析 + 报告 + 本笔记 + 日志）。

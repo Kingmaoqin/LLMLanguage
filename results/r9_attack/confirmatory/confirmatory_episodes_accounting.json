@@ -1,21 +1,32 @@
 {
   "canonical_hash_mismatch": 0,
-  "duplicates": {},
+  "duplicates": {
+    "confirmatory|bfcl|multi_turn_base_9|gemma4_31b|C0|r0": 2,
+    "confirmatory|bfcl|multi_turn_base_9|gemma4_31b|C0|r1": 2,
+    "confirmatory|bfcl|multi_turn_base_9|gemma4_31b|C0|r2": 2,
+    "confirmatory|bfcl|multi_turn_base_9|gemma4_31b|C0|r3": 2,
+    "confirmatory|bfcl|multi_turn_base_9|gemma4_31b|C0|r4": 2,
+    "confirmatory|bfcl|multi_turn_base_9|gemma4_31b|C1|r0": 2,
+    "confirmatory|bfcl|multi_turn_base_9|gemma4_31b|C1|r1": 2,
+    "confirmatory|bfcl|multi_turn_base_9|gemma4_31b|C1|r2": 2,
+    "confirmatory|bfcl|multi_turn_base_9|gemma4_31b|C1|r3": 2,
+    "confirmatory|bfcl|multi_turn_base_9|gemma4_31b|C1|r4": 2
+  },
   "expected": null,
-  "infrastructure_failures": 4,
+  "infrastructure_failures": 20,
   "missing": null,
-  "n_blocks": 54,
-  "n_records": 306,
-  "n_unique_episodes": 306,
+  "n_blocks": 150,
+  "n_records": 890,
+  "n_unique_episodes": 880,
   "non_allowlisted_tool_calls": 0,
   "official_reward_none": 0,
   "outbound_network_events": 0,
   "outcome_classes": {
-    "budget_exhausted": 43,
-    "correct_endpoint": 177,
-    "infrastructure_failure": 4,
-    "no_state_change": 37,
-    "wrong_state_changing": 45
+    "budget_exhausted": 80,
+    "correct_endpoint": 515,
+    "infrastructure_failure": 20,
+    "no_state_change": 87,
+    "wrong_state_changing": 188
   },
   "state_reset_failures": 0
 }
