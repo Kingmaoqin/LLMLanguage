@@ -177,3 +177,26 @@ G4 要 adaptive_share≥0.70，静态变体够不着（且 spec 8.6"测时不搜
 ---
 
 **批准后**：我按 M1→M5 执行，M3 打 `r9v2-preregistered` tag 后再进 confirmatory，全程如实报告、不追显著性。
+
+---
+
+## 9. 实施进度（滚动）
+
+### M1a — 基准 A（BFCL-deep）✅ 已建成并验证（2026-08-19）
+- `bfcl_adapter.py` 类别参数化，加入 `multi_turn_miss_param`；读/写用 BFCL **原生状态快照**检测（非手表）。
+- 实测：`multi_turn_base`(200)+`multi_turn_miss_param`(200)=400 任务；**深(≥3 用户轮)且可变 343 个**
+  （miss_param 189 + base 154）—— 对比 ToolSandbox 的 4 个。深度/read/mutate/min_prereq 全部正确。
+- miss_param 缺参数 → 强制澄清/核验，正是压缩/膨胀作用点；压缩哨兵在 BFCL 实测 0%（度量完全可测）。
+
+### M1b — 基准 B（τ²-bench）🔧 数据层已验证，run_episode 适配器待建
+- 数据层验证（`configs/r9v2/tau2_tool_classification.json` 已冻结）：
+  - **airline**：14 工具（6 WRITE / 6 READ / 2 GENERIC），50 任务（43 含写动作）。
+  - **retail**：16 工具（7 WRITE / 7 READ / 2 GENERIC），114 任务（112 含写动作）。
+  - 读/写用 tau2 **原生 `@is_tool(ToolType.WRITE/READ)`** 标签（比 ToolSandbox 更干净）；
+    `evaluation_criteria.actions` 提供参考轨迹（写前的读 → min_prereq），原生 reward。
+  - 数据目录经 `TAU2_DATA_DIR=/home/xqin5/tau2-bench/data` 指向仓库。
+- **待建**：`tau2_worker.py`（跑在 `tau2_venv`，子进程隔离，镜像 `toolsandbox_worker` 结构）——
+  ScriptedLedgerUser（冻结事实账本保证语义不变性）+ 对接 orchestrator + 我方 vLLM agent +
+  抽取轨迹/reward + read/mutate 度量。这是 M1 剩余主体工作。
+
+### 待续：M1c 拆分/配置接线 → M2 校准 → M3 dev+G4 关卡+冻结打 tag → M4 confirmatory → M5 报告。

@@ -1,0 +1,58 @@
+{
+  "_note": "R9v2 frozen tau2 read/write tool classification (native @is_tool ToolType). Pre-registration artifact.",
+  "data_dir": "/home/xqin5/tau2-bench/data",
+  "domains": {
+    "airline": {
+      "n_tools": 14,
+      "write_tools": [
+        "book_reservation",
+        "cancel_reservation",
+        "send_certificate",
+        "update_reservation_baggages",
+        "update_reservation_flights",
+        "update_reservation_passengers"
+      ],
+      "read_tools": [
+        "get_flight_status",
+        "get_reservation_details",
+        "get_user_details",
+        "list_all_airports",
+        "search_direct_flight",
+        "search_onestop_flight"
+      ],
+      "generic_tools": [
+        "calculate",
+        "transfer_to_human_agents"
+      ],
+      "n_tasks": 50,
+      "n_tasks_with_write_actions": 43
+    },
+    "retail": {
+      "n_tools": 16,
+      "write_tools": [
+        "cancel_pending_order",
+        "exchange_delivered_order_items",
+        "modify_pending_order_address",
+        "modify_pending_order_items",
+        "modify_pending_order_payment",
+        "modify_user_address",
+        "return_delivered_order_items"
+      ],
+      "read_tools": [
+        "find_user_id_by_email",
+        "find_user_id_by_name_zip",
+        "get_item_details",
+        "get_order_details",
+        "get_product_details",
+        "get_user_details",
+        "list_all_product_types"
+      ],
+      "generic_tools": [
+        "calculate",
+        "transfer_to_human_agents"
+      ],
+      "n_tasks": 114,
+      "n_tasks_with_write_actions": 112
+    }
+  }
+}

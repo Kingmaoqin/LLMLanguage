@@ -50,8 +50,13 @@ from scripts.r9_attack.common.io_utils import sha256_text  # noqa: E402
 from scripts.r9_attack.common.llm_client import Endpoint, InfraFailure, chat  # noqa: E402
 
 TEST_CATEGORY = "multi_turn_base"
-# Categories excluded by spec 3.1: missing-function, missing-parameter, irrelevance,
-# long-context stress. We only ever load `multi_turn_base`, which contains none of them.
+# R9v1 (spec 3.1) loaded ONLY `multi_turn_base`. R9v2 (pre-registered redesign, see
+# reports/r9_attack/R9v2_PREREGISTRATION_CN.md) deliberately ADDS `multi_turn_miss_param`:
+# a missing required parameter forces a clarify/verify step before acting, which is exactly
+# the verification behaviour the compression/inflation attacks target (deeper attack surface
+# + alive VerificationDepth). Categories are now configurable; the default stays base-only
+# for backward compatibility, and R9v2 passes both via the adapter factory / config.
+TEST_CATEGORIES_DEFAULT = ["multi_turn_base"]
 
 
 class BfclUnavailable(RuntimeError):
@@ -141,11 +146,13 @@ class BfclAdapter:
 
     name = "bfcl"
 
-    def __init__(self, endpoints: dict[str, Endpoint], *, max_step_limit: Optional[int] = None):
+    def __init__(self, endpoints: dict[str, Endpoint], *, max_step_limit: Optional[int] = None,
+                 categories: Optional[list[str]] = None):
         _bfcl()
         from bfcl_eval.constants.default_prompts import MAXIMUM_STEP_LIMIT
 
         self.endpoints = endpoints
+        self.categories = list(categories) if categories else list(TEST_CATEGORIES_DEFAULT)
         self.max_step_limit = int(max_step_limit or MAXIMUM_STEP_LIMIT)
         self._entries: Optional[dict[str, dict]] = None
         self._ground_truth: Optional[dict[str, list[list[str]]]] = None
@@ -161,12 +168,19 @@ class BfclAdapter:
             populate_test_cases_with_predefined_functions,
         )
 
-        entries = load_dataset_entry(TEST_CATEGORY)
-        if isinstance(entries, tuple):  # some versions return (entries, ids)
-            entries = entries[0]
-        entries = populate_test_cases_with_predefined_functions(entries)
-        self._entries = {e["id"]: e for e in entries}
-        self._ground_truth = {g["id"]: g["ground_truth"] for g in load_ground_truth_entry(TEST_CATEGORY)}
+        merged_entries: dict[str, dict] = {}
+        merged_gt: dict[str, list[list[str]]] = {}
+        for category in self.categories:
+            entries = load_dataset_entry(category)
+            if isinstance(entries, tuple):  # some versions return (entries, ids)
+                entries = entries[0]
+            entries = populate_test_cases_with_predefined_functions(entries)
+            for e in entries:
+                merged_entries[e["id"]] = e
+            for g in load_ground_truth_entry(category):
+                merged_gt[g["id"]] = g["ground_truth"]
+        self._entries = merged_entries
+        self._ground_truth = merged_gt
         return self._entries, self._ground_truth
 
     def _openai_tools(self, entry: dict) -> list[dict]:
