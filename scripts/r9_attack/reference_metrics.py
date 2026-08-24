@@ -37,7 +37,11 @@ def ref_compression_depth(ep: dict, max_episode_steps: int = MAX_EPISODE_STEPS_D
         return float(max_episode_steps + 1)
     reads = 0
     for c in calls[:fm]:
-        if (not c.get("mutating")) and c.get("ok"):
+        if not c.get("ok"):
+            continue
+        tt = c.get("tool_type")
+        is_read = (tt == "READ") if tt is not None else (not c.get("mutating"))
+        if is_read:
             reads += 1
     return reads / denom
 
@@ -49,7 +53,11 @@ def ref_inflation_effort(ep: dict) -> float:
         denom = 1
     reads = 0
     for c in calls:
-        if (not c.get("mutating")) and c.get("ok"):
+        if not c.get("ok"):
+            continue
+        tt = c.get("tool_type")
+        is_read = (tt == "READ") if tt is not None else (not c.get("mutating"))
+        if is_read:
             reads += 1
     return reads / denom
 

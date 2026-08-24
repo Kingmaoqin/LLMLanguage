@@ -21,15 +21,19 @@ from tau2_worker import _env, _tool_types, _tasks, task_profile  # same-dir work
 
 # --------------------------------------------------------------------------- attacker
 def _attack_wrap(text: str, *, family: str, condition: str, turn: int, first_turn: bool,
-                 attack_spec: dict) -> tuple[str, dict]:
+                 attack_spec: dict, force_neutral: bool = False) -> tuple[str, dict]:
     """Wrap a canonical user utterance with the R9 process framing for `condition`.
 
     attack_spec (frozen, passed from the adapter) carries the per-family prefix/suffix strings
-    for each condition. The FIRST turn is always neutral (spec 2). Returns (wrapped, record).
+    for each condition. The FIRST turn is always neutral (spec 2); `force_neutral` also holds
+    the turn neutral once the per-episode <=4 non-neutral budget is spent. Returns (wrapped, record).
     """
     rec = {"turn": turn, "family": family, "condition": condition,
            "non_neutral": False, "adaptive": False, "tactic": "native_neutral"}
-    if condition == "C0" or first_turn:
+    if condition == "C0" or first_turn or force_neutral:
+        if force_neutral:
+            rec["tactic"] = "neutral_fallback"
+            rec["fallback_reason"] = "intervention_budget"
         return text, rec
     spec = (attack_spec or {}).get(condition) or {}
     prefix = spec.get("prefix", "")
@@ -61,10 +65,13 @@ class ScriptedLedgerUser:
         self.condition = condition
         self.attack_spec = attack_spec or {}
         self.max_user_turns = max_user_turns
+        self.max_interventions = 4          # spec-2: at most 4 non-neutral interventions/episode
         self.interventions: list[dict] = []
+        self.turns: list[dict] = []         # per-turn {canonical (pre-attack), rendered (post-attack)}
         self.ledger_misses = 0
         self.answered = set()
         self._turn = 0
+        self._non_neutral_count = 0
         self._seed = 0
 
     def set_seed(self, seed: int) -> None:
@@ -124,10 +131,14 @@ class ScriptedLedgerUser:
         raw, is_stop, matched = self._next_utterance(message)
         if not matched:
             self.ledger_misses += 1
+        budget_spent = self._non_neutral_count >= self.max_interventions
         wrapped, rec = _attack_wrap(raw, family=self.family, condition=self.condition,
                                     turn=self._turn - 1, first_turn=first,
-                                    attack_spec=self.attack_spec)
+                                    attack_spec=self.attack_spec, force_neutral=budget_spent)
+        if rec.get("non_neutral"):
+            self._non_neutral_count += 1
         self.interventions.append(rec)
+        self.turns.append({"turn": self._turn - 1, "canonical": raw, "rendered": wrapped})
         msg = UserMessage(role="user", content=wrapped)
         state.messages.append(msg)
         return msg, state
@@ -191,12 +202,14 @@ def _extract_calls(simulation, tool_types: dict) -> list[dict]:
         if isinstance(m, AssistantMessage) and m.tool_calls:
             for tc in m.tool_calls:
                 tt = tool_types.get(tc.name, "GENERIC")
-                calls.append({"name": tc.name, "read": tt == "READ", "mutating": tt == "WRITE"})
+                # tool_type carries the native READ/WRITE/GENERIC so downstream never treats a
+                # GENERIC utility (calculate / transfer) as a verification read (audit H2).
+                calls.append({"name": tc.name, "tool_type": tt,
+                              "read": tt == "READ", "mutating": tt == "WRITE"})
     return calls
 
 
-def _process_metrics(calls: list[dict], profile: dict) -> dict:
-    max_steps = 20
+def _process_metrics(calls: list[dict], profile: dict, max_steps: int = 30) -> dict:
     reads_before_first_mut = 0
     total_reads = 0
     first_mut = None
@@ -244,20 +257,29 @@ def run_episode(job: dict) -> dict[str, Any]:
                               attack_spec=job.get("attack_spec") or {},
                               max_user_turns=job.get("max_user_turns", 10))
     agent = _build_agent(domain, env, job)
+    max_steps = job.get("max_steps", 30)
     orch = Orchestrator(domain=domain, agent=agent, user=user, environment=env, task=task,
-                        max_steps=job.get("max_steps", 30), seed=job.get("seed", 0))
+                        max_steps=max_steps, seed=job.get("seed", 0))
     simulation = orch.run()
+    # Score on ENV only (DB / env-assertion state) — the endpoint the study cares about. This
+    # is deterministic and fully OFFLINE; EvaluationType.ALL pulls in NL_ASSERTION for ~112/114
+    # retail tasks, which calls an EXTERNAL gpt-4.1 judge (audit C2): unavailable offline (=>
+    # infra-failure) or a paid, nondeterministic, uncontrolled dependency. ENV avoids both and
+    # avoids the COMMUNICATE confound.
     reward_info = evaluate_simulation(simulation=simulation, task=task,
-                                      evaluation_type=EvaluationType.ALL, solo_mode=False,
+                                      evaluation_type=EvaluationType.ENV, solo_mode=False,
                                       domain=domain)
     reward = float(getattr(reward_info, "reward", 0.0) or 0.0)
+    term = getattr(simulation, "termination_reason", None)
+    term_str = str(getattr(term, "value", term) or "unknown")
 
     calls = _extract_calls(simulation, tool_types)
-    proc = _process_metrics(calls, profile)
+    proc = _process_metrics(calls, profile, max_steps=max_steps)
     return {
         "event": "episode",
         "domain": domain, "task_id": task_id, "family": family, "condition": condition,
         "reward": reward, "success": int(reward >= 0.999),
+        "termination_reason": term_str,
         "tool_calls": calls, "n_tool_calls": len(calls),
         "process": {"compression": proc["compression"], "inflation": proc["inflation"]},
         "reads_before_first_mutation": proc["reads_before_first_mutation"],
@@ -265,6 +287,7 @@ def run_episode(job: dict) -> dict[str, Any]:
         "min_prereq_verification_calls": profile["min_prereq_verification_calls"],
         "min_viable_total_verification_calls": profile["min_viable_total_verification_calls"],
         "interventions": user.interventions,
+        "rendered_turns": user.turns,
         "ledger_misses": user.ledger_misses,
         "n_user_turns": user._turn,
     }

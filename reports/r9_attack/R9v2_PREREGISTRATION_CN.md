@@ -208,9 +208,62 @@ G4 要 adaptive_share≥0.70，静态变体够不着（且 spec 8.6"测时不搜
 M2–M5 全部需要 live 模型（Qwen2.5-72B + Llama-70B）。当前 4×A100 被 co-tenant **ryu11 占满（100% util）**，
 不属用户账户、不可 kill；连现有 gemma/mistral 服务都被饿死（chat completion 超时）。**M2 起需等 GPU 释放。**
 
+---
+
+## 10. 双 Reviewer 审计与修复（2026-08-19）
+
+两个独立 reviewer（代码正确性 + 实验/科学效度）审计后**一致判定：R9v2 以当时的设计/代码无法可信回答研究问题**。
+**就绪度口径更正**：M1b 之前写"✅ 仪器建成/验证"属**过度声明**——实际只跑过**孤立 C0 离线 smoke**，
+**live 从未运行、未接入流水线、接入后会被多处校验拒绝**。正确表述为"离线 episode 回路 smoke-through；
+全流水线接入未完成、未 live 验证"。
+
+### 10.1 已修复的代码缺陷（可离线验证，已提交）
+- **[C1 已修] C4 假自适应 + H1 攻击串错误**：`build_attack_spec` 之前从错误模块导入 `generic_c3_candidate`
+  导致**每次都走手写 fallback**（与 BFCL 用的冻结库不一致）；且 C4 硬编码 `adaptive=True`。改为**loud 导入真
+  库**（已验证 C3 串与 BFCL 一致），**C4 诚实标 `adaptive=False`、tactic=`c4_static_tau2`**。tau2 明确为
+  **静态压力臂**（无法在子进程里跑 live AttackController）。
+- **[C2 已修] retail 外部判官**：评分从 `EvaluationType.ALL`（对 112/114 retail 触发 gpt-4.1）改为
+  **`EvaluationType.ENV`**（纯 DB 状态，确定性、离线、正是研究关心的 endpoint）。
+- **[H2 已修] GENERIC 被当 read**：`ToolCallRecord` 加 `tool_type` 字段；`extract_metrics` 与
+  `reference_metrics`（各自独立路径）read 判据改为"有 tool_type 则仅 READ、否则 not-mutating"——GENERIC 不再计入
+  核验；BFCL/TS（无 tool_type）行为不变。
+- **[H3 已修] 终止/outcome**：worker 返回真实 `termination_reason`；adapter 映射 tau2 `max_steps→step_limit`
+  等使 `budget_exhausted` 可达；硬错误标 infra；ENV 使 `success`=DB 端点（不再被 communicate/NL 误降）。
+- **[H4 已修] schema 拒 tau2 + 无 turns**：`validate` 允许 `tau2`；adapter 从 `rendered_turns` 填 `rec.turns`。
+- **[H5 已修] 无干预预算**：ScriptedLedgerUser 加**每 episode ≤4 non-neutral 上限**（超出转中性 fallback）。
+- **[M2 已修] 哨兵硬编码 20**：改为随实际 `max_steps`（30→哨兵 31）。
+- **[M3 已修] 冻结分类表未读**：worker 加载并**断言运行时 tool_type 与冻结表一致，漂移即 fail**。
+- **[L11 已修] 文稿数字**：写动作数 43/112 → **26/104**（130 可变，与 worker 一致）。
+
+### 10.2 待用户拍板的设计变更（**未擅自 bake，先冻结会锁死缺陷**）
+- **[B-H3 主指标"哨兵×标度"缺陷]**：VD 把 O(1) 比值与哨兵 21/31 混在同一均值里，是 **R9v1 得零的真机制、
+  两基准共有**。修法（需签字，影响 BFCL）：endpoint（是否成功写）单列二元结局；process 指标**只在两条件都有写的
+  endpoint-preserved 配对上**算。**这是最高价值的科学修复。**
+- **[B-C2 基准⊗攻击器混淆]**：BFCL 用真·自适应、tau2 用静态 → "基准"因子混进"攻击器实现"。选定处理：
+  **分基准报告、不混池**，tau2 臂**不含"优化攻击"对比**（C4−C3/decision-A 的 adaptive 判据不套用于 tau2）。
+  需在 `analyze_confirmatory` 落实（分基准 + tau2 跳过 adaptive-G4/decision-A）。
+- **[B-H4 ScriptedLedgerUser 效度]**：恒定"同意"抽掉核验压力、攻击下语义不变性会破。需：(a) 把
+  `ledger_miss_by_condition` 与"按 condition 事实通道差异"扩到 tau2 当**放行前硬门**；(b) 结论明写剧本用户是外
+  部效度的主要威胁。是否接受 scripted-user 路线、还是改用 live-user + 不变性事后校验，需定。
+- **[B-H6 模型前提]**：qwen72b/llama70b 正是 R9v1 BFCL **0.00/0.125 不达标**者。预注册须**如实写出**这两个
+  分数 + "双基准合格<2 则如实 STOP、绝不放宽 §6.5"硬承诺；**GPU 空出后先校准 BFCL-deep 用证据说话**。
+- **[M7/M8 分母与深度门]**：min_prereq 用参考轨迹 read 数，跨任务从 0–16 异质、~40% 塌成 1；tau2 深度门用
+  参考调用数代理冒充轮数；排除标准对 TS(≥4 严)/tau2(≥3 代理松)不一致，airline 单域 compression 仅 13<25。
+  需统一深度定义、锁定"两域都跑+各域最低任务数"、并对分母做敏感性分析。
+- **[冻结哈希缺口 L11]**：ScriptedLedgerUser 策略（`_CONFIRM`/`_ID_KEYWORDS`/终止启发式）是研究者自由度，
+  须纳入 test 前冻结哈希。
+- **[流水线接入]**：`build_splits`/`run_calibration`/`run_confirmatory`/`analyze` 仍硬编码 (bfcl,toolsandbox)，
+  tau2 未接入；需泛化 + 独立 results 目录（根治 ResultsSink 跨运行污染）。
+
+### 10.3 结论
+**不得在 10.2 全部解决前打 `r9v2-preregistered` tag**——否则把上述缺陷冻结为"已注册"。R9v1 的 decision-F
+复盘经审计确认**诚实无过度声明**；问题集中在 R9v2 的就绪度与选模前提，现已如实下调口径。
+
 - 数据层验证（`configs/r9v2/tau2_tool_classification.json` 已冻结）：
-  - **airline**：14 工具（6 WRITE / 6 READ / 2 GENERIC），50 任务（43 含写动作）。
-  - **retail**：16 工具（7 WRITE / 7 READ / 2 GENERIC），114 任务（112 含写动作）。
+  - **airline**：14 工具（6 WRITE / 6 READ / 2 GENERIC），50 任务，**26 个参考轨迹含 WRITE 动作**（43 有任意 actions）。
+  - **retail**：16 工具（7 WRITE / 7 READ / 2 GENERIC），114 任务，**104 个含 WRITE 动作**（112 有任意 actions）。
+  - 合计可变（compression 可用）**130** 个（26+104），与 worker `has_mutation` 一致。
+    （审计修正 L11：此前误写 43/112 为"含写动作"，实为"有任意 actions"。）
   - 读/写用 tau2 **原生 `@is_tool(ToolType.WRITE/READ)`** 标签（比 ToolSandbox 更干净）；
     `evaluation_criteria.actions` 提供参考轨迹（写前的读 → min_prereq），原生 reward。
   - 数据目录经 `TAU2_DATA_DIR=/home/xqin5/tau2-bench/data` 指向仓库。

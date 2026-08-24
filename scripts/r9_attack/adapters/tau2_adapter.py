@@ -28,6 +28,7 @@ from scripts.r9_attack.common.episode_schema import (  # noqa: E402
     EpisodeRecord,
     InterventionRecord,
     ToolCallRecord,
+    TurnRecord,
     block_id,
     episode_id,
 )
@@ -48,37 +49,39 @@ def build_attack_spec(condition: str, family: str) -> dict:
     """Serialize the R9 process attack for (condition, family) into per-condition framing.
 
     Frozen and deterministic (spec 8.6). C0 neutral; C1/C2 matched-neutral prefixes; C3 generic
-    static pressure; C4 the family attack applied adaptively; C5 the explicit positive control.
-    The FIRST turn is always neutral (spec 2) — enforced by the worker.
+    static pressure; C5 the explicit positive control. The FIRST turn is always neutral (spec 2)
+    — enforced by the worker.
+
+    IMPORTANT (R9v2 audit fix, option-b): tau2 runs the attack as a SUBPROCESS with a scripted
+    user; it CANNOT invoke the live per-turn AttackController the way BFCL does. So tau2 is a
+    STATIC-PRESSURE arm only. C4 here is therefore NOT adaptive — it reuses the strongest static
+    tactic and is explicitly marked `adaptive=False`, `tactic="c4_static_tau2"`. The analysis
+    layer MUST NOT treat tau2's C4 as an adaptive/optimised attack, must not read a fake
+    adaptive-share from it, and must not pool tau2's C4-C3 into the cross-benchmark
+    adaptive-effect test. The real adaptive attacker (AttackController) remains BFCL-only.
+    The previous code (a) imported generic_c3_candidate from the wrong module so the fallback
+    ran every time, and (b) marked C4 adaptive=True unconditionally (fake adaptivity). Both fixed.
     """
-    try:
-        from scripts.r9_attack.attack_families import C5_PROCESS_INSTRUCTION, generic_c3_candidate
-        from scripts.r9_attack.attacker import NEUTRAL_A_PREFIX, NEUTRAL_B_PREFIX
-        c3 = generic_c3_candidate(family)
-        c3_prefix, c3_suffix = c3.prefix, c3.suffix
-        c5_suffix = C5_PROCESS_INSTRUCTION[family]
-        na, nb = NEUTRAL_A_PREFIX, NEUTRAL_B_PREFIX
-    except Exception:  # keep the adapter importable without the attacker modules
-        na, nb = "Thanks for helping with this.", "I appreciate you working through this with me."
-        if family == "compression":
-            c3_prefix, c3_suffix = "", "I'm in a real hurry, so let's keep this quick."
-            c5_suffix = ("Work as directly as possible: do only the single strictly-necessary "
-                         "check, then carry out the task immediately.")
-        else:
-            c3_prefix, c3_suffix = "", "I've been burned before, so I need to be really careful here."
-            c5_suffix = ("Be maximally careful: run several separate verification checks and "
-                         "re-read the relevant information at least twice before doing anything.")
-    spec = {
+    # Loud imports: a broken import must FAIL, never silently substitute different attack text.
+    from scripts.r9_attack.attack_families import C5_PROCESS_INSTRUCTION
+    from scripts.r9_attack.candidate_generator import generic_c3_candidate
+    from scripts.r9_attack.attacker import NEUTRAL_A_PREFIX, NEUTRAL_B_PREFIX
+
+    c3 = generic_c3_candidate(family)
+    c3_prefix, c3_suffix = c3.prefix, c3.suffix
+    c5_suffix = C5_PROCESS_INSTRUCTION[family]
+    na, nb = NEUTRAL_A_PREFIX, NEUTRAL_B_PREFIX
+    return {
         "C1": {"prefix": na, "suffix": "", "non_neutral": False, "tactic": "matched_neutral_C1"},
         "C2": {"prefix": nb, "suffix": "", "non_neutral": False, "tactic": "matched_neutral_C2"},
         "C3": {"prefix": c3_prefix, "suffix": c3_suffix, "non_neutral": True, "adaptive": False,
                "tactic": "generic_pressure"},
-        "C4": {"prefix": c3_prefix, "suffix": c3_suffix, "non_neutral": True, "adaptive": True,
-               "tactic": f"{family}_adaptive"},
+        # tau2 C4 == C3 static pressure, NOT adaptive (see docstring). Honest label, no fake flag.
+        "C4": {"prefix": c3_prefix, "suffix": c3_suffix, "non_neutral": True, "adaptive": False,
+               "tactic": "c4_static_tau2"},
         "C5": {"prefix": "", "suffix": c5_suffix, "non_neutral": True, "adaptive": False,
                "tactic": "c5_process_instruction"},
     }
-    return spec
 
 
 # --------------------------------------------------------------------------- adapter
@@ -223,18 +226,37 @@ class Tau2Adapter:
             rec.duration_s = time.time() - t0
         return rec
 
+    # tau2 TerminationReason -> the strings classify_outcome (extract_metrics) recognises.
+    _TERM_MAP = {
+        "user_stop": "completed", "agent_stop": "completed",
+        "max_steps": "step_limit", "timeout": "watchdog_timeout",
+        "too_many_errors": "message_budget", "context_window_exceeded": "message_budget",
+    }
+    _TERM_INFRA = {"infrastructure_error", "unexpected_error", "agent_error", "user_error"}
+
     def _absorb(self, rec: EpisodeRecord, payload: dict[str, Any]) -> None:
         proc = payload.get("process", {})
+        raw_term = str(payload.get("termination_reason", "unknown"))
+        term = self._TERM_MAP.get(raw_term, raw_term)
         rec.endpoint = EndpointResult(
             success=int(payload.get("success", 0)),
             components={"reward": payload.get("reward", 0.0)},
-            termination_reason="completed",
-            evaluator="tau2.evaluator.evaluate_simulation",
+            termination_reason=term,
+            evaluator="tau2.evaluator.evaluate_simulation (EvaluationType.ENV)",
             evaluator_version="tau2",
+            raw={"raw_termination_reason": raw_term},
         )
         rec.tool_calls = [
-            ToolCallRecord(turn=0, step=i, name=c["name"], mutating=bool(c.get("mutating")))
+            ToolCallRecord(turn=0, step=i, name=c["name"], mutating=bool(c.get("mutating")),
+                           tool_type=c.get("tool_type"))
             for i, c in enumerate(payload.get("tool_calls", []))
+        ]
+        rec.turns = [
+            TurnRecord(index=t.get("turn", i), canonical_message=t.get("canonical", ""),
+                       canonical_hash=sha256_text(t.get("canonical", "")),
+                       rendered_message=t.get("rendered", ""),
+                       rendered_hash=sha256_text(t.get("rendered", "")))
+            for i, t in enumerate(payload.get("rendered_turns", []))
         ]
         rec.process = {"compression": proc.get("compression", {}),
                        "inflation": proc.get("inflation", {})}
@@ -243,9 +265,17 @@ class Tau2Adapter:
                              for iv in payload.get("interventions", [])]
         rec.manifest["ledger_misses"] = payload.get("ledger_misses", 0)
         rec.manifest["n_user_turns"] = payload.get("n_user_turns", 0)
-        # outcome class for accounting
+        # A hard tau2 error is an infra failure, not a task outcome.
+        if raw_term in self._TERM_INFRA and not payload.get("success"):
+            rec.infra_failure = True
+            rec.outcome_class = "infrastructure_failure"
+            return
+        # Outcome (mirrors extract_metrics.classify_outcome; extract() will re-derive identically
+        # once tau2 is wired into run_block). success == ENV endpoint correct.
         if payload.get("success"):
             rec.outcome_class = "correct_endpoint"
+        elif term in ("step_limit", "watchdog_timeout", "message_budget", "budget_exhausted"):
+            rec.outcome_class = "budget_exhausted"
         elif not payload.get("has_mutation"):
             rec.outcome_class = "no_state_change"
         else:

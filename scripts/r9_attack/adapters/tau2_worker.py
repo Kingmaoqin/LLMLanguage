@@ -49,6 +49,10 @@ def _env(domain: str):
     return _ENVCACHE[domain]
 
 
+_FROZEN_TT = os.path.join(os.path.dirname(__file__), "..", "..", "..", "configs", "r9v2",
+                          "tau2_tool_classification.json")
+
+
 def _tool_types(domain: str) -> dict[str, str]:
     env = _env(domain)
     tk = env.tools
@@ -59,6 +63,22 @@ def _tool_types(domain: str) -> dict[str, str]:
             out[n] = str(tk.tool_type(n)).split(".")[-1]  # READ / WRITE / GENERIC
         except Exception:
             out[n] = "GENERIC"
+    # Pin runtime classification to the frozen pre-registration artifact: a tau2 upgrade that
+    # silently re-tagged a tool would otherwise change every derived metric with no guard. Fail
+    # loudly on drift (audit M3).
+    if os.path.exists(_FROZEN_TT):
+        frozen = json.load(open(_FROZEN_TT)).get("domains", {}).get(domain, {})
+        if frozen:
+            fz = {}
+            for n in frozen.get("write_tools", []):
+                fz[n] = "WRITE"
+            for n in frozen.get("read_tools", []):
+                fz[n] = "READ"
+            for n in frozen.get("generic_tools", []):
+                fz[n] = "GENERIC"
+            drift = {n: (out.get(n), fz[n]) for n in fz if out.get(n) != fz[n]}
+            if drift:
+                raise RuntimeError(f"tau2 tool-type drift vs frozen {domain}: {drift}")
     return out
 
 

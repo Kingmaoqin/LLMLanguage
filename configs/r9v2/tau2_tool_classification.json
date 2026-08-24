@@ -25,7 +25,8 @@
         "transfer_to_human_agents"
       ],
       "n_tasks": 50,
-      "n_tasks_with_write_actions": 43
+      "n_tasks_with_write_actions": 26,
+      "n_tasks_with_actions": 43
     },
     "retail": {
       "n_tools": 16,
@@ -52,7 +53,9 @@
         "transfer_to_human_agents"
       ],
       "n_tasks": 114,
-      "n_tasks_with_write_actions": 112
+      "n_tasks_with_write_actions": 104,
+      "n_tasks_with_actions": 112
     }
-  }
+  },
+  "_audit_note": "R9v2 audit fix: n_tasks_with_write_actions now counts tasks whose reference actions include a WRITE (was mislabeled has-any-actions). Added n_tasks_with_actions."
 }

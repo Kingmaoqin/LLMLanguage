@@ -35,18 +35,30 @@ def _first_mutation_index(rec: EpisodeRecord) -> int | None:
     return None
 
 
+def _is_read(c) -> bool:
+    """A verification (read) call. When the benchmark tags tools natively (tau2:
+    tool_type set), a GENERIC utility (e.g. `calculate`, `transfer_to_human_agents`) is
+    NOT a read; only READ counts. When tool_type is None (BFCL/ToolSandbox, which have no
+    GENERIC class), fall back to `not mutating` — unchanged behaviour for those benchmarks."""
+    if not c.ok:
+        return False
+    if c.tool_type is not None:
+        return c.tool_type == "READ"
+    return not c.mutating
+
+
 def _reads_before(rec: EpisodeRecord, upto: int | None) -> int:
-    """Non-mutating successful calls before position `upto` (or all, if None)."""
+    """Verification (read) calls before position `upto` (or all, if None)."""
     end = len(rec.tool_calls) if upto is None else upto
-    return sum(1 for c in rec.tool_calls[:end] if (not c.mutating) and c.ok)
+    return sum(1 for c in rec.tool_calls[:end] if _is_read(c))
 
 
 def _total_reads(rec: EpisodeRecord) -> int:
-    return sum(1 for c in rec.tool_calls if (not c.mutating) and c.ok)
+    return sum(1 for c in rec.tool_calls if _is_read(c))
 
 
 def _duplicate_reads(rec: EpisodeRecord) -> int:
-    return sum(1 for c in rec.tool_calls if (not c.mutating) and c.ok and c.duplicate_of is not None)
+    return sum(1 for c in rec.tool_calls if _is_read(c) and c.duplicate_of is not None)
 
 
 def _has_parser_failure(rec: EpisodeRecord) -> bool:

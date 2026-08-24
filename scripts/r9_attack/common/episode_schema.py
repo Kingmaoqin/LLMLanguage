@@ -53,6 +53,8 @@ class ToolCallRecord:
     ok: bool = True
     error: Optional[str] = None
     mutating: bool = False          # measured via benchmark state delta, see module doc
+    tool_type: Optional[str] = None  # "READ"/"WRITE"/"GENERIC" when the benchmark tags tools
+                                     # natively (tau2). None => infer read as (not mutating).
     duplicate_of: Optional[int] = None  # index of an earlier identical (name,args) call
     result_repr: str = ""
 
@@ -168,7 +170,7 @@ def validate(rec: EpisodeRecord) -> list[str]:
     problems: list[str] = []
     if rec.outcome_class not in OUTCOME_CLASSES:
         problems.append(f"bad outcome_class {rec.outcome_class!r}")
-    if rec.benchmark not in ("bfcl", "toolsandbox"):
+    if rec.benchmark not in ("bfcl", "toolsandbox", "tau2"):
         problems.append(f"bad benchmark {rec.benchmark!r}")
     if rec.endpoint.success not in (0, 1):
         problems.append(f"endpoint.success must be 0/1, got {rec.endpoint.success!r}")
