@@ -110,6 +110,7 @@ def task_profile(domain: str, task: Any, tool_types: dict[str, str]) -> dict[str
         "domain": domain,
         "reason_for_call": getattr(instr, "reason_for_call", "") or "",
         "known_info": known,
+        "unknown_info": getattr(instr, "unknown_info", "") or "",
         "task_instructions": getattr(instr, "task_instructions", "") or "",
         "reward_basis": [str(r).split(".")[-1] for r in (ec.reward_basis or [])] if ec else [],
         "gt_path": flat,

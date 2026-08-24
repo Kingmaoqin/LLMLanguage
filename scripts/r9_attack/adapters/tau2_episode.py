@@ -43,24 +43,28 @@ def _attack_wrap(text: str, *, family: str, condition: str, turn: int, first_tur
 
 # --------------------------------------------------------------------------- scripted user
 class ScriptedLedgerUser:
-    """Deterministic tau2 user: delivers the task's frozen facts, attacker-wrapped.
+    """Deterministic tau2 user: answers the agent's questions from a frozen fact bank.
 
-    Implements tau2's half-duplex user contract (get_init_state / generate_next_message /
-    is_stop / set_seed / stop) WITHOUT any LLM call, so the factual content is identical
-    across conditions (semantic invariance). Only the attacker framing varies by condition.
+    Implements tau2's half-duplex user contract WITHOUT any LLM call, so the factual content
+    is identical across conditions (semantic invariance). Only the attacker framing varies.
+    The fact bank is (a) identity facts keyed for question->answer matching, (b) the goal
+    (reason_for_call), and (c) detailed wants (task_instructions) delivered one at a time.
     """
 
-    def __init__(self, *, facts: list[str], family: str, condition: str, attack_spec: dict,
-                 max_user_turns: int = 8):
-        self.facts = list(facts)
+    def __init__(self, *, fact_bank: dict, family: str, condition: str, attack_spec: dict,
+                 max_user_turns: int = 10):
+        self.identity = fact_bank["identity"]      # list of (keywords, answer)
+        self.goal = fact_bank["goal"]
+        self.details = list(fact_bank["details"])  # queue of task-instruction sentences
+        self.unknown = fact_bank.get("unknown", "")
         self.family = family
         self.condition = condition
         self.attack_spec = attack_spec or {}
         self.max_user_turns = max_user_turns
         self.interventions: list[dict] = []
         self.ledger_misses = 0
+        self.answered = set()
         self._turn = 0
-        self._fact_i = 0
         self._seed = 0
 
     def set_seed(self, seed: int) -> None:
@@ -78,28 +82,47 @@ class ScriptedLedgerUser:
     def stop(self, *args, **kwargs) -> None:
         return None
 
-    def _next_utterance(self, agent_message) -> tuple[str, bool]:
-        """Pick the next canonical factual utterance. Returns (text, is_stop)."""
-        # opening turn: the reason-for-call (fact[0]); subsequent: remaining known facts;
-        # once facts are exhausted, confirm the agent's proposed action, then stop.
-        if self._fact_i < len(self.facts):
-            txt = self.facts[self._fact_i]
-            self._fact_i += 1
-            return txt, False
-        # facts exhausted: if the agent asked a question, confirm; else close.
-        content = getattr(agent_message, "content", "") or ""
+    _CONFIRM = ("confirm", "proceed", "shall i", "should i", "would you like me to",
+                "is that correct", "correct?", "go ahead", "may i", "can i proceed",
+                "do you want", "are you sure")
+
+    def _next_utterance(self, agent_message) -> tuple[str, bool, bool]:
+        """Answer the agent. Returns (text, is_stop, matched)."""
+        q = (getattr(agent_message, "content", "") or "").lower()
+        # turn 1: state the goal.
+        if self._turn == 1:
+            return self.goal, False, True
+        # specific identity/detail question -> the matching fact.
+        for keys, ans in self.identity:
+            if any(k in q for k in keys) and ans not in self.answered:
+                self.answered.add(ans)
+                return ans, False, True
+        # generic identity request ("verify/provide your details/account") -> next unanswered id.
+        _ID_REQUEST = ("verify", "provide", "your details", "your account", "confirm your",
+                       "may i have", "can i have", "could you provide", "for verification")
+        if any(k in q for k in _ID_REQUEST):
+            for keys, ans in self.identity:
+                if ans not in self.answered:
+                    self.answered.add(ans)
+                    return ans, False, True
+        # agent asks to confirm / proceed -> yes.
+        if any(c in q for c in self._CONFIRM) or (q.strip().endswith("?") and not self.details):
+            return "Yes, that's right, please go ahead.", False, True
+        # agent asks an open question ("what/how can I help/anything else") -> next detail.
+        if self.details:
+            return self.details.pop(0), False, True
+        # nothing left to say and agent still asking -> close (or miss if a real question).
         if self._turn >= self.max_user_turns:
-            return f"That's all I needed, thank you. {STOP}", True
-        if "?" in content:
-            return "Yes, that's correct, please go ahead.", False
-        return f"Great, that's everything. Thank you. {STOP}", True
+            return f"That's everything I needed, thank you. {STOP}", True, True
+        if "?" in q:
+            return "That's all the information I have on that.", False, False
+        return f"Great, thank you for your help. {STOP}", True, True
 
     def generate_next_message(self, message, state):
         self._turn += 1
         first = self._turn == 1
-        raw, is_stop = self._next_utterance(message)
-        # off-script detection: agent asked something and we had no fact left to answer
-        if (not is_stop) and self._fact_i >= len(self.facts) and "?" in (getattr(message, "content", "") or ""):
+        raw, is_stop, matched = self._next_utterance(message)
+        if not matched:
             self.ledger_misses += 1
         wrapped, rec = _attack_wrap(raw, family=self.family, condition=self.condition,
                                     turn=self._turn - 1, first_turn=first,
@@ -111,19 +134,43 @@ class ScriptedLedgerUser:
 
 
 # --------------------------------------------------------------------------- facts ledger
-def _facts_from_task(profile: dict) -> list[str]:
-    """Frozen factual utterance sequence from the task profile (reason_for_call + known_info)."""
-    facts = []
-    if profile.get("reason_for_call"):
-        facts.append(profile["reason_for_call"].strip())
-    known = profile.get("known_info") or ""
-    if known:
-        # split known_info into atomic sentences so they can be delivered over turns
-        for part in re.split(r"(?<=[.!?])\s+|\n+", known.strip()):
-            part = part.strip()
-            if len(part) > 3:
-                facts.append(part)
-    return facts or ["I need help with my account."]
+def _sentences(text: str) -> list[str]:
+    out = []
+    for part in re.split(r"(?<=[.!?])\s+|\n+", (text or "").strip()):
+        part = part.strip()
+        if len(part) > 3:
+            out.append(part)
+    return out
+
+
+# keyword banks that map an agent question to the identity sentence that answers it
+_ID_KEYWORDS = {
+    "user id": ("user id", "user-id", "account", "identify", "your id", "who am i", "user_id"),
+    "reservation": ("reservation", "booking", "confirmation number", "confirmation code"),
+    "name": ("name", "who are you", "full name"),
+    "zip": ("zip", "postal", "zip code"),
+    "email": ("email",),
+    "order": ("order", "order id", "order number"),
+    "address": ("address", "shipping"),
+    "payment": ("payment", "card", "gift card"),
+}
+
+
+def _fact_bank(profile: dict) -> dict:
+    """Frozen fact bank: goal + keyed identity facts + detail queue (semantic invariance)."""
+    goal = (profile.get("reason_for_call") or "I need help with my account.").strip()
+    known_sents = _sentences(profile.get("known_info") or "")
+    identity = []
+    for s in known_sents:
+        sl = s.lower()
+        keys = []
+        for _, kw in _ID_KEYWORDS.items():
+            if any(k in sl for k in kw):
+                keys.extend(kw)
+        identity.append((tuple(dict.fromkeys(keys)), s))  # SPECIFIC keys only
+    unknown = (profile.get("unknown_info") or "") if profile.get("unknown_info") else ""
+    details = _sentences(profile.get("task_instructions") or "")
+    return {"goal": goal, "identity": identity, "details": details, "unknown": unknown}
 
 
 # --------------------------------------------------------------------------- agent
@@ -192,10 +239,10 @@ def run_episode(job: dict) -> dict[str, Any]:
     task = next(t for t in _tasks(domain) if str(t.id) == task_id)
     profile = task_profile(domain, task, tool_types)
 
-    facts = _facts_from_task(profile)
-    user = ScriptedLedgerUser(facts=facts, family=family, condition=condition,
+    fact_bank = _fact_bank(profile)
+    user = ScriptedLedgerUser(fact_bank=fact_bank, family=family, condition=condition,
                               attack_spec=job.get("attack_spec") or {},
-                              max_user_turns=job.get("max_user_turns", 8))
+                              max_user_turns=job.get("max_user_turns", 10))
     agent = _build_agent(domain, env, job)
     orch = Orchestrator(domain=domain, agent=agent, user=user, environment=env, task=task,
                         max_steps=job.get("max_steps", 30), seed=job.get("seed", 0))
