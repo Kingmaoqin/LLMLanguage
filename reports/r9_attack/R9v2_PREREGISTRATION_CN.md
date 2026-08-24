@@ -188,7 +188,26 @@ G4 要 adaptive_share≥0.70，静态变体够不着（且 spec 8.6"测时不搜
   （miss_param 189 + base 154）—— 对比 ToolSandbox 的 4 个。深度/read/mutate/min_prereq 全部正确。
 - miss_param 缺参数 → 强制澄清/核验，正是压缩/膨胀作用点；压缩哨兵在 BFCL 实测 0%（度量完全可测）。
 
-### M1b — 基准 B（τ²-bench）🔧 数据层已验证，run_episode 适配器待建
+### M1b — 基准 B（τ²-bench）✅ 仪器建成（离线/子进程验证），live rollout 待 GPU
+- `tau2_worker.py`（tau2_venv，子进程）：list-tasks 数据层 + run-episode。
+- `tau2_episode.py`：**ScriptedLedgerUser**（问题→事实匹配，离线验证 **ledger_miss 0/6**，语义不变性成立）
+  + 原生 LLMAgent(vLLM) + Orchestrator + 原生 reward + 读写分类 + 压缩/膨胀过程指标。C0 回路已端到端跑通。
+- `tau2_adapter.py`（r9 侧）：子进程驱动 → TaskSpec/EpisodeRecord；load_tasks 验证 164 任务/68 深核验；
+  `build_attack_spec` 序列化 R9 攻击（C1-C5，含真实 C5 指令）为冻结 attack_spec，worker 内自足施加。
+- **待办**：live rollout（需能干模型跑通完整任务 + 校准）——**GPU 阻塞**（ryu11 占满 4 卡，连现有 mistral
+  都无法完成 chat completion）。
+
+### M1c — 接线 🔧 部分完成
+- `adapters_factory.build_adapters` 已支持 `bfcl_categories`（base+miss_param）+ `include_tau2`（airline/retail），
+  弃用 toolsandbox（v2）。
+- **待办**（纯代码，但最好 live 验证 → GPU 阻塞）：`build_splits` 从硬编码 (bfcl,toolsandbox) 泛化为
+  benchmark 列表 + 纳入标准；v2 独立 config + **独立 results 目录**（根治 ResultsSink 跨运行污染）；
+  calibration/dev/confirmatory 的 benchmark 路由泛化到 tau2。
+
+### ⛔ 当前硬阻塞：GPU
+M2–M5 全部需要 live 模型（Qwen2.5-72B + Llama-70B）。当前 4×A100 被 co-tenant **ryu11 占满（100% util）**，
+不属用户账户、不可 kill；连现有 gemma/mistral 服务都被饿死（chat completion 超时）。**M2 起需等 GPU 释放。**
+
 - 数据层验证（`configs/r9v2/tau2_tool_classification.json` 已冻结）：
   - **airline**：14 工具（6 WRITE / 6 READ / 2 GENERIC），50 任务（43 含写动作）。
   - **retail**：16 工具（7 WRITE / 7 READ / 2 GENERIC），114 任务（112 含写动作）。
