@@ -39,8 +39,11 @@ def _attack_wrap(text: str, *, family: str, condition: str, turn: int, first_tur
     prefix = spec.get("prefix", "")
     suffix = spec.get("suffix", "")
     non_neutral = bool(spec.get("non_neutral", condition in ("C3", "C4", "C5")))
+    # token_count of the STYLE addition only (prefix+suffix), so schema validate()'s spec-2
+    # <=60-token style cap is actually enforced for tau2 (audit: it was inert, always 0).
     rec.update(non_neutral=non_neutral, adaptive=bool(spec.get("adaptive", condition == "C4")),
-               tactic=spec.get("tactic", condition))
+               tactic=spec.get("tactic", condition),
+               token_count=len(f"{prefix} {suffix}".split()))
     wrapped = (f"{prefix} {text} {suffix}").strip() if (prefix or suffix) else text
     return wrapped, rec
 
@@ -210,6 +213,12 @@ def _extract_calls(simulation, tool_types: dict) -> list[dict]:
 
 
 def _process_metrics(calls: list[dict], profile: dict, max_steps: int = 30) -> dict:
+    # NOTE (audit M2, PARTIAL): the sentinel here is tied to the real step ceiling (max_steps).
+    # But this dict is NON-AUTHORITATIVE — once tau2 is wired into run_block, extract_metrics
+    # re-derives process metrics with its own MAX_EPISODE_STEPS_DEFAULT=20 and OVERWRITES this.
+    # The full fix (per-benchmark max_episode_steps at the extract() call site, and/or the B-H3
+    # sentinel/endpoint decoupling that supersedes a numeric sentinel entirely) is part of the
+    # deferred pipeline-wiring + metric redesign, NOT complete here.
     reads_before_first_mut = 0
     total_reads = 0
     first_mut = None

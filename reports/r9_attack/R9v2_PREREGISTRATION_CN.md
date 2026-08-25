@@ -231,7 +231,11 @@ M2–M5 全部需要 live 模型（Qwen2.5-72B + Llama-70B）。当前 4×A100 �
   等使 `budget_exhausted` 可达；硬错误标 infra；ENV 使 `success`=DB 端点（不再被 communicate/NL 误降）。
 - **[H4 已修] schema 拒 tau2 + 无 turns**：`validate` 允许 `tau2`；adapter 从 `rendered_turns` 填 `rec.turns`。
 - **[H5 已修] 无干预预算**：ScriptedLedgerUser 加**每 episode ≤4 non-neutral 上限**（超出转中性 fallback）。
-- **[M2 已修] 哨兵硬编码 20**：改为随实际 `max_steps`（30→哨兵 31）。
+- **[M2 部分修·独立复核发现]**：worker 侧哨兵已随 `max_steps`（30→31）。**但权威路径 `extract_metrics`
+  仍用 `MAX_EPISODE_STEPS_DEFAULT=20`（哨兵 21），接入 run_block 后会覆盖 worker 的值** → M2 只算 worker 侧修好，
+  权威路径需在接入时按基准传 `max_episode_steps=30`；且 **B-H3 的哨兵/端点解耦一旦落实即取代数值哨兵**。归入 10.2 待办。
+- **[token_count 已修·独立复核发现]**：tau2 干预此前从不设 `token_count` → schema 的 spec-2 ≤60-token 检查对 tau2
+  形同虚设；现按 prefix+suffix 词数记 `token_count`，使该检查生效。
 - **[M3 已修] 冻结分类表未读**：worker 加载并**断言运行时 tool_type 与冻结表一致，漂移即 fail**。
 - **[L11 已修] 文稿数字**：写动作数 43/112 → **26/104**（130 可变，与 worker 一致）。
 
