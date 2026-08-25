@@ -242,22 +242,28 @@ def main() -> int:
         import json as _json
         sizes = _json.loads(args.sizes_json)
 
+    import os
     from scripts.r9_attack.adapters.bfcl_adapter import BfclAdapter
-    from scripts.r9_attack.adapters.toolsandbox_adapter import ToolSandboxAdapter
 
-    bfcl = BfclAdapter(endpoints={})
+    # R9v2 (pre-reg): env R9_BFCL_CATEGORIES selects deep categories (base + miss_param);
+    # R9_INCLUDE_TS=0 drops ToolSandbox (dropped for v2). R9v1 defaults unchanged.
+    cats = [c.strip() for c in os.environ.get("R9_BFCL_CATEGORIES", "multi_turn_base").split(",") if c.strip()]
+    include_ts = os.environ.get("R9_INCLUDE_TS", "1") != "0"
+
+    bfcl = BfclAdapter(endpoints={}, categories=cats)
     bfcl_ids = None
-    if args.bfcl_limit:
+    if args.bfcl_limit and cats == ["multi_turn_base"]:
         bfcl_ids = [f"multi_turn_base_{i}" for i in range(args.bfcl_limit)]
     bfcl_tasks = bfcl.load_tasks(bfcl_ids)
 
-    ts = ToolSandboxAdapter(endpoints={}, ledger_path=pathlib.Path(args.ledgers))
-    # Only use ToolSandbox scenarios whose neutral pre-pass reached >0 milestone (usable).
     ts_tasks = []
-    if ts._ledgers:
-        usable = [name for name, led in ts._ledgers.items()
-                  if led.get("prepass", {}).get("milestone_similarity", 0) > 0]
-        ts_tasks = ts.load_tasks(sorted(usable))
+    if include_ts:
+        from scripts.r9_attack.adapters.toolsandbox_adapter import ToolSandboxAdapter
+        ts = ToolSandboxAdapter(endpoints={}, ledger_path=pathlib.Path(args.ledgers))
+        if ts._ledgers:
+            usable = [name for name, led in ts._ledgers.items()
+                      if led.get("prepass", {}).get("milestone_similarity", 0) > 0]
+            ts_tasks = ts.load_tasks(sorted(usable))
 
     split = build_splits(bfcl_tasks, ts_tasks, sizes=sizes)
     manifest = freeze(split)

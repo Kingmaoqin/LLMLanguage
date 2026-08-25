@@ -25,7 +25,17 @@ def build_adapters(
     (base + miss_param via `bfcl_categories`) + tau2 (airline/retail via `include_tau2`), and
     drops toolsandbox — see reports/r9_attack/R9v2_PREREGISTRATION_CN.md.
     """
+    import os
     from scripts.r9_attack.adapters.bfcl_adapter import BfclAdapter
+
+    # R9v2: env overrides when the caller did not pass explicit values (keeps every stage's
+    # BFCL category set + benchmark roster consistent without threading args through each script).
+    if bfcl_categories is None and os.environ.get("R9_BFCL_CATEGORIES"):
+        bfcl_categories = [c.strip() for c in os.environ["R9_BFCL_CATEGORIES"].split(",") if c.strip()]
+    if os.environ.get("R9_INCLUDE_TS") == "0":
+        include_toolsandbox = False
+    if os.environ.get("R9_INCLUDE_TAU2") == "1":
+        include_tau2 = True
 
     endpoints = load_endpoints(models_path)
     out: dict[str, Any] = {"endpoints": endpoints}
