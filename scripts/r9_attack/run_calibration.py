@@ -163,8 +163,14 @@ def select_and_freeze(records: list[dict]) -> dict[str, Any]:
     # (spec 19-A's ">= 2 benchmarks same direction" remains reachable across the two
     # benchmarks) rather than polluting with near-floor second models. This is recorded as
     # a deviation, not a clean 2-model-per-benchmark run.
+    # R9v2 BFCL-deep design drops ToolSandbox (env R9_INCLUDE_TS=0): no TS records exist, so
+    # the study proceeds on BFCL alone with >= 2 capable models crossed with the model axis.
+    ts_present = any(r.get("benchmark") == "toolsandbox" for r in records)
     same_model_both = bool(set(targets_bfcl) & set(targets_toolsandbox))
-    if len(targets_bfcl) >= 2 and len(targets_toolsandbox) >= 2:
+    if not ts_present:
+        status = "SELECTED_BFCL_DEEP" if len(targets_bfcl) >= 2 else \
+            ("SELECTED_BFCL_DEEP_SINGLE_MODEL" if len(targets_bfcl) == 1 else "STOP_MODEL_CAPABILITY_FLOOR")
+    elif len(targets_bfcl) >= 2 and len(targets_toolsandbox) >= 2:
         status = "SELECTED"
     elif same_model_both:
         # A single strong model capable on BOTH benchmarks: benchmark is the only varying
