@@ -46,6 +46,9 @@ sleep 5
 
 # 4. run the full BFCL-deep pipeline (splits already frozen -> skip to canonical).
 # conf-repeats=3: test 80 tasks x 6 conditions x 3 x 2 models ~= 2880 episodes (~10h).
+# safety audit first (integrity requires SANDBOX_SCOPE_CLOSED; --skip-to canonical skips it)
+log "running safety audit"
+$R9 -u scripts/r9_attack/safety_audit.py >> reports/r9_attack/r9v2_pipeline.log 2>&1
 log "launching full BFCL-deep pipeline"
 $R9 -u scripts/r9_attack/run_full_pipeline.py \
   --candidates qwen25_72b llama33_70b --skip-to canonical \

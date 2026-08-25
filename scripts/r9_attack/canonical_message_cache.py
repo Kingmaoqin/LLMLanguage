@@ -128,9 +128,13 @@ def build_from_registries(
 
     # BFCL: canonical user turns come straight from the dataset.
     try:
+        import os
         from scripts.r9_attack.adapters.bfcl_adapter import BfclAdapter
 
-        adapter = BfclAdapter(endpoints=bfcl_endpoints or {})
+        # Must load the SAME categories the splits/confirmatory use, else miss_param canonical
+        # messages are never frozen and integrity flags "no frozen canonical message" for them.
+        _cats = [c.strip() for c in os.environ.get("R9_BFCL_CATEGORIES", "multi_turn_base").split(",") if c.strip()]
+        adapter = BfclAdapter(endpoints=bfcl_endpoints or {}, categories=_cats)
         task_ids = sorted(
             {
                 row["task_id"]
