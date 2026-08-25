@@ -14,7 +14,11 @@ DATA = ROOT / "data" / "r9_attack"
 FROZEN = DATA / "frozen"
 SCRIPTS = ROOT / "scripts" / "r9_attack"
 CONFIGS = ROOT / "configs" / "r9_attack"
-RESULTS = ROOT / "results" / "r9_attack"
+# Episode sinks live under a per-config subdir so a NEW experiment configuration never appends
+# into a prior run's ResultsSink (the R9v1 cross-run contamination root cause). Set
+# R9_RESULTS_SUBDIR=r9v2 for the R9v2 BFCL-deep run; default keeps the R9v1 layout.
+import os as _os
+RESULTS = ROOT / "results" / _os.environ.get("R9_RESULTS_SUBDIR", "r9_attack")
 REPORTS = ROOT / "reports" / "r9_attack"
 ARTIFACTS = ROOT / "artifacts" / "r9_attack"
 
