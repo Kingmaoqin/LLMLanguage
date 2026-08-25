@@ -42,8 +42,25 @@ def _cell_key(rec: dict) -> tuple:
     return (rec["benchmark"], rec["task_id"], rec["model"], rec["repeat"])
 
 
-def paired_primary(records: list[dict], family: str, cond_a: str, cond_b: str) -> list[tuple[str, float]]:
-    """Return (task_id, primary_a − primary_b) for every matched cell (spec 11.4 pairing)."""
+def _is_sentinel(rec: dict, family: str) -> bool:
+    """Compression VerificationDepth is a SENTINEL (undefined) when the episode never mutated."""
+    if family != "compression":
+        return False  # inflation VerificationEffort = total reads / min_viable, always defined
+    return bool((rec.get("process") or {}).get("compression", {}).get("no_state_change"))
+
+
+def paired_primary(records: list[dict], family: str, cond_a: str, cond_b: str,
+                   endpoint_preserved: bool = True) -> list[tuple[str, float]]:
+    """Return (task_id, primary_a − primary_b) for every matched cell (spec 11.4 pairing).
+
+    B-H3 fix (audit): for compression, VerificationDepth is only DEFINED when a mutation
+    occurred; a no-mutation episode is a numeric SENTINEL (~max_steps+1) that is 4-20x a typical
+    depth. Pooling sentinels into the paired MEAN lets one or two flipped-endpoint tasks dominate
+    the estimate — the exact mechanism behind R9v1's wide, single-task-driven CIs. So by default
+    we compute the process contrast ONLY on endpoint-preserved pairs (BOTH conditions mutated);
+    the no-mutation *rate* is analysed separately as a binary endpoint (no_state_change_rates).
+    Pass endpoint_preserved=False to reproduce the old sentinel-mixed behaviour.
+    """
     fam = [r for r in records if r.get("family") == family and not r.get("infra_failure")]
     by_cell: dict[tuple, dict[str, dict]] = defaultdict(dict)
     for r in fam:
@@ -51,9 +68,10 @@ def paired_primary(records: list[dict], family: str, cond_a: str, cond_b: str) -
     pairs = []
     for cell, conds in by_cell.items():
         if cond_a in conds and cond_b in conds:
-            da = ref_primary(conds[cond_a], family)
-            db = ref_primary(conds[cond_b], family)
-            pairs.append((cell[1], da - db))  # cell[1] == task_id
+            ra, rb = conds[cond_a], conds[cond_b]
+            if endpoint_preserved and (_is_sentinel(ra, family) or _is_sentinel(rb, family)):
+                continue  # sentinel pair -> excluded from the process contrast (analysed as a rate)
+            pairs.append((cell[1], ref_primary(ra, family) - ref_primary(rb, family)))  # cell[1]==task_id
     return pairs
 
 
