@@ -54,6 +54,15 @@
       "max_model_len": 16384,
       "max_tokens_per_turn": 512,
       "request_timeout_seconds": 240
+    },
+    {
+      "alias": "qwen25_32b",
+      "served_id": "qwen25-32b",
+      "base_url": "http://127.0.0.1:8009/v1",
+      "api_key": "EMPTY",
+      "max_model_len": 16384,
+      "max_tokens_per_turn": 512,
+      "request_timeout_seconds": 240
     }
   ],
   "roles": {
