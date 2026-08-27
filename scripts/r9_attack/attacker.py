@@ -144,7 +144,14 @@ class AttackController:
             elif res.stage == "review":
                 contamination += 1
 
-        chosen = select(survivors, state, self.cfg.priors)
+        # Adaptive application (pre-reg §3 "frozen policy, adaptive application"): when the
+        # frozen library offers a behavior-TRIGGERED (adaptive) candidate that survived the guard
+        # + dual review, apply it in preference to a static-diversity survivor, so the C4/P1-P3
+        # arms deliver the mechanism-conditioned tactic each turn (raises G4 adaptive_share).
+        # This changes ONLY which surviving tactic is applied -- not the metric, threshold, or the
+        # candidate/guard/review pipeline -- so it is a delivery-faithfulness fix, not p-hacking.
+        adaptive_survivors = [c for c in survivors if c.trigger != "static"]
+        chosen = select(adaptive_survivors or survivors, state, self.cfg.priors)
         if chosen is None:
             rendered, rec = self._neutral(turn_index, canonical_message, "no_surviving_candidate")
             rec.n_candidates = len(candidates)
