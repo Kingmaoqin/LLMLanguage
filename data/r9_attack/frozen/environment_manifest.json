@@ -1,48 +1,48 @@
 {
   "counts": {
-    "calibration": 14,
-    "confounder": 6,
-    "dev": 14,
-    "test": 30
+    "calibration": 16,
+    "confounder": 8,
+    "dev": 16,
+    "test": 80
   },
   "family_balance": {
     "calibration": {
-      "compression": 7,
-      "inflation": 7
+      "compression": 8,
+      "inflation": 8
     },
     "confounder": {
-      "compression": 2,
+      "compression": 4,
       "inflation": 4
     },
     "dev": {
-      "compression": 7,
-      "inflation": 7
+      "compression": 8,
+      "inflation": 8
     },
     "test": {
-      "compression": 15,
-      "inflation": 15
+      "compression": 40,
+      "inflation": 40
     }
   },
-  "git_commit": "2994ffaf67a043a76204c08193727a27a05d03a3-dirty",
+  "git_commit": "f285c7a6b1e80ebd15a5cd5191be198216855847-dirty",
   "non_overlapping": true,
   "overlaps": {},
   "seed": 20260722,
   "sizes": {
     "calibration": {
-      "bfcl": 8,
-      "toolsandbox": 6
+      "bfcl": 16,
+      "toolsandbox": 0
     },
     "confounder": {
-      "bfcl": 4,
-      "toolsandbox": 2
+      "bfcl": 8,
+      "toolsandbox": 0
     },
     "dev": {
-      "bfcl": 8,
-      "toolsandbox": 6
+      "bfcl": 16,
+      "toolsandbox": 0
     },
     "test": {
-      "bfcl": 20,
-      "toolsandbox": 10
+      "bfcl": 80,
+      "toolsandbox": 0
     }
   }
 }

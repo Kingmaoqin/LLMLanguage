@@ -7,40 +7,10 @@
     "median_user_turns_min": 2,
     "toolsandbox_milestone_floor": 0.3
   },
-  "n_records": 150,
+  "n_records": 96,
   "per_model": {
-    "gemma4_31b": {
-      "bfcl_success": 0.6333333333333333,
-      "checks": {
-        "bfcl_success_in_band": true,
-        "infra_ok": true,
-        "median_tool_calls_ok": true,
-        "median_user_turns_ok": true,
-        "toolsandbox_engaged": false
-      },
-      "infra_failure_rate": 0,
-      "median_tool_calls": 11.0,
-      "median_user_turns": 4.0,
-      "passed": false,
-      "toolsandbox_milestone": 0.07241958514220541
-    },
     "llama33_70b": {
       "bfcl_success": 0.125,
-      "checks": {
-        "bfcl_success_in_band": false,
-        "infra_ok": false,
-        "median_tool_calls_ok": true,
-        "median_user_turns_ok": true,
-        "toolsandbox_engaged": false
-      },
-      "infra_failure_rate": 0.0625,
-      "median_tool_calls": 9.0,
-      "median_user_turns": 4.0,
-      "passed": false,
-      "toolsandbox_milestone": 0.014159475148892833
-    },
-    "mistral_small_3p2": {
-      "bfcl_success": 0.03125,
       "checks": {
         "bfcl_success_in_band": false,
         "infra_ok": true,
@@ -49,36 +19,48 @@
         "toolsandbox_engaged": true
       },
       "infra_failure_rate": 0,
-      "median_tool_calls": 5.0,
+      "median_tool_calls": 9.0,
       "median_user_turns": 4.0,
       "passed": false,
-      "toolsandbox_milestone": 0.3308950125040419
+      "toolsandbox_milestone": null
     },
-    "qwen25_72b": {
-      "bfcl_success": 0,
+    "qwen25_32b": {
+      "bfcl_success": 0.25,
       "checks": {
         "bfcl_success_in_band": false,
         "infra_ok": true,
         "median_tool_calls_ok": true,
         "median_user_turns_ok": true,
-        "toolsandbox_engaged": false
+        "toolsandbox_engaged": true
+      },
+      "infra_failure_rate": 0,
+      "median_tool_calls": 6.5,
+      "median_user_turns": 4.0,
+      "passed": false,
+      "toolsandbox_milestone": null
+    },
+    "qwen25_72b": {
+      "bfcl_success": 0.4375,
+      "checks": {
+        "bfcl_success_in_band": true,
+        "infra_ok": true,
+        "median_tool_calls_ok": true,
+        "median_user_turns_ok": true,
+        "toolsandbox_engaged": true
       },
       "infra_failure_rate": 0,
       "median_tool_calls": 7.0,
       "median_user_turns": 4.0,
-      "passed": false,
-      "toolsandbox_milestone": 0.046366007457550915
+      "passed": true,
+      "toolsandbox_milestone": null
     }
   },
   "selected_models": [
-    "gemma4_31b",
-    "mistral_small_3p2"
+    "qwen25_72b"
   ],
-  "status": "SELECTED_REDUCED_SINGLE_MODEL_PER_BENCHMARK",
+  "status": "SELECTED_BFCL_DEEP_SINGLE_MODEL",
   "targets_bfcl": [
-    "gemma4_31b"
+    "qwen25_72b"
   ],
-  "targets_toolsandbox": [
-    "mistral_small_3p2"
-  ]
+  "targets_toolsandbox": []
 }

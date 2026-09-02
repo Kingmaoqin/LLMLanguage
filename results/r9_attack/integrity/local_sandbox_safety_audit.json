@@ -49,7 +49,7 @@
       "local_or_internal": true
     }
   ],
-  "git_commit": "2994ffaf67a043a76204c08193727a27a05d03a3-dirty",
+  "git_commit": "09a8a70aa84ab59f694c94b100401fde889aeb3e-dirty",
   "network_probe": {
     "allowed_hosts": [
       "127.0.0.1"

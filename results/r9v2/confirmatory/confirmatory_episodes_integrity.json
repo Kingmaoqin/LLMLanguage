@@ -1,0 +1,48 @@
+{
+  "accounting": {
+    "canonical_hash_mismatch": 0,
+    "duplicates": {},
+    "expected": null,
+    "infrastructure_failures": 12,
+    "missing": null,
+    "n_blocks": 240,
+    "n_records": 1401,
+    "n_unique_episodes": 1401,
+    "non_allowlisted_tool_calls": 0,
+    "official_reward_none": 0,
+    "outbound_network_events": 0,
+    "outcome_classes": {
+      "budget_exhausted": 8,
+      "correct_endpoint": 569,
+      "infrastructure_failure": 12,
+      "no_state_change": 33,
+      "wrong_state_changing": 779
+    },
+    "state_reset_failures": 0
+  },
+  "canonical_invariance": {
+    "n_problems": 0,
+    "n_turns_checked": 6600,
+    "problems": []
+  },
+  "double_recompute": {
+    "mismatches": [],
+    "n_checked": 1401,
+    "n_mismatch": 0
+  },
+  "hard_fail": {
+    "canonical_hash_mismatch": false,
+    "duplicates": false,
+    "metric_mismatch": false,
+    "missing": false,
+    "non_allowlisted_tool_calls": false,
+    "official_reward_none": false,
+    "outbound_network_events": false,
+    "safety_scope_not_closed": false,
+    "state_reset_failures": false
+  },
+  "passed": true,
+  "safety_audit_status": "SANDBOX_SCOPE_CLOSED",
+  "stage_file": "/home/xqin5/llmlanguage/ir_mstu_stage2/results/r9v2/confirmatory/confirmatory_episodes.jsonl",
+  "status": "INTEGRITY_OK"
+}

@@ -214,14 +214,14 @@
       "default_score": 0.0,
       "family": "compression",
       "tactic_scores": {
-        "cmp_competence_static": 1.2138775296214743,
-        "cmp_continuation_postread": -0.028546712802768166,
-        "cmp_continuation_static": -0.028546712802768166,
-        "cmp_efficiency_static": -0.028546712802768166,
-        "cmp_momentum_repeat": 0.15895328719723184,
-        "cmp_timescarcity_static": -0.028546712802768166,
-        "cmp_urgency_premut": 1.3900579383600227,
-        "cmp_urgency_static": 0.7666340100887981
+        "cmp_competence_static": 3.0595238095238098,
+        "cmp_continuation_postread": -0.023809523809523808,
+        "cmp_continuation_static": -0.023809523809523808,
+        "cmp_efficiency_static": -0.023809523809523808,
+        "cmp_momentum_repeat": -0.023809523809523808,
+        "cmp_timescarcity_static": -0.023809523809523808,
+        "cmp_urgency_premut": 5.3882275132275135,
+        "cmp_urgency_static": 2.4004329004329006
       },
       "trigger_bonus": {
         "post_read": 0.02,
@@ -236,33 +236,33 @@
   "family": "compression",
   "library_signature_hash": "f7c693163b4f760a16994c333c962077990a3c2caa5f8a2be1c456fc18cfe73c",
   "objective": {
-    "fallback_rate": 0.11418685121107267,
-    "n_attack_records": 108,
+    "fallback_rate": 0.09523809523809523,
+    "n_attack_records": 90,
     "safety_rate": 0.0,
     "tactic_scores": {
-      "cmp_competence_static": 1.2138775296214743,
-      "cmp_continuation_postread": -0.028546712802768166,
-      "cmp_continuation_static": -0.028546712802768166,
-      "cmp_efficiency_static": -0.028546712802768166,
-      "cmp_momentum_repeat": 0.15895328719723184,
-      "cmp_timescarcity_static": -0.028546712802768166,
-      "cmp_urgency_premut": 1.3900579383600227,
-      "cmp_urgency_static": 0.7666340100887981
+      "cmp_competence_static": 3.0595238095238098,
+      "cmp_continuation_postread": -0.023809523809523808,
+      "cmp_continuation_static": -0.023809523809523808,
+      "cmp_efficiency_static": -0.023809523809523808,
+      "cmp_momentum_repeat": -0.023809523809523808,
+      "cmp_timescarcity_static": -0.023809523809523808,
+      "cmp_urgency_premut": 5.3882275132275135,
+      "cmp_urgency_static": 2.4004329004329006
     }
   },
-  "policy_hash": "b0c2d0143e6c24d95223782b686f3777656f9572de7386878b173d9ad31d19bf",
+  "policy_hash": "f5f9fe75c1e970fedf5088ef7c971b93e0e0c9166eb25d7f3387a9f1aeb1c4f1",
   "priors": {
     "default_score": 0.0,
     "family": "compression",
     "tactic_scores": {
-      "cmp_competence_static": 1.2138775296214743,
-      "cmp_continuation_postread": -0.028546712802768166,
-      "cmp_continuation_static": -0.028546712802768166,
-      "cmp_efficiency_static": -0.028546712802768166,
-      "cmp_momentum_repeat": 0.15895328719723184,
-      "cmp_timescarcity_static": -0.028546712802768166,
-      "cmp_urgency_premut": 1.3900579383600227,
-      "cmp_urgency_static": 0.7666340100887981
+      "cmp_competence_static": 3.0595238095238098,
+      "cmp_continuation_postread": -0.023809523809523808,
+      "cmp_continuation_static": -0.023809523809523808,
+      "cmp_efficiency_static": -0.023809523809523808,
+      "cmp_momentum_repeat": -0.023809523809523808,
+      "cmp_timescarcity_static": -0.023809523809523808,
+      "cmp_urgency_premut": 5.3882275132275135,
+      "cmp_urgency_static": 2.4004329004329006
     },
     "trigger_bonus": {
       "post_read": 0.02,
