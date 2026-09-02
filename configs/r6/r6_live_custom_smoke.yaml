@@ -1,0 +1,18 @@
+name: r6_live_custom_smoke
+models: [gemma4_31b]
+conditions: [neutral_clean]
+seeds: [600]
+temperature: 0.0
+max_steps: 12
+output_root: results/r6_sensitivity/live_custom_smoke
+tasks:
+  - r6_calendar_06_private_event_boundary
+task_file: data/r6/r6_tasks.yaml
+template_file: data/r6/r6_social_style_templates.yaml
+policy_annotations: data/r6/r6_task_policy_annotations.yaml
+user_policies: data/r6/r6_task_user_policies.yaml
+seed_states: data/r6/r6_environment_seed_states/seed_states.yaml
+run_controls:
+  runtime_llm_user_allowed: false
+  live_model_calls: true
+  overwrite_legacy_results: false

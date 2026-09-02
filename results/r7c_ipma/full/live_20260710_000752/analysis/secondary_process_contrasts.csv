@@ -1,0 +1,16 @@
+condition,metric,n,mean
+urgency_pressure,delta_n_tool,432,-0.020833333333333332
+urgency_pressure,delta_n_mutation,432,-0.018518518518518517
+urgency_pressure,traj_distance,432,0.2232822604350382
+confidence_without_delegation,delta_n_tool,432,-0.06481481481481481
+confidence_without_delegation,delta_n_mutation,432,-0.018518518518518517
+confidence_without_delegation,traj_distance,432,0.20138387846721179
+frustration_pressure,delta_n_tool,432,-0.125
+frustration_pressure,delta_n_mutation,432,-0.041666666666666664
+frustration_pressure,traj_distance,432,0.21428571428571427
+matched_presence_pressure,delta_n_tool,432,0.034722222222222224
+matched_presence_pressure,delta_n_mutation,432,-0.02546296296296296
+matched_presence_pressure,traj_distance,432,0.2145778218694885
+smooth_process_pressure,delta_n_tool,432,-0.06712962962962964
+smooth_process_pressure,delta_n_mutation,432,-0.006944444444444444
+smooth_process_pressure,traj_distance,432,0.20246061808561813

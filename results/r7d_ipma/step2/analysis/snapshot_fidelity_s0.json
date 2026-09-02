@@ -1,0 +1,170 @@
+[
+  {
+    "task_uid": "retail_T2_60",
+    "model": "gpt_oss_120b",
+    "n_replicates": 2,
+    "n0_tool_sequences": [
+      "modify_pending_order_items",
+      "modify_pending_order_items"
+    ],
+    "identical_across_replicates": true,
+    "n_tool_range": [
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "task_uid": "retail_T2_60",
+    "model": "mistral_small_3p2",
+    "n_replicates": 2,
+    "n0_tool_sequences": [
+      "get_order_details get_product_details calculate modify_pending_order_items",
+      "calculate modify_pending_order_items"
+    ],
+    "identical_across_replicates": false,
+    "n_tool_range": [
+      2.0,
+      4.0
+    ]
+  },
+  {
+    "task_uid": "retail_T1_21",
+    "model": "gpt_oss_120b",
+    "n_replicates": 2,
+    "n0_tool_sequences": [
+      "modify_pending_order_items",
+      "modify_pending_order_items"
+    ],
+    "identical_across_replicates": true,
+    "n_tool_range": [
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "task_uid": "retail_T1_21",
+    "model": "mistral_small_3p2",
+    "n_replicates": 2,
+    "n0_tool_sequences": [
+      "exchange_delivered_order_items",
+      "find_user_id_by_name_zip get_user_details get_order_details get_order_details get_order_details get_item_details get_item_details get_item_details get_product_details"
+    ],
+    "identical_across_replicates": false,
+    "n_tool_range": [
+      1.0,
+      9.0
+    ]
+  },
+  {
+    "task_uid": "airline_T2_8",
+    "model": "gpt_oss_120b",
+    "n_replicates": 2,
+    "n0_tool_sequences": [
+      "",
+      ""
+    ],
+    "identical_across_replicates": true,
+    "n_tool_range": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "task_uid": "airline_T2_8",
+    "model": "mistral_small_3p2",
+    "n_replicates": 2,
+    "n0_tool_sequences": [
+      "",
+      ""
+    ],
+    "identical_across_replicates": true,
+    "n_tool_range": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "task_uid": "airline_T1_41",
+    "model": "gpt_oss_120b",
+    "n_replicates": 2,
+    "n0_tool_sequences": [
+      "",
+      ""
+    ],
+    "identical_across_replicates": true,
+    "n_tool_range": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "task_uid": "airline_T1_41",
+    "model": "mistral_small_3p2",
+    "n_replicates": 2,
+    "n0_tool_sequences": [
+      "",
+      ""
+    ],
+    "identical_across_replicates": true,
+    "n_tool_range": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "task_uid": "retail_T2_60",
+    "model": "gemma4_31b",
+    "n_replicates": 2,
+    "n0_tool_sequences": [
+      "",
+      ""
+    ],
+    "identical_across_replicates": true,
+    "n_tool_range": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "task_uid": "retail_T1_21",
+    "model": "gemma4_31b",
+    "n_replicates": 2,
+    "n0_tool_sequences": [
+      "find_user_id_by_name_zip get_user_details get_order_details get_order_details get_order_details get_item_details get_order_details",
+      ""
+    ],
+    "identical_across_replicates": false,
+    "n_tool_range": [
+      0.0,
+      7.0
+    ]
+  },
+  {
+    "task_uid": "airline_T2_8",
+    "model": "gemma4_31b",
+    "n_replicates": 2,
+    "n0_tool_sequences": [
+      "",
+      ""
+    ],
+    "identical_across_replicates": true,
+    "n_tool_range": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "task_uid": "airline_T1_41",
+    "model": "gemma4_31b",
+    "n_replicates": 2,
+    "n0_tool_sequences": [
+      "",
+      ""
+    ],
+    "identical_across_replicates": true,
+    "n_tool_range": [
+      0.0,
+      0.0
+    ]
+  }
+]

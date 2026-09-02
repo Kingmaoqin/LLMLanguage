@@ -1,0 +1,9 @@
+{
+  "gates": {
+    "E0_environment": {"status": "PASS", "detail": "retail/airline/telecom all real: args interpreted, reads no-mutate, writes change db hash, snapshot/restore hash-stable, official evaluator importable, reset restores hash"},
+    "S0_snapshot_fidelity": {"status": "PASS_WITH_CAVEAT", "detail": "9/12 (task,model) identical N0 exact-repeat tool sequences; 3/12 show runtime variation -> exact-repeat noise floor is nonzero for some cells, recorded"},
+    "positive_control": {"status": "PASS", "detail": "P-N1 T1 = +3.58 tools (intended increase), T2 = +0.33 evidence (intended); the junction/evaluator ARE sensitive to a real process intervention"},
+    "semantic_R1": {"status": "PASS", "detail": "dual-independent-LLM review (two fresh isolated agents): 0/40 templates contaminated (no facts/authorization/policy/confirm-bypass); families semantically separable; P task-legal. Both flagged one watch-item (A[T2] 'trust your judgment'), rated non-crossing by both."}
+  },
+  "note": "gates are computed on the minimal pilot itself (E0 separately pre-run). All gates needed to interpret the pilot are met; the pilot remains under-powered by design."
+}

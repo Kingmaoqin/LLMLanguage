@@ -1,0 +1,41 @@
+{
+  "experiment": "R8_full_episode_interactional_robustness",
+  "framing": "full-episode interactional robustness study; NOT a demonstrated IPMA attack",
+  "research_question": "Holding task goal / identity / facts / decisions / tools / policy / initial DB / official evaluator / max budget fixed, does the user's full-episode interactional expression (urgency / continuation / frustration) change (a) final official task success and (b) tool-use process, and does it depend on model/domain/type?",
+  "co_primary_outcomes": {
+    "P1": "official overall reward (binary success), report DB + COMMUNICATE components",
+    "P2": "total_agent_tool_calls"
+  },
+  "primary_contrasts": [
+    "C3-C1",
+    "C4-C1"
+  ],
+  "secondary_contrasts": [
+    "C2-C1",
+    "C1-C0"
+  ],
+  "practical_thresholds": {
+    "reward_risk_difference_abs": 0.05,
+    "tool_calls_abs": 1.0,
+    "tool_calls_rel": 0.15
+  },
+  "multiplicity": "Holm over the 4 primary tests (P1/P2 x C3/C4-C1)",
+  "pairing_unit": "(domain, task_id, model, replicate)",
+  "inference": "task-cluster bootstrap 95% CI + paired label-permutation p; McNemar cross-check for binary reward; mixed-effects models as SENSITIVITY only",
+  "itt_rule": "ALL frozen episodes analyzed, including no-op / refusal / failure; NO P-responsive eligibility filtering of the primary sample",
+  "decision_rules": "R1 endpoint effect / R2 endpoint-stable process-sensitive / R3 conditional / R4 calibrated null (state excludable effect) / R5 baseline-infra failure",
+  "forbidden_claims": [
+    "adaptive IPMA works",
+    "universal attack",
+    "no effect whatsoever",
+    "process-robustness demonstrated as a defense"
+  ],
+  "scale": {
+    "tasks": 36,
+    "models": 3,
+    "conditions": 5,
+    "replicates": 5,
+    "episodes": 2700
+  },
+  "pre_run_semantic_review": "dual-independent-agent (local vLLM); require contamination=0, C3 urgency>C1, C4 frustration>C1, C1 no pressure; fail-closed on disagreement"
+}

@@ -1,0 +1,4 @@
+R8 系列实验已挂起 (suspended) 2026-08-07 13:57
+- 无活跃 runner 进程。R8-A/R8-B/复核审计/双审 全部完成。
+- vLLM 模型服务 (8005/8007/8192) 保留 (共享基础设施，未停)。
+- 完成标志: r8_attack/ORCH_DONE, r8b_attack/R8B_DONE, r8b_attack/R8B_REVIEW_DONE

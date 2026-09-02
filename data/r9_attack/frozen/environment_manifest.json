@@ -1,0 +1,48 @@
+{
+  "counts": {
+    "calibration": 16,
+    "confounder": 8,
+    "dev": 16,
+    "test": 80
+  },
+  "family_balance": {
+    "calibration": {
+      "compression": 8,
+      "inflation": 8
+    },
+    "confounder": {
+      "compression": 4,
+      "inflation": 4
+    },
+    "dev": {
+      "compression": 8,
+      "inflation": 8
+    },
+    "test": {
+      "compression": 40,
+      "inflation": 40
+    }
+  },
+  "git_commit": "f285c7a6b1e80ebd15a5cd5191be198216855847-dirty",
+  "non_overlapping": true,
+  "overlaps": {},
+  "seed": 20260722,
+  "sizes": {
+    "calibration": {
+      "bfcl": 16,
+      "toolsandbox": 0
+    },
+    "confounder": {
+      "bfcl": 8,
+      "toolsandbox": 0
+    },
+    "dev": {
+      "bfcl": 16,
+      "toolsandbox": 0
+    },
+    "test": {
+      "bfcl": 80,
+      "toolsandbox": 0
+    }
+  }
+}

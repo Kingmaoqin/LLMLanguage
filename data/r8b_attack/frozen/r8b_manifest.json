@@ -1,0 +1,90 @@
+{
+  "experiment": "R8B_high_intensity_confounder_pilot",
+  "tau2_commit": "ddc66a777e520373975f15d3abec989cfe2ec371",
+  "ir_mstu_commit": "2656abe402af844a71f95d288d6f1fcb475135c9",
+  "budget_cap_episodes": 720,
+  "partA": {
+    "conditions": [
+      "H0",
+      "H1",
+      "H2",
+      "H3"
+    ],
+    "tasks": 12,
+    "models": 3,
+    "replicates": 2,
+    "episodes": 288,
+    "note": "retail fresh; airline reused (only 7 gate tasks, structural)"
+  },
+  "partB": {
+    "modules": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M5"
+    ],
+    "arms": [
+      "N0",
+      "A0",
+      "N1",
+      "A1"
+    ],
+    "tasks_per_module": 3,
+    "models": 3,
+    "replicates": 2,
+    "episodes": 360,
+    "arm_def": "N=H0 neutral, A=H3 attack; 0=confounder absent, 1=present; interaction=(A1-N1)-(A0-N0)"
+  },
+  "partC": {
+    "conditions": [
+      "B0",
+      "B1",
+      "B2"
+    ],
+    "tasks": 4,
+    "models": 3,
+    "replicates": 2,
+    "episodes": 72,
+    "boundary_types": [
+      "delegation(BC-A)",
+      "deadline(BC-D)"
+    ]
+  },
+  "corrections_applied": [
+    "turn0_payload_cached_100pct",
+    "endpoint_preserved_1to1",
+    "F2_full_support",
+    "F3_dual_review_label"
+  ],
+  "models": {
+    "gemma4_31b": {
+      "served_name": "openai/g4-v2-1",
+      "api_base": "http://127.0.0.1:8005/v1"
+    },
+    "gpt_oss_120b": {
+      "served_name": "openai/gpt-oss",
+      "api_base": "http://127.0.0.1:8192/v1"
+    },
+    "mistral_small_3p2": {
+      "served_name": "openai/mistral-small-3p2",
+      "api_base": "http://127.0.0.1:8007/v1"
+    }
+  },
+  "env_hashes": {
+    "retail": {
+      "policy_hash": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467",
+      "policy_len": 6699,
+      "tool_schema_hash": "47c82ba6efce7c0efb1e0192f4160027507174158737bc3026b2f356ff6629fd",
+      "n_tools": 16,
+      "initial_db_hash": "b25c9cb211f5efcaee5dd646054a73c4a9f43f4f5acc32c10713cd9f9ac20e9c"
+    },
+    "airline": {
+      "policy_hash": "10dc0525421521208be39cee235bba84a16e2bcba9899eb93d92cd81d2f62fc4",
+      "policy_len": 7676,
+      "tool_schema_hash": "e41cfa6b71dfba13bbf6c25f5028c64771e1ad86ee5020ae4a621e0ac73a9a18",
+      "n_tools": 14,
+      "initial_db_hash": "124e39a664b56402bcd09cb8a6a9cece6acb8462337c969799d5658e3250f263"
+    }
+  }
+}

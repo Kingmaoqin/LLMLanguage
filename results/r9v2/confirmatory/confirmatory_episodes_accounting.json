@@ -1,0 +1,21 @@
+{
+  "canonical_hash_mismatch": 0,
+  "duplicates": {},
+  "expected": null,
+  "infrastructure_failures": 12,
+  "missing": null,
+  "n_blocks": 240,
+  "n_records": 1401,
+  "n_unique_episodes": 1401,
+  "non_allowlisted_tool_calls": 0,
+  "official_reward_none": 0,
+  "outbound_network_events": 0,
+  "outcome_classes": {
+    "budget_exhausted": 8,
+    "correct_endpoint": 569,
+    "infrastructure_failure": 12,
+    "no_state_change": 33,
+    "wrong_state_changing": 779
+  },
+  "state_reset_failures": 0
+}

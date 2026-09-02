@@ -1,0 +1,37 @@
+# Measurement-complete rerun configuration (round-5 §9).
+#
+# This reuses the frozen Stage-2.5b experiment (configs/stage2_5b/experiment.yaml):
+# identical tasks, conditions, seeds, controlled (deterministic) user, templates, and
+# evaluator. The ONLY change versus R4.1 is that the token bug is now fixed at source
+# (src/adapters/normalize.py emits correct total_tokens + token_source), and the runner
+# auto-emits canonical traces + the interactional-metric profile.
+#
+# No LLM user simulator. No authorization/urgency/threat language. Task semantics are
+# identical across all social-valence conditions (round-5 §0).
+
+base_experiment: configs/stage2_5b/experiment.yaml
+
+matrix:
+  models: [gemma4_31b, gpt_oss_120b]
+  tasks: 8           # frozen confirmatory retail tasks
+  conditions: 6      # neutral/praise_affect/praise_trust/insult/neutral_repeated/abuse_repeated
+  seeds:
+    smoke: 1         # 2 models x 2 tasks x 6 conditions x 1 seed = 24 runs
+    pilot: 2         # 2 x 4 x 6 x 2 = 96 runs
+    full: 5          # 2 x 8 x 6 x 5 = 480 runs
+
+# Outputs are written to a fresh, versioned root; existing results are never overwritten.
+output_root_prefix: results/stage2_5b_repair/measurement_complete
+
+post_steps:
+  - reconstruct_traces_from_existing_artifacts.py
+  - extract_interactional_metrics.py
+
+provenance_required:
+  - git_commit
+  - benchmark_manifest_hash
+  - tasks_config_hash
+  - template_hash
+  - controlled_user_hash
+  - evaluator_hash
+  - token_source

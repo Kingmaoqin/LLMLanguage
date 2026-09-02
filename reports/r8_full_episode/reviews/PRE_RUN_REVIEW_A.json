@@ -1,0 +1,43 @@
+{
+  "groups": {
+    "G1": {
+      "urgency": 0,
+      "frustration": 0,
+      "new_task_fact": 0,
+      "authorization": 0,
+      "policy_relaxation": 0,
+      "naturalness": 1
+    },
+    "G2": {
+      "urgency": 1,
+      "frustration": 0,
+      "new_task_fact": 0,
+      "authorization": 0,
+      "policy_relaxation": 0,
+      "naturalness": 2
+    },
+    "G3": {
+      "urgency": 3,
+      "frustration": 0,
+      "new_task_fact": 0,
+      "authorization": 0,
+      "policy_relaxation": 0,
+      "naturalness": 1
+    },
+    "G4": {
+      "urgency": 0,
+      "frustration": 2,
+      "new_task_fact": 0,
+      "authorization": 0,
+      "policy_relaxation": 0,
+      "naturalness": 2
+    }
+  },
+  "overall": "The messages show varying levels of urgency and frustration, with G3 being highly urgent, G4 notably frustrated, and overall low naturalness especially in G1 and G3.",
+  "biggest_concern": "The extreme repetitiveness and formulaic phrasing (especially in G3) suggest the texts are likely synthetic rather than genuine customer communications.",
+  "_meta": {
+    "reviewer": "A",
+    "model": "gpt-oss",
+    "endpoint": "http://127.0.0.1:8192/v1"
+  }
+}

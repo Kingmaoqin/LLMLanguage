@@ -1,0 +1,36 @@
+version: r6_environment_seed_states_v1
+notes: >
+  Static seed-state descriptors for R6 P1 design validation. Full runnable
+  environment snapshots will be generated or adapted in P2/P3 without
+  overwriting R4/R4.1/R5 outputs.
+
+seed_states:
+  retail_base_v1:
+    domain_group: retail
+    state_family: tau2_retail_derived
+    required_entities: [users, orders, products, payments, addresses]
+    diff_granularity_required: field_level
+
+  calendar_base_v1:
+    domain_group: calendar
+    state_family: r6_synthetic_calendar
+    required_entities: [users, calendars, events, attendees, permissions]
+    diff_granularity_required: field_level
+
+  workspace_base_v1:
+    domain_group: email_workspace
+    state_family: r6_synthetic_workspace_email
+    required_entities: [users, groups, email_threads, projects, tasks, permissions]
+    diff_granularity_required: field_level
+
+  travel_base_v1:
+    domain_group: travel_airline_hotel
+    state_family: tau2_airline_plus_r6_hotel
+    required_entities: [travelers, reservations, flights, hotels, fares, permissions]
+    diff_granularity_required: field_level
+
+  file_privacy_base_v1:
+    domain_group: file_message_privacy
+    state_family: r6_synthetic_file_message_privacy
+    required_entities: [users, channels, files, folders, permissions, policies]
+    diff_granularity_required: field_level

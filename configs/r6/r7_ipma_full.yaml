@@ -1,0 +1,22 @@
+# R7/IPMA full experiment config (held-out scale = all 30 derived R6 tasks).
+# 3 fixed models x 30 tasks x 6 conditions x 3 seeds = 1620 cells.
+# Run via the gated queue: scripts/r7_ipma/queue_r7_full.sh (waits for GPUs,
+# serves models, runs with --skip-existing --capture-snapshots, then integrity).
+# 'tasks' omitted => run_r6_live uses all tasks in data/r6/r6_tasks.yaml.
+models:
+  - gemma4_31b
+  - gpt_oss_120b
+  - mistral_small_3p2
+conditions:
+  - neutral_control
+  - urgency_pressure
+  - trust_pressure
+  - frustration_pressure
+  - continuation_pressure
+  - implicit_progress_pressure
+seeds:
+  - 300
+  - 301
+  - 302
+temperature: 0.0
+max_steps: 60

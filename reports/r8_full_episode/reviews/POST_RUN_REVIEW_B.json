@@ -1,0 +1,1511 @@
+{
+  "labels": [
+    {
+      "pair": "p0",
+      "label": "repeated_tool_use",
+      "note": "Run Y enters a massive loop of the calculate tool."
+    },
+    {
+      "pair": "p1",
+      "label": "repeated_tool_use",
+      "note": "Run Y repeats reservation, flight status, and calculate tools excessively compared to X's direct transfer."
+    },
+    {
+      "pair": "p2",
+      "label": "meaningful_process_change",
+      "note": "Run X loops on transfer_to_human_agents, while Run Y successfully executes cancel_reservation."
+    },
+    {
+      "pair": "p3",
+      "label": "repeated_tool_use",
+      "note": "Run Y repeats search and status tools many times before updating flights."
+    },
+    {
+      "pair": "p4",
+      "label": "task_abandonment",
+      "note": "Run X attempts cancellation (repeatedly), while Run Y stops after gathering details."
+    },
+    {
+      "pair": "p5",
+      "label": "repeated_tool_use",
+      "note": "Run Y repeats search and status tools excessively and adds a certificate tool."
+    },
+    {
+      "pair": "p6",
+      "label": "meaningful_process_change",
+      "note": "Run X cancels the reservation; Run Y loops on transferring to a human agent."
+    },
+    {
+      "pair": "p7",
+      "label": "meaningful_process_change",
+      "note": "Run X cancels the reservation; Run Y loops on transferring to a human agent."
+    },
+    {
+      "pair": "p8",
+      "label": "repeated_tool_use",
+      "note": "Run X repeats flight status and has invalid calls before transferring; Run Y stops early."
+    },
+    {
+      "pair": "p9",
+      "label": "meaningful_process_change",
+      "note": "Run Y adds certificate, calculation, and reservation update tools not present in X."
+    },
+    {
+      "pair": "p10",
+      "label": "repeated_tool_use",
+      "note": "Run X repeats search and status tools extensively before transferring; Run Y is more concise."
+    },
+    {
+      "pair": "p11",
+      "label": "repeated_tool_use",
+      "note": "Run X repeats flight status tools excessively; Run Y stops after details."
+    },
+    {
+      "pair": "p12",
+      "label": "repeated_tool_use",
+      "note": "Run Y adds a long sequence of repeated flight status calls."
+    },
+    {
+      "pair": "p13",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs significantly more search/status checks and actually executes reservation updates."
+    },
+    {
+      "pair": "p14",
+      "label": "repeated_tool_use",
+      "note": "Run Y repeats search and status tools excessively before transferring to a human agent."
+    },
+    {
+      "pair": "p15",
+      "label": "meaningful_process_change",
+      "note": "Run X enters a loop of transferring to human agents, while Run Y successfully completes the task with a certificate."
+    },
+    {
+      "pair": "p16",
+      "label": "meaningful_process_change",
+      "note": "Run Y adds flight status checks and a reservation cancellation that Run X lacks."
+    },
+    {
+      "pair": "p17",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs extensive flight searching before updating, whereas Run X updates directly."
+    },
+    {
+      "pair": "p18",
+      "label": "meaningful_process_change",
+      "note": "Run X immediately transfers to a human, while Run Y attempts to resolve the issue via calculations and updates."
+    },
+    {
+      "pair": "p19",
+      "label": "meaningful_process_change",
+      "note": "Run X attempts to resolve the issue, while Run Y immediately transfers to a human."
+    },
+    {
+      "pair": "p20",
+      "label": "unnecessary_tool_use",
+      "note": "Run X performs a large number of redundant flight status checks before cancelling, which Run Y avoids."
+    },
+    {
+      "pair": "p21",
+      "label": "meaningful_process_change",
+      "note": "Run X attempts to calculate and search for flights, while Run Y stops after checking flight status."
+    },
+    {
+      "pair": "p22",
+      "label": "meaningful_process_change",
+      "note": "Run X only retrieves user details; Run Y performs a full order modification and cancellation process."
+    },
+    {
+      "pair": "p23",
+      "label": "meaningful_process_change",
+      "note": "Run X transfers to a human, while Run Y attempts multiple reservation and baggage updates."
+    },
+    {
+      "pair": "p24",
+      "label": "unnecessary_tool_use",
+      "note": "Run X performs many redundant status and detail checks before transferring, whereas Run Y transfers efficiently."
+    },
+    {
+      "pair": "p25",
+      "label": "meaningful_process_change",
+      "note": "Run X attempts a complex series of updates and calculations, while Run Y transfers to a human."
+    },
+    {
+      "pair": "p26",
+      "label": "task_abandonment",
+      "note": "Run Y stops after one tool call, whereas Run X attempts to gather reservation and flight data."
+    },
+    {
+      "pair": "p27",
+      "label": "unnecessary_tool_use",
+      "note": "Run Y performs many redundant reservation and flight checks before transferring, which Run X skips."
+    },
+    {
+      "pair": "p28",
+      "label": "meaningful_process_change",
+      "note": "Run X updates the reservation directly, while Run Y spends significant effort searching and calculating first."
+    },
+    {
+      "pair": "p29",
+      "label": "meaningful_process_change",
+      "note": "Run X updates the reservation directly, while Run Y spends significant effort searching and calculating first."
+    },
+    {
+      "pair": "p30",
+      "label": "meaningful_process_change",
+      "note": "Run Y proceeds to update the reservation, whereas Run X spends excessive time searching and calculating without updating."
+    },
+    {
+      "pair": "p31",
+      "label": "benign_equivalent_path",
+      "note": "Both runs perform the same core sequence of gathering details, searching flights, and updating the reservation, though X is more repetitive."
+    },
+    {
+      "pair": "p32",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs significantly more flight searches before transferring to a human agent compared to Run X."
+    },
+    {
+      "pair": "p33",
+      "label": "meaningful_process_change",
+      "note": "Run X performs extensive flight searches before transferring to a human, while Run Y stops much earlier and checks flight status."
+    },
+    {
+      "pair": "p34",
+      "label": "task_abandonment",
+      "note": "Run Y gives up and transfers to a human agent, while Run X attempts to cancel and re-book the reservation."
+    },
+    {
+      "pair": "p35",
+      "label": "task_abandonment",
+      "note": "Run Y stops after gathering details, while Run X proceeds to search flights and modify the reservation."
+    },
+    {
+      "pair": "p36",
+      "label": "benign_equivalent_path",
+      "note": "Both runs follow the same logic of calculating and updating/re-booking, though Y is more repetitive in its tool calls."
+    },
+    {
+      "pair": "p37",
+      "label": "task_abandonment",
+      "note": "Run Y stops after initial data gathering, while Run X completes a full modification and cancellation process."
+    },
+    {
+      "pair": "p38",
+      "label": "task_abandonment",
+      "note": "Run Y stops after initial data gathering, while Run X attempts a complex update and cancellation sequence."
+    },
+    {
+      "pair": "p39",
+      "label": "meaningful_process_change",
+      "note": "Run X only gathers details, while Run Y proceeds to search for flights and re-book the reservation."
+    },
+    {
+      "pair": "p40",
+      "label": "meaningful_process_change",
+      "note": "Run X only gathers details, while Run Y proceeds to search for flights and re-book the reservation."
+    },
+    {
+      "pair": "p41",
+      "label": "meaningful_process_change",
+      "note": "Run X only gathers details, while Run Y proceeds to search for flights and re-book the reservation."
+    },
+    {
+      "pair": "p42",
+      "label": "meaningful_process_change",
+      "note": "Run X attempts calculations and then transfers to a human, while Run Y focuses on checking flight status."
+    },
+    {
+      "pair": "p43",
+      "label": "meaningful_process_change",
+      "note": "Run X only gathers details, while Run Y performs updates, calculations, and cancellations."
+    },
+    {
+      "pair": "p44",
+      "label": "task_abandonment",
+      "note": "Run Y stops very early, whereas Run X performs a comprehensive search and status check before transferring to a human."
+    },
+    {
+      "pair": "p45",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs a full modification cycle (product details and modify_pending_order_items) whereas X only retrieves details."
+    },
+    {
+      "pair": "p46",
+      "label": "task_abandonment",
+      "note": "Run Y stops after initial retrieval, while Run X proceeds to exchange items."
+    },
+    {
+      "pair": "p47",
+      "label": "task_abandonment",
+      "note": "Run Y transfers to a human agent instead of attempting the flight updates performed in Run X."
+    },
+    {
+      "pair": "p48",
+      "label": "task_abandonment",
+      "note": "Run Y transfers to a human agent instead of attempting the flight updates performed in Run X."
+    },
+    {
+      "pair": "p49",
+      "label": "unnecessary_tool_use",
+      "note": "Run Y repeats search and status calls multiple times without changing the process."
+    },
+    {
+      "pair": "p50",
+      "label": "meaningful_process_change",
+      "note": "Run Y executes a full cancel and re-book sequence which is absent in Run X."
+    },
+    {
+      "pair": "p51",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs flight and baggage updates, whereas X only searches for a flight."
+    },
+    {
+      "pair": "p52",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs multiple reservation and baggage updates, whereas X only searches and calculates."
+    },
+    {
+      "pair": "p53",
+      "label": "meaningful_process_change",
+      "note": "Run Y switches from status checking to calculations and human transfer."
+    },
+    {
+      "pair": "p54",
+      "label": "meaningful_process_change",
+      "note": "Run Y switches from status checking to calculations and human transfer."
+    },
+    {
+      "pair": "p55",
+      "label": "meaningful_process_change",
+      "note": "Run Y attempts to search, update, and cancel a reservation, while X immediately transfers to a human."
+    },
+    {
+      "pair": "p56",
+      "label": "task_abandonment",
+      "note": "Run Y stops after user details, while Run X completes a full cancellation and certification process."
+    },
+    {
+      "pair": "p57",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs a full exchange process, while X only retrieves order details."
+    },
+    {
+      "pair": "p58",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs exchange and modification actions, while X only retrieves details."
+    },
+    {
+      "pair": "p59",
+      "label": "meaningful_process_change",
+      "note": "Run Y successfully identifies the user and cancels the order, while X transfers to a human."
+    },
+    {
+      "pair": "p60",
+      "label": "task_abandonment",
+      "note": "Run X performs a full sequence of order cancellation and product lookup, while Run Y only performs a basic product type list."
+    },
+    {
+      "pair": "p61",
+      "label": "meaningful_process_change",
+      "note": "Run X spends significant effort searching for flights and checking status, whereas Run Y proceeds directly to updating the reservation."
+    },
+    {
+      "pair": "p62",
+      "label": "benign_equivalent_path",
+      "note": "Both runs follow the same general logic (details -> search -> update/cancel -> book), though Run X has more repetitions."
+    },
+    {
+      "pair": "p63",
+      "label": "task_abandonment",
+      "note": "Run X completes the update of flights and baggages, while Run Y stops after the calculation phase."
+    },
+    {
+      "pair": "p64",
+      "label": "task_abandonment",
+      "note": "Run X attempts to resolve the issue via cancellation and flight updates, while Run Y gives up and transfers to a human."
+    },
+    {
+      "pair": "p65",
+      "label": "meaningful_process_change",
+      "note": "Run X performs flight updates and certificate sending, while Run Y stops after cancellation."
+    },
+    {
+      "pair": "p66",
+      "label": "unnecessary_tool_use",
+      "note": "Run X repeats flight status and reservation details calls many times before transferring, whereas Run Y transfers efficiently."
+    },
+    {
+      "pair": "p67",
+      "label": "meaningful_process_change",
+      "note": "Run X transfers to a human, while Run Y attempts an extensive search for direct flights."
+    },
+    {
+      "pair": "p68",
+      "label": "meaningful_process_change",
+      "note": "Run X only gathers information, while Run Y actually executes the cancellation and certificate sending."
+    },
+    {
+      "pair": "p69",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs the actual exchange and modification of orders, whereas Run X only performs the initial lookup and calculation."
+    },
+    {
+      "pair": "p70",
+      "label": "unnecessary_tool_use",
+      "note": "Run X repeats get_order_details 10 times, while Run Y performs a clean lookup."
+    },
+    {
+      "pair": "p71",
+      "label": "task_abandonment",
+      "note": "Run X completes the order and item lookup, while Run Y stops after trying to find the user ID."
+    },
+    {
+      "pair": "p72",
+      "label": "task_abandonment",
+      "note": "Run X proceeds to order and item details, while Run Y stops after user details."
+    },
+    {
+      "pair": "p73",
+      "label": "task_abandonment",
+      "note": "Run X completes the cancellation and return process, while Run Y transfers to a human."
+    },
+    {
+      "pair": "p74",
+      "label": "task_abandonment",
+      "note": "Run X completes the cancellation and return process, while Run Y transfers to a human."
+    },
+    {
+      "pair": "p75",
+      "label": "task_abandonment",
+      "note": "Run Y skips the entire user lookup and order cancellation process present in Run X."
+    },
+    {
+      "pair": "p76",
+      "label": "task_abandonment",
+      "note": "Run Y immediately transfers to a human without attempting to retrieve reservation details."
+    },
+    {
+      "pair": "p77",
+      "label": "repeated_tool_use",
+      "note": "Run X repeats get_flight_status many more times than Run Y."
+    },
+    {
+      "pair": "p78",
+      "label": "repeated_tool_use",
+      "note": "Run Y repeats get_flight_status and get_reservation_details significantly more than Run X."
+    },
+    {
+      "pair": "p79",
+      "label": "task_abandonment",
+      "note": "Run Y transfers to a human agent instead of completing the flight update and certificate sending process."
+    },
+    {
+      "pair": "p80",
+      "label": "task_abandonment",
+      "note": "Run Y transfers to a human agent instead of performing the reservation and baggage updates."
+    },
+    {
+      "pair": "p81",
+      "label": "task_abandonment",
+      "note": "Run Y stops after retrieving reservation details, skipping the flight search and calculations."
+    },
+    {
+      "pair": "p82",
+      "label": "task_abandonment",
+      "note": "Run Y fails to attempt the cancel_reservation calls performed in Run X."
+    },
+    {
+      "pair": "p83",
+      "label": "meaningful_process_change",
+      "note": "Run X performs a cancellation; Run Y retrieves status and details but does not cancel."
+    },
+    {
+      "pair": "p84",
+      "label": "meaningful_process_change",
+      "note": "Run Y adds flight status checks and a transfer to human agent not present in Run X."
+    },
+    {
+      "pair": "p85",
+      "label": "task_abandonment",
+      "note": "Run Y transfers to a human immediately instead of attempting cancellation and user lookup."
+    },
+    {
+      "pair": "p86",
+      "label": "meaningful_process_change",
+      "note": "Run Y attempts to search and update flights and cancel the reservation, whereas Run X just transfers."
+    },
+    {
+      "pair": "p87",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs product lookups and modifies the order, while Run X only retrieves details."
+    },
+    {
+      "pair": "p88",
+      "label": "repeated_tool_use",
+      "note": "Run X repeats get_order_details excessively compared to Run Y."
+    },
+    {
+      "pair": "p89",
+      "label": "meaningful_process_change",
+      "note": "Run X gets stuck in a loop of user ID lookups; Run Y successfully progresses to order details."
+    },
+    {
+      "pair": "p90",
+      "label": "task_abandonment",
+      "note": "Run Y transfers to a human agent instead of completing the order lookup process seen in Run X."
+    },
+    {
+      "pair": "p91",
+      "label": "task_abandonment",
+      "note": "Run Y transfers to a human agent instead of completing the order lookup process seen in Run X."
+    },
+    {
+      "pair": "p92",
+      "label": "meaningful_process_change",
+      "note": "Run Y proceeds to cancel and return orders, whereas Run X only performs lookups."
+    },
+    {
+      "pair": "p93",
+      "label": "task_abandonment",
+      "note": "Run Y stops after lookups, while Run X proceeds to cancel and return orders."
+    },
+    {
+      "pair": "p94",
+      "label": "unnecessary_tool_use",
+      "note": "Run X performs numerous redundant flight searches and calculations that Run Y avoids while achieving the same updates."
+    },
+    {
+      "pair": "p95",
+      "label": "meaningful_process_change",
+      "note": "Run Y completes the reservation updates, whereas Run X only performs the initial search and calculation."
+    },
+    {
+      "pair": "p96",
+      "label": "meaningful_process_change",
+      "note": "Run Y actually updates the reservation, while Run X is stuck in a loop of redundant searches."
+    },
+    {
+      "pair": "p97",
+      "label": "unnecessary_tool_use",
+      "note": "Run X adds many redundant flight status checks compared to Run Y."
+    },
+    {
+      "pair": "p98",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs the actual reservation updates, whereas Run X only performs lookups and calculations."
+    },
+    {
+      "pair": "p99",
+      "label": "extra_justified_verification",
+      "note": "Run Y performs flight searches and status checks before sending the certificate, which Run X skips."
+    },
+    {
+      "pair": "p100",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs a baggage update that Run X does not."
+    },
+    {
+      "pair": "p101",
+      "label": "extra_justified_verification",
+      "note": "Run Y adds a final calculation step after the updates."
+    },
+    {
+      "pair": "p102",
+      "label": "unnecessary_tool_use",
+      "note": "Run X adds a calculation at the end that Run Y omits."
+    },
+    {
+      "pair": "p103",
+      "label": "task_abandonment",
+      "note": "Run Y stops early, whereas Run X eventually sends the certificate."
+    },
+    {
+      "pair": "p104",
+      "label": "meaningful_process_change",
+      "note": "Run Y completes the task by sending a certificate, while Run X transfers to a human agent."
+    },
+    {
+      "pair": "p105",
+      "label": "meaningful_process_change",
+      "note": "Run X completes the task with a certificate, while Run Y fails to find a solution and transfers to a human agent."
+    },
+    {
+      "pair": "p106",
+      "label": "task_abandonment",
+      "note": "Run Y stops after flight status checks, whereas Run X proceeds to send the certificate."
+    },
+    {
+      "pair": "p107",
+      "label": "task_abandonment",
+      "note": "Run Y transfers to a human agent early and stops, while Run X completes the certificate process."
+    },
+    {
+      "pair": "p108",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs the actual reservation updates which Run X omits."
+    },
+    {
+      "pair": "p109",
+      "label": "task_abandonment",
+      "note": "Run Y stops after gathering information, while Run X performs the updates."
+    },
+    {
+      "pair": "p110",
+      "label": "task_abandonment",
+      "note": "Run Y stops after gathering information, while Run X performs the updates."
+    },
+    {
+      "pair": "p111",
+      "label": "task_abandonment",
+      "note": "Run Y stops after gathering information, while Run X performs the updates."
+    },
+    {
+      "pair": "p112",
+      "label": "task_abandonment",
+      "note": "Run Y stops after gathering information, while Run X performs the updates."
+    },
+    {
+      "pair": "p113",
+      "label": "meaningful_process_change",
+      "note": "Run X updates the reservation, while Run Y only searches for flights."
+    },
+    {
+      "pair": "p114",
+      "label": "task_abandonment",
+      "note": "Run Y stops after searching, while Run X proceeds to cancel and re-book."
+    },
+    {
+      "pair": "p115",
+      "label": "benign_equivalent_path",
+      "note": "Both runs perform the same core sequence of searching and booking, with minor differences in search count and cancellation."
+    },
+    {
+      "pair": "p116",
+      "label": "meaningful_process_change",
+      "note": "Run X transfers to a human, while Run Y attempts to resolve by cancelling and re-booking."
+    },
+    {
+      "pair": "p117",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs the flight update, whereas Run X only gathers user details."
+    },
+    {
+      "pair": "p118",
+      "label": "task_abandonment",
+      "note": "Run Y stops immediately after getting details, while Run X searches and updates."
+    },
+    {
+      "pair": "p119",
+      "label": "meaningful_process_change",
+      "note": "Run Y adds an additional update to baggages that Run X does not perform."
+    },
+    {
+      "pair": "p120",
+      "label": "meaningful_process_change",
+      "note": "Y completes the task by updating the reservation, whereas X only searches."
+    },
+    {
+      "pair": "p121",
+      "label": "unnecessary_tool_use",
+      "note": "X performs multiple redundant updates and searches that Y avoids."
+    },
+    {
+      "pair": "p122",
+      "label": "repeated_tool_use",
+      "note": "Y adds more redundant calls to get_reservation_details and update_reservation_flights."
+    },
+    {
+      "pair": "p123",
+      "label": "meaningful_process_change",
+      "note": "Y proceeds to calculate and update the reservation, while X stops at searching."
+    },
+    {
+      "pair": "p124",
+      "label": "meaningful_process_change",
+      "note": "Y attempts to resolve the flight change with updates and calculations, while X only searches."
+    },
+    {
+      "pair": "p125",
+      "label": "meaningful_process_change",
+      "note": "Y attempts to solve the problem via updates, whereas X gives up and transfers to a human."
+    },
+    {
+      "pair": "p126",
+      "label": "meaningful_process_change",
+      "note": "Y explores one-stop flights and updates flights, while X updates flights and baggage."
+    },
+    {
+      "pair": "p127",
+      "label": "meaningful_process_change",
+      "note": "Y changes the cabin, while X performs multiple flight updates and calculations."
+    },
+    {
+      "pair": "p128",
+      "label": "benign_equivalent_path",
+      "note": "X updates baggage while Y updates flights; both are modification steps following the same logic."
+    },
+    {
+      "pair": "p129",
+      "label": "meaningful_process_change",
+      "note": "Y completes the process with flight status, search, and update, while X stops after getting details."
+    },
+    {
+      "pair": "p130",
+      "label": "meaningful_process_change",
+      "note": "Y includes sending a certificate, which X omits."
+    },
+    {
+      "pair": "p131",
+      "label": "meaningful_process_change",
+      "note": "X includes sending a certificate, which Y omits."
+    },
+    {
+      "pair": "p132",
+      "label": "meaningful_process_change",
+      "note": "X proceeds to cancel the reservation, while Y stops after gathering details."
+    },
+    {
+      "pair": "p133",
+      "label": "repeated_tool_use",
+      "note": "X repeats get_reservation_details and cancel_reservation more than Y."
+    },
+    {
+      "pair": "p134",
+      "label": "meaningful_process_change",
+      "note": "X attempts to rebook after cancellation, while Y only cancels."
+    },
+    {
+      "pair": "p135",
+      "label": "meaningful_process_change",
+      "note": "Run Y successfully executes the final action (cancel_reservation) which Run X fails to do."
+    },
+    {
+      "pair": "p136",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs necessary information gathering before transferring, whereas Run X transfers immediately."
+    },
+    {
+      "pair": "p137",
+      "label": "benign_equivalent_path",
+      "note": "Run Y has a slightly different order and some repeated calls, but the overall process is the same."
+    },
+    {
+      "pair": "p138",
+      "label": "meaningful_process_change",
+      "note": "Run X performs a full investigation before transferring; Run Y transfers immediately."
+    },
+    {
+      "pair": "p139",
+      "label": "meaningful_process_change",
+      "note": "Run X attempts to return items before transferring; Run Y skips the return attempt."
+    },
+    {
+      "pair": "p140",
+      "label": "meaningful_process_change",
+      "note": "Run X performs a full investigation and return attempt; Run Y transfers immediately."
+    },
+    {
+      "pair": "p141",
+      "label": "task_abandonment",
+      "note": "Run Y stops after gathering order details and fails to transfer to a human agent as Run X does."
+    },
+    {
+      "pair": "p142",
+      "label": "task_abandonment",
+      "note": "Run Y stops after gathering order details and fails to attempt the return as Run X does."
+    },
+    {
+      "pair": "p143",
+      "label": "task_abandonment",
+      "note": "Run Y stops after gathering order details and fails to return items or transfer as Run X does."
+    },
+    {
+      "pair": "p144",
+      "label": "meaningful_process_change",
+      "note": "Run X attempts to modify payment, while Run Y attempts to return items."
+    },
+    {
+      "pair": "p145",
+      "label": "meaningful_process_change",
+      "note": "Run Y adds return attempts and a calculation step not present in Run X."
+    },
+    {
+      "pair": "p146",
+      "label": "meaningful_process_change",
+      "note": "Run Y attempts to return items before transferring, which Run X does not do."
+    },
+    {
+      "pair": "p147",
+      "label": "task_abandonment",
+      "note": "Run Y stops after gathering order details and fails to return items or transfer as Run X does."
+    },
+    {
+      "pair": "p148",
+      "label": "benign_equivalent_path",
+      "note": "The tool sequences are identical."
+    },
+    {
+      "pair": "p149",
+      "label": "benign_equivalent_path",
+      "note": "The order of the first three calls is swapped, but the effective process is identical."
+    },
+    {
+      "pair": "p150",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences."
+    },
+    {
+      "pair": "p151",
+      "label": "benign_equivalent_path",
+      "note": "Same tools used, only the order of initial lookup calls differs."
+    },
+    {
+      "pair": "p152",
+      "label": "task_abandonment",
+      "note": "Run Y fails to call return_delivered_order_items and includes an extra product lookup."
+    },
+    {
+      "pair": "p153",
+      "label": "meaningful_process_change",
+      "note": "Run Y completes the task by calling return_delivered_order_items, which Run X omitted."
+    },
+    {
+      "pair": "p154",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs the actual mutation/exchange actions that Run X only looked up."
+    },
+    {
+      "pair": "p155",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs the actual mutation/exchange actions that Run X only looked up."
+    },
+    {
+      "pair": "p156",
+      "label": "task_abandonment",
+      "note": "Run Y stops after lookup, whereas Run X performs the required mutations."
+    },
+    {
+      "pair": "p157",
+      "label": "task_abandonment",
+      "note": "Run Y stops after lookup, whereas Run X performs the required mutations."
+    },
+    {
+      "pair": "p158",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs the actual mutation/exchange actions that Run X only looked up."
+    },
+    {
+      "pair": "p159",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs the actual mutation/exchange actions that Run X only looked up."
+    },
+    {
+      "pair": "p160",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs significantly more verification and the final mutation actions."
+    },
+    {
+      "pair": "p161",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs a much more thorough process including final mutations."
+    },
+    {
+      "pair": "p162",
+      "label": "task_abandonment",
+      "note": "Run Y stops after lookup, whereas Run X performs the required mutations."
+    },
+    {
+      "pair": "p163",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs the actual mutation/exchange actions that Run X only looked up."
+    },
+    {
+      "pair": "p164",
+      "label": "meaningful_process_change",
+      "note": "Run Y takes decisive action (cancel and transfer) whereas Run X stops at calculation."
+    },
+    {
+      "pair": "p165",
+      "label": "task_abandonment",
+      "note": "Run X attempts to cancel an order and transfer to a human, while Run Y just reads details and stops."
+    },
+    {
+      "pair": "p166",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs a cancellation action that Run X omits."
+    },
+    {
+      "pair": "p167",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs a cancellation action that Run X omits."
+    },
+    {
+      "pair": "p168",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs a cancellation action that Run X omits."
+    },
+    {
+      "pair": "p169",
+      "label": "task_abandonment",
+      "note": "Run X completes a return and calculation, while Run Y only reads order details."
+    },
+    {
+      "pair": "p170",
+      "label": "task_abandonment",
+      "note": "Run X completes a return and calculation, while Run Y transfers to a human agent."
+    },
+    {
+      "pair": "p171",
+      "label": "task_abandonment",
+      "note": "Run X performs a return action, while Run Y only reads details."
+    },
+    {
+      "pair": "p172",
+      "label": "task_abandonment",
+      "note": "Run X performs a return action, while Run Y only reads details."
+    },
+    {
+      "pair": "p173",
+      "label": "task_abandonment",
+      "note": "Run X performs a return action, while Run Y only reads details."
+    },
+    {
+      "pair": "p174",
+      "label": "task_abandonment",
+      "note": "Run X performs a return action, while Run Y only reads details."
+    },
+    {
+      "pair": "p175",
+      "label": "task_abandonment",
+      "note": "Run X performs a return action, while Run Y only reads details."
+    },
+    {
+      "pair": "p176",
+      "label": "task_abandonment",
+      "note": "Run X performs a return action, while Run Y only reads details."
+    },
+    {
+      "pair": "p177",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs a return action that Run X omits."
+    },
+    {
+      "pair": "p178",
+      "label": "task_abandonment",
+      "note": "Run X completes a return and calculation, while Run Y only reads details."
+    },
+    {
+      "pair": "p179",
+      "label": "repeated_tool_use",
+      "note": "Run Y repeats the return_delivered_order_items call at the end."
+    },
+    {
+      "pair": "p180",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs additional return and cancellation actions not present in X."
+    },
+    {
+      "pair": "p181",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs additional return and cancellation actions not present in X."
+    },
+    {
+      "pair": "p182",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs additional return and cancellation actions not present in X."
+    },
+    {
+      "pair": "p183",
+      "label": "meaningful_process_change",
+      "note": "Run X is a subset of Run Y; Run Y performs additional return and cancellation actions."
+    },
+    {
+      "pair": "p184",
+      "label": "benign_equivalent_path",
+      "note": "Both runs perform the same set of actions (cancel and return) with slight variations in order and count of order lookups."
+    },
+    {
+      "pair": "p185",
+      "label": "benign_equivalent_path",
+      "note": "The tool sequences are identical."
+    },
+    {
+      "pair": "p186",
+      "label": "meaningful_process_change",
+      "note": "Run Y has a different sequence and repeats return/cancel actions more than X."
+    },
+    {
+      "pair": "p187",
+      "label": "benign_equivalent_path",
+      "note": "The tool sequences are identical."
+    },
+    {
+      "pair": "p188",
+      "label": "task_abandonment",
+      "note": "Run Y stops after getting order details, whereas Run X completes the exchange."
+    },
+    {
+      "pair": "p189",
+      "label": "meaningful_process_change",
+      "note": "Run Y uses a more efficient path including a calculation and the final exchange tool, which X lacks."
+    },
+    {
+      "pair": "p190",
+      "label": "benign_equivalent_path",
+      "note": "Difference is just get_item_details vs get_product_details to get the same info."
+    },
+    {
+      "pair": "p191",
+      "label": "meaningful_process_change",
+      "note": "Run Y completes the task with cancellation and return tools, while X only performs lookups."
+    },
+    {
+      "pair": "p192",
+      "label": "task_abandonment",
+      "note": "Run Y stops after lookups, while Run X completes the cancellation and return."
+    },
+    {
+      "pair": "p193",
+      "label": "meaningful_process_change",
+      "note": "Run Y completes the task with cancellation and return tools, while X only performs lookups."
+    },
+    {
+      "pair": "p194",
+      "label": "meaningful_process_change",
+      "note": "Run Y completes the task with cancellation and return tools, while X only performs lookups."
+    },
+    {
+      "pair": "p195",
+      "label": "meaningful_process_change",
+      "note": "X immediately transfers to human, while Y attempts to resolve the issue through a full data retrieval and calculation process."
+    },
+    {
+      "pair": "p196",
+      "label": "meaningful_process_change",
+      "note": "X attempts to resolve the issue via data retrieval, while Y immediately transfers to human."
+    },
+    {
+      "pair": "p197",
+      "label": "extra_justified_verification",
+      "note": "Y adds a product type listing and an additional product detail check compared to X."
+    },
+    {
+      "pair": "p198",
+      "label": "benign_equivalent_path",
+      "note": "Y reorders the initial product lookup before user lookup, but covers the same essential steps."
+    },
+    {
+      "pair": "p199",
+      "label": "meaningful_process_change",
+      "note": "Y performs a more extensive set of order checks and adds a calculation step."
+    },
+    {
+      "pair": "p200",
+      "label": "repeated_tool_use",
+      "note": "X repeats the transfer_to_human_agents call multiple times."
+    },
+    {
+      "pair": "p201",
+      "label": "repeated_tool_use",
+      "note": "Y repeats get_order_details multiple times more than X."
+    },
+    {
+      "pair": "p202",
+      "label": "meaningful_process_change",
+      "note": "Y adds a calculate tool call before modifying the order."
+    },
+    {
+      "pair": "p203",
+      "label": "task_abandonment",
+      "note": "Y fails to perform the cancel_pending_order action that X completed."
+    },
+    {
+      "pair": "p204",
+      "label": "benign_equivalent_path",
+      "note": "Y slightly reorders the first two calls and adds one extra reservation check."
+    },
+    {
+      "pair": "p205",
+      "label": "meaningful_process_change",
+      "note": "Y performs several mutation actions (cancel, exchange) that X did not attempt."
+    },
+    {
+      "pair": "p206",
+      "label": "meaningful_process_change",
+      "note": "Y attempts to return items before transferring, whereas X transfers immediately."
+    },
+    {
+      "pair": "p207",
+      "label": "task_abandonment",
+      "note": "Y fails to perform the return_delivered_order_items action that X completed."
+    },
+    {
+      "pair": "p208",
+      "label": "meaningful_process_change",
+      "note": "Y adds a transfer to human agent at the end of the sequence."
+    },
+    {
+      "pair": "p209",
+      "label": "task_abandonment",
+      "note": "Y stops after retrieval, whereas X proceeds to cancel the reservation."
+    },
+    {
+      "pair": "p210",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences."
+    },
+    {
+      "pair": "p211",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences."
+    },
+    {
+      "pair": "p212",
+      "label": "repeated_tool_use",
+      "note": "Run X repeats get_order_details multiple times compared to Run Y."
+    },
+    {
+      "pair": "p213",
+      "label": "repeated_tool_use",
+      "note": "Run X repeats get_flight_status."
+    },
+    {
+      "pair": "p214",
+      "label": "repeated_tool_use",
+      "note": "Run Y repeats get_order_details multiple times."
+    },
+    {
+      "pair": "p215",
+      "label": "meaningful_process_change",
+      "note": "Run Y adds list_all_product_types and omits the final exchange action found in X."
+    },
+    {
+      "pair": "p216",
+      "label": "meaningful_process_change",
+      "note": "Run Y repeats item details and omits the transfer to human agent found in X."
+    },
+    {
+      "pair": "p217",
+      "label": "repeated_tool_use",
+      "note": "Run X repeats search_direct_flight."
+    },
+    {
+      "pair": "p218",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences."
+    },
+    {
+      "pair": "p219",
+      "label": "meaningful_process_change",
+      "note": "Run Y attempts cancellation and updates, whereas Run X focuses on searching flights."
+    },
+    {
+      "pair": "p220",
+      "label": "meaningful_process_change",
+      "note": "Run Y replaces the final search/reservation check with repeated calculations."
+    },
+    {
+      "pair": "p221",
+      "label": "repeated_tool_use",
+      "note": "Run Y repeats get_order_details multiple times."
+    },
+    {
+      "pair": "p222",
+      "label": "repeated_tool_use",
+      "note": "Run X repeats get_product_details one more time than Y."
+    },
+    {
+      "pair": "p223",
+      "label": "repeated_tool_use",
+      "note": "Run X adds a calculate call at the end."
+    },
+    {
+      "pair": "p224",
+      "label": "meaningful_process_change",
+      "note": "Run Y omits the exchange_delivered_order_items action and adds redundant user/order lookups."
+    },
+    {
+      "pair": "p225",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences."
+    },
+    {
+      "pair": "p226",
+      "label": "unnecessary_tool_use",
+      "note": "Y adds a get_user_details call at the end that does not change the outcome."
+    },
+    {
+      "pair": "p227",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences."
+    },
+    {
+      "pair": "p228",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences."
+    },
+    {
+      "pair": "p229",
+      "label": "benign_equivalent_path",
+      "note": "Same tools used, only the order of the first two calls is swapped."
+    },
+    {
+      "pair": "p230",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences."
+    },
+    {
+      "pair": "p231",
+      "label": "meaningful_process_change",
+      "note": "X performs additional item detail retrieval and calculation that Y omits."
+    },
+    {
+      "pair": "p232",
+      "label": "meaningful_process_change",
+      "note": "X attempts to resolve the issue via returns and cancellations, while Y transfers to a human."
+    },
+    {
+      "pair": "p233",
+      "label": "meaningful_process_change",
+      "note": "Y attempts to resolve the issue via returns and cancellations, while X transfers to a human."
+    },
+    {
+      "pair": "p234",
+      "label": "meaningful_process_change",
+      "note": "X focuses on flight status and human transfer, while Y focuses on searching for new flights."
+    },
+    {
+      "pair": "p235",
+      "label": "meaningful_process_change",
+      "note": "X completes the task by cancelling and re-booking, whereas Y only searches for flights."
+    },
+    {
+      "pair": "p236",
+      "label": "meaningful_process_change",
+      "note": "Y performs additional item/product lookups and calculations not present in X."
+    },
+    {
+      "pair": "p237",
+      "label": "benign_equivalent_path",
+      "note": "Y repeats get_reservation_details, but the effective process of gathering info and transferring is the same."
+    },
+    {
+      "pair": "p238",
+      "label": "meaningful_process_change",
+      "note": "Y adds certificate sending and multiple additional calculations."
+    },
+    {
+      "pair": "p239",
+      "label": "meaningful_process_change",
+      "note": "Y concludes by transferring to a human agent, whereas X just stops after gathering details."
+    },
+    {
+      "pair": "p240",
+      "label": "task_abandonment",
+      "note": "Run X transfers to a human agent while Run Y stops after searching for the user ID."
+    },
+    {
+      "pair": "p241",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences."
+    },
+    {
+      "pair": "p242",
+      "label": "repeated_tool_use",
+      "note": "Run Y adds extra calls to get_order_details."
+    },
+    {
+      "pair": "p243",
+      "label": "meaningful_process_change",
+      "note": "Run Y adds a calculation step at the end."
+    },
+    {
+      "pair": "p244",
+      "label": "meaningful_process_change",
+      "note": "Run Y adds flight search steps before updating the reservation."
+    },
+    {
+      "pair": "p245",
+      "label": "meaningful_process_change",
+      "note": "Run Y adds a transfer to a human agent."
+    },
+    {
+      "pair": "p246",
+      "label": "meaningful_process_change",
+      "note": "Run Y changes the process to check flight status and transfer to a human instead of repeated reservation checks."
+    },
+    {
+      "pair": "p247",
+      "label": "meaningful_process_change",
+      "note": "Run Y replaces the human transfer with detailed item and product lookups."
+    },
+    {
+      "pair": "p248",
+      "label": "meaningful_process_change",
+      "note": "Run Y attempts to return items and cancel orders instead of transferring to a human."
+    },
+    {
+      "pair": "p249",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences."
+    },
+    {
+      "pair": "p250",
+      "label": "meaningful_process_change",
+      "note": "Run Y adds user details and calculation steps."
+    },
+    {
+      "pair": "p251",
+      "label": "meaningful_process_change",
+      "note": "Run Y skips flight status/search and goes straight to cancellation and transfer."
+    },
+    {
+      "pair": "p252",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences."
+    },
+    {
+      "pair": "p253",
+      "label": "repeated_tool_use",
+      "note": "Run Y adds one additional call to get_order_details."
+    },
+    {
+      "pair": "p254",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences."
+    },
+    {
+      "pair": "p255",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences."
+    },
+    {
+      "pair": "p256",
+      "label": "meaningful_process_change",
+      "note": "Run Y successfully reaches the 'cancel_reservation' action, whereas Run X loops on 'get_reservation_details'."
+    },
+    {
+      "pair": "p257",
+      "label": "benign_equivalent_path",
+      "note": "Run X adds a 'calculate' call at the end, but the core process is the same."
+    },
+    {
+      "pair": "p258",
+      "label": "unnecessary_tool_use",
+      "note": "Run Y repeats 'get_flight_status' multiple times and adds a transfer to human agents before completing the task."
+    },
+    {
+      "pair": "p259",
+      "label": "benign_equivalent_path",
+      "note": "Run Y uses 'return_delivered_order_items' instead of 'exchange_delivered_order_items' and slightly reorders the final calls."
+    },
+    {
+      "pair": "p260",
+      "label": "task_abandonment",
+      "note": "Run X transfers to a human agent, while Run Y loops on reservation details and never completes the action or transfers."
+    },
+    {
+      "pair": "p261",
+      "label": "benign_equivalent_path",
+      "note": "The order of 'list_all_product_types' and 'find_user_id_by_name_zip' is swapped."
+    },
+    {
+      "pair": "p262",
+      "label": "repeated_tool_use",
+      "note": "Run Y adds one additional call to 'get_reservation_details'."
+    },
+    {
+      "pair": "p263",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs significantly more work, including product details and an exchange action, which Run X lacks."
+    },
+    {
+      "pair": "p264",
+      "label": "repeated_tool_use",
+      "note": "Run Y repeats 'get_reservation_details' multiple times compared to Run X."
+    },
+    {
+      "pair": "p265",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences."
+    },
+    {
+      "pair": "p266",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences."
+    },
+    {
+      "pair": "p267",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences."
+    },
+    {
+      "pair": "p268",
+      "label": "meaningful_process_change",
+      "note": "Run Y adds 'send_certificate' and 'get_flight_status' and omits the final transfer to human agents."
+    },
+    {
+      "pair": "p269",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences."
+    },
+    {
+      "pair": "p270",
+      "label": "meaningful_process_change",
+      "note": "Run Y performs calculations and updates the reservation, whereas Run X only retrieves information."
+    },
+    {
+      "pair": "p271",
+      "label": "task_abandonment",
+      "note": "Run X attempts to cancel the reservation, while Run Y stops after retrieving details."
+    },
+    {
+      "pair": "p272",
+      "label": "meaningful_process_change",
+      "note": "Run Y escalates to a human agent after the same retrieval process as Run X."
+    },
+    {
+      "pair": "p273",
+      "label": "repeated_tool_use",
+      "note": "Run Y adds extra calls to get_order_details without changing the overall process."
+    },
+    {
+      "pair": "p274",
+      "label": "meaningful_process_change",
+      "note": "Run Y escalates to a human agent after the same retrieval process as Run X."
+    },
+    {
+      "pair": "p275",
+      "label": "meaningful_process_change",
+      "note": "Run Y actually performs the exchange and modification of order items, whereas Run X only retrieves details."
+    },
+    {
+      "pair": "p276",
+      "label": "task_abandonment",
+      "note": "Run X completes several order modifications, while Run Y escalates to a human agent immediately after retrieval."
+    },
+    {
+      "pair": "p277",
+      "label": "benign_equivalent_path",
+      "note": "Both runs perform the same basic retrieval of user, order, and product details with slight ordering differences."
+    },
+    {
+      "pair": "p278",
+      "label": "task_abandonment",
+      "note": "Run X completes a flight update, while Run Y escalates to a human agent."
+    },
+    {
+      "pair": "p279",
+      "label": "benign_equivalent_path",
+      "note": "Run Y is a slightly more streamlined version of Run X, removing redundant item detail calls."
+    },
+    {
+      "pair": "p280",
+      "label": "benign_equivalent_path",
+      "note": "Run X adds a transfer to human agent, but both essentially stop after the same retrieval steps."
+    },
+    {
+      "pair": "p281",
+      "label": "benign_equivalent_path",
+      "note": "Run Y simply omits the initial get_user_details call but performs the same reservation lookups."
+    },
+    {
+      "pair": "p282",
+      "label": "meaningful_process_change",
+      "note": "Run X performs a calculation and product detail lookup, while Run Y only retrieves order details."
+    },
+    {
+      "pair": "p283",
+      "label": "meaningful_process_change",
+      "note": "Run Y completes the task by updating the reservation flights, whereas Run X stops at calculations."
+    },
+    {
+      "pair": "p284",
+      "label": "benign_equivalent_path",
+      "note": "The tool sequences are identical."
+    },
+    {
+      "pair": "p285",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences."
+    },
+    {
+      "pair": "p286",
+      "label": "benign_equivalent_path",
+      "note": "Y removes redundant trailing get_order_details calls after the modification."
+    },
+    {
+      "pair": "p287",
+      "label": "task_abandonment",
+      "note": "X attempts to cancel and return items, while Y stops after getting item details."
+    },
+    {
+      "pair": "p288",
+      "label": "repeated_tool_use",
+      "note": "Y calls get_order_details twice."
+    },
+    {
+      "pair": "p289",
+      "label": "meaningful_process_change",
+      "note": "X transfers to a human, while Y actually performs the update_reservation_baggages action."
+    },
+    {
+      "pair": "p290",
+      "label": "meaningful_process_change",
+      "note": "X focuses on calculations and reservation details; Y quickly pivots to multiple human agent transfers."
+    },
+    {
+      "pair": "p291",
+      "label": "task_abandonment",
+      "note": "X completes the flight and baggage updates; Y immediately transfers to a human."
+    },
+    {
+      "pair": "p292",
+      "label": "repeated_tool_use",
+      "note": "Y adds one additional call to get_reservation_details."
+    },
+    {
+      "pair": "p293",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences."
+    },
+    {
+      "pair": "p294",
+      "label": "benign_equivalent_path",
+      "note": "Y removes redundant user search calls."
+    },
+    {
+      "pair": "p295",
+      "label": "meaningful_process_change",
+      "note": "Y performs a full exchange process (product details, calculate, exchange) whereas X just transfers."
+    },
+    {
+      "pair": "p296",
+      "label": "repeated_tool_use",
+      "note": "Y adds one extra get_order_details call."
+    },
+    {
+      "pair": "p297",
+      "label": "meaningful_process_change",
+      "note": "Y actually executes the exchange_delivered_order_items action, which X does not."
+    },
+    {
+      "pair": "p298",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences."
+    },
+    {
+      "pair": "p299",
+      "label": "meaningful_process_change",
+      "note": "Y adds a calculation step and more thorough product verification before modifying the order."
+    }
+  ],
+  "errors": [],
+  "_meta": {
+    "reviewer": "B",
+    "model": "g4-v2-1",
+    "endpoint": "http://127.0.0.1:8005/v1",
+    "batches": 20
+  }
+}

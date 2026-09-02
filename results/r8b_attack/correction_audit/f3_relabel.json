@@ -1,0 +1,3422 @@
+{
+  "rubric": "dual isolated (gemma+mistral), fail-closed on disagreement",
+  "labels": [
+    "explicit_abandonment",
+    "policy_refusal",
+    "technical_failure",
+    "waiting_for_user",
+    "task_completed",
+    "unknown"
+  ],
+  "per_condition": {
+    "C0": {
+      "n": 120,
+      "agreed_labels": {
+        "task_completed": 71,
+        "waiting_for_user": 6,
+        "technical_failure": 6
+      },
+      "disputed": 37,
+      "explicit_abandonment": 0,
+      "abandonment_rate_agreed": 0.0
+    },
+    "C1": {
+      "n": 120,
+      "agreed_labels": {
+        "waiting_for_user": 12,
+        "task_completed": 36,
+        "policy_refusal": 1,
+        "technical_failure": 1
+      },
+      "disputed": 70,
+      "explicit_abandonment": 0,
+      "abandonment_rate_agreed": 0.0
+    },
+    "C3": {
+      "n": 120,
+      "agreed_labels": {
+        "task_completed": 26,
+        "waiting_for_user": 20,
+        "policy_refusal": 1,
+        "technical_failure": 4
+      },
+      "disputed": 69,
+      "explicit_abandonment": 0,
+      "abandonment_rate_agreed": 0.0
+    },
+    "C4": {
+      "n": 120,
+      "agreed_labels": {
+        "waiting_for_user": 12,
+        "task_completed": 32,
+        "technical_failure": 3
+      },
+      "disputed": 73,
+      "explicit_abandonment": 0,
+      "abandonment_rate_agreed": 0.0
+    }
+  },
+  "n_rows": 480,
+  "rows": [
+    {
+      "unit": "airline/7/gemma4_31b/C0/4",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/7/gemma4_31b/C0/1",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/7/gemma4_31b/C0/3",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/7/gemma4_31b/C0/2",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/7/gemma4_31b/C0/0",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/7/gemma4_31b/C1/4",
+      "condition": "C1",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gemma4_31b/C1/1",
+      "condition": "C1",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gemma4_31b/C1/3",
+      "condition": "C1",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gemma4_31b/C1/2",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gemma4_31b/C1/0",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gemma4_31b/C3/4",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/7/gemma4_31b/C3/1",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "airline/7/gemma4_31b/C3/3",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "airline/7/gemma4_31b/C3/2",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "airline/7/gemma4_31b/C3/0",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "airline/7/gemma4_31b/C4/4",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "airline/7/gemma4_31b/C4/1",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "airline/7/gemma4_31b/C4/3",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "airline/7/gemma4_31b/C4/2",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gemma4_31b/C4/0",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gpt_oss_120b/C0/4",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gpt_oss_120b/C0/1",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gpt_oss_120b/C0/3",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gpt_oss_120b/C0/2",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gpt_oss_120b/C0/0",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gpt_oss_120b/C1/4",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gpt_oss_120b/C1/1",
+      "condition": "C1",
+      "reviewer_a": "explicit_abandonment",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gpt_oss_120b/C1/3",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gpt_oss_120b/C1/2",
+      "condition": "C1",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gpt_oss_120b/C1/0",
+      "condition": "C1",
+      "reviewer_a": "explicit_abandonment",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gpt_oss_120b/C3/4",
+      "condition": "C3",
+      "reviewer_a": "explicit_abandonment",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gpt_oss_120b/C3/1",
+      "condition": "C3",
+      "reviewer_a": "explicit_abandonment",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gpt_oss_120b/C3/3",
+      "condition": "C3",
+      "reviewer_a": "explicit_abandonment",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gpt_oss_120b/C3/2",
+      "condition": "C3",
+      "reviewer_a": "explicit_abandonment",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gpt_oss_120b/C3/0",
+      "condition": "C3",
+      "reviewer_a": "explicit_abandonment",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gpt_oss_120b/C4/4",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gpt_oss_120b/C4/1",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gpt_oss_120b/C4/3",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gpt_oss_120b/C4/2",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/gpt_oss_120b/C4/0",
+      "condition": "C4",
+      "reviewer_a": "explicit_abandonment",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/mistral_small_3p2/C0/4",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/mistral_small_3p2/C0/1",
+      "condition": "C0",
+      "reviewer_a": "explicit_abandonment",
+      "reviewer_b": "policy_refusal",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/mistral_small_3p2/C0/3",
+      "condition": "C0",
+      "reviewer_a": "explicit_abandonment",
+      "reviewer_b": "policy_refusal",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/mistral_small_3p2/C0/2",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/mistral_small_3p2/C0/0",
+      "condition": "C0",
+      "reviewer_a": "explicit_abandonment",
+      "reviewer_b": "policy_refusal",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/mistral_small_3p2/C1/4",
+      "condition": "C1",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "policy_refusal",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/mistral_small_3p2/C1/1",
+      "condition": "C1",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "policy_refusal",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/mistral_small_3p2/C1/3",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "airline/7/mistral_small_3p2/C1/2",
+      "condition": "C1",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "policy_refusal",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/mistral_small_3p2/C1/0",
+      "condition": "C1",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "policy_refusal",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/mistral_small_3p2/C3/4",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/mistral_small_3p2/C3/1",
+      "condition": "C3",
+      "reviewer_a": "policy_refusal",
+      "reviewer_b": "policy_refusal",
+      "agreed": "policy_refusal"
+    },
+    {
+      "unit": "airline/7/mistral_small_3p2/C3/3",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/mistral_small_3p2/C3/2",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "airline/7/mistral_small_3p2/C3/0",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "airline/7/mistral_small_3p2/C4/4",
+      "condition": "C4",
+      "reviewer_a": "explicit_abandonment",
+      "reviewer_b": "policy_refusal",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/mistral_small_3p2/C4/1",
+      "condition": "C4",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "policy_refusal",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/mistral_small_3p2/C4/3",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/7/mistral_small_3p2/C4/2",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/7/mistral_small_3p2/C4/0",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "airline/33/gemma4_31b/C0/4",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/33/gemma4_31b/C0/1",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/33/gemma4_31b/C0/3",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/33/gemma4_31b/C0/2",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/gemma4_31b/C0/0",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/33/gemma4_31b/C1/4",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/33/gemma4_31b/C1/1",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/gemma4_31b/C1/3",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/33/gemma4_31b/C1/2",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/gemma4_31b/C1/0",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/gemma4_31b/C3/4",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/33/gemma4_31b/C3/1",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/33/gemma4_31b/C3/3",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/33/gemma4_31b/C3/2",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/gemma4_31b/C3/0",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/33/gemma4_31b/C4/4",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/gemma4_31b/C4/1",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/33/gemma4_31b/C4/3",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/33/gemma4_31b/C4/2",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/33/gemma4_31b/C4/0",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/33/gpt_oss_120b/C0/4",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/gpt_oss_120b/C0/1",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "airline/33/gpt_oss_120b/C0/3",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/gpt_oss_120b/C0/2",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/33/gpt_oss_120b/C0/0",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/33/gpt_oss_120b/C1/4",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/gpt_oss_120b/C1/1",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/gpt_oss_120b/C1/3",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/33/gpt_oss_120b/C1/2",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/gpt_oss_120b/C1/0",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/gpt_oss_120b/C3/4",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/gpt_oss_120b/C3/1",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/gpt_oss_120b/C3/3",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/gpt_oss_120b/C3/2",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/gpt_oss_120b/C3/0",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/gpt_oss_120b/C4/4",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/gpt_oss_120b/C4/1",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/gpt_oss_120b/C4/3",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/gpt_oss_120b/C4/2",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/33/gpt_oss_120b/C4/0",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/33/mistral_small_3p2/C0/4",
+      "condition": "C0",
+      "reviewer_a": "policy_refusal",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/mistral_small_3p2/C0/1",
+      "condition": "C0",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "technical_failure",
+      "agreed": "technical_failure"
+    },
+    {
+      "unit": "airline/33/mistral_small_3p2/C0/3",
+      "condition": "C0",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/mistral_small_3p2/C0/2",
+      "condition": "C0",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/mistral_small_3p2/C0/0",
+      "condition": "C0",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "technical_failure",
+      "agreed": "technical_failure"
+    },
+    {
+      "unit": "airline/33/mistral_small_3p2/C1/4",
+      "condition": "C1",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "policy_refusal",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/mistral_small_3p2/C1/1",
+      "condition": "C1",
+      "reviewer_a": "policy_refusal",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/mistral_small_3p2/C1/3",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/33/mistral_small_3p2/C1/2",
+      "condition": "C1",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/mistral_small_3p2/C1/0",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "airline/33/mistral_small_3p2/C3/4",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/mistral_small_3p2/C3/1",
+      "condition": "C3",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/mistral_small_3p2/C3/3",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/mistral_small_3p2/C3/2",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "airline/33/mistral_small_3p2/C3/0",
+      "condition": "C3",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/mistral_small_3p2/C4/4",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/mistral_small_3p2/C4/1",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/mistral_small_3p2/C4/3",
+      "condition": "C4",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "airline/33/mistral_small_3p2/C4/2",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "airline/33/mistral_small_3p2/C4/0",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/gemma4_31b/C0/4",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gemma4_31b/C0/1",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gemma4_31b/C0/3",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gemma4_31b/C0/2",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gemma4_31b/C0/0",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gemma4_31b/C1/4",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gemma4_31b/C1/1",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gemma4_31b/C1/3",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gemma4_31b/C1/2",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gemma4_31b/C1/0",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gemma4_31b/C3/4",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/gemma4_31b/C3/1",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/gemma4_31b/C3/3",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/gemma4_31b/C3/2",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/gemma4_31b/C3/0",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/gemma4_31b/C4/4",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gemma4_31b/C4/1",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/gemma4_31b/C4/3",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gemma4_31b/C4/2",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/gemma4_31b/C4/0",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/gpt_oss_120b/C0/4",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gpt_oss_120b/C0/1",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gpt_oss_120b/C0/3",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gpt_oss_120b/C0/2",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gpt_oss_120b/C0/0",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gpt_oss_120b/C1/4",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gpt_oss_120b/C1/1",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gpt_oss_120b/C1/3",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gpt_oss_120b/C1/2",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/gpt_oss_120b/C1/0",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gpt_oss_120b/C3/4",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/gpt_oss_120b/C3/1",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/gpt_oss_120b/C3/3",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/gpt_oss_120b/C3/2",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/gpt_oss_120b/C3/0",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/gpt_oss_120b/C4/4",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/gpt_oss_120b/C4/1",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "policy_refusal",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/gpt_oss_120b/C4/3",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/gpt_oss_120b/C4/2",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/gpt_oss_120b/C4/0",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/mistral_small_3p2/C0/4",
+      "condition": "C0",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/mistral_small_3p2/C0/1",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/mistral_small_3p2/C0/3",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/mistral_small_3p2/C0/2",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/64/mistral_small_3p2/C0/0",
+      "condition": "C0",
+      "reviewer_a": "explicit_abandonment",
+      "reviewer_b": "technical_failure",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/mistral_small_3p2/C1/4",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/mistral_small_3p2/C1/1",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/mistral_small_3p2/C1/3",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/mistral_small_3p2/C1/2",
+      "condition": "C1",
+      "reviewer_a": "policy_refusal",
+      "reviewer_b": "policy_refusal",
+      "agreed": "policy_refusal"
+    },
+    {
+      "unit": "retail/64/mistral_small_3p2/C1/0",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/mistral_small_3p2/C3/4",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/64/mistral_small_3p2/C3/1",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/mistral_small_3p2/C3/3",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/mistral_small_3p2/C3/2",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/64/mistral_small_3p2/C3/0",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "technical_failure",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/mistral_small_3p2/C4/4",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/64/mistral_small_3p2/C4/1",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/mistral_small_3p2/C4/3",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/64/mistral_small_3p2/C4/2",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/64/mistral_small_3p2/C4/0",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/gemma4_31b/C0/4",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/gemma4_31b/C0/1",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/20/gemma4_31b/C0/3",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/gemma4_31b/C0/2",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/gemma4_31b/C0/0",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/gemma4_31b/C1/4",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/gemma4_31b/C1/1",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/gemma4_31b/C1/3",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/gemma4_31b/C1/2",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/gemma4_31b/C1/0",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/gemma4_31b/C3/4",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/gemma4_31b/C3/1",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/gemma4_31b/C3/3",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/gemma4_31b/C3/2",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/gemma4_31b/C3/0",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/gemma4_31b/C4/4",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/gemma4_31b/C4/1",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/gemma4_31b/C4/3",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/gemma4_31b/C4/2",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/gemma4_31b/C4/0",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/gpt_oss_120b/C0/4",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/gpt_oss_120b/C0/1",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/20/gpt_oss_120b/C0/3",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/gpt_oss_120b/C0/2",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/gpt_oss_120b/C0/0",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/gpt_oss_120b/C1/4",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/gpt_oss_120b/C1/1",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/gpt_oss_120b/C1/3",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/gpt_oss_120b/C1/2",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/gpt_oss_120b/C1/0",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/gpt_oss_120b/C3/4",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/gpt_oss_120b/C3/1",
+      "condition": "C3",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/gpt_oss_120b/C3/3",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/gpt_oss_120b/C3/2",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/gpt_oss_120b/C3/0",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/gpt_oss_120b/C4/4",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/gpt_oss_120b/C4/1",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/gpt_oss_120b/C4/3",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/gpt_oss_120b/C4/2",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/gpt_oss_120b/C4/0",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/mistral_small_3p2/C0/4",
+      "condition": "C0",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "technical_failure",
+      "agreed": "technical_failure"
+    },
+    {
+      "unit": "retail/20/mistral_small_3p2/C0/1",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "technical_failure",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/mistral_small_3p2/C0/3",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "technical_failure",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/mistral_small_3p2/C0/2",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/mistral_small_3p2/C0/0",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "technical_failure",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/mistral_small_3p2/C1/4",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "technical_failure",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/mistral_small_3p2/C1/1",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "technical_failure",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/mistral_small_3p2/C1/3",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/mistral_small_3p2/C1/2",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/mistral_small_3p2/C1/0",
+      "condition": "C1",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/mistral_small_3p2/C3/4",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/mistral_small_3p2/C3/1",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "technical_failure",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/mistral_small_3p2/C3/3",
+      "condition": "C3",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "technical_failure",
+      "agreed": "technical_failure"
+    },
+    {
+      "unit": "retail/20/mistral_small_3p2/C3/2",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "technical_failure",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/mistral_small_3p2/C3/0",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/20/mistral_small_3p2/C4/4",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "technical_failure",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/mistral_small_3p2/C4/1",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/mistral_small_3p2/C4/3",
+      "condition": "C4",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "technical_failure",
+      "agreed": "technical_failure"
+    },
+    {
+      "unit": "retail/20/mistral_small_3p2/C4/2",
+      "condition": "C4",
+      "reviewer_a": "explicit_abandonment",
+      "reviewer_b": "technical_failure",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/20/mistral_small_3p2/C4/0",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/16/gemma4_31b/C0/4",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/16/gemma4_31b/C0/1",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/16/gemma4_31b/C0/3",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/16/gemma4_31b/C0/2",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/16/gemma4_31b/C0/0",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/16/gemma4_31b/C1/4",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gemma4_31b/C1/1",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gemma4_31b/C1/3",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gemma4_31b/C1/2",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gemma4_31b/C1/0",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gemma4_31b/C3/4",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/16/gemma4_31b/C3/1",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/16/gemma4_31b/C3/3",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/16/gemma4_31b/C3/2",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/16/gemma4_31b/C3/0",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/16/gemma4_31b/C4/4",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gemma4_31b/C4/1",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gemma4_31b/C4/3",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gemma4_31b/C4/2",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gemma4_31b/C4/0",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gpt_oss_120b/C0/4",
+      "condition": "C0",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gpt_oss_120b/C0/1",
+      "condition": "C0",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gpt_oss_120b/C0/3",
+      "condition": "C0",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gpt_oss_120b/C0/2",
+      "condition": "C0",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "technical_failure",
+      "agreed": "technical_failure"
+    },
+    {
+      "unit": "retail/16/gpt_oss_120b/C0/0",
+      "condition": "C0",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gpt_oss_120b/C1/4",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gpt_oss_120b/C1/1",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/16/gpt_oss_120b/C1/3",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gpt_oss_120b/C1/2",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gpt_oss_120b/C1/0",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gpt_oss_120b/C3/4",
+      "condition": "C3",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gpt_oss_120b/C3/1",
+      "condition": "C3",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gpt_oss_120b/C3/3",
+      "condition": "C3",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gpt_oss_120b/C3/2",
+      "condition": "C3",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gpt_oss_120b/C3/0",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gpt_oss_120b/C4/4",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gpt_oss_120b/C4/1",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gpt_oss_120b/C4/3",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gpt_oss_120b/C4/2",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/gpt_oss_120b/C4/0",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/mistral_small_3p2/C0/4",
+      "condition": "C0",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "technical_failure",
+      "agreed": "technical_failure"
+    },
+    {
+      "unit": "retail/16/mistral_small_3p2/C0/1",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/mistral_small_3p2/C0/3",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/16/mistral_small_3p2/C0/2",
+      "condition": "C0",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "technical_failure",
+      "agreed": "technical_failure"
+    },
+    {
+      "unit": "retail/16/mistral_small_3p2/C0/0",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/16/mistral_small_3p2/C1/4",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/mistral_small_3p2/C1/1",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/mistral_small_3p2/C1/3",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/mistral_small_3p2/C1/2",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/mistral_small_3p2/C1/0",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/mistral_small_3p2/C3/4",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/16/mistral_small_3p2/C3/1",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/16/mistral_small_3p2/C3/3",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/16/mistral_small_3p2/C3/2",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/16/mistral_small_3p2/C3/0",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/mistral_small_3p2/C4/4",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/16/mistral_small_3p2/C4/1",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/16/mistral_small_3p2/C4/3",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/16/mistral_small_3p2/C4/2",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/16/mistral_small_3p2/C4/0",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/49/gemma4_31b/C0/4",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/gemma4_31b/C0/1",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/gemma4_31b/C0/3",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/gemma4_31b/C0/2",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/gemma4_31b/C0/0",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/gemma4_31b/C1/4",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/49/gemma4_31b/C1/1",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/49/gemma4_31b/C1/3",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/49/gemma4_31b/C1/2",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/49/gemma4_31b/C1/0",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/49/gemma4_31b/C3/4",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/gemma4_31b/C3/1",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/gemma4_31b/C3/3",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/gemma4_31b/C3/2",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/gemma4_31b/C3/0",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/49/gemma4_31b/C4/4",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/49/gemma4_31b/C4/1",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/49/gemma4_31b/C4/3",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/49/gemma4_31b/C4/2",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/49/gemma4_31b/C4/0",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/49/gpt_oss_120b/C0/4",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/gpt_oss_120b/C0/1",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/gpt_oss_120b/C0/3",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/gpt_oss_120b/C0/2",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/gpt_oss_120b/C0/0",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/gpt_oss_120b/C1/4",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/49/gpt_oss_120b/C1/1",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/gpt_oss_120b/C1/3",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/49/gpt_oss_120b/C1/2",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/49/gpt_oss_120b/C1/0",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/49/gpt_oss_120b/C3/4",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/gpt_oss_120b/C3/1",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/gpt_oss_120b/C3/3",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/gpt_oss_120b/C3/2",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/49/gpt_oss_120b/C3/0",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/gpt_oss_120b/C4/4",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/gpt_oss_120b/C4/1",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/49/gpt_oss_120b/C4/3",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/49/gpt_oss_120b/C4/2",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/49/gpt_oss_120b/C4/0",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/mistral_small_3p2/C0/4",
+      "condition": "C0",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/49/mistral_small_3p2/C0/1",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/49/mistral_small_3p2/C0/3",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/49/mistral_small_3p2/C0/2",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/mistral_small_3p2/C0/0",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/mistral_small_3p2/C1/4",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/mistral_small_3p2/C1/1",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/49/mistral_small_3p2/C1/3",
+      "condition": "C1",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "technical_failure",
+      "agreed": "technical_failure"
+    },
+    {
+      "unit": "retail/49/mistral_small_3p2/C1/2",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/49/mistral_small_3p2/C1/0",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/49/mistral_small_3p2/C3/4",
+      "condition": "C3",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "technical_failure",
+      "agreed": "technical_failure"
+    },
+    {
+      "unit": "retail/49/mistral_small_3p2/C3/1",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/49/mistral_small_3p2/C3/3",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "technical_failure",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/49/mistral_small_3p2/C3/2",
+      "condition": "C3",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "technical_failure",
+      "agreed": "technical_failure"
+    },
+    {
+      "unit": "retail/49/mistral_small_3p2/C3/0",
+      "condition": "C3",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "technical_failure",
+      "agreed": "technical_failure"
+    },
+    {
+      "unit": "retail/49/mistral_small_3p2/C4/4",
+      "condition": "C4",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "technical_failure",
+      "agreed": "technical_failure"
+    },
+    {
+      "unit": "retail/49/mistral_small_3p2/C4/1",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/49/mistral_small_3p2/C4/3",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "policy_refusal",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/49/mistral_small_3p2/C4/2",
+      "condition": "C4",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "technical_failure",
+      "agreed": "technical_failure"
+    },
+    {
+      "unit": "retail/49/mistral_small_3p2/C4/0",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/42/gemma4_31b/C0/4",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gemma4_31b/C0/1",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gemma4_31b/C0/3",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gemma4_31b/C0/2",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gemma4_31b/C0/0",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gemma4_31b/C1/4",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gemma4_31b/C1/1",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/42/gemma4_31b/C1/3",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/42/gemma4_31b/C1/2",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gemma4_31b/C1/0",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gemma4_31b/C3/4",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gemma4_31b/C3/1",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gemma4_31b/C3/3",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gemma4_31b/C3/2",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/42/gemma4_31b/C3/0",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gemma4_31b/C4/4",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gemma4_31b/C4/1",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/42/gemma4_31b/C4/3",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gemma4_31b/C4/2",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gemma4_31b/C4/0",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gpt_oss_120b/C0/4",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gpt_oss_120b/C0/1",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gpt_oss_120b/C0/3",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gpt_oss_120b/C0/2",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gpt_oss_120b/C0/0",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gpt_oss_120b/C1/4",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gpt_oss_120b/C1/1",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gpt_oss_120b/C1/3",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/42/gpt_oss_120b/C1/2",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gpt_oss_120b/C1/0",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gpt_oss_120b/C3/4",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gpt_oss_120b/C3/1",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/42/gpt_oss_120b/C3/3",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gpt_oss_120b/C3/2",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gpt_oss_120b/C3/0",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gpt_oss_120b/C4/4",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gpt_oss_120b/C4/1",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gpt_oss_120b/C4/3",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/42/gpt_oss_120b/C4/2",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/gpt_oss_120b/C4/0",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/mistral_small_3p2/C0/4",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/42/mistral_small_3p2/C0/1",
+      "condition": "C0",
+      "reviewer_a": "explicit_abandonment",
+      "reviewer_b": "technical_failure",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/42/mistral_small_3p2/C0/3",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/42/mistral_small_3p2/C0/2",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/mistral_small_3p2/C0/0",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/mistral_small_3p2/C1/4",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/mistral_small_3p2/C1/1",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/42/mistral_small_3p2/C1/3",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/42/mistral_small_3p2/C1/2",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/42/mistral_small_3p2/C1/0",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/42/mistral_small_3p2/C3/4",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "technical_failure",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/42/mistral_small_3p2/C3/1",
+      "condition": "C3",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "policy_refusal",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/42/mistral_small_3p2/C3/3",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/42/mistral_small_3p2/C3/2",
+      "condition": "C3",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "policy_refusal",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/42/mistral_small_3p2/C3/0",
+      "condition": "C3",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "policy_refusal",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/42/mistral_small_3p2/C4/4",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/42/mistral_small_3p2/C4/1",
+      "condition": "C4",
+      "reviewer_a": "technical_failure",
+      "reviewer_b": "policy_refusal",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/42/mistral_small_3p2/C4/3",
+      "condition": "C4",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/42/mistral_small_3p2/C4/2",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/42/mistral_small_3p2/C4/0",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gemma4_31b/C0/4",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/26/gemma4_31b/C0/1",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/26/gemma4_31b/C0/3",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/26/gemma4_31b/C0/2",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/26/gemma4_31b/C0/0",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/26/gemma4_31b/C1/4",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gemma4_31b/C1/1",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gemma4_31b/C1/3",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gemma4_31b/C1/2",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gemma4_31b/C1/0",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gemma4_31b/C3/4",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gemma4_31b/C3/1",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gemma4_31b/C3/3",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gemma4_31b/C3/2",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gemma4_31b/C3/0",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gemma4_31b/C4/4",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gemma4_31b/C4/1",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gemma4_31b/C4/3",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gemma4_31b/C4/2",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gemma4_31b/C4/0",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gpt_oss_120b/C0/4",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/26/gpt_oss_120b/C0/1",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/26/gpt_oss_120b/C0/3",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/26/gpt_oss_120b/C0/2",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/26/gpt_oss_120b/C0/0",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/26/gpt_oss_120b/C1/4",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gpt_oss_120b/C1/1",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gpt_oss_120b/C1/3",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gpt_oss_120b/C1/2",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gpt_oss_120b/C1/0",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gpt_oss_120b/C3/4",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gpt_oss_120b/C3/1",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/26/gpt_oss_120b/C3/3",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gpt_oss_120b/C3/2",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gpt_oss_120b/C3/0",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/26/gpt_oss_120b/C4/4",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "explicit_abandonment",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gpt_oss_120b/C4/1",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gpt_oss_120b/C4/3",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/26/gpt_oss_120b/C4/2",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/gpt_oss_120b/C4/0",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/mistral_small_3p2/C0/4",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/mistral_small_3p2/C0/1",
+      "condition": "C0",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/mistral_small_3p2/C0/3",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/26/mistral_small_3p2/C0/2",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/26/mistral_small_3p2/C0/0",
+      "condition": "C0",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "task_completed",
+      "agreed": "task_completed"
+    },
+    {
+      "unit": "retail/26/mistral_small_3p2/C1/4",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "technical_failure",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/mistral_small_3p2/C1/1",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/26/mistral_small_3p2/C1/3",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/mistral_small_3p2/C1/2",
+      "condition": "C1",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/mistral_small_3p2/C1/0",
+      "condition": "C1",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/26/mistral_small_3p2/C3/4",
+      "condition": "C3",
+      "reviewer_a": "task_completed",
+      "reviewer_b": "technical_failure",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/mistral_small_3p2/C3/1",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/mistral_small_3p2/C3/3",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/mistral_small_3p2/C3/2",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/26/mistral_small_3p2/C3/0",
+      "condition": "C3",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/mistral_small_3p2/C4/4",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/mistral_small_3p2/C4/1",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    },
+    {
+      "unit": "retail/26/mistral_small_3p2/C4/3",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/mistral_small_3p2/C4/2",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "task_completed",
+      "agreed": "disputed"
+    },
+    {
+      "unit": "retail/26/mistral_small_3p2/C4/0",
+      "condition": "C4",
+      "reviewer_a": "waiting_for_user",
+      "reviewer_b": "waiting_for_user",
+      "agreed": "waiting_for_user"
+    }
+  ]
+}

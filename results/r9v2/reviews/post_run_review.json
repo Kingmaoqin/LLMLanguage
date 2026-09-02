@@ -1,0 +1,2112 @@
+{
+  "agreement_rate": 1.0,
+  "confirmed_label_counts": {
+    "insufficient_evidence": 300
+  },
+  "method": "dual-independent-agent review",
+  "n_agree": 300,
+  "n_reviewed": 300,
+  "n_unresolved": 0,
+  "rows": [
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_24|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_24|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_24|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_24|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_24|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_24|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_156|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_156|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_156|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_156|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_156|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_156|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_28|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_28|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_81|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_81|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_81|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_81|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_81|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_81|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_158|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_158|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_158|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_158|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_158|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_158|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_19|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_19|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_19|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_19|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_19|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_19|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_131|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_131|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_131|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_131|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_131|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_131|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_134|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_134|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_134|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_134|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_134|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_134|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_114|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_114|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_114|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_114|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_114|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_114|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_110|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_110|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_110|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_110|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_110|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_110|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_131|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_131|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_131|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_131|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_131|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_131|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_79|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_79|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_79|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_79|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_79|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_79|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_128|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_128|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_128|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_128|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_108|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_108|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_108|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_108|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_108|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_108|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_47|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_47|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_47|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_47|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_47|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_47|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_124|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_124|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_124|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_124|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_124|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_124|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_52|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_52|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_52|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_52|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_52|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_52|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_98|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_98|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_98|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_98|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_98|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_98|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_51|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_51|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_51|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_51|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_51|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_51|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_36|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_36|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_36|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_0|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_0|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_5|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_5|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_5|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_187|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_187|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_187|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_187|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_187|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_37|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_37|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_37|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_124|qwen25_72b|C5|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_143|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_123|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_119|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_19|qwen25_72b|C0|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_143|qwen25_72b|C5|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_184|qwen25_72b|C0|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_126|qwen25_72b|C3|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_162|qwen25_72b|C5|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_154|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_72|qwen25_72b|C5|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_72|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_180|qwen25_72b|C3|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_123|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_60|qwen25_72b|C5|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_154|qwen25_72b|C2|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_181|qwen25_72b|C3|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_69|qwen25_72b|C3|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_137|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_188|qwen25_72b|C0|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_180|qwen25_72b|C3|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_159|qwen25_72b|C0|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_12|qwen25_72b|C0|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_137|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_51|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_69|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_27|qwen25_72b|C0|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_105|qwen25_72b|C3|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_173|qwen25_72b|C2|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_187|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_60|qwen25_72b|C5|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_36|qwen25_72b|C3|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_181|qwen25_72b|C5|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_187|qwen25_72b|C2|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_159|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_165|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_185|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_51|qwen25_72b|C3|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_94|qwen25_72b|C0|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_123|qwen25_72b|C0|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_187|qwen25_72b|C3|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_189|qwen25_72b|C2|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_5|qwen25_72b|C2|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_119|qwen25_72b|C2|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_137|qwen25_72b|C0|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_180|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_103|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_154|qwen25_72b|C5|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|qwen25_72b|C5|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_36|qwen25_72b|C2|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_189|qwen25_72b|C2|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_95|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_187|qwen25_72b|C0|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_93|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_185|qwen25_72b|C3|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_103|qwen25_72b|C3|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_105|qwen25_72b|C5|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_165|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_95|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_105|qwen25_72b|C0|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_28|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_185|qwen25_72b|C5|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|qwen25_72b|C0|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_194|qwen25_72b|C2|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_154|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_194|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_0|qwen25_72b|C2|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_103|qwen25_72b|C3|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_25|qwen25_72b|C5|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_134|qwen25_72b|C5|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_137|qwen25_72b|C2|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_180|qwen25_72b|C0|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_90|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_90|qwen25_72b|C2|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_58|qwen25_72b|C5|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_2|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_159|qwen25_72b|C3|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_89|qwen25_72b|C0|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_173|qwen25_72b|C5|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_12|qwen25_72b|C0|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_180|qwen25_72b|C0|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_72|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_2|qwen25_72b|C0|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_156|qwen25_72b|C0|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_124|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_79|qwen25_72b|C5|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_181|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_5|qwen25_72b|C0|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_51|qwen25_72b|C5|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_93|qwen25_72b|C5|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_89|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_191|qwen25_72b|C2|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_28|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_24|qwen25_72b|C5|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_119|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_51|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_184|qwen25_72b|C3|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_93|qwen25_72b|C2|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_81|qwen25_72b|C2|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_174|qwen25_72b|C2|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_185|qwen25_72b|C0|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_92|qwen25_72b|C0|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_158|qwen25_72b|C3|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_105|qwen25_72b|C2|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_28|qwen25_72b|C0|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_162|qwen25_72b|C5|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_124|qwen25_72b|C3|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_108|qwen25_72b|C5|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_156|qwen25_72b|C2|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_110|qwen25_72b|C3|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_52|qwen25_72b|C2|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_117|qwen25_72b|C0|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_103|qwen25_72b|C3|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_47|qwen25_72b|C2|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_159|qwen25_72b|C5|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_94|qwen25_72b|C5|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_36|qwen25_72b|C1|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_184|qwen25_72b|C3|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_95|qwen25_72b|C2|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_159|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_185|qwen25_72b|C5|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_119|qwen25_72b|C5|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_89|qwen25_72b|C2|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_123|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_184|qwen25_72b|C2|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_185|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_111|qwen25_72b|C3|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_28|qwen25_72b|C0|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_164|qwen25_72b|C4|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_191|qwen25_72b|C2|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_79|qwen25_72b|C2|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_162|qwen25_72b|C2|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_51|qwen25_72b|C2|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_51|qwen25_72b|C3|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_162|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_184|qwen25_72b|C5|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_162|qwen25_72b|C2|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_180|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_194|qwen25_72b|C3|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_131|qwen25_72b|C3|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_12|qwen25_72b|C2|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_73|qwen25_72b|C2|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_19|qwen25_72b|C3|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_162|qwen25_72b|C2|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_47|qwen25_72b|C0|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_114|qwen25_72b|C3|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_51|qwen25_72b|C0|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_124|qwen25_72b|C3|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_52|qwen25_72b|C2|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_180|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_179|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_165|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_7|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_0|qwen25_72b|C2|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_189|qwen25_72b|C5|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_134|qwen25_72b|C5|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_180|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_47|qwen25_72b|C2|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_173|qwen25_72b|C5|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_60|qwen25_72b|C0|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_36|qwen25_72b|C2|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_131|qwen25_72b|C2|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_123|qwen25_72b|C4|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_159|qwen25_72b|C1|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_120|qwen25_72b|C1|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_25|qwen25_72b|C3|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_5|qwen25_72b|C2|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_73|qwen25_72b|C0|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_0|qwen25_72b|C5|r2",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_143|qwen25_72b|C2|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_miss_param_179|qwen25_72b|C4|r0",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    },
+    {
+      "agreed": true,
+      "episode_id": "confirmatory|bfcl|multi_turn_base_72|qwen25_72b|C5|r1",
+      "label": "insufficient_evidence",
+      "reviewer_a": "insufficient_evidence",
+      "reviewer_b": "insufficient_evidence"
+    }
+  ]
+}

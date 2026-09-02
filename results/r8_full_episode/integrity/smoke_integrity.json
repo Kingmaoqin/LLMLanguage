@@ -1,0 +1,87 @@
+{
+  "verdict": "PASS",
+  "allow_partial": true,
+  "checks": {
+    "expected_episodes": 2700,
+    "present_episodes": 45,
+    "missing": 2655,
+    "missing_frac": 0.9833,
+    "unexplained_missing": 2655,
+    "duplicate_run_ids": 0,
+    "unexpected_run_ids": 0,
+    "reward_none": 0,
+    "reward_inconsistent": 0,
+    "hash_mismatch": 0,
+    "tool_count_double_impl_mismatch": 0,
+    "initial_db_leakage_tasks": 0,
+    "infra_error_files": 0,
+    "parse_failures": 0
+  },
+  "details": {
+    "missing_sample": [
+      "r8_airline_12_gemma4_31b_C0_rep0",
+      "r8_airline_12_gemma4_31b_C0_rep1",
+      "r8_airline_12_gemma4_31b_C0_rep2",
+      "r8_airline_12_gemma4_31b_C0_rep3",
+      "r8_airline_12_gemma4_31b_C0_rep4",
+      "r8_airline_12_gemma4_31b_C1_rep0",
+      "r8_airline_12_gemma4_31b_C1_rep1",
+      "r8_airline_12_gemma4_31b_C1_rep2",
+      "r8_airline_12_gemma4_31b_C1_rep3",
+      "r8_airline_12_gemma4_31b_C1_rep4",
+      "r8_airline_12_gemma4_31b_C2_rep0",
+      "r8_airline_12_gemma4_31b_C2_rep1",
+      "r8_airline_12_gemma4_31b_C2_rep2",
+      "r8_airline_12_gemma4_31b_C2_rep3",
+      "r8_airline_12_gemma4_31b_C2_rep4",
+      "r8_airline_12_gemma4_31b_C3_rep0",
+      "r8_airline_12_gemma4_31b_C3_rep1",
+      "r8_airline_12_gemma4_31b_C3_rep2",
+      "r8_airline_12_gemma4_31b_C3_rep3",
+      "r8_airline_12_gemma4_31b_C3_rep4"
+    ],
+    "unexplained_missing_sample": [
+      "r8_airline_12_gemma4_31b_C0_rep0",
+      "r8_airline_12_gemma4_31b_C0_rep1",
+      "r8_airline_12_gemma4_31b_C0_rep2",
+      "r8_airline_12_gemma4_31b_C0_rep3",
+      "r8_airline_12_gemma4_31b_C0_rep4",
+      "r8_airline_12_gemma4_31b_C1_rep0",
+      "r8_airline_12_gemma4_31b_C1_rep1",
+      "r8_airline_12_gemma4_31b_C1_rep2",
+      "r8_airline_12_gemma4_31b_C1_rep3",
+      "r8_airline_12_gemma4_31b_C1_rep4",
+      "r8_airline_12_gemma4_31b_C2_rep0",
+      "r8_airline_12_gemma4_31b_C2_rep1",
+      "r8_airline_12_gemma4_31b_C2_rep2",
+      "r8_airline_12_gemma4_31b_C2_rep3",
+      "r8_airline_12_gemma4_31b_C2_rep4",
+      "r8_airline_12_gemma4_31b_C3_rep0",
+      "r8_airline_12_gemma4_31b_C3_rep1",
+      "r8_airline_12_gemma4_31b_C3_rep2",
+      "r8_airline_12_gemma4_31b_C3_rep3",
+      "r8_airline_12_gemma4_31b_C3_rep4"
+    ],
+    "duplicate_run_ids": [],
+    "unexpected_sample": [],
+    "reward_none": [],
+    "reward_inconsistent": [],
+    "hash_mismatch": [],
+    "tool_count_mismatch": [],
+    "initial_db_leakage": {},
+    "infra_error_files": [],
+    "parse_failures": []
+  },
+  "selected_counts": {
+    "retail": {
+      "read": 6,
+      "single": 6,
+      "compound": 6
+    },
+    "airline": {
+      "read": 4,
+      "single": 4,
+      "compound": 10
+    }
+  }
+}

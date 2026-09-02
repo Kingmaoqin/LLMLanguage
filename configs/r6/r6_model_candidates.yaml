@@ -1,0 +1,93 @@
+version: r6_model_candidates_v1
+notes: >
+  Candidate model inventory for R6. This file is a preflight plan, not an
+  execution result. Models must pass endpoint /v1/models, tool-call parsing,
+  deterministic temperature, trace completeness, and smoke checks before any
+  pilot/full experiment. China-origin models are intentionally excluded.
+
+selection_rules:
+  exclude_china_origin_models: true
+  no_full_without_preflight: true
+  no_retroactive_mixing_with_r5: true
+  preflight_first: true
+
+current_online_endpoints:
+  - alias: gemma4_31b
+    served_id: g4
+    base_url: http://127.0.0.1:8005/v1
+    weights_path: /home/xqin5/hf_p08_models/gemma-4-31B-it
+    provider_or_origin: Google
+    current_status: online_observed
+    parser_hint: gemma4
+    r6_role: continuity_baseline
+
+  - alias: gpt_oss_120b
+    served_id: gpt-oss
+    base_url: http://127.0.0.1:8192/v1
+    weights_path: /home/xqin5/hf_p08_models/gpt-oss-120b
+    provider_or_origin: OpenAI
+    current_status: online_observed
+    parser_hint: openai
+    r6_role: continuity_baseline
+
+local_weight_candidates:
+  - alias: llama3_3_70b_fp8
+    repo_or_family: meta-llama/Llama-3.3-70B-Instruct
+    weights_path: /home/xqin5/hf_p08_models/Llama-3.3-70B-Instruct-FP8
+    provider_or_origin: Meta
+    current_status: local_weights_observed
+    expected_risk: medium_tool_call_parser_validation_needed
+    r6_role: preferred_new_candidate
+
+  - alias: command_a_plus_w4a4
+    repo_or_family: CohereLabs/Command-A
+    weights_path: /home/xqin5/hf_p08_models/command-a-plus-w4a4
+    provider_or_origin: Cohere
+    current_status: local_weights_observed_but_r5_marked_deployment_risk
+    expected_risk: high_vllm_transformers_w4a4_path_unvalidated
+    r6_role: conditional_candidate
+
+  - alias: nemotron_super_120b_fp8
+    repo_or_family: nvidia/Nemotron-Super
+    weights_path: /home/xqin5/hf_p08_models/Nemotron-3-Super-120B-A12B-FP8
+    provider_or_origin: NVIDIA
+    current_status: local_weights_observed_but_r5_marked_hardware_risk
+    expected_risk: high_modelopt_fp8_a100_compute_capability_risk
+    r6_role: low_priority_conditional_candidate
+
+official_candidate_placeholders:
+  - alias: mistral_large_instruct_2411
+    repo_or_family: mistralai/Mistral-Large-Instruct-2411
+    provider_or_origin: Mistral AI
+    current_status: not_verified_locally
+    expected_risk: weights_or_serving_path_not_observed
+    r6_role: official_plan_candidate_requires_verification
+
+  - alias: llama4_scout_17b_16e_instruct
+    repo_or_family: meta-llama/Llama-4-Scout-17B-16E-Instruct
+    provider_or_origin: Meta
+    current_status: not_verified_locally
+    expected_risk: availability_and_serving_path_require_verification
+    r6_role: official_plan_candidate_requires_verification
+
+preflight_requirements:
+  endpoint_checks:
+    - openai_compatible_v1_models
+    - served_id_matches_config
+    - temperature_zero_supported
+    - max_context_sufficient
+  tool_checks:
+    - parser_can_extract_tool_calls
+    - invalid_json_rate_acceptably_low
+    - no_undefined_tool_on_smoke
+  trace_checks:
+    - canonical_trace_written
+    - r6_metric_extractor_runs
+    - field_level_diff_source_reported
+    - token_usage_present
+  design_matrix:
+    tasks: 4
+    conditions: 4
+    seeds: 1
+    max_runs_per_model: 16
+

@@ -1,0 +1,18 @@
+quantity,earlier_value,strengthened_value,reason,frozen_value
+reward_difference,0.014925,0.014815,earlier exact-repeat/pair weighting versus latest equal task-cluster mean,0.014815
+reward_90ci,"[-0.014815, 0.048148]","[-0.014815, 0.046296]",latest task-cluster bootstrap,"[-0.014815, 0.046296]"
+reward_95ci,upper about 0.055556,"[-0.020370, 0.053704]",latest task-cluster bootstrap,"[-0.020370, 0.053704]"
+tool_argument_excess,0.112300,0.111777,raw cross-repeat reconstruction and task aggregation,0.111777
+tool_name_excess,0.086033,0.085626,raw cross-repeat reconstruction and task aggregation,0.085626
+stage_excess,0.078276,0.091717,updated explicit trajectory-stage taxonomy,0.091717
+stage_tn_mean,0.295144,0.324325,updated stage mapping,0.324325
+stage_nn_mean,0.217190,0.232804,updated stage mapping,0.232804
+core_q_values,arg .0001; name .0002; stage .0001,all 0.000100,recomputed permutation family/BH,all 0.000100
+tn_rows,537,537,unique treatment rows in raw cross-repeat analysis,537
+nn_pairs,1076,1076,within-cell C1-C1 repeat pairs,1076
+exact_reward_pairs,536,536,one valid same-repeat C2-C1 pair absent,536
+valid_episodes,2680,2680,unchanged,2680
+falsification_observed_arg,NA,0.111846,"cell/U-stat falsification estimand, not pooled main estimand",robustness only
+compound_task_count,16,strengthening margin table says 17,task_id-only filter collides across domains; explicit domain+task filter gives 16,16
+compound_stage_excess,0.061260,0.070025,updated stage taxonomy on correct 16-task keys,0.070025
+inverse_availability_weighting,named auxiliary result,implementation did not apply weights,mislabeled branch reused complete-case data,excluded as weighting evidence

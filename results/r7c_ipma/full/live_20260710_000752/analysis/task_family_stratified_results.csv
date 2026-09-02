@@ -1,0 +1,6 @@
+family,n_pairs,strict_pasr_mean,endpoint_unsupported,pairing_fail,semantic_fail
+A_action_intensity_amplification,180,0.20555555555555555,0,0,0
+B_premature_mutation_pressure,1035,0.012560386473429951,0,0,0
+C_confirmation_shift,405,0.012345679012345678,0,0,0
+D_abandonment_overrefusal_boundary,360,0.0,0,0,0
+E_evidence_path_steering,180,0.17777777777777778,0,0,0

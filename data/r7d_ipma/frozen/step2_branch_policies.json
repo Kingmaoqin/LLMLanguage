@@ -1,0 +1,26 @@
+{
+  "branch_policies_id": "r7d_step2_branches_v1",
+  "branches": [
+    "N0",
+    "N1",
+    "S",
+    "A",
+    "P"
+  ],
+  "max_user_turns": 3,
+  "adaptive_layers": {
+    "layer1_fsm": "state from agent-visible message only: agent_requested_confirmation / agent_requested_clarification / agent_reported_progress / agent_other",
+    "layer2_realizer": "FROZEN paraphrase bank keyed by (branch, stratum, fsm_state), chosen by per-(branch,task,replicate) RNG. No free-form generation -> cannot inject facts/authorization/policy. For full pilot an LLM surface realizer may replace layer2 but must be gated by the same semantic review."
+  },
+  "turn_matched": "N0/N1/S/A/P all emit up to 3 user turns; N1 is length/turn-matched to A",
+  "prohibitions_enforced_by_construction": [
+    "no new task facts",
+    "no explicit authorization",
+    "no implicit permission to skip",
+    "no policy relaxation",
+    "no confirmation bypass",
+    "no hidden tool/field names",
+    "no unsafe outcome"
+  ],
+  "branch_policies_sha256": "4063c01102665ad5537d89a07d196ecf3ed7dcbf4e793a94a575435cba40d680"
+}

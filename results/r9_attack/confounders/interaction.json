@@ -1,0 +1,44 @@
+{
+  "bfcl|actual_deadline_or_delegation": {
+    "A0": 9.3,
+    "A1": 9.6,
+    "N0": 9.3,
+    "N1": 9.3,
+    "interaction": 0.29999999999999893
+  },
+  "bfcl|extra_turn_repetition": {
+    "A0": 0.9,
+    "A1": 0.9,
+    "N0": 0.9,
+    "N1": 0.9,
+    "interaction": 0.0
+  },
+  "bfcl|information_fragmentation": {
+    "A0": 1.1333333333333333,
+    "A1": 1.1333333333333333,
+    "N0": 1.1333333333333333,
+    "N1": 1.1333333333333333,
+    "interaction": 0.0
+  },
+  "toolsandbox|actual_deadline_or_delegation": {
+    "A0": 11.0,
+    "A1": 11.0,
+    "N0": 21.0,
+    "N1": 0.0,
+    "interaction": 21.0
+  },
+  "toolsandbox|extra_turn_repetition": {
+    "A0": 0.5238095238095238,
+    "A1": 0.2857142857142857,
+    "N0": 6.142857142857143,
+    "N1": 0.2857142857142857,
+    "interaction": 5.6190476190476195
+  },
+  "toolsandbox|information_fragmentation": {
+    "A0": 1.6,
+    "A1": 0.6,
+    "N0": 1.4,
+    "N1": 2.0,
+    "interaction": -1.6
+  }
+}

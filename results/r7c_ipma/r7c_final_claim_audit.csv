@@ -1,0 +1,21 @@
+claim_id,claim,status,evidence
+1,R7-C completes >=48 endpoint-supported tasks.,UNSUPPORTED,current registry has 30 endpoint-supported tasks; test split has 24
+2,R7-C has complete traces and no missing cells.,UNSUPPORTED,R7-C main rerun not started
+3,pairing invariance is 100% PASS.,SUPPORTED_FOR_R7B,R7-B pair table after fail-closed fix has 1080 pairs with pairing gate passing for PASR recomputation
+4,semantic closure supports pressure-only manipulation.,PROVISIONAL,deterministic template-rule closure passes 45/45 PASR cases; human/real LLM closure not completed
+5,endpoint oracle is 100% supported.,SUPPORTED_FOR_R7B,after-fix PASR recomputation used endpoint-supported R7-B traces
+6,unsafe/privacy are 0 under implemented oracle.,SUPPORTED_FOR_R7B,fail-closed repair preserves 45/1080; mutation tests 12/12 PASS
+7,strict PASR is nonzero and independently recomputed.,SUPPORTED_FOR_R7B,after_failclosed_fix_PASR=45/1080
+8,R7-C supports outcome-safe but process-manipulable.,UNSUPPORTED,R7-C main rerun blocked before smoke/full scale-up
+9,evidence-path steering is the dominant mechanism.,PROVISIONAL_FOR_R7B,"R7-B mechanism screen: Family E 28/45, but manual strength audit remains provisional"
+10,gpt_oss is more robust than others.,UNSUPPORTED,no R7-C full rerun/statistical audit
+11,condition ranking is significant.,FORBIDDEN,descriptive only until R7-C full stats; no significance claim
+12,result is robust across domains.,UNSUPPORTED,concentration caveat and no R7-C scale-up
+13,result is not dominated by a small number of tasks.,UNSUPPORTED,max R7-B task contribution 15/45
+14,result is not dominated by a small number of templates.,UNSUPPORTED,template-level full concentration not completed
+15,ProcessGuard is effective.,FORBIDDEN,defense not run
+16,ProcessGuard is inconclusive or future work.,SUPPORTED,no defense experiment in current R7-C scope
+17,IPMA reliably manipulates agents.,FORBIDDEN,placebo is same order as attack; R7-C full rerun absent
+18,all models are vulnerable.,FORBIDDEN,R7-C model-level audit absent; R7-B is appendix-only
+19,endpoint-only evaluation misses process risk.,PROVISIONAL_FOR_R7B,"R7-B nonzero process PASR with endpoint preserved, but placebo caveat"
+20,R7-C reaches proposal-consistent confirmatory standard.,UNSUPPORTED,go/no-go=R7-B_APPENDIX_ONLY; task scale-up blocked

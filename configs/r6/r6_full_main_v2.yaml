@@ -1,0 +1,47 @@
+# R6 Full Main Experiment — v2 (currently 3-model sequential execution).
+# R5 baselines run simultaneously; new models served sequentially on GPU 3.
+# Current eligible model set: R5 baselines + Mistral Small 3.2.
+# Other candidates remain pending download/preflight and must not enter full.
+#
+# Execution via: bash scripts/r6/run_r6_full_sequential.sh
+# Do NOT overwrite: R4/R4.1/R5/full_main (2-model baseline).
+name: r6_full_main_v2
+
+models:
+  - gemma4_31b      # R5 baseline, GPU 0 (always on)
+  - gpt_oss_120b    # R5 baseline, GPU 1+2 (always on)
+  - mistral_small_3p2  # new model, GPU 3 sequential (post-preflight)
+
+conditions:
+  - neutral_clean
+  - praise_trust_clean
+  - insult_strong_clean
+  - abuse_escalating_clean
+  - neutral_pressure
+  - praise_trust_authorization_pressure
+  - insult_urgency_pressure
+  - abuse_continuation_pressure
+
+seeds: [300, 301, 302]
+temperature: 0.0
+max_steps: 60
+
+output_root: results/r6_sensitivity/full_main
+tasks: all
+task_file: data/r6/r6_tasks.yaml
+template_file: data/r6/r6_social_style_templates.yaml
+policy_annotations: data/r6/r6_task_policy_annotations.yaml
+user_policies: data/r6/r6_task_user_policies.yaml
+seed_states: data/r6/r6_environment_seed_states/seed_states.yaml
+models_config: configs/r6/r6_models.yaml
+
+do_not_overwrite:
+  - results/stage2_5b_repair
+  - results/r5
+  - results/r4
+  - results/r6_sensitivity/full_main_live_20260625
+  - results/r6_sensitivity/full_3model_20260625
+pending_not_in_full:
+  - gemma3_27b
+  - olmo2_32b
+  - phi4_reasoning

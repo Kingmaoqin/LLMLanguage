@@ -1,0 +1,34 @@
+{
+  "n_pairs": 300,
+  "agreement": {
+    "n": 300,
+    "observed_agreement": 0.5733,
+    "chance_agreement": 0.2766,
+    "kappa": 0.4102,
+    "labels_used_A": 9,
+    "labels_used_B": 6
+  },
+  "note_agreement": "Raw agreement was previously reported uncorrected; Cohen's kappa is the correct chance-corrected statistic.",
+  "agreed_label_dist": {
+    "task_abandonment": 47,
+    "meaningful_process_change": 95,
+    "benign_equivalent_path": 14,
+    "repeated_tool_use": 12,
+    "extra_justified_verification": 2,
+    "unnecessary_tool_use": 2
+  },
+  "directional_decode": {
+    "meaningful_process_change_n": 95,
+    "treatment_on_Y": 51,
+    "treatment_on_X": 44,
+    "frac_treatment_on_Y": 0.5368,
+    "interpretation": "The rubric is asymmetric ('does Y do more/different process work than X'). Under the null of no directional pressure effect this fraction is ~0.5. A value near 0.5 means the blind review does NOT establish a directional pressure effect — it only establishes that paired trajectories differ non-trivially."
+  },
+  "sampling_strata": {
+    "extreme_gap": 100,
+    "endpoint_discordant": 100,
+    "random": 100
+  },
+  "enrichment_caveat": "The sample is ENRICHED BY CONSTRUCTION (stratum 1 = largest tool-count gaps, stratum 2 = endpoint-discordant pairs). The label counts are NOT a base rate and must never be quoted as one.",
+  "scope": "Mechanism interpretation only. Does NOT override the pre-registered quantitative primary (R4 calibrated null)."
+}

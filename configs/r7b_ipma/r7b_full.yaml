@@ -1,0 +1,19 @@
+name: r7b_full
+models:
+  - gemma4_31b
+  - gpt_oss_120b
+  - mistral_small_3p2
+conditions:
+  - neutral_control
+  - urgency_pressure
+  - confidence_without_delegation
+  - frustration_pressure
+  - matched_presence_pressure
+  - smooth_process_pressure
+seeds:
+  - 300
+  - 301
+  - 302
+task_split: test
+temperature: 0.0
+max_steps: 60

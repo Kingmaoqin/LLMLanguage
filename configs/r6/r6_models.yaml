@@ -1,0 +1,132 @@
+# R6 model roster (round-6 §5). gemma4_31b + gpt_oss_120b are kept for R5 comparability.
+# New models served sequentially on GPU 3 (port 8007) after preflight.
+# Excluded local models: llama3_3_70b_fp8 (W8A8-FP8 incompatible with A100 SM80),
+#   command-a-plus-w4a4 (nvfp4 OOM on single A100, TP=2 not feasible),
+#   Nemotron-3-Super-120B-FP8 (modelopt FP8, same A100 incompatibility + TP=2 required).
+
+user_simulator_llm: controlled_user   # deterministic; no runtime LLM user sim
+
+models:
+  # === R5 baselines (always on, GPU 0 and GPU 1+2) ===
+  - alias: gemma4_31b
+    served_id: g4
+    litellm_model: openai/g4
+    base_url: http://127.0.0.1:8005/v1
+    api_key: EMPTY
+    weights_path: /home/xqin5/hf_p08_models/gemma-4-31B-it
+    tool_call_parser: gemma4
+    origin: Google (US)
+    keep_for_r5_comparability: true
+    preflight_status: passed_in_r5
+    gpu: "0"
+    serve_port: 8005
+
+  - alias: gpt_oss_120b
+    served_id: gpt-oss
+    litellm_model: openai/gpt-oss
+    base_url: http://127.0.0.1:8192/v1
+    api_key: EMPTY
+    weights_path: /home/xqin5/hf_p08_models/gpt-oss-120b
+    tool_call_parser: openai
+    origin: OpenAI (US)
+    keep_for_r5_comparability: true
+    preflight_status: passed_in_r5
+    gpu: "1,2"
+    serve_port: 8192
+
+  # === New candidates (served sequentially on GPU 3, port 8007) ===
+  - alias: mistral_small_3p2
+    served_id: mistral-small-3p2
+    litellm_model: openai/mistral-small-3p2
+    base_url: http://127.0.0.1:8007/v1
+    api_key: EMPTY
+    hf_model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
+    weights_path: /home/xqin5/hf_p08_models/Mistral-Small-3.2-24B-Instruct-2506
+    tool_call_parser: mistral
+    origin: Mistral AI (France)
+    gpu: "3"
+    serve_port: 8007
+    vllm_serve_cmd: >
+      CUDA_VISIBLE_DEVICES=3 vllm serve {weights_path}
+      --port 8007 --served-model-name mistral-small-3p2
+      --tool-call-parser mistral --enable-auto-tool-choice
+      --max-model-len 16384 --gpu-memory-utilization 0.90
+      --tensor-parallel-size 1
+      --limit-mm-per-prompt '{"image": 0}'
+    max_model_len: 16384
+    max_tokens_per_turn: 384
+    request_timeout_seconds: 120
+    gpu_memory_utilization: 0.90
+    preflight_status: passed_clean_preflight_2026-06-26
+    download_date: "2026-06-25"
+    preflight_date: "2026-06-26"
+    preflight_summary: "Clean-root smoke: 16/16 traces, 0 invalid, R6 integrity PASS, metrics extracted. Metrics: 11/16 policy_failure_any=False, 5/16 policy_failure_any=True; 2 over_refusals, 2 agent_side_abandonment. Behavior failures must be reported, not hidden."
+    notes: "Mistral3ForConditionalGeneration (vision+text). Text-only via --limit-mm-per-prompt '{\"image\":0}'. HF format (NOT --load_format mistral). Tool parser and trace schema pass in clean-root preflight. Full R6 resume caps max_tokens_per_turn=384 to avoid 16k context overflow on long tau2 conversations."
+
+  - alias: gemma3_27b
+    served_id: gemma3-27b
+    litellm_model: openai/gemma3-27b
+    base_url: http://127.0.0.1:8007/v1
+    api_key: EMPTY
+    hf_model: google/gemma-3-27b-it
+    weights_path: /home/xqin5/hf_p08_models/gemma-3-27b-it
+    tool_call_parser: pythonic
+    origin: Google (US)
+    gpu: "3"
+    serve_port: 8007
+    max_model_len: 32768
+    gpu_memory_utilization: 0.90
+    preflight_status: blocked_incomplete_local_weights
+    notes: "Local directory currently contains README.md only; missing config.json/model shards, so vLLM smoke cannot start until weights are downloaded/synced."
+
+  - alias: olmo2_32b
+    served_id: olmo2-32b
+    litellm_model: openai/olmo2-32b
+    base_url: http://127.0.0.1:8007/v1
+    api_key: EMPTY
+    hf_model: allenai/OLMo-2-0325-32B-Instruct
+    weights_path: /home/xqin5/hf_p08_models/OLMo-2-0325-32B-Instruct
+    tool_call_parser: pythonic
+    origin: AllenAI (US)
+    gpu: "3"
+    serve_port: 8007
+    max_model_len: 4096
+    max_tokens_per_turn: 256
+    max_steps_override: 12
+    gpu_memory_utilization: 0.92
+    preflight_status: backend_loads_but_blocked_context_window
+    preflight_date: "2026-06-26"
+    notes: "Re-downloaded 14/14 shards; vLLM endpoint now becomes healthy. However local config max_position_embeddings=4096 and tau2 R6 prompt+conversation exceeds the window during smoke (3329 input + default output >4096). Not eligible for standard R6 full unless using a separately declared reduced-context protocol."
+
+  - alias: phi4_reasoning
+    served_id: phi4-reasoning
+    litellm_model: openai/phi4-reasoning
+    base_url: http://127.0.0.1:8007/v1
+    api_key: EMPTY
+    hf_model: microsoft/Phi-4-reasoning-plus
+    weights_path: /home/xqin5/hf_p08_models/Phi-4-reasoning-plus
+    tool_call_parser: pythonic
+    origin: Microsoft Research (US)
+    gpu: "3"
+    serve_port: 8007
+    max_model_len: 32768
+    max_tokens_per_turn: 512
+    max_steps_override: 12
+    request_timeout_seconds: 120
+    gpu_memory_utilization: 0.85
+    preflight_status: passed_limited_preflight_2026-06-26
+    preflight_date: "2026-06-26"
+    preflight_summary: "Limited smoke: 16/16 traces, 0 invalid, R6 integrity PASS, metrics extracted. Metrics: 16/16 policy_failure_any=False, 0 over_refusals, 0 agent_side_abandonment. Uses max_tokens_per_turn=512 and max_steps_override=12 because uncapped tau2 smoke stalls in repeated reasoning."
+    notes: "14B BF16, ~28GB VRAM. Reasoning-heavy; tau2 live requests must cap max_tokens_per_turn and max_steps_override to avoid smoke stalls. Use limited smoke result only for endpoint/parser/schema readiness, not endpoint-quality comparison."
+
+excluded_models_policy: >
+  No China-origin models (Qwen, DeepSeek, GLM/Z.ai, MiniMax, Kimi/Moonshot, Yi, Hunyuan,
+  Stepfun, Baichuan, InternLM, or any other China-origin model), per round-6 §5.
+
+excluded_local_models:
+  - alias: llama3_3_70b_fp8
+    reason: "PERMANENTLY FAILED 2026-06-25: W8A8 compressed-tensors float-quantized FP8 produces degenerate output on A100 SM80. Not context-length issue. Confirmed with enforce-eager too."
+  - alias: command_a_plus_w4a4
+    reason: "FAILED 2026-06-25: nvfp4 W4A16 format ~79GB VRAM exceeds single A100 80GB. TP=2 would require stopping gpt_oss R5 baseline permanently."
+  - alias: nemotron_3_super_120b_fp8
+    reason: "EXCLUDED 2026-06-25: modelopt FP8 likely incompatible with A100 SM80 (same category as llama3_3_fp8). Also requires TP=2 conflicting with gpt_oss."

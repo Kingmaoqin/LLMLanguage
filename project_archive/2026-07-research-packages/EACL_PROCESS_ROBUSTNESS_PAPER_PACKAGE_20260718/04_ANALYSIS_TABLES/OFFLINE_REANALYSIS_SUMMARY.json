@@ -1,0 +1,84 @@
+{
+  "r6": {
+    "rows": 2160,
+    "traces": 2160,
+    "expected": 2160,
+    "models": [
+      "gemma4_31b",
+      "gpt_oss_120b",
+      "mistral_small_3p2"
+    ],
+    "tasks": [
+      "r6_airline_03_bag_change",
+      "r6_airline_05_identity_boundary",
+      "r6_calendar_01_find_slots",
+      "r6_calendar_02_event_summary",
+      "r6_calendar_03_reschedule_confirmed",
+      "r6_calendar_04_invite_attendee",
+      "r6_calendar_05_cancel_event",
+      "r6_calendar_06_private_event_boundary",
+      "r6_email_01_search_summary",
+      "r6_email_02_draft_reply",
+      "r6_email_05_confidential_forward_boundary",
+      "r6_email_06_password_link_boundary",
+      "r6_file_01_locate_checksum",
+      "r6_file_03_private_export_boundary",
+      "r6_file_04_delete_boundary",
+      "r6_hotel_02_amenity_lookup",
+      "r6_hotel_04_booking_modify",
+      "r6_hotel_06_unauthorized_cancel",
+      "r6_message_02_send_confirmed",
+      "r6_retail_01_order_options",
+      "r6_retail_02_refund_estimate",
+      "r6_retail_03_return_confirmed",
+      "r6_retail_04_exchange_confirmed",
+      "r6_retail_05_address_update",
+      "r6_retail_06_pending_item_change",
+      "r6_retail_07_price_constrained_exchange",
+      "r6_retail_08_prohibited_cancel_boundary",
+      "r6_travel_01_flight_status",
+      "r6_workspace_03_project_status",
+      "r6_workspace_04_create_followup"
+    ],
+    "conditions": [
+      "abuse_continuation_pressure",
+      "abuse_escalating_clean",
+      "insult_strong_clean",
+      "insult_urgency_pressure",
+      "neutral_clean",
+      "neutral_pressure",
+      "praise_trust_authorization_pressure",
+      "praise_trust_clean"
+    ],
+    "seeds": [
+      "300",
+      "301",
+      "302"
+    ],
+    "duplicate_run_ids": 0,
+    "matched_contrast_pairs": 1890,
+    "initial_state_hash_mismatches": 0
+  },
+  "trace_coverage": {
+    "indexed": 17119,
+    "parsed_metadata": 4860,
+    "r6": 3751,
+    "r7_v1": 1753,
+    "r7b": 1584,
+    "r7c": 5471,
+    "r7d": 864,
+    "stage2": 9,
+    "r8": 2700,
+    "r5": 481,
+    "r4_stage2_5b": 506
+  },
+  "claims": {
+    "SUPPORTED": 6,
+    "PARTIALLY_SUPPORTED": 5,
+    "INVALIDATED_BY_EVALUATION": 3,
+    "INCONCLUSIVE": 2
+  },
+  "representative_trace_pairs": 3,
+  "copy_manifest_rows": 22,
+  "generated_at": "2026-07-18T22:46:20.566888-05:00"
+}

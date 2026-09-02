@@ -1,0 +1,18 @@
+{
+  "review_type": "dual-independent-agent trajectory review (local vLLM; NOT human)",
+  "mode": "postrun_mechanism",
+  "n_pairs_sampled": 300,
+  "min_pairs_target": 300,
+  "n_both_labeled": 300,
+  "n_agree": 172,
+  "agreement_rate": 0.5733333333333334,
+  "confirmed_mechanism_label_dist": {
+    "repeated_tool_use": 12,
+    "task_abandonment": 47,
+    "meaningful_process_change": 95,
+    "extra_justified_verification": 2,
+    "benign_equivalent_path": 14,
+    "unnecessary_tool_use": 2
+  },
+  "note": "agreement => review-confirmed mechanism; disagreement=unresolved, NOT force-adjudicated. Mechanism review does NOT override the primary quantitative result."
+}

@@ -1,0 +1,4 @@
+model,n_pairs,strict_pasr_mean,endpoint_unsupported,pairing_fail,semantic_fail
+gemma4_31b,720,0.034722222222222224,0,0,0
+gpt_oss_120b,720,0.029166666666666667,0,0,0
+mistral_small_3p2,720,0.05694444444444444,0,0,0

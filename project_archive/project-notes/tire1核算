@@ -1,0 +1,782 @@
+你需要对已经确认的 R8 Tier A 核心结果执行一次只读、可审计的：
+
+# C2 Tier-A Result Strengthening, Falsification, and Mechanism Analysis
+
+本任务只处理并增强当前已发现的核心结果：
+
+`R8 C2 first-turn static urgency vs C1 matched adaptive neutral`
+
+当前已知核心观察为：
+
+* official reward difference = +1.4925pp；
+* 90% task-cluster bootstrap CI = [-1.4815,+4.8148]pp；
+* TOST p = .038837；
+* outcome status = OUTCOME_EQUIVALENT_STRONG；
+* tool+canonical-argument excess = 0.112300；
+* 95% CI = [0.073619,0.151881]；
+* q = .000100；
+* tool-name excess = 0.086033；
+* 95% CI = [0.050817,0.123420]；
+* q = .000200；
+* trajectory-stage excess = 0.078276；
+* 95% CI = [0.043858,0.116722]；
+* q = .000100；
+* 36 tasks、3 models、2 domains；
+* legitimate same-state neutral-neutral placebo；
+* leave-one-task-out effects 均为正。
+
+本任务不是重新搜索新的显著条件，不得扩大为无边界的历史 subgroup mining。
+
+本任务的目标是使用已有 R8 episodes 和 trajectories，回答：
+
+1. C2 是否在双方都成功、reward完全一致或final state相同的情况下仍改变工具路径？
+2. 当前结果是否可能由随机标签、pipeline结构、neutral pair复用或缺失数据制造？
+3. 当前结果是否对合理的距离定义、归一化、pairing和排除规则稳健？
+4. urgency 改变的是主路径、轨迹分散程度、工具长度，还是具体执行阶段？
+5. argument-level difference具体涉及哪些参数和实体类型？
+6. 路径变化是否带来额外成本、重复验证或风险暴露？
+7. C0、C1、C2现有条件能否排除baseline选择和static/adaptive构造混杂？
+
+全程只读。不得运行新模型、endpoint、agent rollout、GPU或reviewer，不得修改原始R8资产。
+
+---
+
+
+
+# 二、同终点和双方成功分析
+
+将合法 C2-C1 treatment-neutral pairs分为：
+
+1. BOTH_SUCCESS：
+
+   * C2 reward=1；
+   * C1 reward=1。
+
+2. BOTH_FAILURE：
+
+   * C2 reward=0；
+   * C1 reward=0。
+
+3. REWARD_DISCORDANT：
+
+   * C2与C1 reward不同。
+
+4. SAME_REWARD：
+
+   * reward完全相同。
+
+5. SAME_FINAL_STATE：
+
+   * 如果存在可靠final-state hash或field-level state，要求完全相同。
+
+6. SAME_MUTATION_SIGNATURE：
+
+   * 如果存在可靠mutation/action signature，要求一致。
+
+对每个子集重新计算：
+
+* tool+argument TN mean；
+* matched NN mean；
+* placebo-adjusted excess；
+* ratio；
+* task-cluster 95% CI；
+* task-cluster permutation p；
+* BH q；
+* insertion；
+* deletion；
+* substitution；
+* stage distance；
+* first divergence；
+* LOTO。
+
+NN placebo必须采用相同outcome restriction：
+
+* BOTH_SUCCESS分析优先使用双方均成功的C1-C1 pairs；
+* SAME_REWARD分析使用reward相同的C1-C1 pairs；
+* 不允许将不同outcome组成的NN pair作为同终点placebo。
+
+生成：
+
+* `OUTCOME_CONCORDANT_PROCESS_RESULTS.csv`
+* `BOTH_SUCCESS_PROCESS_FOREST.png`
+
+重点判定：
+
+## STRONG SAME-OUTCOME PROCESS DIVERGENCE
+
+* 至少10个独立tasks；
+* placebo有效；
+* process excess>0；
+* 95% CI lower>0；
+* q<.05；
+* LOTO保持正向；
+* insertion、substitution或stage至少一项明确变化。
+
+必须给出精确允许语言：
+
+> 在C2与C1均成功的matched episodes中，urgency仍然使工具路径相对同样成功的neutral-neutral placebo增加X，CI为Y，说明process effect不是由success/failure composition造成。
+
+如果不通过，必须报告effect下降幅度和原因，不得隐藏。
+
+---
+
+# 三、完整pipeline随机标签falsification
+
+执行两类falsification。
+
+## A. C1-C2 matched-label permutation
+
+在每个合法的：
+
+* model；
+* domain；
+* task；
+* environment；
+* initial state；
+
+匹配块内交换C1/C2标签。
+
+不得全局打乱。
+
+至少运行5,000次。
+
+每次重新执行完整pipeline：
+
+* TN construction；
+* NN placebo；
+* tool+argument distance；
+* tool-name distance；
+* stage distance；
+* process excess；
+* task-level aggregation；
+* cluster inference；
+* BH correction；
+* Tier A判定。
+
+记录：
+
+* 三个observed effect的empirical permutation p；
+* 每次最大process excess；
+* 每次最小q；
+* 同时三个process metrics q<.05的比例；
+* 同时满足reward equivalence和三个process metrics显著的比例；
+* 完整Tier A false-positive rate。
+
+## B. Neutral-only pseudo-treatment
+
+只使用C1 neutral repeats。
+
+在每个合法model-task-state cell内，多次随机将C1 repeats分为：
+
+* pseudo-treatment；
+* pseudo-control。
+
+使用与正式pipeline相同的pairing、distance、placebo、bootstrap和correction。
+
+至少运行5,000次。
+
+比较真实C2 observed effect与pseudo-treatment null distribution。
+
+生成：
+
+* `PIPELINE_RANDOMIZATION_INFERENCE.csv`
+* `NEUTRAL_PSEUDO_TREATMENT_RESULTS.csv`
+* `RANDOMIZATION_NULL_DISTRIBUTION.png`
+* `FALSIFICATION_AUDIT.md`
+
+不得只报告单一metric permutation p；必须报告完整Tier A pipeline的经验假阳性率。
+
+---
+
+# 四、NN placebo依赖性与pairing敏感性
+
+当前all-pairs NN可能重复使用同一个neutral episode。
+
+至少实现以下四种NN构造：
+
+1. ALL_VALID_PAIRS；
+2. DISJOINT_MATCHING；
+3. RANDOM_ONE_TO_ONE_MATCHING；
+4. CELL_LEVEL_U_STATISTIC。
+
+对于RANDOM_ONE_TO_ONE_MATCHING：
+
+* 生成至少1,000套合法matching；
+* 每套每个neutral episode最多使用一次；
+* 汇总process excess分布、CI和显著比例。
+
+对每种构造计算三项核心process metrics。
+
+生成：
+
+* `NN_PAIRING_SENSITIVITY.csv`
+* `NN_PAIRING_DISTRIBUTION.png`
+
+判定：
+
+## PAIRING_ROBUST
+
+* 四种构造effect均为正；
+* disjoint和U-statistic CI lower>0；
+* random one-to-one matching中至少90%的estimate>0；
+* 主要结论不依赖all-pairs复用。
+
+若不通过，必须降级当前Tier A解释。
+
+---
+
+# 五、C0-C1-C2对照三角验证与构念审计
+
+分析以下contrast：
+
+* C2 vs C1：primary；
+* C2 vs C0：supportive neutral-baseline contrast；
+* C1 vs C0：negative-control contrast；
+* C3 vs C1：continued urgency auxiliary；
+* C2 vs C3：descriptive specificity analysis。
+
+不得自动认为这些contrast具有相同construct。
+
+首先审计C0、C1、C2、C3的：
+
+* 首轮user message；
+* 后续user policy；
+* adaptive/static行为；
+* message count；
+* character count；
+* tokenizer count，若served tokenizer可恢复；
+* urgency词；
+* imperative结构；
+* task fact；
+* authorization cue；
+* continuation directive；
+* task-progress directive；
+* state-conditioned response逻辑；
+* simulator code path；
+* system prompt；
+* tool access；
+* environment reset。
+
+生成：
+
+* `CONDITION_CONSTRUCT_AUDIT.csv`
+* `USER_POLICY_DIFF.md`
+
+然后对C2-C0、C1-C0重算：
+
+* reward difference；
+* equivalence；
+* process excess；
+* valid placebo；
+* three core metrics；
+* structural decomposition。
+
+理想支持模式：
+
+* C2-C1 process positive；
+* C2-C0同方向；
+* C1-C0无同规模process effect。
+
+如果C2与C1除urgency外存在static/adaptive或其他语义差异，必须在主报告中列为construct confound。
+
+---
+
+# 六、Specification curve与multiverse robustness
+
+冻结合理specification universe，不得根据结果删除不利specification。
+
+至少包含：
+
+## Trajectory representation
+
+* tool name；
+* tool+arguments；
+* stage；
+* tool bigram；
+* tool transition multiset。
+
+## Distance
+
+* normalized Levenshtein；
+* raw edit count；
+* LCS distance；
+* Jaccard；
+* weighted edit distance；
+* argument-aware distance。
+
+## Normalization
+
+* max length；
+* mean length；
+* neutral/reference length；
+* no normalization。
+
+## Call filtering
+
+* all calls；
+* remove exact duplicates；
+* collapse consecutive duplicates；
+* exclude reorder-only；
+* effective calls only，若有合法定义。
+
+## Pairing
+
+* all NN pairs；
+* disjoint NN；
+* random one-to-one NN；
+* cell U-statistic。
+
+## Aggregation
+
+* episode-pair；
+* model-task cell；
+* task；
+* mean；
+* median。
+
+## Data inclusion
+
+* all valid cells；
+* complete-five-repeat cells；
+* balanced downsample；
+* both-success；
+* same-reward；
+* pooled；
+* airline；
+* retail；
+* each model leave-out；
+* each domain leave-out。
+
+对每个specification输出：
+
+* effect；
+* CI；
+* p；
+* q；
+* direction；
+* number of tasks；
+* outcome restriction；
+* whether main observation retained。
+
+生成：
+
+* `SPECIFICATION_CURVE_C2.csv`
+* `SPECIFICATION_CURVE_C2.png`
+* `SPECIFICATION_ROBUSTNESS_SUMMARY.md`
+
+必须报告：
+
+* positive effect比例；
+* CI lower>0比例；
+* q<.05比例；
+* effect>0.05比例；
+* effect>0.075比例；
+* effect>0.10比例；
+* 哪些分析选择最影响effect。
+
+不得只展示支持性规格。
+
+---
+
+# 七、Outcome equivalence margin sensitivity
+
+对pooled C2-C1和compound subset分别计算：
+
+* ±3pp；
+* ±4pp；
+* ±5pp；
+* ±6pp；
+
+等价边界下的：
+
+* 90% CI；
+* TOST p；
+* classification。
+
+同时输出：
+
+* smallest equivalence margin supported by current data；
+* task-cluster bootstrap distribution；
+* complete-cell subset；
+* balanced subset；
+* both-success subset。
+
+生成：
+
+* `OUTCOME_MARGIN_SENSITIVITY.csv`
+* `EQUIVALENCE_MARGIN_PLOT.png`
+
+不得改变正文primary margin ±5pp；其他margin只能作为sensitivity。
+
+---
+
+# 八、Modal-path shift与trajectory dispersion
+
+对每个model-task-condition cell构建canonical trajectory frequency table。
+
+计算：
+
+* modal path；
+* modal path probability；
+* neutral-modal adherence；
+* C2-modal adherence；
+* unique trajectory count；
+* normalized trajectory entropy；
+* within-C1 pairwise dispersion；
+* within-C2 pairwise dispersion；
+* new-path emergence rate；
+* modal-path change indicator；
+* tool-transition distribution；
+* Jensen-Shannon divergence，使用明确平滑规则。
+
+将C2 effect分类为：
+
+* MODAL_PATH_SHIFT；
+* DISPERSION_INCREASE；
+* BOTH；
+* NEITHER；
+* INCONCLUSIVE。
+
+使用task-level cluster inference比较：
+
+* C2是否降低neutral modal-path adherence；
+* C2是否增加within-condition dispersion；
+* C2是否增加new-path emergence；
+* C2是否改变modal path。
+
+生成：
+
+* `PATH_DISTRIBUTION_ANALYSIS.csv`
+* `MODAL_PATH_SHIFT_SUMMARY.csv`
+* `PATH_ENTROPY_FOREST.png`
+
+必须避免将每个重复trajectory视为独立task。
+
+---
+
+# 九、First-divergence、reconvergence和stage机制
+
+对每个matched C2-C1 pair计算：
+
+* first divergence index；
+* normalized first divergence position；
+* first divergent tool；
+* first divergent argument；
+* first divergent stage；
+* before-first-write；
+* before-confirmation；
+* after-write；
+* reconvergence indicator；
+* reconvergence location；
+* divergence persistence；
+* number of downstream differing actions。
+
+Stage至少包括：
+
+* retrieval/search；
+* entity lookup；
+* verification；
+* clarification；
+* confirmation；
+* write/mutation；
+* post-write verification；
+* recovery/retry；
+* communication-only；
+* unknown。
+
+输出：
+
+* first-divergence stage distribution；
+* C2 vs NN comparison；
+* both-success subset；
+* pooled/model/domain/task-family分层；
+* pre-write vs post-write比例；
+* early/middle/late divergence比例。
+
+生成：
+
+* `FIRST_DIVERGENCE_ANALYSIS.csv`
+* `STAGE_TRANSITION_ANALYSIS.csv`
+* `FIRST_DIVERGENCE_STAGE_PLOT.png`
+* `TRAJECTORY_RECONVERGENCE_PLOT.png`
+
+不得对无法映射stage的tool猜测；标记unknown。
+
+---
+
+# 十、Argument和entity deterministic semantic decomposition
+
+从tool schema和canonical arguments建立field taxonomy：
+
+* entity identifier；
+* account identifier；
+* order/reservation identifier；
+* query/filter；
+* date/time；
+* amount/quantity；
+* source/destination；
+* status；
+* optional control parameter；
+* write target；
+* write value；
+* missing argument；
+* extra argument；
+* formatting-only；
+* serialization-only；
+* unknown。
+
+对所有C2-C1 argument differences分类。
+
+输出：
+
+* argument difference总数；
+* formatting-only比例；
+* entity-changing比例；
+* query-scope-changing比例；
+* write-target/value-changing比例；
+* optional-parameter比例；
+* both-success subset比例；
+* same-final-state subset比例；
+* 与NN placebo的类别差异。
+
+生成：
+
+* `ARGUMENT_CHANGE_TAXONOMY.csv`
+* `ARGUMENT_CHANGE_SUMMARY.csv`
+* `ARGUMENT_CATEGORY_PLOT.png`
+
+只允许确定性schema/rule分类。
+
+不得调用LLM reviewer，不得把unknown强制分类。
+
+---
+
+# 十一、成功条件下的成本和风险暴露
+
+在以下子集中分析：
+
+* all pairs；
+* both-success；
+* same-reward；
+* same-final-state，若可用。
+
+指标：
+
+* total tool calls；
+* unique tools；
+* duplicate calls；
+* retrieval calls；
+* verification calls；
+* confirmation calls；
+* write-capable calls；
+* executed writes；
+* distinct entities accessed；
+* pre-confirmation actions；
+* post-completion calls；
+* retry/recovery calls；
+* prompt/completion tokens，仅在coverage有效时；
+* duration，仅在coverage有效时。
+
+对每项报告：
+
+* C2-C1 difference；
+* CI；
+* q；
+* NN-adjusted difference；
+* task breadth。
+
+生成：
+
+* `SUCCESS_CONDITIONAL_COST_RESULTS.csv`
+* `RISK_EXPOSURE_RESULTS.csv`
+* `COST_AND_RISK_FOREST.png`
+
+若无可靠token或latency，不得用tool count推算完整token或经济成本。
+
+---
+
+# 十二、缺失数据与balanced-cell敏感性
+
+执行：
+
+1. current complete-case；
+2. complete-five-repeat cells only；
+3. cells complete across C0-C4；
+4. downsample every cell to common minimum repeats；
+5. exclude all task-model cells with any missing C1/C2 episode；
+6. exclude Mistral；
+7. exclude retail；
+8. exclude airline；
+9. inverse availability weighting，仅作辅助。
+
+对每个数据版本重算：
+
+* reward equivalence；
+* tool+argument excess；
+* tool-name excess；
+* stage excess；
+* insertion；
+* substitution；
+* Tier A status。
+
+生成：
+
+* `MISSINGNESS_SENSITIVITY.csv`
+* `BALANCED_CELL_RESULTS.csv`
+
+不得将加权结果作为primary。
+
+---
+
+# 十三、任务、模型和domain广度
+
+不得只报告3/3模型、2/2 domain方向为正。
+
+需要输出：
+
+* 每个模型effect和CI；
+* 每个domain effect和CI；
+* condition×model interaction；
+* condition×domain interaction；
+* 每个task的process excess；
+* positive-task proportion；
+* CI；
+* sign test或cluster permutation；
+* task-level reward-process quadrant；
+* influence score；
+* Cook-like task influence；
+* leave-one-task-out effect变化；
+* top-5 influential tasks；
+* 去除top-5 influential tasks后的结果。
+
+生成：
+
+* `TASK_LEVEL_EFFECTS.csv`
+* `MODEL_DOMAIN_INTERACTIONS.csv`
+* `TASK_PREVALENCE_ANALYSIS.csv`
+* `TASK_REWARD_PROCESS_QUADRANT.png`
+* `INFLUENCE_DIAGNOSTICS.png`
+
+必须区分：
+
+* effect direction breadth；
+* cell-level significance；
+* formal interaction evidence。
+
+不得因为某个模型子组显著、另一个不显著，就直接声称模型差异。
+
+---
+
+# 十四、最终证据升级判定
+
+最终将结果分为：
+
+## A. CORE RESULT STRENGTHENED
+
+要求：
+
+* 原始Tier A复现；
+* both-success或same-outcome process effect显著；
+* random-label falsification通过；
+* neutral-only pseudo-treatment不产生类似结果；
+* disjoint/U-statistic NN构造保持正向显著；
+* specification curve多数合理规格正向；
+* balanced-cell分析保持；
+* structural mechanism可以定位。
+
+## B. CORE RESULT ROBUST BUT MECHANISM LIMITED
+
+核心统计稳健，但argument或stage解释不足。
+
+## C. CORE RESULT SENSITIVE TO ANALYTIC CHOICES
+
+原始结果存在，但依赖特定pairing、metric、missingness或normalization。
+
+## D. CORE RESULT DOWNGRADED
+
+falsification、same-outcome、pairing依赖或复现失败。
+
+不得为了维护Tier A而隐藏降级结果。
+
+---
+
+# 十五、主要交付物
+
+必须生成：
+
+1. `TIER_A_STRENGTHENING_REPORT_ZH.md`
+2. `TIER_A_BASE_RESULT_REPRODUCTION.csv`
+3. `OUTCOME_CONCORDANT_PROCESS_RESULTS.csv`
+4. `PIPELINE_RANDOMIZATION_INFERENCE.csv`
+5. `NEUTRAL_PSEUDO_TREATMENT_RESULTS.csv`
+6. `NN_PAIRING_SENSITIVITY.csv`
+7. `CONDITION_CONSTRUCT_AUDIT.csv`
+8. `USER_POLICY_DIFF.md`
+9. `SPECIFICATION_CURVE_C2.csv`
+10. `SPECIFICATION_ROBUSTNESS_SUMMARY.md`
+11. `OUTCOME_MARGIN_SENSITIVITY.csv`
+12. `PATH_DISTRIBUTION_ANALYSIS.csv`
+13. `MODAL_PATH_SHIFT_SUMMARY.csv`
+14. `FIRST_DIVERGENCE_ANALYSIS.csv`
+15. `STAGE_TRANSITION_ANALYSIS.csv`
+16. `ARGUMENT_CHANGE_TAXONOMY.csv`
+17. `ARGUMENT_CHANGE_SUMMARY.csv`
+18. `SUCCESS_CONDITIONAL_COST_RESULTS.csv`
+19. `RISK_EXPOSURE_RESULTS.csv`
+20. `MISSINGNESS_SENSITIVITY.csv`
+21. `BALANCED_CELL_RESULTS.csv`
+22. `TASK_LEVEL_EFFECTS.csv`
+23. `MODEL_DOMAIN_INTERACTIONS.csv`
+24. `TASK_PREVALENCE_ANALYSIS.csv`
+25. `TIER_A_UPGRADED_CLAIM.md`
+26. `SOURCE_PROVENANCE_MANIFEST.json`
+
+---
+
+# 十六、必须生成的核心图
+
+1. `BOTH_SUCCESS_PROCESS_FOREST.png`
+2. `RANDOMIZATION_NULL_DISTRIBUTION.png`
+3. `SPECIFICATION_CURVE_C2.png`
+4. `FIRST_DIVERGENCE_STAGE_PLOT.png`
+5. `PATH_ENTROPY_FOREST.png`
+6. `ARGUMENT_CATEGORY_PLOT.png`
+7. `COST_AND_RISK_FOREST.png`
+8. `TASK_REWARD_PROCESS_QUADRANT.png`
+9. `INFLUENCE_DIAGNOSTICS.png`
+10. `EQUIVALENCE_MARGIN_PLOT.png`
+
+---
+
+# 十七、最终报告必须直接回答
+
+1. 当C2和C1均成功时，process divergence是否仍显著？
+2. 当final state完全相同时，process divergence是否仍存在？
+3. 完整pipeline在随机标签下的经验假阳性率是多少？
+4. neutral-only pseudo-treatment能否制造类似Tier A结果？
+5. all-pairs NN的episode复用是否夸大effect或缩窄CI？
+6. 结果是否在disjoint NN和U-statistic分析中保留？
+7. C2对C0是否出现同方向结果？
+8. C1对C0是否构成negative-control null？
+9. C2和C1除urgency外是否存在static/adaptive或其他construct差异？
+10. 结果在多少比例的合理specifications中为正和显著？
+11. urgency主要改变modal path还是增加trajectory dispersion？
+12. first divergence主要发生在哪个stage？
+13. argument difference中有多少是格式、entity、query和write变化？
+14. 成功条件下是否增加工具成本、重复验证或风险暴露？
+15. 缺失Mistral/retail episodes是否影响结论？
+16. 36个tasks中有多少呈正向process effect？
+17. 去除最有影响的tasks后结果是否仍存在？
+18. 当前Tier A结果应升级、保留还是降级？
+
+---
+
+# 十八、最终写作目标
+
+如果全部关键稳健性分析通过，生成如下强度的允许语言：
+
+> 在official full-episode任务中，first-turn static urgency与matched neutral取得等价的最终reward。即使仅限制在双方均成功、终点一致的episodes中，urgency仍显著改变工具名、参数和trajectory stage路径；该效应超过same-state neutral-neutral漂移，并在随机标签、neutral-only伪treatment、替代NN pairing、balanced cells和合理trajectory specifications下保持。变化主要体现为[具体stage和argument类别]，说明用户压力能够改变agent达到相同结果的执行过程，而不是仅造成普通采样噪声。
+
+如果只有部分分析通过，必须根据证据缩减语言。
+
+本任务只处理并增强C2 Tier A结果，不得重新搜索其他条件以替代或稀释核心结果。

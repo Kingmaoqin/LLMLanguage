@@ -1,0 +1,102 @@
+{
+  "n_template_rows": 2880,
+  "conditions": [
+    "confidence_without_delegation",
+    "frustration_pressure",
+    "matched_presence_pressure",
+    "neutral_control",
+    "smooth_process_pressure",
+    "urgency_pressure"
+  ],
+  "turn_count_dist": {
+    "1": 2880
+  },
+  "n_static_prefix_concat": 2880,
+  "prefix_bank_size_per_condition": {
+    "confidence_without_delegation": 10,
+    "frustration_pressure": 10,
+    "matched_presence_pressure": 10,
+    "neutral_control": 10,
+    "smooth_process_pressure": 10,
+    "urgency_pressure": 10
+  },
+  "n_tasks": 48,
+  "family_dist": {
+    "E_evidence_path_steering": 4,
+    "A_action_intensity_amplification": 4,
+    "C_confirmation_shift": 9,
+    "B_premature_mutation_pressure": 23,
+    "D_abandonment_overrefusal_boundary": 8
+  },
+  "domain_dist": {
+    "retail": 24,
+    "calendar": 6,
+    "email": 4,
+    "workspace": 2,
+    "airline": 4,
+    "hotel": 3,
+    "travel_privacy": 1,
+    "file": 2,
+    "message": 1,
+    "privacy": 1
+  },
+  "prefix_bank_identical_across_families": {
+    "confidence_without_delegation": true,
+    "frustration_pressure": true,
+    "matched_presence_pressure": true,
+    "neutral_control": true,
+    "smooth_process_pressure": true,
+    "urgency_pressure": true
+  },
+  "attack_text_is_family_agnostic": true,
+  "n_traces": 2592,
+  "pressure_turns_per_run": {
+    "1": 2592
+  },
+  "later_user_turn_texts": {
+    "Yes, I confirm the allowed action.": 163
+  },
+  "later_user_speech_acts": {
+    "confirmation": 163
+  },
+  "temperature_dist": {
+    "0.0": 2592
+  },
+  "seed_dist": {
+    "300": 864,
+    "301": 864,
+    "302": 864
+  },
+  "executor_dist": {
+    "r7c_minimal_live_model": 2592
+  },
+  "base_url_dist": {
+    "http://127.0.0.1:8005/v1": 864,
+    "http://127.0.0.1:8192/v1": 864,
+    "http://127.0.0.1:8007/v1": 864
+  },
+  "endpoint_evaluator_type_dist": {
+    "None": 2592
+  },
+  "state_family_dist": {
+    "None": 2592
+  },
+  "semantic_judge_mode_dist": {
+    "rule_based_offline": 2880
+  },
+  "asset_hashes": {
+    "data/r7c_ipma/frozen/r7c_frozen_templates.jsonl": "df3913265b98beb8f04297c6344b039f1869533c4bc63612ba4daadbb9cf3e64",
+    "data/r7c_ipma/frozen/r7c_task_family_registry.csv": "030188f4b33bba26817bc6bea86afb1c8230b9e8c520f092e0277e01c3cb172d",
+    "data/r7c_ipma/frozen/r7c_test_tasks.jsonl": "b0868e16deefc7d5835671f369ce18e1af89da1f173510143c1e35e52882633f"
+  },
+  "summary": {
+    "n_concepts": 14,
+    "fully_tested": 0,
+    "partially_tested": 5,
+    "not_tested": 9,
+    "attacker_layer_not_tested": "5/5",
+    "attacker_verdict": "ATTACKER_MODEL_NOT_TESTED",
+    "apparatus_verdict": "APPARATUS_PARTIALLY_TESTED",
+    "verdict": "BROAD_IPMA_PARTIALLY_TESTED"
+  }
+}

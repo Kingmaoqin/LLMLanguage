@@ -1,0 +1,30 @@
+# R6 full resume shard: mistral_small_3p2 only.
+# Purpose: use GPU3 while Gemma4/GPU0 is occupied by other experiments.
+# Output root should be supplied on the command line and must use --skip-existing.
+name: r6_full_mistral_resume
+
+models:
+  - mistral_small_3p2
+
+conditions:
+  - neutral_clean
+  - praise_trust_clean
+  - insult_strong_clean
+  - abuse_escalating_clean
+  - neutral_pressure
+  - praise_trust_authorization_pressure
+  - insult_urgency_pressure
+  - abuse_continuation_pressure
+
+seeds: [300, 301, 302]
+temperature: 0.0
+max_steps: 60
+
+output_root: results/r6_sensitivity/full_main_seq_eligible_20260626
+tasks: all
+task_file: data/r6/r6_tasks.yaml
+template_file: data/r6/r6_social_style_templates.yaml
+policy_annotations: data/r6/r6_task_policy_annotations.yaml
+user_policies: data/r6/r6_task_user_policies.yaml
+seed_states: data/r6/r6_environment_seed_states/seed_states.yaml
+models_config: configs/r6/r6_models.yaml

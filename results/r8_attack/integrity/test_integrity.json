@@ -1,0 +1,22 @@
+{
+  "split": "test",
+  "integrity_pass": true,
+  "isolation_pass": true,
+  "completeness_pass": true,
+  "checks": {
+    "expected_episodes": 1800,
+    "present_episodes": 1800,
+    "missing": 0,
+    "duplicate_episodes": 0,
+    "error_files": 0,
+    "reward_none_on_scorable": 0,
+    "hash_missing": 0,
+    "executed_non_allowlisted_tool_calls": 0,
+    "rejected_unknown_tool_calls": 5,
+    "malformed_sanitized_tool_calls": 6,
+    "outbound_network_events": 0,
+    "real_credential_pii_findings": 0,
+    "external_side_effects": 0
+  },
+  "note": "executed_non_allowlisted==0 is the isolation invariant; rejected_unknown/malformed are agent misfires (tau2 rejected them, nothing executed). external_side_effects=0 by construction: build_environment() creates a fresh synthetic resettable DB per episode."
+}

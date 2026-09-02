@@ -1,0 +1,1756 @@
+你需要将当前已经完成并用于论文的 interactional tool-agent evaluation 资产，
+整理、重构并打包成一个真正可以公开发布到 GitHub 的研究 benchmark repository。
+
+Benchmark 名称：
+
+MISROUTE
+
+推荐完整描述：
+
+MISROUTE: Benchmarking How User Conditions Shift Tool-Use Trajectories
+
+核心研究对象：
+
+在 task goal、authorization、tools、policy、environment 和 initial state 保持不变时，
+改变用户语言条件，测量：
+
+1. official outcome 是否保持稳定；
+2. tool-use trajectory 是否发生变化；
+3. 变化是否超过 same-state neutral–neutral stochastic drift。
+
+本任务不是简单复制现有实验目录。
+
+最终目标是形成一个：
+
+- standalone；
+- clean；
+- documented；
+- reproducible；
+- extensible；
+- citation-ready；
+- GitHub-ready；
+- paper-reproduction-ready
+
+的公开 benchmark repository。
+
+不得修改或污染原始实验资产。
+
+---
+
+# 0. 核心原则
+
+MISROUTE 应支持三个使用层级。
+
+## Level 1 — Zero-cost smoke test
+
+用户 clone repository 后，
+不需要 GPU、不需要 API、不需要任何真实大模型，
+即可：
+
+- 安装项目；
+- 加载 toy trajectories；
+- 计算 trajectory distance；
+- 构造 neutral-neutral baseline；
+- 计算 placebo-adjusted process divergence；
+- 运行 unit tests；
+- 理解 benchmark 工作方式。
+
+目标：
+
+5 分钟以内完成。
+
+---
+
+## Level 2 — Paper result reproduction
+
+用户不需要重新运行 2,680 个 LLM episodes。
+
+使用公开的 paper trajectories / derived benchmark records，
+即可重建论文中的：
+
+- reward equivalence；
+- tool-name divergence；
+- tool+argument divergence；
+- stage divergence；
+- same-outcome analysis；
+- randomization tests；
+- alternative NN construction；
+- specification robustness；
+- modal-route analysis。
+
+目标：
+
+一条或少数几条命令即可复现论文主表和主图。
+
+---
+
+## Level 3 — Full benchmark evaluation
+
+用户可以：
+
+- 接入新的 LLM；
+- 接入新的 agent；
+- 添加新的 user-language condition；
+- 使用现有 airline/retail tasks；
+- 或添加新 domain；
+
+然后运行：
+
+neutral repeats
++
+condition repeats
++
+official reward scoring
++
+trajectory extraction
++
+MISROUTE process analysis
+
+最终得到标准 benchmark report。
+
+---
+
+# 1. 输入资产审计
+
+首先只读扫描当前项目和 paper evidence。
+
+优先读取：
+
+- 论文 evidence dossier；
+- paper-writing evidence；
+- frozen task manifests；
+- raw trajectories；
+- episode metrics；
+- condition definitions；
+- model configs；
+- user simulator；
+- evaluator；
+- trajectory parser；
+- argument canonicalizer；
+- stage mapper；
+- statistical scripts；
+- robustness analyses；
+- figure source data；
+- source provenance manifests。
+
+已知项目相关资产可能位于：
+
+/home/xqin5/ECAL2027/
+
+以及 interactional robustness 项目目录。
+
+必须通过 dossier / manifest 找到真实来源，
+不得根据目录名猜测最终版本。
+
+建立：
+
+INTERNAL_SOURCE_INVENTORY.csv
+
+字段至少包括：
+
+- source_path
+- file_type
+- scientific_role
+- paper_used
+- benchmark_needed
+- contains_private_path
+- contains_secret
+- contains_internal_round_name
+- contains_real_identifier
+- upstream_origin
+- license_status
+- action
+
+action：
+
+- INCLUDE
+- REWRITE
+- SANITIZE
+- DERIVE
+- OMIT
+- LICENSE_REVIEW
+
+---
+
+# 2. 严禁把内部研究目录直接公开
+
+GitHub repository 中不得出现：
+
+- R6
+- R7
+- R8
+- Tier A
+- candidate ID
+- historical experiment round
+- /home/xqin5/
+- server usernames
+- cluster paths
+- private job IDs
+- internal review notes
+- Codex prompts
+- unpublished reviewer comments
+- failed analysis logs
+- debugging dumps
+- API keys
+- tokens
+- environment secrets
+- private repository URLs
+
+所有内部 condition names 改为语义名称。
+
+例如：
+
+matched_neutral
+static_urgency
+adaptive_urgency
+frustration
+native_baseline
+
+如果当前论文只正式支持某些 condition，
+README 必须清楚区分：
+
+- benchmark-supported conditions
+- paper validation conditions
+- example extension conditions
+
+---
+
+# 3. Benchmark 与 upstream τ-bench 的关系必须处理正确
+
+MISROUTE 不是重新发明 airline/retail environment。
+
+它建立在 τ-bench / τ²-bench 类 tool-agent environments 上。
+
+必须先确定论文实验真实使用的：
+
+- upstream repository
+- exact commit SHA
+- exact task files
+- exact domain implementation
+- evaluator version
+- modified files
+
+尤其注意：
+
+当前上游 τ-bench / τ²-bench 后来更新过 airline/retail tasks，
+所以绝不能简单依赖 GitHub main branch。
+
+必须创建：
+
+docs/upstream.md
+
+包含：
+
+# Upstream lineage
+
+- upstream project
+- repository URL
+- exact commit
+- upstream license
+- files inherited
+- files modified
+- files newly created by MISROUTE
+- task hashes
+- evaluator hashes
+- why exact pinning is necessary
+
+生成：
+
+benchmark/upstream_manifest.json
+
+例如：
+
+{
+  "project": "tau2-bench",
+  "repository": "...",
+  "commit": "...",
+  "domains": ["airline", "retail"],
+  "task_manifest_sha256": "...",
+  "modified_components": [...]
+}
+
+若当前代码复制了 MIT licensed upstream 内容：
+
+- 保留原 LICENSE / notice；
+- 正确 attribution；
+- 不删除原作者 copyright；
+- 检查数据和任务是否存在额外许可要求。
+
+不得自动假设所有文件均可重新分发。
+
+如果 license 状态不明确：
+
+FAIL CLOSED。
+
+写入：
+
+LICENSE_REVIEW_REQUIRED.md
+
+不要公开对应文件。
+
+---
+
+# 4. 推荐 GitHub repository 结构
+
+目标结构：
+
+misroute/
+│
+├── README.md
+├── LICENSE
+├── NOTICE
+├── CITATION.cff
+├── CITATION.bib
+├── pyproject.toml
+├── uv.lock
+├── .python-version
+├── .gitignore
+├── .gitattributes
+├── .pre-commit-config.yaml
+│
+├── misroute/
+│   ├── __init__.py
+│   ├── cli.py
+│   │
+│   ├── benchmark/
+│   │   ├── registry.py
+│   │   ├── schema.py
+│   │   ├── loader.py
+│   │   └── validation.py
+│   │
+│   ├── conditions/
+│   │   ├── base.py
+│   │   ├── neutral.py
+│   │   ├── urgency.py
+│   │   ├── registry.py
+│   │   └── schemas.py
+│   │
+│   ├── trajectories/
+│   │   ├── extract.py
+│   │   ├── canonicalize.py
+│   │   ├── stages.py
+│   │   ├── distance.py
+│   │   └── schemas.py
+│   │
+│   ├── metrics/
+│   │   ├── outcome.py
+│   │   ├── process.py
+│   │   ├── equivalence.py
+│   │   └── aggregation.py
+│   │
+│   ├── placebo/
+│   │   ├── matching.py
+│   │   ├── all_pairs.py
+│   │   ├── disjoint.py
+│   │   ├── u_statistic.py
+│   │   └── random_matching.py
+│   │
+│   ├── robustness/
+│   │   ├── permutation.py
+│   │   ├── pseudo_treatment.py
+│   │   ├── specification.py
+│   │   ├── influence.py
+│   │   └── missingness.py
+│   │
+│   ├── runners/
+│   │   ├── agent.py
+│   │   ├── user_simulator.py
+│   │   ├── evaluation.py
+│   │   └── adapters/
+│   │
+│   └── reporting/
+│       ├── tables.py
+│       ├── figures.py
+│       └── report.py
+│
+├── benchmark/
+│   ├── manifest.json
+│   ├── upstream_manifest.json
+│   ├── conditions/
+│   ├── tasks/
+│   ├── policies/
+│   ├── schemas/
+│   └── toy/
+│
+├── data/
+│   ├── paper/
+│   │   ├── README.md
+│   │   ├── manifests/
+│   │   ├── metrics/
+│   │   └── trajectories/
+│   │
+│   └── toy/
+│
+├── configs/
+│   ├── benchmark.yaml
+│   ├── paper_reproduction.yaml
+│   ├── toy.yaml
+│   └── models.example.yaml
+│
+├── scripts/
+│   ├── reproduce_paper.py
+│   ├── validate_release.py
+│   └── build_release_manifest.py
+│
+├── examples/
+│   ├── quickstart.py
+│   ├── evaluate_existing_traces.py
+│   ├── add_new_condition.py
+│   └── add_new_model.py
+│
+├── tests/
+│   ├── test_canonicalization.py
+│   ├── test_distance.py
+│   ├── test_pairing.py
+│   ├── test_metrics.py
+│   ├── test_cli.py
+│   └── test_paper_regression.py
+│
+├── docs/
+│   ├── benchmark_card.md
+│   ├── getting_started.md
+│   ├── concepts.md
+│   ├── metrics.md
+│   ├── conditions.md
+│   ├── reproduce_paper.md
+│   ├── add_model.md
+│   ├── add_condition.md
+│   ├── add_domain.md
+│   ├── upstream.md
+│   ├── limitations.md
+│   └── faq.md
+│
+├── paper/
+│   ├── README.md
+│   └── expected_results.json
+│
+└── .github/
+    └── workflows/
+        ├── tests.yml
+        └── release-validation.yml
+
+允许根据实际代码合理调整，
+但必须保持同等层次的模块化和可理解性。
+
+---
+
+# 5. 建立统一 Benchmark Schema
+
+不要让 benchmark 依赖当前原始 JSON 文件结构。
+
+定义稳定 schema。
+
+至少包括：
+
+## TaskRecord
+
+- task_id
+- domain
+- task_text
+- initial_state_id
+- policy_id
+- tool_schema_version
+- expected_outcome_definition
+- metadata
+
+## ConditionRecord
+
+- condition_id
+- display_name
+- semantic_description
+- user_policy
+- first_turn_template
+- adaptive_behavior
+- preserves_task_goal
+- preserves_authorization
+- preserves_target
+- metadata
+
+## EpisodeRecord
+
+- benchmark_version
+- task_id
+- domain
+- model_id
+- condition_id
+- repeat_id
+- seed
+- initial_state_hash
+- messages
+- tool_calls
+- official_reward
+- final_state_hash
+- mutation_signature
+- termination_reason
+- metadata
+
+## ToolCallRecord
+
+- index
+- tool_name
+- arguments_raw
+- arguments_canonical
+- stage
+- timestamp_optional
+
+所有 public paper trajectories 转换为这一公开 schema。
+
+不得让用户读取内部 native trace 才能使用 benchmark。
+
+---
+
+# 6. Trajectory representation 必须成为 MISROUTE 的核心 API
+
+实现：
+
+misroute.trajectories
+
+至少提供：
+
+tool_name_sequence(trace)
+
+tool_argument_sequence(trace)
+
+stage_sequence(trace)
+
+canonicalize_arguments(arguments)
+
+normalized_edit_distance(a, b)
+
+trajectory_distance(
+    trace_a,
+    trace_b,
+    representation="tool_argument"
+)
+
+必须写清：
+
+- normalization
+- canonicalization
+- missing fields
+- repeated calls
+- empty trajectory
+- malformed call
+- parallel calls
+- END token
+
+需要 unit tests。
+
+---
+
+# 7. MISROUTE 核心 process estimand
+
+公开实现核心指标：
+
+cross_condition_distance
+
+neutral_drift
+
+process_excess
+
+process_ratio
+
+形式：
+
+ProcessExcess =
+mean distance(condition, neutral)
+-
+mean distance(neutral_i, neutral_j)
+
+公开 API 示例：
+
+result = misroute.evaluate_process(
+    treatment=urgency_records,
+    neutral=neutral_records,
+    representation="tool_argument",
+    cluster_by="task_id",
+)
+
+返回：
+
+{
+  "tn_mean": ...,
+  "nn_mean": ...,
+  "process_excess": ...,
+  "ratio": ...,
+  "ci95": [...],
+  "p_value": ...,
+  "q_value": ...,
+  "n_tasks": ...
+}
+
+---
+
+# 8. Reward equivalence API
+
+实现独立 outcome module。
+
+例如：
+
+misroute.evaluate_outcome_equivalence(
+    treatment,
+    neutral,
+    margin=0.05,
+    cluster_by="task_id"
+)
+
+返回：
+
+- reward_difference
+- CI90
+- CI95
+- TOST p
+- equivalence_margin
+- equivalence_status
+- number of task clusters
+
+README 中必须明确：
+
+普通 p > .05 ≠ equivalence。
+
+---
+
+# 9. Neutral baseline construction 必须可切换
+
+公开支持：
+
+all_pairs
+disjoint
+random_one_to_one
+cell_u_statistic
+
+CLI 参数：
+
+--neutral-pairing all_pairs
+
+并在 docs 中解释：
+
+为什么 same-state neutral baseline 是 MISROUTE 的核心设计。
+
+---
+
+# 10. Robustness pipeline 必须成为正式 benchmark 功能
+
+实现：
+
+misroute robust
+
+或：
+
+misroute analyze --robustness full
+
+至少包括：
+
+- matched-label permutation
+- neutral-only pseudo-treatment
+- alternative NN pairing
+- specification curve
+- task influence
+- leave-one-task-out
+- missingness / balanced subset
+- outcome-concordant restriction
+
+不能只留 paper-specific scripts。
+
+必须可以对新的 condition 重用。
+
+---
+
+# 11. CLI 设计
+
+目标：
+
+misroute --help
+
+清晰显示：
+
+misroute validate
+misroute inspect
+misroute run
+misroute score
+misroute analyze
+misroute reproduce-paper
+
+建议：
+
+## Validate benchmark
+
+misroute validate benchmark/
+
+## Inspect data
+
+misroute inspect data/paper/
+
+## Analyze existing traces
+
+misroute analyze \
+  --data data/paper \
+  --treatment static_urgency \
+  --control matched_neutral \
+  --representation tool_argument
+
+## Full robustness
+
+misroute analyze \
+  --data data/paper \
+  --treatment static_urgency \
+  --control matched_neutral \
+  --robustness full
+
+## Reproduce paper
+
+misroute reproduce-paper
+
+## Toy demo
+
+misroute reproduce-paper --toy
+
+README quickstart 必须使用 CLI，
+不能要求用户直接修改 Python 文件。
+
+---
+
+# 12. Paper reproduction 必须做到一键化
+
+要求：
+
+misroute reproduce-paper
+
+直接生成：
+
+outputs/paper/
+├── main_results.csv
+├── outcome_equivalence.csv
+├── process_results.csv
+├── same_outcome.csv
+├── robustness.csv
+├── figures/
+└── reproduction_report.md
+
+结果必须自动与：
+
+paper/expected_results.json
+
+比较。
+
+设置 numerical tolerance。
+
+例如：
+
+PASS tool_argument_excess
+expected: 0.1118
+observed: 0.1118
+
+PASS reward_difference
+...
+
+最终输出：
+
+PAPER REPRODUCTION: PASS
+
+如果失败：
+
+FAIL CLOSED。
+
+不得默默接受不一致。
+
+---
+
+# 13. 建立 Regression Tests
+
+这是 benchmark repo 非常重要的一部分。
+
+test_paper_regression.py
+
+验证：
+
+- 任务数
+- episode 数
+- condition 数
+- reward result
+- tool distance
+- argument distance
+- stage distance
+- randomization fixed-seed mini test
+
+完整5000 permutation不需要在 GitHub CI 中运行。
+
+CI 使用 reduced deterministic test。
+
+例如：
+
+50 permutations
+toy dataset
+fixed seed
+
+用于发现代码改动导致 metric drift。
+
+---
+
+# 14. GitHub Actions
+
+建立：
+
+.github/workflows/tests.yml
+
+至少执行：
+
+- install
+- lint
+- pytest
+- toy smoke test
+- CLI test
+- benchmark schema validation
+- paper mini-regression
+
+不能要求 GPU。
+
+如果完整 paper reproduction CPU 时间合理：
+
+增加 optional workflow。
+
+否则手工触发：
+
+workflow_dispatch
+
+---
+
+# 15. README 必须达到 benchmark 级别
+
+README 不要像论文摘要。
+
+推荐：
+
+# MISROUTE
+
+一句话：
+
+MISROUTE evaluates whether controlled user-language conditions shift tool-use trajectories beyond an agent's own same-state stochastic variation.
+
+然后：
+
+## Why MISROUTE?
+
+用一个 5 行示意：
+
+Neutral:
+A → B → STOP
+
+Condition:
+A → C → B → STOP
+
+Reward:
+same
+
+Question:
+Is route change larger than neutral–neutral drift?
+
+## What MISROUTE measures
+
+Outcome robustness
+Process sensitivity
+Neutral drift
+Structured trajectory change
+
+## Quick Start
+
+3–5条命令。
+
+## Reproduce the paper
+
+一条命令。
+
+## Evaluate your own agent
+
+最短工作流。
+
+## Add a new condition
+
+例子。
+
+## Benchmark structure
+
+简图。
+
+## Released data
+
+说明：
+
+- domains
+- tasks
+- models
+- conditions
+- repeats
+- trajectories
+
+## Results
+
+只放 paper 主结果的小表。
+
+## Citation
+
+## License
+
+## Upstream attribution
+
+## Limitations
+
+README 总体控制在易读长度。
+
+详细内容去 docs。
+
+---
+
+# 16. Benchmark Card
+
+创建：
+
+docs/benchmark_card.md
+
+必须包含：
+
+## Benchmark Summary
+
+## Scientific Motivation
+
+## Intended Use
+
+## Out-of-Scope Use
+
+## Domains
+
+## Tasks
+
+## User Conditions
+
+## Models Used for Validation
+
+## Metrics
+
+## Neutral Drift Calibration
+
+## Statistical Unit
+
+## Robustness Pipeline
+
+## Data Structure
+
+## Data Generation
+
+## Limitations
+
+## Known Confounds
+
+## Ethical Considerations
+
+## Licensing
+
+## Upstream Dependencies
+
+## Versioning
+
+## Citation
+
+Benchmark documentation 应使别人不用看论文就能正确使用 MISROUTE。
+
+---
+
+# 17. Data Card
+
+如果 release trajectories/data：
+
+创建：
+
+data/paper/README.md
+
+至少说明：
+
+- what data contains
+- how generated
+- number of episodes
+- conditions
+- models
+- domains
+- schema
+- identifiers
+- synthetic vs real data
+- potential privacy issues
+- license
+- known limitations
+- reproduction use
+
+不要只有 CSV 文件。
+
+---
+
+# 18. Release paper trajectories 时必须去标识和清理
+
+扫描全部 release files。
+
+禁止：
+
+- real email
+- real name
+- real phone
+- real payment details
+- real API credential
+- account tokens
+- local user names
+- absolute paths
+- private infrastructure
+- private model endpoint
+- Slack/email content
+- hidden system credentials
+
+即使 benchmark 使用 synthetic customer data，
+仍需验证无真实信息混入日志。
+
+生成：
+
+PRIVACY_AND_SECRET_AUDIT.md
+
+并自动执行：
+
+- grep suspicious tokens
+- entropy secret scan
+- absolute path scan
+- email scan
+- IP/address scan
+
+不得仅靠人工浏览。
+
+---
+
+# 19. Model release boundary
+
+MISROUTE 不需要分发模型权重。
+
+README 中记录验证模型：
+
+- exact model ID
+- model version
+- inference config
+- serving stack
+
+不要把：
+
+- Hugging Face cache
+- checkpoints
+- tokenizer files
+
+提交 Git。
+
+提供 example config：
+
+configs/models.example.yaml
+
+---
+
+# 20. API key 与 secrets
+
+必须提供：
+
+.env.example
+
+只包含：
+
+OPENAI_API_KEY=
+ANTHROPIC_API_KEY=
+HF_TOKEN=
+
+若 benchmark 本身不需要商业 API：
+
+不要增加无关变量。
+
+.gitignore 必须包含：
+
+.env
+*.key
+secrets/
+outputs/private/
+cache/
+
+执行 secret scan。
+
+---
+
+# 21. LICENSE / NOTICE
+
+先审计所有第三方资产。
+
+MISROUTE 自有代码可选择合适的开源 license，
+但必须：
+
+- 不违反 upstream license；
+- 保留 τ-bench / τ² attribution；
+- 记录 inherited code；
+- 记录 task provenance；
+- 不擅自重新许可第三方数据。
+
+当前 τ-bench repository 显示 MIT license，
+但仍必须对你实际使用的 exact upstream commit 检查。
+
+如果任何数据或任务 license 不明确：
+
+不要自动提交 GitHub。
+
+生成：
+
+THIRD_PARTY_LICENSE_AUDIT.md
+
+---
+
+# 22. CITATION
+
+创建根目录：
+
+CITATION.cff
+
+如果论文尚未正式发表：
+
+使用软件 citation，
+并将 paper 放 preferred-citation，
+venue/status 使用真实当前状态。
+
+不得虚构 DOI。
+
+同时：
+
+CITATION.bib
+
+包含：
+
+MISROUTE paper
+τ-bench
+τ²-bench / exact upstream papers
+
+GitHub 页面应可自动出现 “Cite this repository”。
+
+---
+
+# 23. Versioning
+
+benchmark 必须版本化。
+
+例如：
+
+MISROUTE v1.0.0
+
+定义：
+
+major:
+task/metric semantics incompatible change
+
+minor:
+new condition/domain/model adapter
+
+patch:
+bugfix without benchmark semantic change
+
+建立：
+
+CHANGELOG.md
+
+每次 benchmark semantic change 必须记录。
+
+Paper 使用版本必须冻结：
+
+paper benchmark version: v1.0.0-paper
+
+并保留 commit hash。
+
+---
+
+# 24. 不要把最新 τ³ task silently 替换进 paper reproduction
+
+当前上游已经更新 task definitions。
+
+所以 repository 必须明确区分：
+
+## Paper-locked mode
+
+复现论文使用 exact frozen task version。
+
+## Latest-upstream mode
+
+未来允许运行 MISROUTE metric 在更新后的 τ benchmark。
+
+不能让：
+
+pip install latest tau-bench
+
+导致 paper reproduction silently changed。
+
+建议：
+
+misroute reproduce-paper
+
+永远使用 paper-locked manifest。
+
+而：
+
+misroute run --upstream latest
+
+是单独功能。
+
+---
+
+# 25. 添加新 condition 必须非常简单
+
+目标 API：
+
+from misroute.conditions import Condition
+
+class MyCondition(Condition):
+    name = "my_condition"
+
+    def first_turn(self, task, user):
+        ...
+
+README 给完整 example。
+
+或者 YAML：
+
+id: urgency_v2
+base: matched_neutral
+first_turn:
+  prefix: "Please handle this urgently."
+preserve:
+  task_facts: true
+  authorization: true
+  target: true
+
+benchmark validation 必须检查：
+
+- condition ID unique
+- no missing required fields
+- task goal preservation metadata
+
+---
+
+# 26. 添加新 model/agent
+
+建立标准 adapter interface：
+
+class AgentAdapter:
+
+    def reset(...)
+
+    def respond(...)
+
+    def tool_call(...)
+
+允许：
+
+- OpenAI-compatible endpoint
+- vLLM
+- Hugging Face/local
+- custom agent
+
+但核心 benchmark 不依赖某个 provider。
+
+---
+
+# 27. 输出标准 Benchmark Report
+
+运行完成后生成：
+
+MISROUTE_REPORT.md
+
+至少包含：
+
+## Configuration
+
+## Outcome robustness
+
+## Process divergence
+
+## Neutral drift
+
+## Same-outcome analysis
+
+## Robustness
+
+## Model breakdown
+
+## Domain breakdown
+
+## Task breadth
+
+## Limitations
+
+同时输出 machine-readable：
+
+results.json
+
+schema 必须版本化。
+
+---
+
+# 28. Leaderboard 暂时不要过度设计
+
+第一版 repository 不需要建立网站。
+
+但结果 schema 应支持未来 leaderboard。
+
+例如：
+
+{
+  "benchmark": "misroute",
+  "version": "1.0",
+  "model": "...",
+  "condition": "...",
+  "domains": [...],
+  "reward_difference": ...,
+  "equivalence": ...,
+  "process_excess": {
+      "tool_name": ...,
+      "tool_argument": ...,
+      "stage": ...
+  }
+}
+
+README 可说明：
+
+Leaderboard: planned
+
+不要做空链接。
+
+---
+
+# 29. Benchmark score 不要强行压成单个数字
+
+MISROUTE 当前科学问题本身是二维的：
+
+Outcome robustness
++
+Process sensitivity
+
+不要为了 leaderboard 方便生造：
+
+MISROUTE Score = 72.4
+
+除非有充分数学和科学理由。
+
+默认报告 vector：
+
+- reward difference/equivalence
+- tool-name excess
+- tool-argument excess
+- stage excess
+- neutral drift
+- robustness status
+
+---
+
+# 30. Paper 数据必须独立于运行代码
+
+禁止把 raw paper traces 硬编码到 test logic。
+
+数据层：
+
+data/paper/
+
+代码层：
+
+misroute/
+
+expected result：
+
+paper/expected_results.json
+
+分离。
+
+这样未来代码更新仍能检测是否改变 paper semantics。
+
+---
+
+# 31. 生成公开可读文档
+
+至少：
+
+README.md
+
+docs/getting_started.md
+docs/concepts.md
+docs/metrics.md
+docs/benchmark_card.md
+docs/reproduce_paper.md
+docs/add_condition.md
+docs/add_model.md
+docs/add_domain.md
+docs/upstream.md
+docs/limitations.md
+docs/faq.md
+
+最重要概念必须解释：
+
+- outcome robustness
+- trajectory sensitivity
+- neutral drift
+- same-state baseline
+- process excess
+- multiple valid routes
+- why distance from zero is insufficient
+
+---
+
+# 32. README 中必须有一张 benchmark schematic
+
+不要使用论文复杂图。
+
+简单：
+
+             Same task/state
+                   |
+          --------------------
+          |                  |
+       Neutral          User Condition
+          |                  |
+     trajectory N       trajectory C
+          |
+    neutral repeat N'
+
+Outcome:
+reward(C) vs reward(N)
+
+Process:
+d(C,N) - d(N,N')
+
+用专业矢量图重画。
+
+---
+
+# 33. 一定要提供 Toy Benchmark
+
+benchmark/toy/
+
+至少：
+
+- 2 tasks
+- 2 conditions
+- 3 neutral repeats
+- several trajectories
+
+设计一个结果：
+
+reward identical
+
+but condition path difference > neutral drift
+
+让用户在没有 LLM 的情况下看到 MISROUTE 工作。
+
+运行：
+
+misroute reproduce-paper --toy
+
+<30秒完成。
+
+---
+
+# 34. Tests
+
+要求 test coverage 至少覆盖关键 benchmark semantics。
+
+必须测试：
+
+- canonical argument deterministic
+- trajectory parsing
+- empty trace
+- distance symmetry where applicable
+- distance normalization
+- stage mapping
+- same-state matching
+- illegal cross-state NN rejected
+- task clustering
+- outcome equivalence
+- deterministic seeds
+- condition registry
+- serialization schema
+- expected paper result regression
+
+任何 initial-state mismatch：
+
+raise error
+
+不要 silent warning。
+
+---
+
+# 35. Fail-closed 原则
+
+Benchmark integrity errors 必须 fail closed。
+
+例如：
+
+- missing initial state
+- mixed evaluator version
+- mismatched tool schema
+- unknown task
+- invalid condition
+- duplicated episode ID
+- incompatible benchmark version
+
+不能继续算一个“可能正确”的分数。
+
+---
+
+# 36. Reproducibility manifest
+
+每次 run 自动生成：
+
+run_manifest.json
+
+包含：
+
+- MISROUTE version
+- git commit
+- upstream version
+- task hashes
+- condition hashes
+- model ID
+- seed
+- inference params
+- environment
+- Python version
+- dependency lock hash
+- evaluator version
+
+这是 benchmark 的重要资产。
+
+---
+
+# 37. Release validation
+
+创建：
+
+python scripts/validate_release.py
+
+必须检查：
+
+- no absolute paths
+- no internal R-round terminology
+- no missing license
+- no secrets
+- no broken docs links
+- no invalid JSON
+- tests pass
+- toy benchmark passes
+- paper expected-results regression passes
+- citation files valid
+- manifests present
+- data hashes correct
+
+输出：
+
+RELEASE_VALIDATION_REPORT.md
+
+最终状态必须：
+
+RELEASE READY: YES
+
+否则不能标记完成。
+
+---
+
+# 38. GitHub Release 准备
+
+最终生成：
+
+dist/misroute-github/
+
+只包含 public repository 应上传内容。
+
+不要让我从工作目录手工挑文件。
+
+同时生成：
+
+GITHUB_PUSH_CHECKLIST.md
+
+包括：
+
+1. inspect LICENSE
+2. inspect upstream attribution
+3. inspect privacy audit
+4. inspect secret scan
+5. run tests
+6. reproduce toy
+7. reproduce paper
+8. inspect README
+9. verify CITATION
+10. git init / remote / push instructions
+
+不要自动 push GitHub。
+
+只准备 repo。
+
+---
+
+# 39. README 的 benchmark claim 必须准确
+
+不要写：
+
+“the first benchmark...”
+
+除非完成 literature verification。
+
+推荐：
+
+“To our knowledge, MISROUTE is the first benchmark specifically designed to jointly evaluate outcome stability and neutral-drift-calibrated trajectory sensitivity under controlled user-language conditions.”
+
+但只有 literature audit 支持时才能使用。
+
+否则：
+
+“MISROUTE is a benchmark for jointly evaluating outcome stability and trajectory sensitivity under controlled user-language conditions.”
+
+---
+
+# 40. Paper reproduction 数字
+
+从当前 paper evidence dossier 读取准确 frozen values。
+
+不得把 prompt 中的示例数字当 source of truth。
+
+paper expected results 必须从经过审计的最终数据生成。
+
+确保 repository 中复现：
+
+- planned/valid episode counts
+- independent task count
+- model count
+- domain count
+- reward equivalence
+- primary process metrics
+- same-outcome results
+- randomization results
+- task breadth
+- modal route analysis
+
+任何数字不匹配：
+
+生成 reconciliation。
+
+---
+
+# 41. Benchmark 独立于论文内部命名
+
+public code 中绝不能有：
+
+r8_full_episode
+tier_a
+c2_candidate
+joint_gate_final
+historical_screening
+
+应改为：
+
+paper_v1
+matched_neutral
+static_urgency
+primary_process_analysis
+paper_reproduction
+
+---
+
+# 42. Documentation tone
+
+README 和 docs 不要像论文。
+
+不要充斥：
+
+- hypothesis prose
+- reviewer defense
+- long literature discussion
+
+README 目标：
+
+用户 5 分钟知道：
+
+MISROUTE 是什么
+为什么存在
+怎么安装
+怎么跑
+结果怎么解释
+怎么扩展
+
+---
+
+# 43. 最终 benchmark readiness 评分
+
+完成后从以下维度评分 0–10：
+
+1. Installation
+2. Quickstart
+3. Reproducibility
+4. Paper reproduction
+5. Extensibility
+6. Documentation
+7. Testing
+8. Data provenance
+9. Licensing
+10. Privacy/security
+11. Benchmark semantic stability
+12. GitHub presentation quality
+
+任何一项 <8：
+
+不得给 RELEASE READY。
+
+---
+
+# 44. 最终交付物
+
+必须生成：
+
+misroute-github/
+
+以及：
+
+BENCHMARK_PACKAGING_REPORT.md
+SOURCE_TO_PUBLIC_MAPPING.csv
+THIRD_PARTY_LICENSE_AUDIT.md
+PRIVACY_AND_SECRET_AUDIT.md
+RELEASE_VALIDATION_REPORT.md
+GITHUB_PUSH_CHECKLIST.md
+
+最后汇报：
+
+- repository path
+- file count
+- released data size
+- test count/pass rate
+- paper reproduction status
+- toy reproduction status
+- license status
+- privacy status
+- upstream commit
+- unresolved issues
+- RELEASE READY YES/NO
+
+---
+
+# 45. 非常重要：不要自动上传
+
+本任务只准备 GitHub-ready repo。
+
+不得：
+
+- git push
+- 创建 public repository
+- 上传 Hugging Face
+- 创建 Zenodo release
+- 发布 package
+
+除非我后续明确授权。
+
+完成后让我先人工检查：
+
+README
+LICENSE
+benchmark_card
+data release
+paper reproduction
+privacy audit
+
+再决定 push。

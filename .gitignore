@@ -21,3 +21,14 @@ __pycache__/
 # Large raw datasets
 data/raw/
 *.jsonl
+
+# Raw runtime logs stay local. A deterministic, lossless gzip snapshot and
+# integrity manifest are published under logs_archive/ instead.
+logs/*.log
+logs/**/*.log
+logs/*.pid
+logs/**/*.pid
+
+# R7-D: analysis outputs must be version-controlled (fixes ISS-01)
+!results/r7d_ipma/
+!data/r7d_ipma/**/*.jsonl

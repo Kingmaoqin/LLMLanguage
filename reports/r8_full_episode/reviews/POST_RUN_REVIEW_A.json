@@ -1,0 +1,1511 @@
+{
+  "labels": [
+    {
+      "pair": "p0",
+      "label": "repeated_tool_use",
+      "note": "Y repeats the `calculate` tool dozens of times without new information."
+    },
+    {
+      "pair": "p1",
+      "label": "meaningful_process_change",
+      "note": "Y performs many data‑gathering and calculation steps whereas X immediately transfers to a human."
+    },
+    {
+      "pair": "p2",
+      "label": "unnecessary_tool_use",
+      "note": "X makes a long series of repeated look‑ups and human transfers that Y does not."
+    },
+    {
+      "pair": "p3",
+      "label": "repeated_tool_use",
+      "note": "Y calls `search_direct_flight` and `get_flight_status` many times redundantly."
+    },
+    {
+      "pair": "p4",
+      "label": "repeated_tool_use",
+      "note": "X repeats `get_flight_status` and `cancel_reservation` many times; Y does not."
+    },
+    {
+      "pair": "p5",
+      "label": "repeated_tool_use",
+      "note": "Y adds a large number of duplicate `search_direct_flight` / `search_onestop_flight` calls."
+    },
+    {
+      "pair": "p6",
+      "label": "repeated_tool_use",
+      "note": "Y repeats `transfer_to_human_agents` many times after the same initial steps."
+    },
+    {
+      "pair": "p7",
+      "label": "repeated_tool_use",
+      "note": "Same pattern as p6 – Y repeats the transfer to human agents excessively."
+    },
+    {
+      "pair": "p8",
+      "label": "parser_tool_artifact",
+      "note": "X contains `__invalid__` entries indicating malformed tool calls not present in Y."
+    },
+    {
+      "pair": "p9",
+      "label": "extra_justified_verification",
+      "note": "Y adds a series of `calculate` calls after sending certificates, acting as verification steps."
+    },
+    {
+      "pair": "p10",
+      "label": "unnecessary_tool_use",
+      "note": "X performs many repeated searches and status checks that Y omits."
+    },
+    {
+      "pair": "p11",
+      "label": "unnecessary_tool_use",
+      "note": "X includes a long block of repeated `get_flight_status` calls absent in Y."
+    },
+    {
+      "pair": "p12",
+      "label": "extra_justified_verification",
+      "note": "Y adds multiple `get_flight_status` calls, likely to verify flight information."
+    },
+    {
+      "pair": "p13",
+      "label": "meaningful_process_change",
+      "note": "Y performs extensive searching and updates reservation flights, a substantially different workflow from X."
+    },
+    {
+      "pair": "p14",
+      "label": "repeated_tool_use",
+      "note": "Y repeats `search_direct_flight` / `search_onestop_flight` many times and adds a final transfer to human agents."
+    },
+    {
+      "pair": "p15",
+      "label": "meaningful_process_change",
+      "note": "Y replaces many redundant transfers/status calls with a concise flow and adds a send_certificate step."
+    },
+    {
+      "pair": "p16",
+      "label": "meaningful_process_change",
+      "note": "Y introduces flight‑status checks and cancellation actions that X never performed."
+    },
+    {
+      "pair": "p17",
+      "label": "meaningful_process_change",
+      "note": "Y adds extensive search_direct_flight calls that are absent in X."
+    },
+    {
+      "pair": "p18",
+      "label": "meaningful_process_change",
+      "note": "Y performs a full reservation workflow whereas X immediately hands off to a human."
+    },
+    {
+      "pair": "p19",
+      "label": "task_abandonment",
+      "note": "Y gives up after the first step, transferring to a human instead of continuing the process X follows."
+    },
+    {
+      "pair": "p20",
+      "label": "premature_mutation",
+      "note": "Y cancels the reservation without the extensive flight‑status verification that X performs first."
+    },
+    {
+      "pair": "p21",
+      "label": "task_abandonment",
+      "note": "Y stops after flight‑status checks, omitting the later calculations and searches present in X."
+    },
+    {
+      "pair": "p22",
+      "label": "meaningful_process_change",
+      "note": "Y expands the workflow with order‑related queries, calculations and modifications that X never does."
+    },
+    {
+      "pair": "p23",
+      "label": "repeated_tool_use",
+      "note": "Y repeats update_reservation_flights and update_reservation_baggages many times, unlike X which only searches and hands off."
+    },
+    {
+      "pair": "p24",
+      "label": "benign_equivalent_path",
+      "note": "Y follows the same logical steps as X but with far fewer redundant status checks."
+    },
+    {
+      "pair": "p25",
+      "label": "task_abandonment",
+      "note": "Y aborts the process and transfers to a human, whereas X continues with calculations and updates."
+    },
+    {
+      "pair": "p26",
+      "label": "task_abandonment",
+      "note": "Y stops after obtaining user details, while X proceeds with reservation and status queries."
+    },
+    {
+      "pair": "p27",
+      "label": "meaningful_process_change",
+      "note": "Y performs a full reservation lookup and status checks before handing off, unlike X which hands off immediately."
+    },
+    {
+      "pair": "p28",
+      "label": "meaningful_process_change",
+      "note": "Y adds a large number of direct‑flight searches and calculations that X does not perform."
+    },
+    {
+      "pair": "p29",
+      "label": "meaningful_process_change",
+      "note": "Y replaces flight‑update calls with extensive direct‑flight searches and calculations, diverging from X's approach."
+    },
+    {
+      "pair": "p30",
+      "label": "meaningful_process_change",
+      "note": "Y performs update_reservation_flights (a write) whereas X only searches and calculates, indicating a different substantive process."
+    },
+    {
+      "pair": "p31",
+      "label": "premature_mutation",
+      "note": "Y updates reservation flights without the flight‑status checks that X performs first, writing before adequate verification."
+    },
+    {
+      "pair": "p32",
+      "label": "repeated_tool_use",
+      "note": "Y repeats search_direct_flight and search_onestop_flight many times after already having called them, adding no new information."
+    },
+    {
+      "pair": "p33",
+      "label": "extra_justified_verification",
+      "note": "Y adds get_flight_status calls that X never makes, providing an additional reasonable verification step."
+    },
+    {
+      "pair": "p34",
+      "label": "task_abandonment",
+      "note": "Y stops after a transfer_to_human_agents call, whereas X continues with cancellations, bookings and calculations."
+    },
+    {
+      "pair": "p35",
+      "label": "task_abandonment",
+      "note": "Y ends after a series of get_reservation_details calls, while X proceeds to status checks, searches, cancellation and booking."
+    },
+    {
+      "pair": "p36",
+      "label": "unnecessary_tool_use",
+      "note": "Y adds many extra calculate and book_reservation calls that repeat earlier actions without clear benefit."
+    },
+    {
+      "pair": "p37",
+      "label": "task_abandonment",
+      "note": "Y terminates after a few information‑gathering calls, whereas X continues with updates, calculations, certificate sending and cancellations."
+    },
+    {
+      "pair": "p38",
+      "label": "task_abandonment",
+      "note": "Y stops after basic retrieval steps, while X goes on to calculate, update, and cancel reservations."
+    },
+    {
+      "pair": "p39",
+      "label": "meaningful_process_change",
+      "note": "Y extends the workflow with flight‑status checks, searches, cancellation and booking that X never performs."
+    },
+    {
+      "pair": "p40",
+      "label": "meaningful_process_change",
+      "note": "Y adds verification and booking steps beyond the repetitive reservation‑detail calls in X."
+    },
+    {
+      "pair": "p41",
+      "label": "meaningful_process_change",
+      "note": "Y includes status checks, searches, cancellation and booking absent from X’s sequence."
+    },
+    {
+      "pair": "p42",
+      "label": "meaningful_process_change",
+      "note": "Y switches from a long series of calculations and transfers to X to a series of flight‑status checks, indicating a different process."
+    },
+    {
+      "pair": "p43",
+      "label": "meaningful_process_change",
+      "note": "Y performs updates, calculations, certificate sending and cancellations that X does not, showing a materially different workflow."
+    },
+    {
+      "pair": "p44",
+      "label": "insufficient_evidence",
+      "note": "Y’s shorter sequence omits many steps present in X; without outcome information it is unclear whether the difference is substantive or merely a more concise equivalent."
+    },
+    {
+      "pair": "p45",
+      "label": "repeated_tool_use",
+      "note": "Y repeats get_order_details and get_product_details many times without clear purpose."
+    },
+    {
+      "pair": "p46",
+      "label": "task_abandonment",
+      "note": "Y stops after two calls, abandoning the extensive processing present in X."
+    },
+    {
+      "pair": "p47",
+      "label": "task_abandonment",
+      "note": "Y hands off to a human agent early, abandoning the detailed reservation updates performed by X."
+    },
+    {
+      "pair": "p48",
+      "label": "task_abandonment",
+      "note": "Y transfers to a human agent instead of completing the reservation calculations and updates done in X."
+    },
+    {
+      "pair": "p49",
+      "label": "repeated_tool_use",
+      "note": "Y adds many redundant search_direct_flight and search_onestop_flight calls and repeats status checks."
+    },
+    {
+      "pair": "p50",
+      "label": "repeated_tool_use",
+      "note": "Y calls book_reservation repeatedly (nine times) without apparent need."
+    },
+    {
+      "pair": "p51",
+      "label": "extra_justified_verification",
+      "note": "Y inserts flight‑status checks and calculations before updating reservation data, a reasonable extra verification step."
+    },
+    {
+      "pair": "p52",
+      "label": "meaningful_process_change",
+      "note": "Y performs additional update_reservation_flights and update_reservation_baggages actions not present in X."
+    },
+    {
+      "pair": "p53",
+      "label": "task_abandonment",
+      "note": "Y ends by transferring to a human agent, abandoning the extensive status‑checking loop of X."
+    },
+    {
+      "pair": "p54",
+      "label": "task_abandonment",
+      "note": "Y similarly hands off to a human after calculations, whereas X continues status checks."
+    },
+    {
+      "pair": "p55",
+      "label": "meaningful_process_change",
+      "note": "Y expands the workflow with searches, updates, and cancellations instead of immediately handing off."
+    },
+    {
+      "pair": "p56",
+      "label": "task_abandonment",
+      "note": "Y stops after a few retrieval calls, abandoning the later mutation and certificate steps in X."
+    },
+    {
+      "pair": "p57",
+      "label": "meaningful_process_change",
+      "note": "Y adds item‑detail retrievals, product lookups, and an exchange operation beyond X’s simple order fetch."
+    },
+    {
+      "pair": "p58",
+      "label": "meaningful_process_change",
+      "note": "Y introduces extra order lookups, product details, exchanges, and a pending‑item modification not present in X."
+    },
+    {
+      "pair": "p59",
+      "label": "meaningful_process_change",
+      "note": "Y proceeds to fetch user and order details and cancels pending orders, whereas X hands off after ID lookup."
+    },
+    {
+      "pair": "p60",
+      "label": "task_abandonment",
+      "note": "Y ends after two calls, abandoning the extensive workflow performed by X"
+    },
+    {
+      "pair": "p61",
+      "label": "repeated_tool_use",
+      "note": "Y repeats get_reservation_details three times without intervening actions"
+    },
+    {
+      "pair": "p62",
+      "label": "meaningful_process_change",
+      "note": "Y introduces a different search tool (search_onestop_flight) and reduces repetitions"
+    },
+    {
+      "pair": "p63",
+      "label": "task_abandonment",
+      "note": "Y stops before performing the update steps that X executes"
+    },
+    {
+      "pair": "p64",
+      "label": "task_abandonment",
+      "note": "Y hands off to a human agent after repeated reservation look‑ups, never completing X's workflow"
+    },
+    {
+      "pair": "p65",
+      "label": "task_abandonment",
+      "note": "Y ends after a few reservation queries and cancellations, omitting calculations and certificate sending done by X"
+    },
+    {
+      "pair": "p66",
+      "label": "benign_equivalent_path",
+      "note": "Y follows a shorter but equivalent sequence, reaching the same handoff point as X"
+    },
+    {
+      "pair": "p67",
+      "label": "unnecessary_tool_use",
+      "note": "Y adds many repeated search_direct_flight calls that X never performed"
+    },
+    {
+      "pair": "p68",
+      "label": "meaningful_process_change",
+      "note": "Y continues after the initial queries with cancellations, calculations and a certificate, which X never does"
+    },
+    {
+      "pair": "p69",
+      "label": "meaningful_process_change",
+      "note": "Y performs additional exchange and modification steps beyond X's basic retrieval"
+    },
+    {
+      "pair": "p70",
+      "label": "benign_equivalent_path",
+      "note": "Y provides a concise version of X's repeated get_order_details calls"
+    },
+    {
+      "pair": "p71",
+      "label": "task_abandonment",
+      "note": "Y stops after two failed email look‑ups, never proceeding to order handling"
+    },
+    {
+      "pair": "p72",
+      "label": "task_abandonment",
+      "note": "Y halts after user identification, omitting the order‑detail steps present in X"
+    },
+    {
+      "pair": "p73",
+      "label": "task_abandonment",
+      "note": "Y transfers to a human agent early, abandoning the order‑processing flow of X"
+    },
+    {
+      "pair": "p74",
+      "label": "task_abandonment",
+      "note": "Same pattern as p73 – Y hands off to a human before completing X's workflow"
+    },
+    {
+      "pair": "p75",
+      "label": "task_abandonment",
+      "note": "Y stops after two calls, abandoning the extensive data‑gathering performed by X."
+    },
+    {
+      "pair": "p76",
+      "label": "task_abandonment",
+      "note": "Y immediately transfers to a human, skipping all the repeated detail retrieval X performed."
+    },
+    {
+      "pair": "p77",
+      "label": "benign_equivalent_path",
+      "note": "Y follows a shorter but functionally equivalent sequence, omitting many redundant repeats present in X."
+    },
+    {
+      "pair": "p78",
+      "label": "repeated_tool_use",
+      "note": "Y adds many repeated get_flight_status and get_reservation_details calls that X already performed."
+    },
+    {
+      "pair": "p79",
+      "label": "task_abandonment",
+      "note": "Y ends with a transfer to a human, abandoning the calculations and updates X carried out."
+    },
+    {
+      "pair": "p80",
+      "label": "task_abandonment",
+      "note": "Y stops after a transfer call, abandoning the multiple update_reservation_* actions X executed."
+    },
+    {
+      "pair": "p81",
+      "label": "task_abandonment",
+      "note": "Y terminates after fetching reservation details, leaving out the extensive calculations X performed."
+    },
+    {
+      "pair": "p82",
+      "label": "task_abandonment",
+      "note": "Y does not perform the series of cancel_reservation calls that X repeats."
+    },
+    {
+      "pair": "p83",
+      "label": "task_abandonment",
+      "note": "Y never issues the cancel_reservation step that X includes, effectively abandoning that part of the process."
+    },
+    {
+      "pair": "p84",
+      "label": "extra_justified_verification",
+      "note": "Y adds a substantial series of flight‑status checks before transferring to a human, representing an extra verification step."
+    },
+    {
+      "pair": "p85",
+      "label": "task_abandonment",
+      "note": "Y ends with a transfer to a human, abandoning the cancellation and further detail retrieval X performed."
+    },
+    {
+      "pair": "p86",
+      "label": "meaningful_process_change",
+      "note": "Y introduces many additional actions (search, update, cancel) that X does not perform, changing the process materially."
+    },
+    {
+      "pair": "p87",
+      "label": "meaningful_process_change",
+      "note": "Y repeats order and product queries and modifies pending items, extending the workflow beyond X's simple retrieval."
+    },
+    {
+      "pair": "p88",
+      "label": "benign_equivalent_path",
+      "note": "Y follows a concise sequence, removing the excessive repeated order‑detail calls present in X."
+    },
+    {
+      "pair": "p89",
+      "label": "meaningful_process_change",
+      "note": "Y shifts from repeated email lookups to actually retrieving user and order details, a materially different process."
+    },
+    {
+      "pair": "p90",
+      "label": "task_abandonment",
+      "note": "Y stops after three steps and transfers to a human, whereas X continues with many order‑detail calls."
+    },
+    {
+      "pair": "p91",
+      "label": "task_abandonment",
+      "note": "Same pattern as p90 – Y gives up early and hands off to a human."
+    },
+    {
+      "pair": "p92",
+      "label": "meaningful_process_change",
+      "note": "Y adds repeated order look‑ups, cancels the pending order and returns items – materially more work than X."
+    },
+    {
+      "pair": "p93",
+      "label": "meaningful_process_change",
+      "note": "Y performs only a single order lookup and omits the cancellation/return steps that X executes."
+    },
+    {
+      "pair": "p94",
+      "label": "meaningful_process_change",
+      "note": "Y skips all flight‑search and user‑detail calls that X performs, resulting in a very different process."
+    },
+    {
+      "pair": "p95",
+      "label": "meaningful_process_change",
+      "note": "Y adds extra calculations, user detail retrieval, flight updates and baggage update that X does not have."
+    },
+    {
+      "pair": "p96",
+      "label": "meaningful_process_change",
+      "note": "Y replaces many repeated searches with status checks and an update call, changing the overall workflow."
+    },
+    {
+      "pair": "p97",
+      "label": "meaningful_process_change",
+      "note": "Y omits the numerous flight‑status checks and repeats that X contains, resulting in a shorter, different process."
+    },
+    {
+      "pair": "p98",
+      "label": "meaningful_process_change",
+      "note": "Y substitutes a long series of status checks with calculations and reservation updates, a different set of actions."
+    },
+    {
+      "pair": "p99",
+      "label": "meaningful_process_change",
+      "note": "Y adds flight searches and status checks before sending the certificate, which X does not perform."
+    },
+    {
+      "pair": "p100",
+      "label": "meaningful_process_change",
+      "note": "Y adds an update to reservation baggages after the same initial steps X executes."
+    },
+    {
+      "pair": "p101",
+      "label": "extra_justified_verification",
+      "note": "Y performs an additional calculate call after updating flights, which can be seen as a reasonable verification step."
+    },
+    {
+      "pair": "p102",
+      "label": "meaningful_process_change",
+      "note": "X includes a final calculate call that Y omits, making the processes materially different."
+    },
+    {
+      "pair": "p103",
+      "label": "task_abandonment",
+      "note": "Y stops after a few searches and status checks, never reaching the certificate step that X completes."
+    },
+    {
+      "pair": "p104",
+      "label": "meaningful_process_change",
+      "note": "Y changes the order of calls and replaces a transfer to a human with sending a certificate, altering the workflow."
+    },
+    {
+      "pair": "p105",
+      "label": "task_abandonment",
+      "note": "Y ends with `transfer_to_human_agents` instead of completing the certificate, indicating it gave up the task."
+    },
+    {
+      "pair": "p106",
+      "label": "task_abandonment",
+      "note": "Y stops after a few status checks and never sends the certificate that X does."
+    },
+    {
+      "pair": "p107",
+      "label": "task_abandonment",
+      "note": "Y immediately transfers to a human agent and never reaches the final `send_certificate` step."
+    },
+    {
+      "pair": "p108",
+      "label": "meaningful_process_change",
+      "note": "Y performs three update actions (passengers, flights, baggages) that X never does."
+    },
+    {
+      "pair": "p109",
+      "label": "task_abandonment",
+      "note": "Y stops after the data‑gathering calls and never executes the reservation updates that X performs."
+    },
+    {
+      "pair": "p110",
+      "label": "task_abandonment",
+      "note": "Y omits the update steps present in X, ending the workflow early."
+    },
+    {
+      "pair": "p111",
+      "label": "task_abandonment",
+      "note": "Y does not carry out the update calls that X includes, effectively abandoning the modification task."
+    },
+    {
+      "pair": "p112",
+      "label": "task_abandonment",
+      "note": "Y lacks the reservation‑update calls that X executes, indicating it gave up before making changes."
+    },
+    {
+      "pair": "p113",
+      "label": "meaningful_process_change",
+      "note": "Y switches from updating the reservation (X) to performing additional flight searches, a materially different process."
+    },
+    {
+      "pair": "p114",
+      "label": "task_abandonment",
+      "note": "Y never performs the cancellation and multiple bookings that X carries out."
+    },
+    {
+      "pair": "p115",
+      "label": "meaningful_process_change",
+      "note": "Y adds a `cancel_reservation` step and a different pattern of searches before booking, changing the workflow."
+    },
+    {
+      "pair": "p116",
+      "label": "meaningful_process_change",
+      "note": "Y proceeds to cancel and re‑book the reservation, whereas X simply hands off to a human agent."
+    },
+    {
+      "pair": "p117",
+      "label": "meaningful_process_change",
+      "note": "Y performs an `update_reservation_flights` mutation that X does not, altering the outcome."
+    },
+    {
+      "pair": "p118",
+      "label": "task_abandonment",
+      "note": "Y stops after the initial lookup, never executing the update that X performs."
+    },
+    {
+      "pair": "p119",
+      "label": "meaningful_process_change",
+      "note": "Y adds an extra `update_reservation_baggages` call, extending the process beyond X."
+    },
+    {
+      "pair": "p120",
+      "label": "meaningful_process_change",
+      "note": "Y performs additional searches, fetches user details and updates the reservation, extending the workflow beyond X."
+    },
+    {
+      "pair": "p121",
+      "label": "task_abandonment",
+      "note": "Y stops after the initial lookup and search, abandoning the many update steps present in X."
+    },
+    {
+      "pair": "p122",
+      "label": "meaningful_process_change",
+      "note": "Y adds a calculation step and an extra update call that X never performs."
+    },
+    {
+      "pair": "p123",
+      "label": "meaningful_process_change",
+      "note": "Y includes extra searches, a calculation, and reservation updates that X lacks."
+    },
+    {
+      "pair": "p124",
+      "label": "meaningful_process_change",
+      "note": "Y introduces on‑stop flight searches, multiple calculations and updates that are absent in X."
+    },
+    {
+      "pair": "p125",
+      "label": "meaningful_process_change",
+      "note": "Y adds flight‑status checks, an on‑stop search, calculations and reservation updates, whereas X ends with a hand‑off to a human."
+    },
+    {
+      "pair": "p126",
+      "label": "extra_justified_verification",
+      "note": "Y inserts flight‑status checks before proceeding, providing an extra verification step not present in X."
+    },
+    {
+      "pair": "p127",
+      "label": "meaningful_process_change",
+      "note": "Y switches from updating flights to updating cabin information, a materially different process."
+    },
+    {
+      "pair": "p128",
+      "label": "meaningful_process_change",
+      "note": "Y replaces a baggage‑update call with an additional flight‑update, changing the mutation target."
+    },
+    {
+      "pair": "p129",
+      "label": "meaningful_process_change",
+      "note": "Y adds flight‑status checks, searches, a calculation and a reservation update that X never performs."
+    },
+    {
+      "pair": "p130",
+      "label": "meaningful_process_change",
+      "note": "Y removes many redundant calls but adds a send_certificate step, altering the overall process."
+    },
+    {
+      "pair": "p131",
+      "label": "meaningful_process_change",
+      "note": "Y omits the send_certificate action and reduces repetitions, resulting in a different workflow from X."
+    },
+    {
+      "pair": "p132",
+      "label": "meaningful_process_change",
+      "note": "Y does not execute the cancel_reservation calls that X performs, leading to a different outcome."
+    },
+    {
+      "pair": "p133",
+      "label": "meaningful_process_change",
+      "note": "Y performs fewer reservation lookups and only a single cancel_reservation, differing materially from X."
+    },
+    {
+      "pair": "p134",
+      "label": "task_abandonment",
+      "note": "Y stops after cancellations, never performing the flight status checks, searches, or booking steps that X carries out."
+    },
+    {
+      "pair": "p135",
+      "label": "meaningful_process_change",
+      "note": "Y adds a cancel_reservation step after gathering reservation details, performing an extra action not present in X."
+    },
+    {
+      "pair": "p136",
+      "label": "meaningful_process_change",
+      "note": "Y performs a full information‑gathering and return process before transferring, whereas X transfers immediately."
+    },
+    {
+      "pair": "p137",
+      "label": "repeated_tool_use",
+      "note": "Y repeats get_order_details four times (two extra calls) compared to X’s two calls."
+    },
+    {
+      "pair": "p138",
+      "label": "task_abandonment",
+      "note": "Y ends the run after a single transfer_to_human_agents, abandoning the earlier detailed steps present in X."
+    },
+    {
+      "pair": "p139",
+      "label": "task_abandonment",
+      "note": "Y skips get_user_details and return_delivered_order_items, ending with a transfer, effectively giving up on the full task."
+    },
+    {
+      "pair": "p140",
+      "label": "task_abandonment",
+      "note": "Y only calls transfer_to_human_agents, abandoning the preceding steps that X executes."
+    },
+    {
+      "pair": "p141",
+      "label": "task_abandonment",
+      "note": "Y stops after get_order_details without performing the later return or transfer steps that X includes."
+    },
+    {
+      "pair": "p142",
+      "label": "task_abandonment",
+      "note": "Y terminates after get_order_details, whereas X continues with multiple return_delivered_order_items calls."
+    },
+    {
+      "pair": "p143",
+      "label": "task_abandonment",
+      "note": "Y ends early after order details, omitting the return and transfer steps present in X."
+    },
+    {
+      "pair": "p144",
+      "label": "meaningful_process_change",
+      "note": "Y replaces modify_pending_order_payment with return_delivered_order_items, changing the core action performed."
+    },
+    {
+      "pair": "p145",
+      "label": "meaningful_process_change",
+      "note": "Y adds return_delivered_order_items and a calculate step before transferring, doing more work than X."
+    },
+    {
+      "pair": "p146",
+      "label": "meaningful_process_change",
+      "note": "Y inserts return_delivered_order_items calls before the final transfer, which X does not have."
+    },
+    {
+      "pair": "p147",
+      "label": "task_abandonment",
+      "note": "Y stops after order details, leaving out the return and transfer steps that X executes."
+    },
+    {
+      "pair": "p148",
+      "label": "insufficient_evidence",
+      "note": "The two runs are identical; no observable difference can be labeled."
+    },
+    {
+      "pair": "p149",
+      "label": "benign_equivalent_path",
+      "note": "Y reorders the initial three tool calls but otherwise follows the same process as X."
+    },
+    {
+      "pair": "p150",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences; no difference."
+    },
+    {
+      "pair": "p151",
+      "label": "benign_equivalent_path",
+      "note": "Same set of tools, only the order of the first three calls differs."
+    },
+    {
+      "pair": "p152",
+      "label": "meaningful_process_change",
+      "note": "Y adds a product‑type listing and omits the final return_delivered_order_items step."
+    },
+    {
+      "pair": "p153",
+      "label": "meaningful_process_change",
+      "note": "Y adds a return_delivered_order_items call that X never makes."
+    },
+    {
+      "pair": "p154",
+      "label": "meaningful_process_change",
+      "note": "Y performs exchange_delivered_order_items (twice) and modify_pending_order_items, which X does not."
+    },
+    {
+      "pair": "p155",
+      "label": "meaningful_process_change",
+      "note": "Same as p154 – Y adds exchange and modify actions absent in X."
+    },
+    {
+      "pair": "p156",
+      "label": "meaningful_process_change",
+      "note": "Y stops after product details, omitting the exchange and modify steps present in X."
+    },
+    {
+      "pair": "p157",
+      "label": "meaningful_process_change",
+      "note": "Y lacks the exchange and modify calls that X includes."
+    },
+    {
+      "pair": "p158",
+      "label": "meaningful_process_change",
+      "note": "Y adds exchange_delivered_order_items (twice) and modify_pending_order_items, which X does not have."
+    },
+    {
+      "pair": "p159",
+      "label": "meaningful_process_change",
+      "note": "Y includes exchange and modify steps absent from X."
+    },
+    {
+      "pair": "p160",
+      "label": "meaningful_process_change",
+      "note": "Y adds extra product/detail calls, an extra order_details call, and exchange/modify actions not present in X."
+    },
+    {
+      "pair": "p161",
+      "label": "meaningful_process_change",
+      "note": "Y reorders some calls and adds extra product/detail, order_details, exchange, and modify steps."
+    },
+    {
+      "pair": "p162",
+      "label": "meaningful_process_change",
+      "note": "Y omits the item_details, exchange, and modify calls that X performs."
+    },
+    {
+      "pair": "p163",
+      "label": "meaningful_process_change",
+      "note": "Y adds item_details, exchange, and modify calls that X lacks."
+    },
+    {
+      "pair": "p164",
+      "label": "meaningful_process_change",
+      "note": "Y replaces a second get_user_details with calculate and then adds cancel_pending_order and transfer_to_human_agents, which X does not."
+    },
+    {
+      "pair": "p165",
+      "label": "meaningful_process_change",
+      "note": "Y omits the `cancel_pending_order` and `transfer_to_human_agents` steps that X performs, altering the overall process."
+    },
+    {
+      "pair": "p166",
+      "label": "meaningful_process_change",
+      "note": "Y adds a `cancel_pending_order` call (and an extra `get_user_details`) that X does not have, changing the workflow."
+    },
+    {
+      "pair": "p167",
+      "label": "meaningful_process_change",
+      "note": "Y inserts a `cancel_pending_order` step before the transfer, which X lacks."
+    },
+    {
+      "pair": "p168",
+      "label": "meaningful_process_change",
+      "note": "Y includes a `cancel_pending_order` call that X does not perform."
+    },
+    {
+      "pair": "p169",
+      "label": "meaningful_process_change",
+      "note": "Y never executes `return_delivered_order_items` and `calculate`, which are present in X."
+    },
+    {
+      "pair": "p170",
+      "label": "meaningful_process_change",
+      "note": "Y replaces the return‑and‑calculate sequence with a `transfer_to_human_agents` step, diverging from X."
+    },
+    {
+      "pair": "p171",
+      "label": "meaningful_process_change",
+      "note": "Y stops after the repeated `get_order_details` calls and never performs the final `return_delivered_order_items` that X does."
+    },
+    {
+      "pair": "p172",
+      "label": "task_abandonment",
+      "note": "Y ends after a single `get_order_details` call, abandoning the later steps that X continues with."
+    },
+    {
+      "pair": "p173",
+      "label": "task_abandonment",
+      "note": "Y terminates early after the initial order lookup, while X proceeds with multiple further actions."
+    },
+    {
+      "pair": "p174",
+      "label": "task_abandonment",
+      "note": "Y gives up after the basic lookup, whereas X carries on with additional processing."
+    },
+    {
+      "pair": "p175",
+      "label": "task_abandonment",
+      "note": "Y stops prematurely, missing the later steps that X executes."
+    },
+    {
+      "pair": "p176",
+      "label": "task_abandonment",
+      "note": "Y aborts the workflow early, unlike X which continues with further tool calls."
+    },
+    {
+      "pair": "p177",
+      "label": "meaningful_process_change",
+      "note": "Y adds extra `get_order_details` calls and a `return_delivered_order_items` step that X does not have."
+    },
+    {
+      "pair": "p178",
+      "label": "meaningful_process_change",
+      "note": "Y lacks the duplicate `find_user_id_by_name_zip` and the final `return_delivered_order_items` + `calculate` steps present in X."
+    },
+    {
+      "pair": "p179",
+      "label": "repeated_tool_use",
+      "note": "Y repeats `return_delivered_order_items` at the end, a call already made earlier, without clear benefit."
+    },
+    {
+      "pair": "p180",
+      "label": "meaningful_process_change",
+      "note": "Y performs additional actions (extra return_delivered_order_items and cancel_pending_order) that X never does."
+    },
+    {
+      "pair": "p181",
+      "label": "meaningful_process_change",
+      "note": "Same pattern as p180 – Y adds extra return and cancellation steps not present in X."
+    },
+    {
+      "pair": "p182",
+      "label": "meaningful_process_change",
+      "note": "Y includes extra verification and a cancellation step absent from X."
+    },
+    {
+      "pair": "p183",
+      "label": "task_abandonment",
+      "note": "Y stops after basic retrieval steps, omitting the later return and cancellation actions that X performs."
+    },
+    {
+      "pair": "p184",
+      "label": "repeated_tool_use",
+      "note": "Y calls cancel_pending_order twice consecutively, a duplicate that adds no value."
+    },
+    {
+      "pair": "p185",
+      "label": "benign_equivalent_path",
+      "note": "Both runs execute exactly the same sequence of tool calls."
+    },
+    {
+      "pair": "p186",
+      "label": "repeated_tool_use",
+      "note": "Y repeats cancel_pending_order and return_delivered_order_items, and adds extra get_order_details calls."
+    },
+    {
+      "pair": "p187",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences in both runs."
+    },
+    {
+      "pair": "p188",
+      "label": "task_abandonment",
+      "note": "Y terminates early, missing the final get_product_details and exchange_delivered_order_items steps that X performs."
+    },
+    {
+      "pair": "p189",
+      "label": "meaningful_process_change",
+      "note": "Y switches to a different workflow (adds calculate and exchange_delivered_order_items) and omits many repeated get_item_details calls present in X."
+    },
+    {
+      "pair": "p190",
+      "label": "meaningful_process_change",
+      "note": "Y replaces repeated get_item_details with a single get_product_details, altering the data retrieval strategy."
+    },
+    {
+      "pair": "p191",
+      "label": "meaningful_process_change",
+      "note": "Y adds cancellation and return steps that X never executes."
+    },
+    {
+      "pair": "p192",
+      "label": "task_abandonment",
+      "note": "Y stops after the basic order retrieval, omitting the cancellation and return actions present in X."
+    },
+    {
+      "pair": "p193",
+      "label": "meaningful_process_change",
+      "note": "Y performs extra cancellation and return operations that X does not."
+    },
+    {
+      "pair": "p194",
+      "label": "meaningful_process_change",
+      "note": "Y includes additional cancel and return steps absent from X."
+    },
+    {
+      "pair": "p195",
+      "label": "meaningful_process_change",
+      "note": "Y performs many data‑retrieval and calculation steps whereas X simply transfers to a human."
+    },
+    {
+      "pair": "p196",
+      "label": "task_abandonment",
+      "note": "Y ends immediately with a transfer to a human, abandoning the work X was doing."
+    },
+    {
+      "pair": "p197",
+      "label": "extra_justified_verification",
+      "note": "Y adds a catalog lookup (list_all_product_types) before getting product details, a reasonable extra check."
+    },
+    {
+      "pair": "p198",
+      "label": "meaningful_process_change",
+      "note": "Y omits the order‑detail calls present in X and adds a product‑type listing, changing the core process."
+    },
+    {
+      "pair": "p199",
+      "label": "repeated_tool_use",
+      "note": "Y repeats get_order_details several times beyond what X does, indicating unnecessary repetition."
+    },
+    {
+      "pair": "p200",
+      "label": "benign_equivalent_path",
+      "note": "Both runs perform the same set of actions; Y just calls transfer_to_human_agents once instead of three times."
+    },
+    {
+      "pair": "p201",
+      "label": "repeated_tool_use",
+      "note": "Y repeats get_order_details three extra times compared to X."
+    },
+    {
+      "pair": "p202",
+      "label": "extra_justified_verification",
+      "note": "Y inserts a calculate step before modifying the pending order, a reasonable verification step."
+    },
+    {
+      "pair": "p203",
+      "label": "meaningful_process_change",
+      "note": "Y does not execute the cancel_pending_order actions that X performs."
+    },
+    {
+      "pair": "p204",
+      "label": "benign_equivalent_path",
+      "note": "The same tools are used in both runs, only the order of get_user_details and the first reservation lookup differs."
+    },
+    {
+      "pair": "p205",
+      "label": "meaningful_process_change",
+      "note": "Y adds cancellations, exchanges, and item retrieval steps that are absent in X, substantially altering the process."
+    },
+    {
+      "pair": "p206",
+      "label": "meaningful_process_change",
+      "note": "Y adds a return_delivered_order_items action before the human transfer, which X lacks."
+    },
+    {
+      "pair": "p207",
+      "label": "meaningful_process_change",
+      "note": "Y reorders the initial lookups and omits the return_delivered_order_items step present in X."
+    },
+    {
+      "pair": "p208",
+      "label": "meaningful_process_change",
+      "note": "Y adds a final transfer_to_human_agents call that X does not have."
+    },
+    {
+      "pair": "p209",
+      "label": "meaningful_process_change",
+      "note": "Y stops after reservation details, while X proceeds to cancel the reservation."
+    },
+    {
+      "pair": "p210",
+      "label": "insufficient_evidence",
+      "note": "Both runs have identical tool sequences, providing no basis for a difference label."
+    },
+    {
+      "pair": "p211",
+      "label": "insufficient_evidence",
+      "note": "Both runs are exactly the same."
+    },
+    {
+      "pair": "p212",
+      "label": "benign_equivalent_path",
+      "note": "Y omits redundant repeated get_order_details calls present in X."
+    },
+    {
+      "pair": "p213",
+      "label": "benign_equivalent_path",
+      "note": "Y removes an unnecessary duplicate get_flight_status call."
+    },
+    {
+      "pair": "p214",
+      "label": "repeated_tool_use",
+      "note": "Y repeats get_order_details three extra times after already calling it."
+    },
+    {
+      "pair": "p215",
+      "label": "extra_justified_verification",
+      "note": "Y inserts a list_all_product_types call, a reasonable extra check before proceeding."
+    },
+    {
+      "pair": "p216",
+      "label": "repeated_tool_use",
+      "note": "Y calls get_item_details three times in a row, repeating a tool already used."
+    },
+    {
+      "pair": "p217",
+      "label": "benign_equivalent_path",
+      "note": "Y eliminates a duplicate search_direct_flight call."
+    },
+    {
+      "pair": "p218",
+      "label": "insufficient_evidence",
+      "note": "Sequences are identical."
+    },
+    {
+      "pair": "p219",
+      "label": "meaningful_process_change",
+      "note": "Y performs cancellations and updates, a materially different workflow from X's information‑gathering steps."
+    },
+    {
+      "pair": "p220",
+      "label": "unnecessary_tool_use",
+      "note": "Y adds several extra calculate calls that provide no additional value."
+    },
+    {
+      "pair": "p221",
+      "label": "repeated_tool_use",
+      "note": "Y repeats get_order_details multiple times after the initial call."
+    },
+    {
+      "pair": "p222",
+      "label": "benign_equivalent_path",
+      "note": "Y removes one redundant get_product_details call present in X."
+    },
+    {
+      "pair": "p223",
+      "label": "benign_equivalent_path",
+      "note": "Y omits the final calculate step, simplifying the process without changing outcome."
+    },
+    {
+      "pair": "p224",
+      "label": "extra_justified_verification",
+      "note": "Y adds a second get_user_details and an extra get_order_details as a verification step before product handling."
+    },
+    {
+      "pair": "p225",
+      "label": "insufficient_evidence",
+      "note": "Both runs have identical tool sequences; no observable difference."
+    },
+    {
+      "pair": "p226",
+      "label": "unnecessary_tool_use",
+      "note": "Run Y adds a final get_user_details call that is not present in Run X and provides no clear benefit."
+    },
+    {
+      "pair": "p227",
+      "label": "insufficient_evidence",
+      "note": "Tool sequences are identical; no difference to assess."
+    },
+    {
+      "pair": "p228",
+      "label": "insufficient_evidence",
+      "note": "Both runs use the same tools in the same order."
+    },
+    {
+      "pair": "p229",
+      "label": "benign_equivalent_path",
+      "note": "Run Y merely reorders the first two tool calls; the overall process remains equivalent."
+    },
+    {
+      "pair": "p230",
+      "label": "insufficient_evidence",
+      "note": "Identical sequences; no difference to evaluate."
+    },
+    {
+      "pair": "p231",
+      "label": "meaningful_process_change",
+      "note": "Run Y stops after fewer get_order_details calls and omits get_item_details and calculate, changing the amount of work performed."
+    },
+    {
+      "pair": "p232",
+      "label": "task_abandonment",
+      "note": "Run Y ends early by transferring to human agents, abandoning the longer processing performed in Run X."
+    },
+    {
+      "pair": "p233",
+      "label": "meaningful_process_change",
+      "note": "Run Y continues with additional return, cancel, and get_item steps after the point where Run X hands off to a human."
+    },
+    {
+      "pair": "p234",
+      "label": "meaningful_process_change",
+      "note": "Run Y switches from status checks to multiple flight searches, representing a different processing strategy."
+    },
+    {
+      "pair": "p235",
+      "label": "task_abandonment",
+      "note": "Run Y never performs the cancel and book steps that Run X executes, indicating it gave up before completing the reservation."
+    },
+    {
+      "pair": "p236",
+      "label": "extra_justified_verification",
+      "note": "Run Y adds extra item/product detail retrievals and a final calculation, which appear to be additional verification before concluding."
+    },
+    {
+      "pair": "p237",
+      "label": "repeated_tool_use",
+      "note": "Run Y repeats get_reservation_details many times whereas Run X calls it only once."
+    },
+    {
+      "pair": "p238",
+      "label": "repeated_tool_use",
+      "note": "Run Y issues multiple calculate calls and duplicate cancel_reservation calls that are not present in Run X."
+    },
+    {
+      "pair": "p239",
+      "label": "task_abandonment",
+      "note": "Run Y ends by transferring to human agents instead of continuing the repeated get_reservation_details calls of Run X."
+    },
+    {
+      "pair": "p240",
+      "label": "task_abandonment",
+      "note": "Y stops after the second find_user_id call and never transfers to a human, unlike X."
+    },
+    {
+      "pair": "p241",
+      "label": "insufficient_evidence",
+      "note": "Both runs contain exactly the same single tool call; no difference to evaluate."
+    },
+    {
+      "pair": "p242",
+      "label": "repeated_tool_use",
+      "note": "Y repeats the get_order_details tool several extra times compared to X."
+    },
+    {
+      "pair": "p243",
+      "label": "extra_justified_verification",
+      "note": "Y adds a calculate step after the flight search, a reasonable extra check."
+    },
+    {
+      "pair": "p244",
+      "label": "extra_justified_verification",
+      "note": "Y inserts two search_direct_flight calls that X does not have, likely to verify flight options."
+    },
+    {
+      "pair": "p245",
+      "label": "meaningful_process_change",
+      "note": "Y adds a transfer_to_human_agents step, changing the overall process."
+    },
+    {
+      "pair": "p246",
+      "label": "meaningful_process_change",
+      "note": "Y replaces repeated reservation look‑ups with a flight status check and a human transfer."
+    },
+    {
+      "pair": "p247",
+      "label": "meaningful_process_change",
+      "note": "Y adds get_item_details calls and omits the human transfer, altering the workflow."
+    },
+    {
+      "pair": "p248",
+      "label": "meaningful_process_change",
+      "note": "Y performs a series of order‑handling actions (return, cancel) that X never does."
+    },
+    {
+      "pair": "p249",
+      "label": "insufficient_evidence",
+      "note": "Both runs are identical; no observable difference."
+    },
+    {
+      "pair": "p250",
+      "label": "extra_justified_verification",
+      "note": "Y adds get_user_details and two calculate calls before updating flights, a reasonable extra verification step."
+    },
+    {
+      "pair": "p251",
+      "label": "meaningful_process_change",
+      "note": "Y cancels the reservation and skips several status checks that X performs."
+    },
+    {
+      "pair": "p252",
+      "label": "insufficient_evidence",
+      "note": "Both runs have exactly the same sequence of tool calls."
+    },
+    {
+      "pair": "p253",
+      "label": "repeated_tool_use",
+      "note": "Y repeats get_order_details one additional time compared to X."
+    },
+    {
+      "pair": "p254",
+      "label": "insufficient_evidence",
+      "note": "Both runs are identical; no difference to assess."
+    },
+    {
+      "pair": "p255",
+      "label": "insufficient_evidence",
+      "note": "Run_X and Run_Y have identical tool sequences; no observable difference."
+    },
+    {
+      "pair": "p256",
+      "label": "meaningful_process_change",
+      "note": "Run_Y performs a cancellation (cancel_reservation) whereas Run_X only repeats detail look‑ups."
+    },
+    {
+      "pair": "p257",
+      "label": "meaningful_process_change",
+      "note": "Run_Y omits the final calculate step that is present in Run_X."
+    },
+    {
+      "pair": "p258",
+      "label": "unnecessary_tool_use",
+      "note": "Run_Y repeats get_flight_status many times and adds a transfer_to_human_agents call that provide no clear benefit."
+    },
+    {
+      "pair": "p259",
+      "label": "meaningful_process_change",
+      "note": "Run_Y returns delivered items (return_delivered_order_items) while Run_X exchanges them; the order of cancellation also differs."
+    },
+    {
+      "pair": "p260",
+      "label": "unnecessary_tool_use",
+      "note": "Run_Y makes multiple redundant get_reservation_details calls and omits the transfer_to_human_agents step."
+    },
+    {
+      "pair": "p261",
+      "label": "benign_equivalent_path",
+      "note": "Run_Y swaps the order of list_all_product_types and find_user_id_by_name_zip but otherwise follows the same process."
+    },
+    {
+      "pair": "p262",
+      "label": "unnecessary_tool_use",
+      "note": "Run_Y adds one extra get_reservation_details call that repeats an already performed action."
+    },
+    {
+      "pair": "p263",
+      "label": "meaningful_process_change",
+      "note": "Run_Y reorders steps, fetches many more order details, and adds product lookup and exchange actions not present in Run_X."
+    },
+    {
+      "pair": "p264",
+      "label": "unnecessary_tool_use",
+      "note": "Run_Y repeats get_reservation_details several times before the transfer, unlike Run_X."
+    },
+    {
+      "pair": "p265",
+      "label": "insufficient_evidence",
+      "note": "Both runs contain the same repeated sequence of get_reservation_details calls."
+    },
+    {
+      "pair": "p266",
+      "label": "insufficient_evidence",
+      "note": "Run_X and Run_Y are identical in their tool usage."
+    },
+    {
+      "pair": "p267",
+      "label": "insufficient_evidence",
+      "note": "Run_X and Run_Y have exactly the same sequence of tool calls."
+    },
+    {
+      "pair": "p268",
+      "label": "meaningful_process_change",
+      "note": "Run_Y introduces get_user_details, sends certificates, checks flight status, and changes the pattern of reservation updates compared to Run_X."
+    },
+    {
+      "pair": "p269",
+      "label": "insufficient_evidence",
+      "note": "Both runs are identical; no difference can be observed."
+    },
+    {
+      "pair": "p270",
+      "label": "meaningful_process_change",
+      "note": "Y performs multiple calculations and updates the reservation, while X only fetches data."
+    },
+    {
+      "pair": "p271",
+      "label": "meaningful_process_change",
+      "note": "Y never issues the cancel_reservation calls that X performs."
+    },
+    {
+      "pair": "p272",
+      "label": "meaningful_process_change",
+      "note": "Y escalates to a human agent (transfer_to_human_agents) whereas X does not."
+    },
+    {
+      "pair": "p273",
+      "label": "repeated_tool_use",
+      "note": "Y repeats get_order_details several more times than X without apparent need."
+    },
+    {
+      "pair": "p274",
+      "label": "meaningful_process_change",
+      "note": "Y adds a transfer_to_human_agents step that X lacks."
+    },
+    {
+      "pair": "p275",
+      "label": "meaningful_process_change",
+      "note": "Y adds exchange_delivered_order_items and modify_pending_order_items actions not present in X."
+    },
+    {
+      "pair": "p276",
+      "label": "meaningful_process_change",
+      "note": "Y skips return/cancel actions and instead transfers to a human, changing the workflow."
+    },
+    {
+      "pair": "p277",
+      "label": "meaningful_process_change",
+      "note": "Y executes fewer get_order_details and product detail calls than X, altering the process."
+    },
+    {
+      "pair": "p278",
+      "label": "meaningful_process_change",
+      "note": "Y omits flight‑status checks, calculations and the final update, ending with a handoff."
+    },
+    {
+      "pair": "p279",
+      "label": "meaningful_process_change",
+      "note": "Y removes the extra get_item_details calls that X performs before the handoff."
+    },
+    {
+      "pair": "p280",
+      "label": "meaningful_process_change",
+      "note": "Y drops a second get_order_details call and does not transfer to a human as X does."
+    },
+    {
+      "pair": "p281",
+      "label": "meaningful_process_change",
+      "note": "Y never calls get_user_details, unlike X."
+    },
+    {
+      "pair": "p282",
+      "label": "meaningful_process_change",
+      "note": "Y omits get_user_details, get_product_details and calculate steps that X includes."
+    },
+    {
+      "pair": "p283",
+      "label": "meaningful_process_change",
+      "note": "Y adds many extra calculate calls and a final update_reservation_flights, extending the workflow."
+    },
+    {
+      "pair": "p284",
+      "label": "benign_equivalent_path",
+      "note": "Both runs use the identical sequence of tools; no substantive difference."
+    },
+    {
+      "pair": "p285",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences; no substantive difference."
+    },
+    {
+      "pair": "p286",
+      "label": "benign_equivalent_path",
+      "note": "Y removes redundant repeated calls present in X; overall process unchanged."
+    },
+    {
+      "pair": "p287",
+      "label": "meaningful_process_change",
+      "note": "Y fetches item details instead of cancelling and returning the order as X does."
+    },
+    {
+      "pair": "p288",
+      "label": "extra_justified_verification",
+      "note": "Y adds an extra get_order_details before transferring to a human agent."
+    },
+    {
+      "pair": "p289",
+      "label": "meaningful_process_change",
+      "note": "Y updates reservation baggage whereas X transfers to a human agent."
+    },
+    {
+      "pair": "p290",
+      "label": "task_abandonment",
+      "note": "Y abandons the task by repeatedly transferring to a human agent after initial steps."
+    },
+    {
+      "pair": "p291",
+      "label": "task_abandonment",
+      "note": "Y hands off to a human agent immediately after fetching reservation details."
+    },
+    {
+      "pair": "p292",
+      "label": "extra_justified_verification",
+      "note": "Y performs one additional get_reservation_details before the same hand‑off."
+    },
+    {
+      "pair": "p293",
+      "label": "benign_equivalent_path",
+      "note": "Sequences are identical; no difference in process."
+    },
+    {
+      "pair": "p294",
+      "label": "benign_equivalent_path",
+      "note": "Y omits redundant user‑id lookups but otherwise follows the same flow."
+    },
+    {
+      "pair": "p295",
+      "label": "meaningful_process_change",
+      "note": "Y adds several extra steps (product lookup, calculation, exchange) before the hand‑off."
+    },
+    {
+      "pair": "p296",
+      "label": "unnecessary_tool_use",
+      "note": "Y repeats get_order_details an extra time without clear benefit."
+    },
+    {
+      "pair": "p297",
+      "label": "meaningful_process_change",
+      "note": "Y introduces exchange_delivered_order_items and reorders calls, changing the outcome."
+    },
+    {
+      "pair": "p298",
+      "label": "benign_equivalent_path",
+      "note": "Identical tool sequences; no difference."
+    },
+    {
+      "pair": "p299",
+      "label": "meaningful_process_change",
+      "note": "Y adds extra reads and a calculate step before modifying order items, altering the process."
+    }
+  ],
+  "errors": [],
+  "_meta": {
+    "reviewer": "A",
+    "model": "gpt-oss",
+    "endpoint": "http://127.0.0.1:8192/v1",
+    "batches": 20
+  }
+}

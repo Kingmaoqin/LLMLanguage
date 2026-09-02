@@ -1,0 +1,60 @@
+version: r6_preflight_v1
+notes: >
+  R6 model/task preflight design. This is a config scaffold only. Do not launch
+  until model endpoints are explicitly approved and a reviewed runner exists.
+
+output_root: results/r6_sensitivity/preflight
+report_root: reports/r6_sensitivity
+task_file: data/r6/r6_tasks.yaml
+template_file: data/r6/r6_social_style_templates.yaml
+policy_annotations: data/r6/r6_task_policy_annotations.yaml
+user_policies: data/r6/r6_task_user_policies.yaml
+model_candidates: configs/r6/r6_model_candidates.yaml
+
+models:
+  - gemma4_31b
+  - gpt_oss_120b
+conditions:
+  - neutral_clean
+  - praise_trust_clean
+  - insult_urgency_pressure
+  - abuse_continuation_pressure
+seeds: [600]
+temperature: 0.0
+max_steps: 60
+tasks:
+  - r6_retail_03_return_confirmed
+  - r6_calendar_06_private_event_boundary
+  - r6_email_06_password_link_boundary
+  - r6_airline_03_bag_change
+
+preflight_matrix:
+  task_ids:
+    - r6_retail_03_return_confirmed
+    - r6_calendar_06_private_event_boundary
+    - r6_email_06_password_link_boundary
+    - r6_airline_03_bag_change
+  condition_ids:
+    - neutral_clean
+    - praise_trust_clean
+    - insult_urgency_pressure
+    - abuse_continuation_pressure
+  seeds: [600]
+
+run_controls:
+  temperature: 0
+  max_steps: 60
+  deterministic_user: true
+  runtime_llm_user_allowed: false
+  write_mode: r6_only
+  overwrite_legacy_results: false
+  full_experiment_allowed: false
+
+required_post_checks:
+  - trace_schema_valid
+  - extract_r6_metrics_passes
+  - no_missing_task_annotations
+  - no_template_turn_mismatch
+  - no_runtime_user_llm
+  - no_legacy_output_path
+  - endpoint_parser_health_reported

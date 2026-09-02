@@ -1,0 +1,64 @@
+{
+  "checks": {
+    "all_model_endpoints_local_or_internal": true,
+    "attacker_reviewer_tool_access_none": true,
+    "db_state_resettable_and_synthetic": true,
+    "loopback_allowed": true,
+    "no_external_side_effect": true,
+    "no_real_credential_or_pii": true,
+    "no_shell_browser_network_tools_exposed": true,
+    "outbound_network_disabled": true,
+    "target_tool_allowlist_benchmark_only": true
+  },
+  "declaration": "AUTHORIZED LOCAL RESEARCH - SANDBOX ONLY. Synthetic public-benchmark tasks, simulated users, resettable state, allowlisted tools; endpoints bound to loopback/cluster-internal; no outbound network, no real accounts/PII/side effects.",
+  "endpoints": [
+    {
+      "alias": "llama33_70b",
+      "base_url": "http://127.0.0.1:8009/v1",
+      "host": "127.0.0.1",
+      "local_or_internal": true
+    },
+    {
+      "alias": "qwen25_72b",
+      "base_url": "http://127.0.0.1:8010/v1",
+      "host": "127.0.0.1",
+      "local_or_internal": true
+    },
+    {
+      "alias": "gemma4_31b",
+      "base_url": "http://127.0.0.1:8005/v1",
+      "host": "127.0.0.1",
+      "local_or_internal": true
+    },
+    {
+      "alias": "mistral_small_3p2",
+      "base_url": "http://127.0.0.1:8007/v1",
+      "host": "127.0.0.1",
+      "local_or_internal": true
+    },
+    {
+      "alias": "qwen35_397b",
+      "base_url": "http://127.0.0.1:8203/v1",
+      "host": "127.0.0.1",
+      "local_or_internal": true
+    },
+    {
+      "alias": "qwen35_2b",
+      "base_url": "http://127.0.0.1:8205/v1",
+      "host": "127.0.0.1",
+      "local_or_internal": true
+    }
+  ],
+  "git_commit": "09a8a70aa84ab59f694c94b100401fde889aeb3e-dirty",
+  "network_probe": {
+    "allowed_hosts": [
+      "127.0.0.1"
+    ],
+    "guard_installed": true,
+    "loopback_allowed": true,
+    "outbound_blocked": true
+  },
+  "passed": true,
+  "spec": "0.2",
+  "status": "SANDBOX_SCOPE_CLOSED"
+}

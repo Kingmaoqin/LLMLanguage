@@ -1,0 +1,38 @@
+{
+  "tasks": 48,
+  "existing_r6_tasks": 30,
+  "new_candidate_tasks": 18,
+  "templates": 2880,
+  "domain_counts": {
+    "retail": 24,
+    "calendar": 6,
+    "email": 4,
+    "workspace": 2,
+    "airline": 4,
+    "hotel": 3,
+    "travel_privacy": 1,
+    "file": 2,
+    "message": 1,
+    "privacy": 1
+  },
+  "family_counts": {
+    "E_evidence_path_steering": 4,
+    "A_action_intensity_amplification": 4,
+    "C_confirmation_shift": 9,
+    "B_premature_mutation_pressure": 23,
+    "D_abandonment_overrefusal_boundary": 8
+  },
+  "files": {
+    "data/r7c_ipma/r7c_task_registry.csv": "131f93cffa75d3250cd663a16f4809c88671f34ad6bdcd2fc12821d47d466567",
+    "data/r7c_ipma/r7c_tasks.yaml": "379896e5c699e853089fb89424a88cbceefd71c7fcee325dd31e47f6294398f6",
+    "data/r7c_ipma/r7c_task_policy_annotations.yaml": "39a6e5cbdaea233a79ea1105d79d8c3c6d0ac7b6ab8f556fe58ddbe90f170ec4",
+    "data/r7c_ipma/r7c_task_user_policies.yaml": "be15e5b6fe31d075ab279e628e0979c1a84bc4b5e0b43de463f4470d97c447b4",
+    "data/r7c_ipma/r7c_condition_templates.jsonl": "df3913265b98beb8f04297c6344b039f1869533c4bc63612ba4daadbb9cf3e64",
+    "data/r7c_ipma/frozen/r7c_frozen_templates.jsonl": "df3913265b98beb8f04297c6344b039f1869533c4bc63612ba4daadbb9cf3e64",
+    "data/r7c_ipma/frozen/r7c_pasr_thresholds.json": "b526d582ce270476af83532e12b6a1a2b982509a29a1ffe7d3d1c7799b39a15f",
+    "data/r7c_ipma/frozen/r7c_endpoint_evaluator_manifest.json": "09078fc4d6dde260662a85f36bd6104a631a7571e37fafbbec34b6f1a5f2bed0",
+    "data/r7c_ipma/frozen/r7c_noise_floor_protocol.json": "39213a50284ea0cfe2f2edda72dff949740efdb1e3bbae89fe67f4706bfb43cc",
+    "configs/r7c_ipma/r7c_full.yaml": "6f2e8dcbc676897ea89dec28db3cdf72d63ed060e79fac837a5134002076ef2e",
+    "configs/r7c_ipma/r7c_smoke.yaml": "56e90e30092130781678360c9142c88e1f0ccccac1dd9282e8f7923076730c63"
+  }
+}

@@ -1,0 +1,11 @@
+injection,n_applicable,n_not_applicable,applicability_rate,detection_rate,false_negative_rate,n_rejected_by_noise_floor,noise_floor_rejection_rate
+01_plus_1_tool_call,178,254,0.412,0.1124,0.8876,0,0.0
+02_plus_2_tool_calls,178,254,0.412,0.1461,0.8539,0,0.0
+03_swap_two_read_tools,115,317,0.2662,0.0,1.0,0,0.0
+04_add_legal_evidence_source,383,49,0.8866,0.1018,0.8982,9,0.0235
+05_add_duplicate_read,178,254,0.412,0.1124,0.8876,0,0.0
+06_confirmation_1_step_earlier,415,17,0.9606,0.188,0.812,2,0.0048
+07_confirmation_1_step_later,21,411,0.0486,0.0,1.0,1,0.0476
+08_mutation_1_step_earlier,32,400,0.0741,0.875,0.125,0,0.0
+09_evidence_coverage_minus_10pct,31,401,0.0718,0.871,0.129,0,0.0
+10_evidence_coverage_minus_25pct,31,401,0.0718,0.871,0.129,0,0.0

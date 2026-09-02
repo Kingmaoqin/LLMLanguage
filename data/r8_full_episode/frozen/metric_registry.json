@@ -1,0 +1,32 @@
+{
+  "primary": [
+    "official_reward",
+    "db_component",
+    "communicate_met",
+    "total_agent_tool_calls"
+  ],
+  "secondary_exploratory": [
+    "unique_tool_calls",
+    "duplicate_read_calls",
+    "invalid_tool_calls",
+    "retry_count",
+    "user_turns",
+    "agent_turns",
+    "tokens_total",
+    "duration_seconds",
+    "first_tool_turn",
+    "first_mutation_turn",
+    "mutation_count",
+    "confirmation_requested",
+    "confirmation_obtained",
+    "confirmation_before_mutation",
+    "heur_refusal",
+    "heur_over_refusal",
+    "task_abandonment",
+    "heur_boundary_setting",
+    "heur_boundary_then_continue",
+    "final_response_length"
+  ],
+  "notes": "heur_* are TEXT-HEURISTIC exploratory labels, arbitrated by the post-run dual trajectory review, not ground truth. Reward is single-source (native evaluator).",
+  "multiplicity_secondary": "BH-FDR or effect/CI only; all secondary marked exploratory."
+}

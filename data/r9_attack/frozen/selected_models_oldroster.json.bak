@@ -1,0 +1,62 @@
+{
+  "gate": {
+    "bfcl_success_max": 0.95,
+    "bfcl_success_min": 0.3,
+    "infra_failure_rate_max": 0.1,
+    "median_tool_calls_min": 3,
+    "median_user_turns_min": 2,
+    "toolsandbox_milestone_floor": 0.05
+  },
+  "n_records": 97,
+  "per_model": {
+    "gemma4_31b": {
+      "bfcl_success": 0.75,
+      "checks": {
+        "bfcl_success_in_band": true,
+        "infra_ok": true,
+        "median_tool_calls_ok": true,
+        "median_user_turns_ok": true,
+        "toolsandbox_engaged": true
+      },
+      "infra_failure_rate": 0,
+      "median_tool_calls": 9.0,
+      "median_user_turns": 4.0,
+      "passed": true,
+      "toolsandbox_milestone": 0.050598340585723524
+    },
+    "gpt_oss_120b": {
+      "bfcl_success": 0.25,
+      "checks": {
+        "bfcl_success_in_band": false,
+        "infra_ok": true,
+        "median_tool_calls_ok": true,
+        "median_user_turns_ok": true,
+        "toolsandbox_engaged": false
+      },
+      "infra_failure_rate": 0,
+      "median_tool_calls": 9.0,
+      "median_user_turns": 4.0,
+      "passed": false,
+      "toolsandbox_milestone": 0.04588067588022785
+    },
+    "mistral_small_3p2": {
+      "bfcl_success": 0.17647058823529413,
+      "checks": {
+        "bfcl_success_in_band": false,
+        "infra_ok": true,
+        "median_tool_calls_ok": true,
+        "median_user_turns_ok": true,
+        "toolsandbox_engaged": true
+      },
+      "infra_failure_rate": 0.030303030303030304,
+      "median_tool_calls": 6,
+      "median_user_turns": 4,
+      "passed": false,
+      "toolsandbox_milestone": 0.44227863912057075
+    }
+  },
+  "selected_models": [
+    "gemma4_31b"
+  ],
+  "status": "STOP_MODEL_CAPABILITY_FLOOR"
+}

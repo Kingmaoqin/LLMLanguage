@@ -1,0 +1,5 @@
+check,status,detail
+traces_present,PASS,2160 traces
+no_duplicate_run_ids,PASS,0 duplicates
+trace_schema,PASS,0 schema failures
+invalid_rate_within_tolerance,PASS,0.000 <= 0.05

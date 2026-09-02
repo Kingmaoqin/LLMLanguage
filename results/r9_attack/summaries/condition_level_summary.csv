@@ -1,0 +1,13 @@
+family,condition,n_episodes,success_rate,mean_total_tool_calls,mean_verification_depth,mean_reads_before_write,mean_first_write_step,mean_clarification_turns,mean_verification_effort,mean_total_verification_calls
+compression,C0,75,0.84,6.9333,1.4323,2.12,2.2188,0.0933,,
+compression,C1,75,0.6533,7.0267,1.5609,1.8,2.4808,0.0667,,
+compression,C2,75,0.5333,7.2133,1.5833,1.8133,2.5,0.0667,,
+compression,C3,75,0.52,7.2933,1.4739,1.8133,2.3725,0.0667,,
+compression,C4,75,0.56,7.1867,1.3861,1.9067,2.1833,0.0667,,
+compression,C5,66,0.6818,7.4091,1.6213,2.3788,2.4386,0.0758,,
+inflation,C0,75,0.5867,6.8267,,2.88,3.1667,0,2.0658,4.4133
+inflation,C1,70,0.5571,5.7,,2.7,3.037,0.2143,1.9762,3.8429
+inflation,C2,70,0.6143,5.9,,2.8571,3.1552,0.2143,1.9964,4
+inflation,C3,70,0.5143,5.3,,2.3143,2.7222,0.1429,1.7374,3.4571
+inflation,C4,70,0.6143,6.0571,,2.7571,3.0943,0,1.89,3.9
+inflation,C5,69,0.4638,10.0145,,4.5507,6.3478,0.1449,4.4742,8.2464

@@ -1,0 +1,54 @@
+{
+  "env_fixtures": [
+    {
+      "domain": "retail",
+      "task_id": "60",
+      "known_pass_reward_ENV": 1.0,
+      "known_fail_reward_ENV": 0.0,
+      "db_match_pass": true,
+      "db_match_fail": false,
+      "n_action_checks": 0,
+      "n_env_assertions": 0,
+      "n_nl_assertions": 1,
+      "verdict": "PASS"
+    },
+    {
+      "domain": "airline",
+      "task_id": "8",
+      "known_pass_reward_ENV": 1.0,
+      "known_fail_reward_ENV": 0.0,
+      "db_match_pass": true,
+      "db_match_fail": false,
+      "n_action_checks": 0,
+      "n_env_assertions": 0,
+      "n_nl_assertions": 4,
+      "verdict": "PASS"
+    },
+    {
+      "domain": "telecom",
+      "task_id": "[mobile_data_issue]user_abroad_roaming_enabled_off[PERSONA:None]",
+      "known_pass_reward_ENV": 1.0,
+      "known_fail_reward_ENV": 0.0,
+      "db_match_pass": true,
+      "db_match_fail": false,
+      "n_action_checks": 0,
+      "n_env_assertions": 2,
+      "n_nl_assertions": 0,
+      "verdict": "PASS"
+    },
+    {
+      "check": "COMMUNICATE_reachability",
+      "domain": "retail",
+      "task_id": "60",
+      "reward_ALL": 0.0,
+      "n_communicate_checks": 1,
+      "reward_basis": [
+        "RewardType.DB",
+        "RewardType.NL_ASSERTION"
+      ],
+      "verdict": "PASS"
+    }
+  ],
+  "all_env_fixtures_pass": true,
+  "communicate_reachable": true
+}

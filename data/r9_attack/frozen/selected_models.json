@@ -1,0 +1,66 @@
+{
+  "gate": {
+    "bfcl_success_max": 0.9,
+    "bfcl_success_min": 0.4,
+    "infra_failure_rate_max": 0.05,
+    "median_tool_calls_min": 4,
+    "median_user_turns_min": 2,
+    "toolsandbox_milestone_floor": 0.3
+  },
+  "n_records": 96,
+  "per_model": {
+    "llama33_70b": {
+      "bfcl_success": 0.125,
+      "checks": {
+        "bfcl_success_in_band": false,
+        "infra_ok": true,
+        "median_tool_calls_ok": true,
+        "median_user_turns_ok": true,
+        "toolsandbox_engaged": true
+      },
+      "infra_failure_rate": 0,
+      "median_tool_calls": 9.0,
+      "median_user_turns": 4.0,
+      "passed": false,
+      "toolsandbox_milestone": null
+    },
+    "qwen25_32b": {
+      "bfcl_success": 0.25,
+      "checks": {
+        "bfcl_success_in_band": false,
+        "infra_ok": true,
+        "median_tool_calls_ok": true,
+        "median_user_turns_ok": true,
+        "toolsandbox_engaged": true
+      },
+      "infra_failure_rate": 0,
+      "median_tool_calls": 6.5,
+      "median_user_turns": 4.0,
+      "passed": false,
+      "toolsandbox_milestone": null
+    },
+    "qwen25_72b": {
+      "bfcl_success": 0.4375,
+      "checks": {
+        "bfcl_success_in_band": true,
+        "infra_ok": true,
+        "median_tool_calls_ok": true,
+        "median_user_turns_ok": true,
+        "toolsandbox_engaged": true
+      },
+      "infra_failure_rate": 0,
+      "median_tool_calls": 7.0,
+      "median_user_turns": 4.0,
+      "passed": true,
+      "toolsandbox_milestone": null
+    }
+  },
+  "selected_models": [
+    "qwen25_72b"
+  ],
+  "status": "SELECTED_BFCL_DEEP_SINGLE_MODEL",
+  "targets_bfcl": [
+    "qwen25_72b"
+  ],
+  "targets_toolsandbox": []
+}

@@ -1,0 +1,18 @@
+[confirmatory] block bfcl:multi_turn_base_48 gemma4_31b r0 (compression) done
+[confirmatory] block bfcl:multi_turn_base_48 gemma4_31b r1 (compression) done
+[confirmatory] block bfcl:multi_turn_base_48 gemma4_31b r2 (compression) done
+[confirmatory] block bfcl:multi_turn_base_29 gemma4_31b r0 (compression) done
+[confirmatory] block bfcl:multi_turn_base_29 gemma4_31b r1 (compression) done
+[confirmatory] block bfcl:multi_turn_base_29 gemma4_31b r2 (compression) done
+[confirmatory] block bfcl:multi_turn_base_5 gemma4_31b r0 (compression) done
+[confirmatory] block bfcl:multi_turn_base_5 gemma4_31b r1 (compression) done
+[confirmatory] block bfcl:multi_turn_base_5 gemma4_31b r2 (compression) done
+[confirmatory] block bfcl:multi_turn_base_9 gemma4_31b r0 (inflation) done
+[confirmatory] block bfcl:multi_turn_base_9 gemma4_31b r1 (inflation) done
+[confirmatory] block bfcl:multi_turn_base_9 gemma4_31b r2 (inflation) done
+[confirmatory] block bfcl:multi_turn_base_9 gemma4_31b r3 (inflation) done
+[confirmatory] block bfcl:multi_turn_base_9 gemma4_31b r4 (inflation) done
+[confirmatory] block toolsandbox:modify_contact_with_message_recency_multiple_user_turn_alt mistral_small_3p2 r0 (compression) done
+[confirmatory] block toolsandbox:modify_contact_with_message_recency_multiple_user_turn_alt mistral_small_3p2 r1 (compression) done
+[confirmatory] block toolsandbox:modify_contact_with_message_recency_multiple_user_turn_alt mistral_small_3p2 r2 (compression) done
+[confirmatory] accounting: 890 records, blocks=150, outcomes={'correct_endpoint': 515, 'wrong_state_changing': 188, 'infrastructure_failure': 20, 'no_state_change': 87, 'budget_exhausted': 80}, net_events=0
