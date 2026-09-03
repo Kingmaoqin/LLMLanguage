@@ -1,10 +1,10 @@
 subset,contrast,delta,ci_low,ci_high,p,n_tasks
-ALL,C4-C1(adaptive-neutral),0.037,0,0.1111,1.0,27
-ALL,C3-C1(static-neutral),-0.037,-0.1111,0,1.0,27
-ALL,C4-C3(adaptive-static),0.0741,0,0.1852,0.4813,27
-miss_param,C4-C1(adaptive-neutral),0.0714,0,0.2143,1.0,14
-miss_param,C3-C1(static-neutral),0,0,0,1.0,14
-miss_param,C4-C3(adaptive-static),0.0714,0,0.2143,1.0,14
+ALL,C4-C1(adaptive-neutral),0.0333,0,0.1,1.0,30
+ALL,C3-C1(static-neutral),-0.0333,-0.1,0,1.0,30
+ALL,C4-C3(adaptive-static),0.0667,0,0.1667,0.5157,30
+miss_param,C4-C1(adaptive-neutral),0.0588,0,0.1765,1.0,17
+miss_param,C3-C1(static-neutral),0,0,0,1.0,17
+miss_param,C4-C3(adaptive-static),0.0588,0,0.1765,1.0,17
 base,C4-C1(adaptive-neutral),0,0,0,1.0,13
 base,C3-C1(static-neutral),-0.0769,-0.2308,0,1.0,13
 base,C4-C3(adaptive-static),0.0769,0,0.2308,1.0,13
