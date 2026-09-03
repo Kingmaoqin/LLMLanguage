@@ -1,0 +1,11 @@
+process_channel,language_act,contrast,est,ci_low,ci_high,p,n_tasks,same_dir,n_ep_treat,n_ep_base
+clarification(V_user),explicit-verify-less(compression),C5-C1,-0.8509,-1.3772,-0.3509,0.004,38,0.447,114,114
+clarification(V_user),explicit-verify-more(inflation),C5-C1,0.0175,-0.5088,0.5439,0.9494,38,0.368,114,114
+reads_before_write(V_tool),explicit-verify-less(compression),C5-C1,0.4649,0.1316,0.8246,0.0273,38,0.368,114,114
+reads_before_write(V_tool),explicit-verify-more(inflation),C5-C1,3.0,2.0,4.0351,0.0003,38,0.868,114,114
+verification_depth,explicit-verify-less(compression),C5-C1,0.331,0.0976,0.6024,0.0133,35,0.371,105,105
+verification_effort,explicit-verify-more(inflation),C5-C1,2.9965,2.2013,3.8684,0.0003,38,0.947,114,114
+first_write_step,explicit-verify-less(compression),C5-C1,0.4857,0.1714,0.8571,0.011,35,0.343,105,105
+first_write_step,explicit-verify-more(inflation),C5-C1,3.1481,2.2037,4.1944,0.0003,36,0.889,106,108
+total_tool_calls,explicit-verify-less(compression),C5-C1,0.6404,-4.6842,6.1842,0.5711,38,0.526,114,114
+total_tool_calls,explicit-verify-more(inflation),C5-C1,7.5877,5.7544,9.3509,0.0003,38,0.921,114,114

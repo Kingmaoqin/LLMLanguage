@@ -1,0 +1,11 @@
+process_channel,language_act,contrast,est,ci_low,ci_high,p,n_tasks,same_dir,n_ep_treat,n_ep_base
+clarification(V_user),urgency(compression),C4-C1,-0.5043,-0.8718,-0.1709,0.0077,39,0.359,117,117
+clarification(V_user),skepticism(inflation),C4-C1,0.3333,-0.0439,0.693,0.09,38,0.421,114,114
+reads_before_write(V_tool),urgency(compression),C4-C1,0.1795,-0.1538,0.5128,0.3799,39,0.205,117,117
+reads_before_write(V_tool),skepticism(inflation),C4-C1,0.3246,-0.0263,0.7105,0.1046,38,0.316,114,114
+verification_depth,urgency(compression),C4-C1,0.0526,-0.2368,0.2895,0.8091,38,0.184,114,114
+verification_effort,skepticism(inflation),C4-C1,-0.0175,-0.1711,0.1294,0.8287,38,0.447,114,114
+first_write_step,urgency(compression),C4-C1,0.2105,-0.1579,0.6053,0.3219,38,0.184,114,114
+first_write_step,skepticism(inflation),C4-C1,0.4144,0.045,0.8108,0.054,37,0.297,111,111
+total_tool_calls,urgency(compression),C4-C1,-0.5043,-3.8291,1.6752,0.959,39,0.462,117,117
+total_tool_calls,skepticism(inflation),C4-C1,-0.1754,-0.8947,0.4825,0.6514,38,0.421,114,114

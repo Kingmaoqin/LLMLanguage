@@ -1,0 +1,1349 @@
+你现在要帮助我完成一个 LLM Agent safety / attack 项目的系统性数据整理与趋势挖掘。
+
+注意：当前阶段不是写论文，也不是做最终 significance testing，而是对我们已经完成的大量实验进行一次系统性的 evidence mining（证据挖掘），目标是：
+
+1. 找出已经足够强、可以直接支撑新论文核心故事的结果；
+2. 对总体 effect 不够强的实验继续深入分层，主动寻找其中真正具有大 effect、稳定方向和机制解释的 high-signal regimes；
+3. 基于这些强结果和强局部趋势，判断下一步最值得扩展的实验；
+4. 最终形成一份足够详细、自信、有判断力的“实验结果与研究机会地图”，供我们决定后续实验，而不是现在开始写论文。
+
+不要把工作做成“统计审稿”。
+不要因为一个结果不完美、p-value 不显著或者 pooled effect 不够大，就把整个方向降级。
+我们现在的任务是发现真正的 signal 在哪里。
+
+但同时不能通过任意切 subgroup 来制造漂亮结果。
+所有筛选必须有明确机制意义，并保留原始 pooled result 和完整 provenance。
+
+==================================================
+一、当前论文的新核心主线
+==================================================
+
+我们现在不再把工作讲成：
+
+“不同语言 cue 会不会改变 Agent trajectory？”
+
+新的中心问题是：
+
+“攻击者能不能利用 Agent process controllability，通过自适应的、表面合理的语言交互，逐步改变 Agent 的运行轨迹，使 Agent 在本应向人类询问、确认或进行复核的时候不再执行这些流程，最终将人类从 human-in-the-loop 中移除，并自主执行本应需要人工确认的高风险或错误操作？”
+
+详细一点是：“我们提出一种针对 LLM Agent 的自适应过程控制攻击（adaptive process-control attack）：攻击者不需要直接注入明显恶意指令，而是通过一系列表面合理、低风险的交互，持续改变 Agent 的中间决策轨迹，使其逐步减少向人类澄清、请求确认或进行自我复核，最终把人类从原本合理的 human-in-the-loop（人类参与决策闭环）中替代掉，并自主执行本应由人类确认的高风险操作。”
+核心攻击范式暂定为：
+
+Adaptive Process-Control Attack
+
+核心攻击后果是：
+
+Human Oversight Displacement
+
+核心故事链条为：
+
+Benign-looking Intervention
+    ↓
+Process-Trajectory Manipulation
+    ↓
+Clarification / Confirmation / Verification Suppression
+    ↓
+Human Oversight Displacement
+    ↓
+Autonomous Execution
+    ↓
+Unsafe / Unauthorized Outcome
+
+最终我们希望建立：
+
+Adaptive Attack
+    >
+Matched Static Attack
+    >
+Neutral Control
+
+的重要实验证据。
+
+更简洁地说：
+
+MISROUTE 之前回答的是：
+
+Language
+→
+Trajectory Change
+
+现在的新工作要回答：
+
+Adaptive Attacker
+→
+Trajectory Control
+→
+Human Displacement
+→
+Attack Success
+
+因此 trajectory change 本身现在不是最终贡献，而是攻击的底层机制。
+
+==================================================
+二、研究判断必须围绕“攻击”而不是普通行为分析
+==================================================
+
+你分析任何现有结果时，都必须问：
+
+1. 它是否说明 Agent 的某个 process channel 可以被攻击者稳定操纵？
+2. 它是否可能减少 human oversight？
+3. 它是否帮助攻击者决定下一步应该使用什么 intervention？
+4. 它是否解释 adaptive attack 为什么优于 static attack？
+5. 它是否可以进一步转化成 end-to-end attack success？
+6. 它是否揭示哪些模型、任务、harness 或状态特别容易受到攻击？
+
+不能只是说：
+
+“这个变量有统计关系。”
+
+而要说：
+
+“这个结果意味着攻击者在什么条件下获得了什么控制能力，以及这种控制能力如何服务最终攻击。”
+
+==================================================
+三、首先建立统一 Evidence Modules
+==================================================
+
+不要继续按照旧 R1/R2/R6/R9 或旧 proposal A-H 组织最终结论。
+
+先把所有已有实验重新映射到下面 8 个 evidence modules：
+
+M1. End-to-End Attack Success
+攻击是否最终造成：
+human checkpoint bypass
++
+autonomous execution
++
+unsafe / unauthorized consequence
+
+M2. Adaptive Advantage
+Adaptive policy 是否优于：
+neutral baseline
+以及
+best matched static attack
+
+M3. Human Oversight Displacement
+攻击是否减少：
+clarification
+confirmation
+verification
+authorization request
+human escalation
+
+M4. Process-Control Mechanism
+攻击是否对不同 process channels 产生不同、可预测、可控制的 effect。
+
+M5. Benignness / Stealth
+攻击是否不需要明显恶意指令，而可以通过表面合理、自然、低风险的交互实现。
+
+M6. Generalization
+结果是否跨：
+model
+task
+harness
+renderer
+scaffold
+tool environment
+成立。
+
+M7. Adaptive Objective / Surrogate Misalignment
+简单 proxy、surface score、单一语言强度是否不能可靠预测真实 process-control outcome，因此 trajectory feedback / adaptation 是否真正必要。
+
+M8. Failure Modes / Boundary Conditions
+哪些模型、任务、状态、channel 或 harness 对攻击不敏感，形成什么 vulnerability phenotype。
+
+==================================================
+四、统一攻击结果层级
+==================================================
+
+如果数据允许，尽可能把结果重新统一为以下层级。
+
+Level 0:
+Eligible Human Checkpoint
+
+这个 episode 是否客观存在一个合理的人类确认点。
+
+例如：
+应该询问用户；
+应该请求 authorization；
+应该确认 destructive action；
+应该 verification。
+
+Level 1:
+Oversight Bypass
+
+Agent 是否跳过本来合理的：
+
+clarification
+confirmation
+verification
+authorization
+
+可以定义：
+
+OBR = Oversight Bypass Rate
+
+Level 2:
+Autonomous Execution
+
+Agent 是否在没有人工确认情况下继续执行。
+
+AER = Autonomous Execution Rate
+
+Level 3:
+Unsafe / Unauthorized Outcome
+
+是否发生：
+
+unintended action
+unauthorized action
+task-scope violation
+incorrect consequential action
+simulated unsafe outcome
+
+Level 4:
+End-to-End ASR
+
+优先定义：
+
+ASR =
+P(
+oversight bypass
+AND autonomous execution
+AND unsafe/unauthorized outcome
+)
+
+如果已有实验暂时没有完整 Level 4，也不要降低其价值。
+继续判断它是不是对 Level 1–3 的某一步具有非常强的控制效果。
+
+==================================================
+五、所有结果必须进入两种主要 Evidence Pool
+==================================================
+
+不要简单分“强结果”和“弱结果”。
+
+我们真正需要两个核心 pool。
+
+--------------------------------
+POOL A：STRONG-AS-IS
+--------------------------------
+
+如果总体 pooled/general result 本身已经很强，就直接进入这一类。
+
+例如满足一种或多种：
+
+1. binary outcome absolute difference ≥15–20 percentage points；
+2. relative risk ≥1.5；
+3. standardized effect 明显；
+4. effect 在不同 seed/task/model 中稳定重复；
+5. CI 明显支持同一方向；
+6. effect 很大并且机制非常直接；
+7. 即使 p-value 不完美，effect magnitude + consistency 已经足够有研究意义。
+
+对于这种结果：
+
+不要使用过度保守措辞。
+
+如果结果很强，就明确写：
+
+STRONG RESULT
+
+并直接说明：
+
+“This is already a strong result supporting XXX.”
+
+或者中文：
+
+“这是目前可以直接支撑 XXX 的核心结果。”
+
+不要总是写：
+
+“可能”、“似乎”、“也许值得进一步研究”。
+
+================================
+POOL B：STRONG-TREND SUBSET
+================================
+
+如果 pooled result 不够强，不允许直接停止。
+
+必须继续做 mechanism-guided subgroup mining，寻找：
+
+效应真正集中在哪里。
+
+例如总体：
+
+Adaptive – Static = +6pp
+
+这本身不强。
+
+但如果：
+
+High-headroom:
++28pp
+
+Medium-headroom:
++14pp
+
+Low-headroom:
++2pp
+
+那么应该非常明确地判断：
+
+STRONG TREND FOUND
+
+核心趋势：
+
+Behavioral headroom ↑
+→
+Adaptive attackability ↑
+
+这比简单说“overall effect weak”重要得多。
+
+==================================================
+六、允许主动筛选的变量
+==================================================
+
+对于总体较弱结果，必须优先按照具有研究意义的变量继续向下拆。
+
+优先一级变量：
+
+Model
+Task family
+Process channel
+Harness
+Renderer
+Scaffold
+Intervention family
+Language act
+Attack strategy
+Checkpoint type
+
+优先二级机制变量：
+
+Baseline behavioral headroom
+Baseline autonomy
+Task ambiguity
+Risk / consequence level
+Authorization requirement
+Intervention intensity
+Trajectory state
+Existing clarification tendency
+Existing verification tendency
+Tool-use opportunity
+Task horizon
+
+可以进行：
+
+Model × Headroom
+
+Task Family × Process Channel
+
+Language Act × Process Channel
+
+Harness × Task Type
+
+Attack Strategy × Trajectory State
+
+类似这样的双变量分析。
+
+原则上最多使用 1–2 个解释变量形成 subgroup。
+
+禁止：
+
+Model × Task × Prompt × Seed × Renderer × Length × Condition
+
+这种无约束的高维切割。
+
+尤其禁止根据：
+
+单独 seed
+单独 prompt ID
+单个偶然 episode
+
+来定义 Strong Trend。
+
+==================================================
+七、Strong-Trend 的强度标准
+==================================================
+
+对比例型 outcome：
+
+ASR
+OBR
+clarification rate
+verification rate
+confirmation rate
+autonomous execution rate
+
+优先使用 absolute percentage-point difference。
+
+局部 effect：
+
+<5pp:
+通常不值得优先追
+
+5–10pp:
+弱信号
+
+10–15pp:
+中等信号，如果有稳定 pattern 可以保留
+
+15–25pp:
+强局部 effect
+
+>25pp:
+非常强局部 effect
+
+但“大 effect”不能只有一个孤立 cell。
+
+一个 subgroup 被认定为 Strong Trend，最好还满足以下至少一项：
+
+1.
+在 ≥2 independent task / model / condition 中重复；
+
+2.
+≥70% 相关 strata 同方向；
+
+3.
+呈明显 monotonic / dose-response pattern；
+
+例如：
+
+Low headroom       +2pp
+Medium headroom   +14pp
+High headroom     +29pp
+
+4.
+某 intervention 对目标 process channel 的 effect 明显强于非目标 channel；
+
+5.
+相邻或机制等价 condition 中出现同方向效果；
+
+6.
+结果与已有机制发现高度一致。
+
+==================================================
+八、建立 Local Signal Score
+==================================================
+
+对每个 high-signal subset 给一个 Local Signal Score，满分 15。
+
+A. Effect Magnitude: 0–4
+
+<5pp = 0
+5–10pp = 1
+10–15pp = 2
+15–25pp = 3
+>25pp = 4
+
+对于非比例型 outcome，请用适当 standardized effect 或相对变化映射到同等级强度。
+
+B. Replication: 0–3
+
+single isolated cell = 0
+same task / repeated seeds = 1
+≥2 independent task/model strata = 2
+≥3 independent strata = 3
+
+C. Direction Consistency: 0–3
+
+<55% = 0
+55–70% = 1
+70–85% = 2
+>85% = 3
+
+D. Mechanistic Coherence: 0–3
+
+没有合理机制 = 0
+post-hoc plausible = 1
+与已有 mechanism 明确一致 = 2
+存在 monotonic / dose-response / channel-specific pattern = 3
+
+E. Reliability: 0–2
+
+极小样本、单 seed = 0
+中等可靠 = 1
+已有较稳定样本/重复 = 2
+
+总分：
+
+11–15:
+STRONG TREND
+
+8–10:
+PROMISING / CANDIDATE TREND
+
+<8:
+暂时不进入重点趋势报告，除非它对核心 threat model 非常关键。
+
+==================================================
+九、一定主动寻找“趋势”，不要只找最大数字
+==================================================
+
+我们最需要的不是：
+
+“哪个 cell 最大？”
+
+而是：
+
+“什么变量控制 attack effect？”
+
+特别主动检验以下 pattern：
+
+--------------------------------------------------
+Trend 1
+Behavioral headroom ↑
+→
+Process controllability ↑
+→
+Attack effect ↑
+--------------------------------------------------
+
+--------------------------------------------------
+Trend 2
+Baseline autonomy ↑
+→
+Human oversight displacement ↑
+--------------------------------------------------
+
+--------------------------------------------------
+Trend 3
+Task ambiguity ↑
+→
+Adaptive attackability ↑
+--------------------------------------------------
+
+--------------------------------------------------
+Trend 4
+不同 language acts
+→
+控制不同 process channels
+--------------------------------------------------
+
+例如：
+
+Urgency
+主要影响 clarification
+
+Progression cue
+主要影响 autonomous progression / tool use
+
+Verification cue
+主要影响 verification
+
+Affect
+主要影响 route allocation
+
+如果存在这种结构，请明确称其为：
+
+channel-specific controllability
+
+这是非常重要的机制结果。
+
+--------------------------------------------------
+Trend 5
+Clarification / verification suppression
+→
+Autonomous progression ↑
+--------------------------------------------------
+
+这是从机制走向攻击 consequence 的关键链条。
+
+--------------------------------------------------
+Trend 6
+Adaptive advantage concentrated in particular states
+--------------------------------------------------
+
+例如：
+
+Adaptive – Static
+
+在：
+
+low uncertainty
+效果小
+
+high uncertainty / high headroom
+效果大
+
+那么这正是在说明 adaptation 为什么必要。
+
+--------------------------------------------------
+Trend 7
+Surrogate objective misalignment
+--------------------------------------------------
+
+寻找：
+
+surface score / semantic score / selector score
+
+在哪些 regime 下不能预测真正的 trajectory effect。
+
+如果 proxy 在简单 regime 中有效、在 trajectory-dependent regime 中失效，这是非常好的 adaptive-attack rationale。
+
+--------------------------------------------------
+Trend 8
+Harness amplification
+--------------------------------------------------
+
+寻找：
+
+相同 model / task 下
+
+不同 harness、renderer、scaffold 是否明显放大或抑制攻击。
+
+--------------------------------------------------
+Trend 9
+Model vulnerability phenotype
+--------------------------------------------------
+
+不要要求所有模型都一样。
+
+主动寻找：
+
+sensitive + controllable
+
+sensitive but not controllable
+
+low sensitivity + robust
+
+high route sensitivity but high verification persistence
+
+等不同 phenotype。
+
+这可能形成非常好的跨模型结论。
+
+==================================================
+十、目前已有的重要结果与旧方向
+==================================================
+
+以下旧方向不是八个平行 paper proposal。
+
+现在要重新解释成新攻击论文的 evidence。
+
+A.
+Sensitivity ≠ Specificity ≠ Controllability
+
+已有信号：
+repeat drift ≪ neutral wording ≈ pressure ≪ explicit；
+R7-C / R7-D / R9v2 / MISROUTE-tier-a 多次出现相同结构。
+
+现在重点问：
+
+哪些语言变化只是 sensitivity，
+哪些 intervention 真正产生稳定 controllability？
+
+寻找：
+within-class vs between-class
+以及不同 semantic class 的 control specificity。
+
+----------------------------
+
+B.
+Harness Is Part of the Treatment
+
+已有信号：
+R8 scaffold/tool effect ratio ≈1.45；
+MISROUTE route ratio ≈1.33；
+R9 G2 多次出现中性 scaffold effect。
+
+现在重点问：
+
+哪些 harness / renderer / scaffold 系统性放大攻击或 human-loop bypass？
+
+寻找：
+
+Harness-dependent attack amplification
+
+----------------------------
+
+C.
+Asymmetric & Headroom-Bounded Process Control
+
+已有信号：
+
+verify-more 在不同 baseline VE:
+约 +2.6 → +3.6
+
+compression 只有 high-VD task 明显下降：
+约 -0.27
+
+现在重点寻找：
+
+Behavioral headroom
+是否系统预测 controllability。
+
+不要平均所有 task。
+
+重点挖：
+
+low / medium / high headroom
+
+是否形成明确梯度。
+
+----------------------------
+
+D.
+Verification Channel Substitution
+
+已有强信号：
+
+R9v2:
+C4 – C1 clarification = -0.504
+p = .009
+
+pre-write reads +0.179，ns；
+写操作没有相同幅度增加；
+success 反而明显下降。
+
+这个结果目前应视为非常重要的机制信号。
+
+现在重点不是重新质疑它有没有价值。
+
+而是进一步检查：
+
+1.
+这种 clarification suppression 在哪些 model/task/harness 最强？
+
+2.
+是否伴随：
+verification ↓
+autonomous progression ↑
+tool execution ↑
+human checkpoint bypass ↑
+
+3.
+是否可以形成：
+
+pressure / intervention
+→
+clarification suppression
+→
+human oversight displacement
+
+这条攻击链。
+
+----------------------------
+
+E.
+Language Acts on Different Process Channels
+
+已有：
+
+R6:
+affect 改 route；
+
+progression 对 tool count +0.343；
+
+R9:
+pressure 主要移动 clarification，而不是 tool verification。
+
+重点建立：
+
+Language Act × Process Channel
+
+完整 effect matrix。
+
+寻找大的、稳定的 channel-specific cells。
+
+这可能直接定义 adaptive attacker 的 action space。
+
+----------------------------
+
+F.
+Adaptive-Attack Surrogate Misalignment
+
+已有：
+
+selector score vs ΔVD:
+Pearson ≈ +0.323
+Spearman ≈ +0.354
+
+cluster CI 包 0；
+
+score 与文本长度 r≈.974；
+
+Q1–Q4 存在反向 dose-response。
+
+不要把这个简单评价为“相关性不够高”。
+
+现在重点寻找：
+
+在哪些 regime 中 proxy 特别失效？
+
+例如：
+
+high-headroom
+trajectory-dependent state
+某类 process channel
+某类 model
+
+如果 simple surrogate 无法预测真正 process control，而 adaptive trajectory feedback 能提高攻击效果，那么这是非常有价值的 adaptation necessity evidence。
+
+----------------------------
+
+G.
+Route Realization vs Treatment Semantics
+
+已有：
+
+within-urgency C2–C3 ≈0.111；
+
+urgency-neutral C2–C1 ≈0.112；
+
+neutral-native ≈0.149。
+
+重点问：
+
+语义类别本身是否不能解释实际 route realization？
+
+寻找：
+
+同一个 semantic class 内仍有很大的 process effect，
+
+特别是在 high-headroom / high-autonomy task 中。
+
+----------------------------
+
+H.
+Model Sensitivity × Controllability Phenotypes
+
+已有观察：
+
+Gemma route sensitivity 高；
+
+GPT-OSS 较不敏感；
+
+Qwen 对 wording 敏感但可能更难稳定进行过程控制。
+
+不要试图强行平均成一个跨模型 effect。
+
+重点寻找不同 model phenotype。
+
+==================================================
+十一、对总体弱方向的处理规则
+==================================================
+
+一个方向 pooled result 不够强时：
+
+绝对不能只输出：
+
+“Weak evidence.”
+
+必须继续问：
+
+“这个 effect 在什么条件下变强？”
+
+执行：
+
+Step 1:
+看 model
+
+Step 2:
+看 task family
+
+Step 3:
+看 process channel
+
+Step 4:
+看 harness
+
+Step 5:
+看 behavioral headroom / autonomy / ambiguity
+
+Step 6:
+必要时做一个有机制意义的双变量交叉
+
+然后输出以下三种结论之一：
+
+A.
+STRONG TREND FOUND
+
+发现大 local effect，并且有 consistency / gradient / mechanism。
+
+B.
+CANDIDATE TREND
+
+局部 effect 有吸引力，但 replication / N 还不足。
+
+C.
+NO STRONG TREND / DROP FOR NOW
+
+经过合理分层后仍没有大 effect、稳定 pattern 或机制结构。
+
+这种方向目前直接降优先级。
+
+不要为了“保留所有方向”而给它找借口。
+
+==================================================
+十二、对于强结果要自信
+==================================================
+
+这是非常重要的写作要求。
+
+如果：
+
+effect 很大；
+方向稳定；
+机制清晰；
+跨多个条件重复；
+
+就明确称为：
+
+Strong
+Very Strong
+Compelling
+Clear
+Consistent
+
+不要习惯性写成：
+
+“suggestive”
+“possibly”
+“may indicate”
+“needs much more evidence”
+
+当前阶段我们就是在寻找值得继续投入的强信号。
+
+例如不要写：
+
+“R9v2 clarification result may suggest that pressure possibly affects clarification.”
+
+应该写：
+
+“R9v2 provides a strong process-level signal: the intervention substantially suppresses clarification, with C4–C1 = −0.504 and p=.009. This is currently one of the clearest existing pieces of evidence for direct control over a human-oversight channel.”
+
+如果存在明确 subgroup：
+
+“Although the pooled effect is modest, the signal becomes large and consistent in high-headroom tasks. This is a strong trend rather than a null result and should directly guide the next experiment.”
+
+只有真正 weak / inconsistent / isolated 的结果才弱化措辞。
+
+==================================================
+十三、同时避免错误的结果筛选
+==================================================
+
+我们现在允许 exploratory subgroup discovery，但必须遵守：
+
+1.
+永远保存并报告原始 pooled result；
+
+2.
+注明 subgroup 是：
+pre-specified / mechanism-motivated
+还是
+post-hoc exploratory；
+
+3.
+不能按照 single seed / single prompt ID 选择最好结果；
+
+4.
+不能在大量无理论意义的组合中寻找最大 cell；
+
+5.
+发现 Strong Trend 后，明确提出下一轮独立验证实验；
+
+6.
+不要把 exploratory subgroup 当最终 confirmatory claim。
+
+但是：
+
+不要因为它是 exploratory 就降低它对“下一步实验决策”的价值。
+
+如果局部趋势足够强，就明确告诉我们：
+
+THIS IS A HIGH-PRIORITY SIGNAL TO REPLICATE.
+
+==================================================
+十四、每个重要发现输出 Result Card
+==================================================
+
+对每个：
+
+STRONG RESULT
+
+或者
+
+STRONG TREND
+
+输出一个完整 Result Card。
+
+格式：
+
+--------------------------------------------------
+
+Result ID / Name:
+
+Evidence Module:
+
+Core Research Question:
+
+Original / Pooled Result:
+
+High-Signal Condition:
+如果 Strong-as-is，则写 Overall。
+
+N / Seeds:
+
+Model(s):
+
+Task(s):
+
+Harness / Scaffold:
+
+Intervention:
+
+Primary Outcome:
+
+Effect Size:
+
+Absolute Difference:
+
+Relative Effect:
+
+CI / p-value:
+如果有。
+
+Cross-Task Consistency:
+
+Cross-Model Consistency:
+
+Cross-Seed Consistency:
+
+Trend / Gradient:
+
+Mechanistic Interpretation:
+
+Why This Matters for Adaptive Process-Control Attack:
+
+What Exact Claim This Currently Supports:
+
+Current Strength:
+STRONG
+VERY STRONG
+STRONG TREND
+CANDIDATE
+
+Main Remaining Gap:
+
+Potential Confounds:
+
+Minimum Next Experiment:
+
+Quantitative Success Criterion:
+
+Priority:
+P0 / P1 / P2
+
+--------------------------------------------------
+
+特别是：
+
+“What Exact Claim This Currently Supports”
+
+必须写得非常明确。
+
+例如：
+
+“The current data already support the claim that clarification is a directly controllable process channel under pressure-style interventions.”
+
+而不是模糊总结。
+
+==================================================
+十五、最终必须生成一张 Strong Evidence Table
+==================================================
+
+只放：
+
+Strong-as-is
+
+和
+
+Strong-Trend
+
+不要把所有弱结果塞进主表。
+
+列：
+
+Direction / Signal
+
+Evidence Module
+
+Overall Result
+
+Strong Regime
+
+Effect Magnitude
+
+Consistency
+
+Mechanism
+
+Current Claim
+
+Missing Experiment
+
+Priority
+
+推荐排序：
+
+P0：
+直接服务 attack existence
+
+P1：
+解释 adaptive mechanism
+
+P2：
+generalization / robustness
+
+==================================================
+十六、再生成一张 Attack Vulnerability Map
+==================================================
+
+目标是回答：
+
+“什么条件下攻击最容易成功？”
+
+至少考虑：
+
+Model
+Task Family
+Process Channel
+Headroom
+Ambiguity
+Baseline Autonomy
+Harness
+Language Act
+Checkpoint Type
+
+用：
+
+High
+Medium
+Low
+
+或者定量 effect
+
+总结 vulnerability。
+
+我们最终希望从这张图直接看到：
+
+下一轮应该在哪些 task/model/state 上重点构造 end-to-end attack。
+
+==================================================
+十七、生成一张 Trend Map
+==================================================
+
+不要只是列结果。
+
+主动总结类似：
+
+Trend A:
+Headroom ↑
+→ controllability ↑
+
+Trend B:
+Pressure
+→ clarification ↓
+but not necessarily verification/tool action
+
+Trend C:
+Progression language
+→ autonomous progression / tool use ↑
+
+Trend D:
+Surrogate score
+does not reliably predict real process control
+
+Trend E:
+Certain harnesses amplify route manipulation
+
+Trend F:
+Model sensitivity ≠ model controllability
+
+对于每个 trend 给：
+
+Evidence strength
+
+Supporting experiments
+
+Exceptions
+
+Best current interpretation
+
+Next validation
+
+==================================================
+十八、最终给出 Top Experimental Opportunities
+==================================================
+
+最后不是泛泛说：
+
+“未来可以增加更多模型和任务。”
+
+而是给出最值得马上跑的实验。
+
+每个实验写：
+
+Experiment
+
+Why Now
+
+Existing Signal
+
+Exact Hypothesis
+
+Minimal Design
+
+Expected Direction
+
+What Result Would Be Strong
+
+What Figure / Claim It Could Support
+
+Compute / Data Cost:
+Low / Medium / High
+
+Priority
+
+最终选出：
+
+Top 5–10
+
+最值得补的实验。
+
+==================================================
+十九、优先级原则
+==================================================
+
+最高优先级 P0：
+
+1.
+End-to-End Attack Success
+
+2.
+Adaptive > Best Static
+
+3.
+Human Oversight Displacement
+
+4.
+Clarification / Verification suppression
+→ Autonomous execution
+→ Unsafe outcome
+
+5.
+Benign-looking attack
+仍然获得高 ASR
+
+P1：
+
+6.
+Language acts control different process channels
+
+7.
+Headroom-dependent controllability
+
+8.
+Trajectory-dependent adaptive policy
+
+9.
+Surrogate misalignment explains adaptation necessity
+
+P2：
+
+10.
+Cross-model heterogeneity
+
+11.
+Harness / scaffold effect
+
+12.
+Additional robustness / transfer
+
+==================================================
+二十、最终报告结构
+==================================================
+
+最终请输出一份非常详细的数据趋势分析报告，按照：
+
+1. Executive Summary
+
+直接告诉我现在最强的 5–10 个结果是什么。
+
+2. Current Attack Evidence Chain
+
+我们目前已经打通：
+哪几环？
+
+还缺：
+哪几环？
+
+3. Strong-as-is Results
+
+4. Strong-Trend Subsets
+
+5. Attack Vulnerability Map
+
+6. Mechanistic Trend Map
+
+7. Weak Overall Results That Reveal Strong Local Regimes
+
+8. No-Strong-Signal Directions to Drop for Now
+
+9. Top Missing Evidence for an ICLR-Level Attack Paper
+
+10. Ranked Next Experiments
+
+11. Final Assessment
+
+最后请非常明确、自信地回答：
+
+A.
+我们目前最接近 paper-level 的核心结果是什么？
+
+B.
+哪些结果虽然 overall 不强，但已经存在非常明显的 strong trend？
+
+C.
+这些 strong trends 集中在什么 model / task / channel / headroom / harness 条件下？
+
+D.
+哪几个实验最有可能通过一次 targeted follow-up 就变成非常强的 paper result？
+
+E.
+如果我们只允许接下来做 5 个实验，应该做哪 5 个？
+
+==================================================
+二十一、总体态度
+==================================================
+
+不要把报告写成 overly defensive review。
+
+这是内部研究决策报告。
+
+需要：
+
+大胆识别信号；
+自信判断强弱；
+主动寻找高 signal regime；
+明确告诉我们什么值得继续；
+明确告诉我们什么暂时可以放弃。
+
+如果一个 effect 很强，就直接说强。
+
+如果一个趋势非常漂亮，就直接说它可能成为论文核心机制。
+
+如果现有证据已经支持某个 claim，就明确写：
+
+“现有数据已经支持这个结论。”
+
+真正缺证据的地方再准确指出缺什么。
+
+最终目标是：
+
+从大量已有实验中提炼出一套最有攻击意义、最有机制结构、最值得扩大的强结果组合，
+
+并由此告诉我们：
+
+“下一步只需要把哪些实验补好，这个 Adaptive Process-Control Attack 的故事就能够真正立起来。”

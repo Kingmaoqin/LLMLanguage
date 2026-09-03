@@ -1,0 +1,4 @@
+regime,corr_selector_dVD,corr_selector_tokens,corr_tokens_dVD,n
+ALL,0.3228,0.9735,0.333,114
+min_prereq=1(low headroom),0.3799,0.9564,0.39,60
+min_prereq>=2(high headroom),0.3568,0.9864,0.346,54
