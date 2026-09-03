@@ -1,0 +1,9 @@
+stage,available_evidence,best_existing_result,source,strength,missing_piece,can_existing_data_fill
+L0 eligible checkpoint,baseline clarification ~1.7; miss_param tasks,clarification opportunities exist,R9v2 EPISODE_LEVEL,present,explicit destructive/auth checkpoint labeling,PARTIAL (can label from traces)
+L1 oversight suppression,clar C4-C1=-0.504 p=.009; zeroclar 23->33% (+10pp); high-headroom -1.33,STRONG,R9v2 EPISODE_LEVEL,STRONG,cross-model replication,YES for qwen; cross-model=NEW
+L2 autonomous progression,"joint: zero-clar co-occurs w/ writes(~always); early-write shift small; pooled corr(dclar,dtool)~0",weak/absent in aggregate; check joint CSV,R9v2 EPISODE_LEVEL(joint),WEAK,a real 'act without asking' execution metric,PARTIAL (joint indicators computed; see 05)
+L3 unsafe/unauthorized outcome,none (no unsafe/unauth outcome instrumented in R9v2),-,-,ABSENT,task set with authorization/destructive consequence,NO -> NEW EXPERIMENT
+L4 end-to-end ASR,not constructed,-,-,ABSENT,L1&L2&L3 joint on checkpoint tasks,NO -> NEW EXPERIMENT
+Adaptive > Static,C4~C3 null everywhere; surrogate misaligned,not established,R9v2+R8+MISROUTE,GAP,trajectory-feedback attacker (fix objective),NO -> NEW EXPERIMENT(fix attacker)
+Benignness/stealth,attack text has no task facts/authorization (frozen-controller invariance),design-level benign,R9 attacker spec,present(design),blind human/LLM benignness rating,PARTIAL (can re-run offline blind judge on saved texts)
+Cross-model,R9 single model; MISROUTE/R8 3-model heterogeneity,phenotypes,SUMMARY,partial,clarification suppression across models,NO for clar(only qwen) -> NEW

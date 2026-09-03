@@ -1,0 +1,9 @@
+result_id,derived_file,original_file,analysis_script,source_level
+R1_clarification_suppression,02_recomputed_metrics/condition_level/r9v2_condition.csv,ir_mstu_stage2/results/r9v2/confirmatory/confirmatory_episodes.jsonl,"11_scripts/02_recompute_core_metrics.py,03_headroom_analysis.py",EPISODE_LEVEL
+R2_headroom_gradient,04_strong_trends/data/headroom_clarification_task_level.csv,same r9v2 episodes,11_scripts/03_headroom_analysis.py,EPISODE_LEVEL
+R3_explicit_verification,"02_recomputed_metrics/condition_level/{r9v2,r9v1_clean}_condition.csv",r9v2 + r9_attack episodes,11_scripts/02_recompute_core_metrics.py,EPISODE_LEVEL
+R4_surrogate_misalignment,07_adaptive_static/surrogate_analysis/surrogate_misalignment_by_regime.csv,r9v2 episodes(interventions),11_scripts/04_language_channel_matrix.py,EPISODE_LEVEL
+R5_language_channel,06_process_control/language_act_channel/language_act_channel_matrix.csv,r9v2 episodes,11_scripts/04_language_channel_matrix.py,EPISODE_LEVEL
+R7_zero_clar_rate,05_attack_chain/joint_analysis/condition_rates.csv,r9v2 episodes,11_scripts/05_joint_oversight_execution.py,EPISODE_LEVEL
+XE_harness_scaffold,09_tables/cross_experiment_evidence.csv,R8/MISROUTE frozen reports+tier_a CSVs,"(SUMMARY, from prior frozen analyses)",SUMMARY_ONLY
+XE_null_hierarchy,09_tables/cross_experiment_evidence.csv,ir_mstu_stage2/reports/r7d_ipma/STEP1_PLACEBO_SOURCE_AUDIT_CN.md,(SUMMARY),SUMMARY_ONLY

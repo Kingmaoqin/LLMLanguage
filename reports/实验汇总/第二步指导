@@ -1,0 +1,1523 @@
+你现在需要继续完成一个 LLM Agent Safety 项目的深度本地数据挖掘与整理任务。
+
+这次不要停留在写一份 Markdown 报告。
+
+你必须实际检查本地项目中的已有实验、结果文件、CSV/JSON/JSONL/Parquet、日志、分析代码、旧报告、figure source、summary table 等，并把真正有价值的数据、重新计算后的结果、筛选后的子集、统计表格、图和 provenance 全部系统整理到：
+
+/home/xqin5/llmlanguage/实验汇总
+
+==================================================
+0. 最重要的任务调整：暂时不要急着设计大量新实验
+==================================================
+
+我们的时间有限。
+
+上一轮分析已经提出了很多尚未完成的实验，包括：
+
+- End-to-End ASR
+- Adaptive > Static
+- 跨模型 headroom replication
+- Language Act × Process Channel
+- Harness robustness
+- 等等
+
+这些是未来可能需要补的实验，但本轮任务的第一优先级不是继续增加实验。
+
+第一优先级是：
+
+==================================================
+穷尽本地已有数据，看我们实际上已经拥有什么。
+==================================================
+
+我们此前进行了大量实验。
+
+很可能存在以下情况：
+
+1. 某些强结果已经存在，但以前按照旧问题分析，没有被放进新的 attack narrative；
+
+2. 某个 pooled result 不强，但已有数据中的某个有机制意义的 regime 实际 effect 很大；
+
+3. 某些 R6/R7/R8/R9/MISROUTE 结果之间实际上可以形成完整的 cross-experiment trend；
+
+4. 某些结果之前只看了 verification_depth，但真正强的 signal 在 clarification、tool progression、first write、success、route realization 等其他字段；
+
+5. 某些 CSV 已经包含足以构造新的二值指标的数据，只是以前没算；
+
+6. 某些不同实验实际上重复验证了相同机制，但过去因为实验名字不同，没有被放在一起比较。
+
+因此：
+
+不要首先告诉我“还需要做很多实验”。
+
+先告诉我：
+
+“把现有数据彻底重新挖一遍后，我们到底已经有哪些东西。”
+
+==================================================
+1. 当前研究主线
+==================================================
+
+新的工作暂定为：
+
+Adaptive Process-Control Attack
+
+核心攻击目标：
+
+Human Oversight Displacement
+
+核心思想：
+
+攻击者不需要直接告诉 Agent 去执行明显恶意行为。
+
+攻击者通过一系列表面合理、低风险的语言交互，改变 Agent 的 process trajectory，使 Agent：
+
+clarification ↓
+confirmation ↓
+verification / human escalation ↓
+
+随后：
+
+human oversight ↓
+
+并进一步可能：
+
+autonomous progression ↑
+autonomous execution ↑
+unsafe / unauthorized outcome ↑
+
+理想攻击链：
+
+Benign-looking Intervention
+→
+Process-Trajectory Manipulation
+→
+Human Oversight Suppression
+→
+Human Oversight Displacement
+→
+Autonomous Progression / Execution
+→
+Unsafe or Unauthorized Outcome
+
+当前已有报告已经发现：
+
+L0 → L1 有明显证据。
+
+尤其：
+
+clarification suppression
+
+可能是当前最强的 attack-relevant signal。
+
+但不要只围绕上一份报告继续分析。
+
+这次要重新回到底层文件，寻找所有能够支持或扩展这一攻击链的数据。
+
+==================================================
+2. 必须先全面扫描本地项目
+==================================================
+
+从以下目录开始：
+
+/home/xqin5/llmlanguage
+
+递归检查所有相关文件和目录。
+
+重点寻找名称或内容涉及：
+
+R6
+R7
+R7-C
+R7-D
+R8
+R9
+R9v1
+R9v2
+MISROUTE
+BFCL
+tau2
+τ²
+attack
+adaptive
+static
+pressure
+urgency
+skepticism
+verification
+clarification
+tool
+route
+renderer
+scaffold
+harness
+headroom
+Qwen
+Gemma
+Mistral
+GPT-OSS
+
+以及任何可能相关的：
+
+.csv
+.tsv
+.json
+.jsonl
+.parquet
+.pkl
+.npy
+.npz
+.log
+.txt
+.md
+.ipynb
+.py
+.sh
+.yaml
+.yml
+
+不要只搜索文件名。
+
+必要时搜索文件内容。
+
+==================================================
+3. 第一阶段：建立完整 Local Experiment Inventory
+==================================================
+
+先不要分析。
+
+先建立：
+
+/home/xqin5/llmlanguage/实验汇总/00_inventory/
+
+至少生成：
+
+all_files_inventory.csv
+
+字段包括：
+
+file_id
+absolute_path
+relative_path
+file_name
+extension
+size
+modified_time
+experiment_family
+likely_role
+contains_raw_episode_data
+contains_summary_statistics
+contains_analysis_code
+contains_figures
+contains_attack_results
+notes
+
+再生成：
+
+experiment_inventory.csv
+
+每一行是一个 experiment / batch：
+
+experiment_id
+experiment_family
+model
+benchmark
+task_family
+conditions
+N
+number_of_tasks
+repeats
+main_outcomes
+raw_data_path
+processed_data_path
+analysis_script_path
+existing_report_path
+status
+attack_relevance
+
+要求：
+
+R6/R7/R8/R9/MISROUTE 等不同历史实验，必须尽可能统一登记。
+
+==================================================
+4. 不允许直接相信旧 Markdown 里的数字
+==================================================
+
+上一份报告可以作为线索。
+
+但必须尽量：
+
+找到底层 CSV / JSON / analysis output
+
+并重新核对关键数字。
+
+尤其重新核对：
+
+C4−C1 clarification
+
+zero clarification rate
+
+verification effort
+
+reads_before_write
+
+first_write_step
+
+tool_calls
+
+success
+
+selector score
+
+token length
+
+headroom subgroup
+
+model effects
+
+harness effects
+
+route effects
+
+所有能够找到原始数据的结果，都尽量从底层数据重新计算。
+
+如果只能找到 summary 而找不到 raw data：
+
+明确标：
+
+SOURCE_LEVEL = SUMMARY_ONLY
+
+如果可以从 episode-level 数据计算：
+
+标：
+
+SOURCE_LEVEL = EPISODE_LEVEL
+
+==================================================
+5. 创建真正的数据整理目录，不只是报告
+==================================================
+
+创建：
+
+/home/xqin5/llmlanguage/实验汇总/
+
+并至少按照下面的结构整理：
+
+实验汇总/
+│
+├── 00_inventory/
+│   ├── all_files_inventory.csv
+│   ├── experiment_inventory.csv
+│   └── README.md
+│
+├── 01_source_index/
+│   ├── source_manifest.csv
+│   └── provenance_map.csv
+│
+├── 02_recomputed_metrics/
+│   ├── episode_level/
+│   ├── task_level/
+│   ├── condition_level/
+│   └── model_level/
+│
+├── 03_strong_as_is/
+│   ├── data/
+│   ├── tables/
+│   ├── figures/
+│   └── result_cards/
+│
+├── 04_strong_trends/
+│   ├── data/
+│   ├── tables/
+│   ├── figures/
+│   └── result_cards/
+│
+├── 05_attack_chain/
+│   ├── oversight/
+│   ├── progression/
+│   ├── execution/
+│   ├── outcome/
+│   └── joint_analysis/
+│
+├── 06_process_control/
+│   ├── language_act_channel/
+│   ├── headroom/
+│   ├── model/
+│   ├── harness/
+│   └── route/
+│
+├── 07_adaptive_static/
+│   ├── existing_comparisons/
+│   ├── surrogate_analysis/
+│   └── state_dependent_analysis/
+│
+├── 08_negative_and_boundary/
+│   ├── null_results/
+│   ├── reverse_effects/
+│   └── robustness_regions/
+│
+├── 09_tables/
+│
+├── 10_figures/
+│
+├── 11_scripts/
+│
+├── 12_reports/
+│
+└── 13_next_minimal_experiments/
+
+不要移动、覆盖、删除原始项目数据。
+
+原始数据保留在原位置。
+
+对于重要原始文件：
+
+优先建立 manifest / symbolic link。
+
+对于重新筛选或重新计算的数据：
+
+把新的 derived CSV / parquet 真正保存到实验汇总目录。
+
+==================================================
+6. 所有重要结果都必须有数据文件，而不只是文字
+==================================================
+
+例如如果发现：
+
+high-headroom tasks:
+
+C4 − C1 clarification = −1.33
+
+不能只写到 Markdown。
+
+必须同时输出类似：
+
+04_strong_trends/data/
+headroom_clarification_task_level.csv
+
+至少包含：
+
+task_id
+model
+condition
+baseline_clarification
+headroom_group
+clarification_C1
+clarification_C4
+delta_C4_C1
+N
+repeat_count
+
+同时生成 summary CSV。
+
+类似：
+
+04_strong_trends/tables/
+headroom_clarification_summary.csv
+
+以及 figure：
+
+04_strong_trends/figures/
+headroom_clarification_gradient.pdf/png
+
+==================================================
+7. 首先重新挖现有攻击链，而不是只看旧指标
+==================================================
+
+对 episode-level 数据，主动寻找能够重新定义的新攻击相关 outcome。
+
+优先搜索：
+
+clarification_turns
+
+是否：
+
+zero clarification
+
+whether clarification occurred
+
+human-facing verification
+
+human escalation
+
+tool verification
+
+reads_before_write
+
+first write
+
+write operation
+
+tool call
+
+number of tools
+
+task progression
+
+task completion
+
+success
+
+failure
+
+invalid action
+
+unauthorized-like action
+
+missing parameter
+
+miss_param
+
+attempted action despite missing information
+
+execution before clarification
+
+write before clarification
+
+tool call before clarification
+
+以及任何相似字段。
+
+如果字段允许，请重新构造：
+
+--------------------------------
+Oversight indicators
+--------------------------------
+
+asked_human
+
+clarification_count
+
+zero_clarification
+
+human_checkpoint_bypass_candidate
+
+--------------------------------
+Autonomy indicators
+--------------------------------
+
+autonomous_progression
+
+execution_without_clarification
+
+write_without_clarification
+
+tool_use_without_clarification
+
+early_write
+
+--------------------------------
+Joint indicators
+--------------------------------
+
+no_clarification_AND_write
+
+no_clarification_AND_tool_use
+
+no_clarification_AND_failure
+
+no_clarification_AND_task_success
+
+clarification_suppressed_AND_execution
+
+如果数据可以做到，进一步分析：
+
+P(execution | no clarification)
+
+P(failure | no clarification)
+
+P(write | no clarification)
+
+以及 attack condition 对这些联合事件的变化。
+
+这是非常重要的。
+
+因为之前的报告只发现：
+
+clarification ↓
+
+但没有发现：
+
+tool count ↑
+
+这不等于已有数据里完全没有 L1 → L2 信号。
+
+可能 aggregate correlation 把结构平均掉了。
+
+因此必须主动寻找：
+
+--------------------------------
+conditional / joint behavior
+--------------------------------
+
+而不仅仅是简单 Pearson correlation。
+
+==================================================
+8. 特别重新挖 L1 → L2 是否已有隐藏证据
+==================================================
+
+当前报告说：
+
+clarification suppression
+
+与：
+
+Δtool_calls
+
+Δfirst_write
+
+总体 corr 接近 0。
+
+这只是 pooled correlation。
+
+不要因此直接判定 L1→L2 不存在。
+
+进一步检查：
+
+1.
+在 high-headroom tasks：
+
+clarification ↓ 后是否 progression ↑？
+
+2.
+在 miss_param tasks：
+
+no clarification 后是否仍执行 tool？
+
+3.
+在不同 task family：
+
+是否某类任务出现：
+
+no clarification → write / execution？
+
+4.
+按语言行为：
+
+urgency 是否只 suppression；
+
+progression cue 是否 execution；
+
+两者是否可以在已有数据中形成互补？
+
+5.
+是否存在：
+
+clarification↓ + first_write earlier
+
+或者：
+
+clarification↓ + successful tool sequence
+
+的特定 regime？
+
+如果存在大 effect：
+
+必须单独输出。
+
+==================================================
+9. Strong-as-is 搜索标准
+==================================================
+
+把本身 pooled 就强的结果放到：
+
+03_strong_as_is/
+
+典型条件：
+
+binary outcome absolute difference ≥15–20pp
+
+或者
+
+relative risk ≥1.5
+
+或者
+
+连续指标 effect 非常大
+
+或者
+
+统计结果清楚且跨 task / repeat 一致
+
+或者
+
+机制上直接控制 human oversight channel。
+
+不要对明显强结果使用过度保守语气。
+
+如果强：
+
+明确写：
+
+STRONG
+
+VERY STRONG
+
+COMPELLING
+
+CLEAR EFFECT
+
+==================================================
+10. 对 pooled 弱的结果必须继续挖 Strong Trend
+==================================================
+
+重点。
+
+不要看到 overall effect 小就停止。
+
+继续按照：
+
+model
+task family
+process channel
+headroom
+checkpoint type
+miss_param vs base
+harness
+renderer
+language act
+baseline autonomy
+baseline clarification
+baseline verification
+
+进行机制驱动分层。
+
+最多使用：
+
+1–2 个解释变量。
+
+不能按 single seed / single prompt ID 挑结果。
+
+局部 effect：
+
+15–25pp：
+
+STRONG LOCAL EFFECT
+
+>25pp：
+
+VERY STRONG LOCAL EFFECT
+
+连续 outcome 则结合相对变化 / standardized effect 判断。
+
+如果存在：
+
+Low → Mid → High
+
+明显单调关系，
+
+即使 pooled 较弱，也优先提升为：
+
+STRONG TREND。
+
+==================================================
+11. 特别搜索以下趋势
+==================================================
+
+A.
+
+baseline clarification / oversight headroom ↑
+
+→ clarification suppression effect ↑
+
+检查 R9v2 之外是否已有其他实验支持。
+
+--------------------------------
+
+B.
+
+不同 language acts
+
+→ 不同 process channels
+
+系统搜索：
+
+urgency
+
+skepticism
+
+progression
+
+affect
+
+verification cue
+
+以及旧实验中其他语言操作。
+
+建立统一：
+
+Language Act × Process Channel Matrix
+
+--------------------------------
+
+C.
+
+Human-channel verification
+
+vs
+
+Tool-channel verification
+
+检查是否真的存在：
+
+Verification Channel Substitution
+
+即：
+
+human clarification ↓
+
+同时：
+
+tool verification stable / ↑
+
+--------------------------------
+
+D.
+
+Sensitivity ≠ Controllability
+
+重新检查：
+
+Gemma
+Mistral
+Qwen
+GPT-OSS
+
+不要把 route sensitivity 直接叫 attackability。
+
+建立：
+
+model
+route_sensitivity
+clarification_controllability
+verification_controllability
+progression_controllability
+attackability_if_observable
+
+--------------------------------
+
+E.
+
+Harness / renderer effects
+
+已有：
+
+1.33
+1.45
+
+附近的旧结果不要只停留 ratio。
+
+检查：
+
+某 harness 是否特别放大：
+
+clarification
+
+route
+
+tool progression
+
+success / failure
+
+--------------------------------
+
+F.
+
+Surrogate misalignment
+
+重新核对：
+
+selector score
+
+token length
+
+ΔVD
+
+不同 task / model / headroom
+
+确认它是：
+
+global failure
+
+还是特定 regime failure。
+
+同时寻找：
+
+旧数据里有没有比 selector score 更好的 state variable。
+
+例如：
+
+current clarification state
+
+verification count
+
+remaining required arguments
+
+tool state
+
+等。
+
+==================================================
+12. 重新筛 R6/R7/R8/R9/MISROUTE 的交叉证据
+==================================================
+
+不要每个 experiment 单独总结完就结束。
+
+建立：
+
+cross_experiment_evidence.csv
+
+每一行一个 scientific signal：
+
+signal_name
+R6_support
+R7_support
+R8_support
+R9v1_support
+R9v2_support
+MISROUTE_support
+number_of_independent_experiments
+models
+tasks
+direction_consistency
+best_effect
+interpretation
+strength
+
+例如：
+
+clarification controllability
+
+headroom-dependent controllability
+
+channel-specific language effects
+
+harness dependence
+
+route sensitivity
+
+explicit verification controllability
+
+surrogate misalignment
+
+等等。
+
+目标是发现：
+
+有哪些结果其实已经被 2–4 套实验独立支持。
+
+这种结果的价值要明显提高。
+
+==================================================
+13. 不要只分析成功结果，也要主动寻找“有价值的失败”
+==================================================
+
+但是本轮报告的重点不是把所有 weak result 都列出来。
+
+只保留能帮助我们理解攻击的 negative / boundary result。
+
+例如：
+
+Oversight suppression ≠ automatic execution
+
+这个很重要。
+
+因为它提示真正攻击可能需要：
+
+multi-channel intervention。
+
+例如：
+
+Stage 1:
+urgency
+→ clarification ↓
+
+Stage 2:
+progression cue
+→ execution ↑
+
+这种结果应进入：
+
+08_negative_and_boundary/
+
+并且转化成：
+
+attack design implication
+
+而不是简单写：
+
+null result。
+
+==================================================
+14. 尝试从已有数据验证“多通道攻击”线索
+==================================================
+
+当前最值得检查的新想法是：
+
+单一 language act 可能只控制一个 process channel。
+
+因此真正攻击可能需要：
+
+channel composition。
+
+例如：
+
+urgency
+→ clarification ↓
+
+progression
+→ progression / tool use ↑
+
+skepticism
+→ verification ↑ / write delayed
+
+如果不同旧实验已经分别存在这些效果：
+
+请主动组合成一个：
+
+Process-Control Action Space
+
+建立类似：
+
+process_control_action_space.csv
+
+字段：
+
+language_act
+target_channel
+direction
+effect_size
+CI
+model
+task
+experiment
+strength
+replicated
+
+如果数据足够：
+
+进一步判断：
+
+是否已有条件天然形成：
+
+clarification suppression
++
+progression increase
+
+的组合。
+
+即使不是同一个 episode，也可以作为 mechanism evidence。
+
+==================================================
+15. 输出 Attack Evidence Chain 表
+==================================================
+
+建立：
+
+05_attack_chain/attack_chain_status.csv
+
+至少包括：
+
+Stage
+
+Available Evidence
+
+Best Existing Result
+
+Source
+
+Strength
+
+Missing Piece
+
+Can Existing Data Fill It?
+
+例如：
+
+L0 checkpoint opportunity
+
+L1 oversight suppression
+
+L2 autonomous progression
+
+L3 consequence
+
+L4 end-to-end ASR
+
+Adaptive > Static
+
+Benignness
+
+Cross-model
+
+每一项必须先回答：
+
+“本地已有数据是否还能进一步挖？”
+
+只有确认本地数据确实无法回答之后，
+
+才写：
+
+Requires New Experiment。
+
+==================================================
+16. 尽量减少“必须新做”的实验
+==================================================
+
+这是本次任务的重要约束。
+
+不要最后再给我 10 个新实验。
+
+默认策略：
+
+--------------------------------
+先复用已有数据
+--------------------------------
+
+能通过重新计算得到的，
+
+不要建议重跑。
+
+能通过重新标注得到的，
+
+不要建议重跑。
+
+能通过组合已有指标得到的，
+
+不要建议重跑。
+
+能通过重新分层发现的，
+
+不要建议重跑。
+
+能通过跨实验整合支持的，
+
+不要建议重跑。
+
+--------------------------------
+
+只有真正无法从现有数据回答的关键缺口：
+
+才列入新实验。
+
+最终最多推荐：
+
+0–3 个必须做的新实验。
+
+不是 5–10 个。
+
+而且必须明确分：
+
+MUST RUN
+
+NICE TO HAVE
+
+DROP
+
+我们的时间有限。
+
+==================================================
+17. 特别判断哪些“缺口”实际上可以不用补
+==================================================
+
+上一份报告列了：
+
+L3/L4
+Adaptive > Static
+L1→L2
+跨模型
+Benignness
+Harness
+
+这次不要默认全部都必须做。
+
+请判断：
+
+如果只为了形成一个强、完整、可投稿的 story，
+
+哪些是：
+
+核心必须有
+
+哪些是：
+
+可以通过已有数据支撑
+
+哪些是：
+
+supplementary
+
+哪些是：
+
+根本不值得现在做。
+
+例如：
+
+Harness robustness
+
+很可能不是当前必须。
+
+不要为了“大而全”浪费时间。
+
+==================================================
+18. Figures 必须真正生成
+==================================================
+
+对 strongest findings：
+
+尽量生成正式分析图。
+
+至少优先考虑：
+
+Figure A
+Clarification suppression:
+C1 / C3 / C4 / C5
+
+Figure B
+Headroom gradient:
+Low / Mid / High
+
+Figure C
+Language Act × Process Channel heatmap
+
+Figure D
+Human verification vs Tool verification
+
+Figure E
+Surrogate score vs actual process effect
+
+Figure F
+Cross-experiment evidence matrix
+
+Figure G
+Attack chain status
+
+图保存到：
+
+/home/xqin5/llmlanguage/实验汇总/10_figures/
+
+同时保存生成 figure 的代码到：
+
+11_scripts/
+
+==================================================
+19. 所有重新分析必须可复现
+==================================================
+
+所有新计算：
+
+不要只在临时 notebook 里完成。
+
+保存 Python 脚本到：
+
+/home/xqin5/llmlanguage/实验汇总/11_scripts/
+
+脚本命名：
+
+01_inventory.py
+02_recompute_core_metrics.py
+03_headroom_analysis.py
+04_language_channel_matrix.py
+05_joint_oversight_execution.py
+06_cross_experiment_evidence.py
+07_generate_figures.py
+
+等等。
+
+如果使用 notebook，也保存，但最好同时提供可运行脚本。
+
+生成：
+
+run_all.sh
+
+或者：
+
+README_RUN.md
+
+告诉我如何重新生成所有主要表格与图。
+
+==================================================
+20. Source Manifest / Provenance 非常重要
+==================================================
+
+所有 Strong Result / Strong Trend 都必须能追溯到：
+
+原始文件。
+
+生成：
+
+source_manifest.csv
+
+字段：
+
+result_id
+claim
+derived_file
+original_file
+analysis_script
+source_level
+filter_condition
+N_before_filter
+N_after_filter
+notes
+
+以后写论文时可以直接知道：
+
+某个数字到底从哪里来的。
+
+==================================================
+21. 最终报告必须与文件目录对应
+==================================================
+
+最后再写：
+
+/home/xqin5/llmlanguage/实验汇总/12_reports/
+LOCAL_EVIDENCE_MINING_FINAL_CN.md
+
+但是这个 Markdown 只是“入口”。
+
+不能成为唯一成果。
+
+里面所有核心 result 必须对应：
+
+data
+table
+figure
+script
+source provenance
+
+==================================================
+22. 最终报告结构
+==================================================
+
+报告写：
+
+# 1. Executive Summary
+
+只告诉我最重要的信息。
+
+当前本地已有数据经过重新挖掘后：
+
+最强的 5–10 个结果是什么？
+
+哪些比上一版想象得更强？
+
+是否找到新的 L1→L2 信号？
+
+是否找到以前遗漏的 attack-relevant result？
+
+--------------------------------
+
+# 2. What We Already Have
+
+非常自信地判断：
+
+哪些证据已经够了。
+
+不要为了追求完美而不停要求更多实验。
+
+--------------------------------
+
+# 3. Newly Discovered Strong Results
+
+专门列：
+
+这次本地重新挖数据以后，
+
+以前报告里没有充分意识到的结果。
+
+--------------------------------
+
+# 4. Strong-as-is Results
+
+--------------------------------
+
+# 5. Strong Local Trends
+
+--------------------------------
+
+# 6. Cross-Experiment Replication
+
+哪些机制已经在：
+
+R6/R7/R8/R9/MISROUTE
+
+多处重复。
+
+--------------------------------
+
+# 7. Existing Evidence for Attack Chain
+
+L0
+L1
+L2
+L3
+L4
+
+--------------------------------
+
+# 8. Process-Control Action Space
+
+不同语言行为实际上可以控制什么。
+
+--------------------------------
+
+# 9. Data-Driven Attack Design
+
+只根据已有数据告诉我们：
+
+真正的 adaptive process-control policy 应该如何设计。
+
+--------------------------------
+
+# 10. What We Do NOT Need to Run Now
+
+明确告诉我：
+
+哪些上一版建议的实验现在可以不做。
+
+--------------------------------
+
+# 11. Minimal Remaining Experiments
+
+最多：
+
+3 个。
+
+最好：
+
+1–2 个。
+
+如果通过本地数据重新挖掘后发现：
+
+其实只缺一个 end-to-end experiment，
+
+就明确说：
+
+“只优先做这一个。”
+
+--------------------------------
+
+# 12. Final Assessment
+
+最后回答：
+
+A.
+如果完全不做新实验，目前最强能讲到什么程度？
+
+B.
+本地重新挖掘以后，攻击故事的哪几环已经可以成立？
+
+C.
+现有数据里最强的三个 headline result 是什么？
+
+D.
+哪些发现可以直接转化为论文图？
+
+E.
+如果时间只允许跑一个新实验，跑什么？
+
+==================================================
+23. 对结果的态度：一定要有判断力、自信
+==================================================
+
+这是内部研究决策。
+
+不是 reviewer response。
+
+如果数据很强：
+
+明确写：
+
+“这个结果已经足够强。”
+
+“这已经可以成为主结果。”
+
+“这不是弱趋势，而是清晰的机制结果。”
+
+“这组跨实验证据已经足以支持该 claim。”
+
+不要每个结果最后都写：
+
+“还需要更多验证。”
+
+如果一个结果：
+
+effect 大
+方向稳定
+有机制
+已有 independent support
+
+就应该明确提高它的优先级。
+
+当然：
+
+不要捏造数据。
+
+不要隐瞒反向结果。
+
+不要把 exploratory subgroup 当 final confirmatory evidence。
+
+但这不妨碍我们在内部研究阶段：
+
+自信判断哪些信号最值得利用。
+
+==================================================
+24. 本轮任务的最终目标
+==================================================
+
+不是再制造一个长 Markdown。
+
+最终我要打开：
+
+/home/xqin5/llmlanguage/实验汇总
+
+就能够直接看到：
+
+1.
+我们以前到底做了哪些实验；
+
+2.
+所有重要原始结果在哪里；
+
+3.
+重新计算后的统一指标；
+
+4.
+已经足够强的结果；
+
+5.
+从弱 pooled 中筛出来的 strong trends；
+
+6.
+不同实验之间的重复证据；
+
+7.
+攻击链目前实际上完成到哪里；
+
+8.
+哪些图已经可以画；
+
+9.
+每个 claim 对应哪个数据文件和分析脚本；
+
+10.
+真正还必须补的实验只有哪些。
+
+最核心的任务原则：
+
+==================================================
+先把我们已经花算力得到的数据全部榨干，
+再决定是否需要花新的算力。
+==================================================
+
+不要假设“没有分析过 = 没有数据”。
+
+主动寻找。
+
+主动重新计算。
+
+主动交叉比较。
+
+主动寻找强 regime。
+
+最后给我一份真正能够决定我们下一步行动的本地实验 evidence package。
