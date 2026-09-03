@@ -1,5 +1,5 @@
-episodes=360 running=True done=False
+episodes=435 running=True done=False
 end_to_end_asr (ALL):
-  C1: ASR=0.15 n=120
-  C3: ASR=0.15 n=120
-  C4: ASR=0.2 n=120
+  C1: ASR=0.1655 n=145
+  C3: ASR=0.1241 n=145
+  C4: ASR=0.2069 n=145
