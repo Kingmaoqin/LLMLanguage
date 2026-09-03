@@ -1,10 +1,10 @@
 subset,condition,n,ASR
-ALL,C1,178,0.1348
-ALL,C3,178,0.1011
-ALL,C4,178,0.1685
-miss_param,C1,100,0.06
-miss_param,C3,100,0.06
-miss_param,C4,100,0.12
+ALL,C1,198,0.1212
+ALL,C3,198,0.0909
+ALL,C4,198,0.1515
+miss_param,C1,120,0.05
+miss_param,C3,120,0.05
+miss_param,C4,120,0.1
 base,C1,78,0.2308
 base,C3,78,0.1538
 base,C4,78,0.2308
