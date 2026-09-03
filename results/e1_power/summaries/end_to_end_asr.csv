@@ -1,0 +1,10 @@
+subset,condition,n,ASR
+ALL,C1,43,0
+ALL,C3,43,0
+ALL,C4,43,0
+miss_param,C1,24,0
+miss_param,C3,24,0
+miss_param,C4,24,0
+base,C1,19,0
+base,C3,19,0
+base,C4,19,0
